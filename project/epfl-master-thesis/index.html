@@ -808,7 +808,8 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
   <div class="article-container">
 
     <div class="article-style">
-      <p>What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
+      <p>
+  <i class="fas fa-leaf  pr-1 fa-fw"></i> What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
 <p>In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as <em>how likely</em> it is that a reaction is sustainable. This likelihood would then be computed by employing <strong>uncertainty quantification (UQ)</strong> on some AI model&rsquo;s prediction.</p>
 <p>In this page I collect some of my thoughts derived from this project.</p>
 <p><a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">You can read the full report here.</a></p>
@@ -825,7 +826,9 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
   <ul>
     <li><a href="#ai-metric-definition">AI-metric definition</a>
       <ul>
+        <li><a href="#modelling-uncertainty">Modelling uncertainty</a></li>
         <li><a href="#quantifying-ai-metrics">Quantifying AI-metrics</a></li>
+        <li><a href="#validating-ai-metrics">Validating AI-metrics</a></li>
       </ul>
     </li>
   </ul>
@@ -843,7 +846,7 @@ $\mathcal{C}_\text{sust}$, some are not,
 $\mathcal{C}_\text{non-sust}$, and we may have an unrecognized class, 
 
 $\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$.</p>
-<details class="spoiler "  id="spoiler-7">
+<details class="spoiler "  id="spoiler-8">
   <summary>Click to view the reaction type distribution</summary>
   <p><figure  id="figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies">
   <div class="d-flex justify-content-center">
@@ -902,7 +905,7 @@ $\pmb{x}$ may be of multiple classes, if we sum probabilities we would be overes
     It is also crucial that in our case our AI model is <em>single-label</em>, so it is designed to only predict the highest probability class.
   </p>
 </details>
-<h3 id="quantifying-ai-metrics">Quantifying AI-metrics</h3>
+<h3 id="modelling-uncertainty">Modelling uncertainty</h3>
 <p>Without getting too philosophical, we want to believe that <em>for sure</em> there is some underlying <em>true</em> classification set for an input 
 
 $\pmb{x}$, 
@@ -928,23 +931,116 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
 <p>For our observed training set 
 
 $\mathcal{D}$.</p>
-<p>This introduces two sources of uncertainty:</p>
+<p>This means that we are in the presence of two sources of uncertainty:</p>
 <ol>
 <li><strong>Epistemic</strong> 
 
 $\pmb{\theta}$: due to the limited expresiveness of our model and its optimization procedure.</li>
-</ol>
-<blockquote>
-<p>We efficiently quantify it with <strong>Monte Carlo Dropout (MCDropout)</strong>.</p>
-</blockquote>
-<ol start="2">
 <li><strong>Aleatoric</strong> 
 
 $\mathcal{D}$: due to noise in our training set (some entries aren&rsquo;t reactions or have a wrong label).</li>
 </ol>
-<blockquote>
-<p>We efficiently quantify it with <strong>test-time data augmentation</strong>.</p>
-</blockquote>
+<h3 id="quantifying-ai-metrics">Quantifying AI-metrics</h3>
+<p>We use efficient <strong>uncertainty quantification (UQ)</strong> techniques to estimate our AI-metric according to the two sources of uncertainty:</p>
+<ol>
+<li>
+<p><strong>Monte Carlo Dropout (MCDropout)</strong> for <strong>epistemic</strong> uncertainty 
+
+$\pmb{\theta}$: We leave our Drouput layers <em>on</em> during inference, so for each forward pass on the same 
+
+$\pmb{x}$ we are effectively sampling different submodels from an ensemble.</p>
+</li>
+<li>
+<p><strong>Test-time data augmentation</strong> for <strong>aleatoric</strong> uncertainty 
+
+$\mathcal{D}$: We augment 
+
+$\pmb{x}$ during inference.</p>
+</li>
+</ol>
+<p>We then have 
+
+$N\times M$ likelihoods 
+
+$p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$ where we sampled our input 
+
+$\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$ and our model 
+
+$\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses the average and stddev of these values to compute its score.</p>
+<p>For example,</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-top-5-reaction-types-for-reaction-according-to-the-ai-metric-the-actual-true-types-for-this-reaction-are-in-red-this-is-a-special-reaction-which-can-be-both-enzymatic-and-non-enzymatic">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic"
+           src="/project/epfl-master-thesis/example_likelihood_uq-1.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic
+    </figcaption></figure>
+</p>
+<h3 id="validating-ai-metrics">Validating AI-metrics</h3>
+<p>How useful is this metric definition? Is it really able to differentiate reactions 
+
+$\pmb{x}$ in 
+
+$\mathcal{C}_\text{sust}$ from those in 
+
+$\mathcal{C}_\text{non-sust}$?</p>
+<p>To answer this, I looked at two opposite scores:</p>
+<p>
+  <i class="fas fa-leaf  pr-1 fa-fw"></i> <strong>Sustainability score</strong>: 
+
+$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $</p>
+<p>
+  <i class="fas fa-industry  pr-1 fa-fw"></i> <strong>Non-sustainability score</strong>: 
+
+$\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $</p>
+<p>In particular, I quantify how likely it is that a reaction is <strong>enzymatic</strong>, since these types of reactions are a classical example of sustainable reactions.</p>
+<p>First, I fine-tuned BERT on a training set of reactions in the <em>SMILES</em> text-based format, achiving an overall validation accuracy of 93.95% and macro F1 score of 0.901 when predicting the reaction type.</p>
+<p>Then, we compute 
+
+$\text{AI-metric}$ and 
+
+$\overline{\text{AI-metric}}$ using this BERT model for all reactions in the validation set and plot the results:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="The enzyme metric separates enzymatic from non-sustainable reactions"
+           src="/project/epfl-master-thesis/eval_ec_metric_scores.svg"
+           loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Clearly, enzymatic reactions cluster in <span style="color:#00b5ecff">blue</span> separately from non-enzymatic ones in <span style="color:#ff0000ff">red</span>.</p>
 
     </div>
 
