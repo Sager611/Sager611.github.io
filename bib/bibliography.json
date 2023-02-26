@@ -1,0 +1,4189 @@
+[
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GNH8W3JN",
+		"type": "paper-conference",
+		"abstract": "Retrosynthetic planning, which aims to find a reaction pathway to synthesize a target molecule, plays an important role in chemistry and drug discovery. This task is usually modeled as a search problem. Recently, data-driven methods have attracted many research interests and shown promising results for retrosynthetic planning. We observe that the same intermediate molecules are visited many times in the searching process, and they are usually independently treated in previous tree-based methods (e.g., AND-OR tree search, Monte Carlo tree search). Such redundancies make the search process inefficient. We propose a graph-based search policy that eliminates the redundant explorations of any intermediate molecules. As searching over a graph is more complicated than over a tree, we further adopt a graph neural network to guide the search over graphs. Meanwhile, our method can search a batch of targets together in the graph and remove the inter-target duplication in the tree-based search methods. Experimental results on two datasets demonstrate the effectiveness of our method. Especially on the widely used USPTO benchmark, we improve the search success rate to 99.47%, advancing previous state-of-the-art performance for 2.6 points.",
+		"container-title": "Proceedings of the 28th ACM SIGKDD Conference on Knowledge Discovery and Data Mining",
+		"DOI": "10.1145/3534678.3539446",
+		"note": "arXiv:2206.11477 [cs]",
+		"page": "2120-2129",
+		"source": "arXiv.org",
+		"title": "RetroGraph: Retrosynthetic Planning with Graph Search",
+		"title-short": "RetroGraph",
+		"URL": "http://arxiv.org/abs/2206.11477",
+		"author": [
+			{
+				"family": "Xie",
+				"given": "Shufang"
+			},
+			{
+				"family": "Yan",
+				"given": "Rui"
+			},
+			{
+				"family": "Han",
+				"given": "Peng"
+			},
+			{
+				"family": "Xia",
+				"given": "Yingce"
+			},
+			{
+				"family": "Wu",
+				"given": "Lijun"
+			},
+			{
+				"family": "Guo",
+				"given": "Chenjuan"
+			},
+			{
+				"family": "Yang",
+				"given": "Bin"
+			},
+			{
+				"family": "Qin",
+				"given": "Tao"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					23
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					8,
+					14
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/B7K5VPQ6",
+		"type": "article-journal",
+		"abstract": "The selection and design of suitable synthetic paths are important issues that affect the economics and productivity of chemical processes including reactions and the discovery of new chemicals. However, exploration of reaction information is difficult even with reaction databases, causing path explosion that occurs due to the huge search space and conflicting constrains such as economics, safety, efficiency, etc. In this study, we propose an intelligent system ASICS (Advanced System for Intelligent Chemical Synthesis), which supports synthetic path design at the basic stages of research and process design, based on the hybrid generative exploration and exploitation of reaction knowledge base, encoding big data of patented reactions, and machine learning-based retrosynthetic prediction. Based on the pseudo A* search, ASICS generates optimal synthetic paths minimizing scores of the synthetic reaction value function, composed of the synthetic accessibility score, likelihood score and similarity score. The preference in searching between confirmed reaction spaces and unexplored reaction spaces through prediction can be selected by the user. The suggested hybrid approach, combining the reaction knowledge base with the retrosynthetic prediction model, generates feasible and low-cost synthetic paths beyond the accumulated information in patented reactions.",
+		"collection-title": "Special Issue of 2020 9th Asian Symposium on Process Systems Engineering",
+		"container-title": "Journal of the Taiwan Institute of Chemical Engineers",
+		"DOI": "10.1016/j.jtice.2021.07.015",
+		"ISSN": "1876-1070",
+		"journalAbbreviation": "Journal of the Taiwan Institute of Chemical Engineers",
+		"language": "en",
+		"page": "103982",
+		"source": "ScienceDirect",
+		"title": "Intelligent generation of optimal synthetic pathways based on knowledge graph inference and retrosynthetic predictions using reaction big data",
+		"URL": "https://www.sciencedirect.com/science/article/pii/S187610702100420X",
+		"volume": "130",
+		"author": [
+			{
+				"family": "Jeong",
+				"given": "Joonsoo"
+			},
+			{
+				"family": "Lee",
+				"given": "Nagyeong"
+			},
+			{
+				"family": "Shin",
+				"given": "Yongbeom"
+			},
+			{
+				"family": "Shin",
+				"given": "Dongil"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					23
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					1,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/BWK3ADAD",
+		"type": "article-journal",
+		"abstract": "We present an extension of our Molecular Transformer model combined with a hyper-graph exploration strategy for automatic retrosynthesis route planning without human intervention. The single-step retrosynthetic model sets a new state of the art for predicting reactants as well as reagents, solvents and catalysts for each retrosynthetic step. We introduce four metrics (coverage, class diversity, round-trip accuracy and Jensen–Shannon divergence) to evaluate the single-step retrosynthetic models, using the forward prediction and a reaction classification model always based on the transformer architecture. The hypergraph is constructed on the fly, and the nodes are filtered and further expanded based on a Bayesian-like probability. We critically assessed the end-to-end framework with several retrosynthesis examples from literature and academic exams. Overall, the frameworks have an excellent performance with few weaknesses related to the training data. The use of the introduced metrics opens up the possibility to optimize entire retrosynthetic frameworks by focusing on the performance of the single-step model only.",
+		"container-title": "Chemical Science",
+		"DOI": "10.1039/C9SC05704H",
+		"ISSN": "2041-6539",
+		"issue": "12",
+		"journalAbbreviation": "Chem. Sci.",
+		"language": "en",
+		"note": "number: 12\npublisher: The Royal Society of Chemistry",
+		"page": "3316-3325",
+		"source": "pubs.rsc.org",
+		"title": "Predicting retrosynthetic pathways using transformer-based models and a hyper-graph exploration strategy",
+		"URL": "https://pubs.rsc.org/en/content/articlelanding/2020/sc/c9sc05704h",
+		"volume": "11",
+		"author": [
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Petraglia",
+				"given": "Riccardo"
+			},
+			{
+				"family": "Zullo",
+				"given": "Valerio"
+			},
+			{
+				"family": "Nair",
+				"given": "Vishnu H."
+			},
+			{
+				"family": "Haeuselmann",
+				"given": "Rico Andreas"
+			},
+			{
+				"family": "Pisoni",
+				"given": "Riccardo"
+			},
+			{
+				"family": "Bekas",
+				"given": "Costas"
+			},
+			{
+				"family": "Iuliano",
+				"given": "Anna"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					23
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					25
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/BNEQUD3Y",
+		"type": "article-journal",
+		"abstract": "Environmental chemical reactions have been frequently investigated for various purposes; however, it remains challenging to accurately model either the reaction kinetics or reaction pathways. Existing studies mostly model reaction kinetics with traditional quantitative structure–activity relationships (QSARs) or reaction pathways with reaction template methods; however, these approaches generally require extensive feature engineering or manual extraction of reaction templates. Recently, machine learning (ML) has become a promising tool for modeling chemical reactions as ML models can perform well and are powerful in using diverse chemical representations. This Review starts with a concise comparison of traditional and ML modeling approaches for chemical reactions, followed by a brief discussion of the status of and future needs in modeling environmental organic reactions. Data collection and data cleaning techniques for reaction kinetics and pathways are then discussed. We then summarize the advantages and limitations of commonly used chemical representations and feature selection techniques. Next, we critically review general ML model evaluation and interpretation processes and propose a three-step evaluation process, that is, comparisons with general metrics, baseline models, and existing models. Lastly, we explore ML modeling approaches for small data sets, including transfer learning and active learning, which have been successfully employed in many other fields, for future modeling of environmental chemical reactions.",
+		"container-title": "ACS ES&T Water",
+		"DOI": "10.1021/acsestwater.2c00193",
+		"journalAbbreviation": "ACS EST Water",
+		"note": "publisher: American Chemical Society",
+		"source": "ACS Publications",
+		"title": "Machine Learning Modeling of Environmentally Relevant Chemical Reactions for Organic Compounds",
+		"URL": "https://doi.org/10.1021/acsestwater.2c00193",
+		"author": [
+			{
+				"family": "Zhang",
+				"given": "Kai"
+			},
+			{
+				"family": "Zhang",
+				"given": "Huichun"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					28
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					7,
+					19
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/EGDFIA3U",
+		"type": "article",
+		"abstract": "Graph Neural Networks (GNNs) have received a lot of interest in the recent times. From the early spectral architectures that could only operate on undirected graphs per a transductive learning paradigm to the current state of the art spatial ones that can apply inductively to arbitrary graphs, GNNs have seen significant contributions from the research community. In this paper, we utilize some theoretical tools to better visualize the operations performed by state of the art spatial GNNs. We analyze the inner workings of these architectures and introduce a simple concept, Node Masking, that allows them to generalize and scale better. To empirically validate the concept, we perform several experiments on some widely-used datasets for node classification in both the transductive and inductive settings, hence laying down strong benchmarks for future research.",
+		"language": "en",
+		"note": "issue: arXiv:2001.07524\narXiv:2001.07524 [cs, stat]",
+		"number": "arXiv:2001.07524",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Node Masking: Making Graph Neural Networks Generalize and Scale Better",
+		"title-short": "Node Masking",
+		"URL": "http://arxiv.org/abs/2001.07524",
+		"author": [
+			{
+				"family": "Mishra",
+				"given": "Pushkar"
+			},
+			{
+				"family": "Piktus",
+				"given": "Aleksandra"
+			},
+			{
+				"family": "Goossen",
+				"given": "Gerard"
+			},
+			{
+				"family": "Silvestri",
+				"given": "Fabrizio"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					8
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					5,
+					16
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/XEU5954Y",
+		"type": "article-journal",
+		"abstract": "As the chemical industry continues to produce considerable quantities of waste chemicals1,2, it is essential to devise ‘circular chemistry’3–8 schemes to productively back-convert at least a portion of these unwanted materials into useful products. Despite substantial progress in the degradation of some classes of harmful chemicals9, work on ‘closing the circle’—transforming waste substrates into valuable products—remains fragmented and focused on well known areas10–15. Comprehensive analyses of which valuable products are synthesizable from diverse chemical wastes are difficult because even small sets of waste substrates can, within few steps, generate millions of putative products, each synthesizable by multiple routes forming densely connected networks. Tracing all such syntheses and selecting those that also meet criteria of process and ‘green’ chemistries is, arguably, beyond the cognition of human chemists. Here we show how computers equipped with broad synthetic knowledge can help address this challenge. Using the forward-synthesis Allchemy platform16, we generate giant synthetic networks emanating from approximately 200 waste chemicals recycled on commercial scales, retrieve from these networks tens of thousands of routes leading to approximately 300 important drugs and agrochemicals, and algorithmically rank these syntheses according to the accepted metrics of sustainable chemistry17–19. Several of these routes we validate by experiment, including an industrially realistic demonstration on a ‘pharmacy on demand’ flow-chemistry platform20. Wide adoption of computerized waste-to-valuable algorithms can accelerate productive reuse of chemicals that would otherwise incur storage or disposal costs, or even pose environmental hazards.",
+		"container-title": "Nature",
+		"DOI": "10.1038/s41586-022-04503-9",
+		"ISSN": "1476-4687",
+		"issue": "7907",
+		"language": "en",
+		"license": "2022 The Author(s), under exclusive licence to Springer Nature Limited",
+		"note": "number: 7907\npublisher: Nature Publishing Group",
+		"page": "668-676",
+		"source": "www.nature.com",
+		"title": "Computer-designed repurposing of chemical wastes into drugs",
+		"URL": "https://www.nature.com/articles/s41586-022-04503-9",
+		"volume": "604",
+		"author": [
+			{
+				"family": "Wołos",
+				"given": "Agnieszka"
+			},
+			{
+				"family": "Koszelewski",
+				"given": "Dominik"
+			},
+			{
+				"family": "Roszak",
+				"given": "Rafał"
+			},
+			{
+				"family": "Szymkuć",
+				"given": "Sara"
+			},
+			{
+				"family": "Moskal",
+				"given": "Martyna"
+			},
+			{
+				"family": "Ostaszewski",
+				"given": "Ryszard"
+			},
+			{
+				"family": "Herrera",
+				"given": "Brenden T."
+			},
+			{
+				"family": "Maier",
+				"given": "Josef M."
+			},
+			{
+				"family": "Brezicki",
+				"given": "Gordon"
+			},
+			{
+				"family": "Samuel",
+				"given": "Jonathon"
+			},
+			{
+				"family": "Lummiss",
+				"given": "Justin A. M."
+			},
+			{
+				"family": "McQuade",
+				"given": "D. Tyler"
+			},
+			{
+				"family": "Rogers",
+				"given": "Luke"
+			},
+			{
+				"family": "Grzybowski",
+				"given": "Bartosz A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					11
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/2BIWBYHC",
+		"type": "article-journal",
+		"abstract": "The transition toward a circular and biobased chemical industry is needed to cut global CO2 emissions and limit the chemical industry’s overall impact on the environment. However, the development of circular chemical reaction systems is challenging as it requires symbiotic sets of novel chemical reaction pathways and involves unconventional processing steps. We present a methodological pipeline for automated reaction network optimization. The tools can guide the development of circular processes on the reaction pathway level. Chemical big data combined with energetic assessment metrics and state-of-the-art decision-making has the potential to efficiently identify the most promising reaction systems. We mine large-scale chemical reaction data from Reaxys database and automate the screening of pathways based on chemical rules. We then approximate thermodynamic properties for exergy calculations of the prescreened pathways and formulate the optimization problem as linear programming and mixed-integer linear programming problem. The methodological workflow is illustrated in a case study on the conversion of β-pinene to citral. Our results show that the tools are well suited to model circular process interactions within different environment scenarios.",
+		"container-title": "ACS Engineering Au",
+		"DOI": "10.1021/acsengineeringau.2c00002",
+		"issue": "4",
+		"journalAbbreviation": "ACS Eng. Au",
+		"note": "number: 4\npublisher: American Chemical Society",
+		"page": "333-349",
+		"source": "ACS Publications",
+		"title": "Discovering Circular Process Solutions through Automated Reaction Network Optimization",
+		"URL": "https://doi.org/10.1021/acsengineeringau.2c00002",
+		"volume": "2",
+		"author": [
+			{
+				"family": "Weber",
+				"given": "Jana M."
+			},
+			{
+				"family": "Guo",
+				"given": "Zhen"
+			},
+			{
+				"family": "Lapkin",
+				"given": "Alexei A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					11
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					8,
+					17
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/7GY9ZPYQ",
+		"type": "article-journal",
+		"abstract": "As the programs for computer-aided retrosynthetic design come of age, they are no longer identifying just one or few synthetic routes but a multitude of chemically plausible syntheses, together forming large, directed graphs of solutions. An important problem then emerges: how to select from these graphs and present to the user manageable numbers of top-scoring pathways that are cost-effective, promote convergent vs. linear solutions, and are chemically diverse so that they do not repeat only minor variations in the same chemical theme. This paper describes a family of reaction network algorithms that address this problem by (i) using recursive formulae to assign realistic prices to individual pathways and (ii) applying penalties to chemically similar strategies so that they are not dominating the top-scoring routes. Synthetic examples are provided to illustrate how these algorithms can be implemented - on the timescales of ∼1 s even for large graphs - to rapidly query the space of synthetic solutions under the scenarios of different reaction yields and/or costs associated with performing reaction operations on different scales.",
+		"container-title": "Chemical science",
+		"DOI": "10.1039/c8sc05611k",
+		"ISSN": "2041-6539",
+		"issue": "17",
+		"journalAbbreviation": "Chem Sci",
+		"language": "eng",
+		"license": "cc by-nc",
+		"note": "number: 17\nPMID: 31123574\nPMCID: PMC6495691",
+		"page": "4640-4651",
+		"source": "Europe PMC",
+		"title": "Selection of cost-effective yet chemically diverse pathways from the networks of computer-generated retrosynthetic plans",
+		"URL": "https://europepmc.org/articles/PMC6495691",
+		"volume": "10",
+		"author": [
+			{
+				"family": "Badowski",
+				"given": "Tomasz"
+			},
+			{
+				"family": "Molga",
+				"given": "Karol"
+			},
+			{
+				"family": "Grzybowski",
+				"given": "Bartosz A"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					11
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					5,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/ZW9SVIEQ",
+		"type": "article-journal",
+		"abstract": "Artificial retrosynthesis pathways for 250k organic compounds generated through the MIT-MLPDS Computer-Aided Synthesis Planning (CASP) tool--ASKCOS.",
+		"DOI": "10.6084/m9.figshare.13172504.v1",
+		"language": "en",
+		"note": "publisher: figshare\ntype: dataset",
+		"source": "figshare.com",
+		"title": "ASKCOS generated retrosynthesis pathway data",
+		"URL": "https://figshare.com/articles/dataset/ASKCOS_generated_retrosynthesis_pathway_data/13172504/1",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					13
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					11,
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/KZQXTP3T",
+		"type": "article-journal",
+		"abstract": "An interactive tool has been developed to facilitate solvent selection, allowing consideration of chemical functionality, physical properties, regulatory concerns, and safety/health/environmental (SHE) impact. Appropriate solvents can be identified prior to screening experiments, and less desirable solvents can be replaced in established processes. Once a shortlist has been identified, the data can define experimental programs or else be exported to a molecular properties prediction tool to assess suitability through, e.g., solubility and partitioning.",
+		"container-title": "Organic Process Research & Development",
+		"DOI": "10.1021/acs.oprd.6b00015",
+		"ISSN": "1083-6160",
+		"issue": "4",
+		"journalAbbreviation": "Org. Process Res. Dev.",
+		"note": "number: 4\npublisher: American Chemical Society",
+		"page": "760-773",
+		"source": "ACS Publications",
+		"title": "Toward a More Holistic Framework for Solvent Selection",
+		"URL": "https://doi.org/10.1021/acs.oprd.6b00015",
+		"volume": "20",
+		"author": [
+			{
+				"family": "Diorazio",
+				"given": "Louis J."
+			},
+			{
+				"family": "Hose",
+				"given": "David R. J."
+			},
+			{
+				"family": "Adlington",
+				"given": "Neil K."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					4,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/3EPP3J28",
+		"type": "article-journal",
+		"abstract": "Solvents are important in most industrial and domestic applications. The impact of solvent losses and emissions drives efforts to minimise them or to avoid them completely. Since the 1990s, this has become a major focus of green chemistry, giving rise to the idea of the ‘green’ solvent. This concept has generated a substantial chemical literature and has led to the development of so-called neoteric solvents. A critical overview of published material establishes that few new materials have yet found widespread use as solvents. The search for less-impacting solvents is inefficient if carried out without due regard, even at the research stage, to the particular circumstances under which solvents are to be used on the industrial scale. Wider sustainability questions, particularly the use of non-fossil sources of organic carbon in solvent manufacture, are more important than intrinsic ‘greenness’. While solvency is universal, a universal solvent, an alkahest, is an unattainable ideal.",
+		"container-title": "Clean Technologies and Environmental Policy",
+		"DOI": "10.1007/s10098-021-02188-8",
+		"ISSN": "1618-954X",
+		"issue": "9",
+		"journalAbbreviation": "Clean Technol Environ Policy",
+		"note": "number: 9\nPMID: 34608382\nPMCID: PMC8482956",
+		"page": "2499-2522",
+		"source": "PubMed Central",
+		"title": "The green solvent: a critical perspective",
+		"title-short": "The green solvent",
+		"URL": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8482956/",
+		"volume": "23",
+		"author": [
+			{
+				"family": "Winterton",
+				"given": "Neil"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GZHZHUK6",
+		"type": "article-journal",
+		"container-title": "Green Chemistry",
+		"DOI": "10.1039/C6GC02482C",
+		"issue": "1",
+		"language": "en",
+		"note": "number: 1\npublisher: Royal Society of Chemistry",
+		"page": "140-152",
+		"source": "pubs.rsc.org",
+		"title": "Towards automation of chemical process route selection based on data mining",
+		"URL": "https://pubs.rsc.org/en/content/articlelanding/2017/gc/c6gc02482c",
+		"volume": "19",
+		"author": [
+			{
+				"family": "Jacob",
+				"given": "P.-M."
+			},
+			{
+				"family": "Yamin",
+				"given": "P."
+			},
+			{
+				"family": "Perez-Storey",
+				"given": "C."
+			},
+			{
+				"family": "Hopgood",
+				"given": "M."
+			},
+			{
+				"family": "A. Lapkin",
+				"given": "A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/WBYU7R7Y",
+		"type": "article",
+		"abstract": "Recently, graph neural networks have attracted great attention and achieved prominent performance in various research fields. Most of those algorithms have assumed pairwise relationships of objects of interest. However, in many real applications, the relationships between objects are in higher-order, beyond a pairwise formulation. To efficiently learn deep embeddings on the high-order graph-structured data, we introduce two end-to-end trainable operators to the family of graph neural networks, i.e., hypergraph convolution and hypergraph attention. Whilst hypergraph convolution defines the basic formulation of performing convolution on a hypergraph, hypergraph attention further enhances the capacity of representation learning by leveraging an attention module. With the two operators, a graph neural network is readily extended to a more flexible model and applied to diverse applications where non-pairwise relationships are observed. Extensive experimental results with semi-supervised node classification demonstrate the effectiveness of hypergraph convolution and hypergraph attention.",
+		"DOI": "10.48550/arXiv.1901.08150",
+		"note": "issue: arXiv:1901.08150\narXiv:1901.08150 [cs, stat]",
+		"number": "arXiv:1901.08150",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Hypergraph Convolution and Hypergraph Attention",
+		"URL": "http://arxiv.org/abs/1901.08150",
+		"author": [
+			{
+				"family": "Bai",
+				"given": "Song"
+			},
+			{
+				"family": "Zhang",
+				"given": "Feihu"
+			},
+			{
+				"family": "Torr",
+				"given": "Philip H. S."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					25
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					10,
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/2CC3HV5N",
+		"type": "article",
+		"abstract": "In this paper, we present a hypergraph neural networks (HGNN) framework for data representation learning, which can encode high-order data correlation in a hypergraph structure. Confronting the challenges of learning representation for complex data in real practice, we propose to incorporate such data structure in a hypergraph, which is more ﬂexible on data modeling, especially when dealing with complex data. In this method, a hyperedge convolution operation is designed to handle the data correlation during representation learning. In this way, traditional hypergraph learning procedure can be conducted using hyperedge convolution operations efﬁciently. HGNN is able to learn the hidden layer representation considering the high-order data structure, which is a general framework considering the complex data correlations. We have conducted experiments on citation network classiﬁcation and visual object recognition tasks and compared HGNN with graph convolutional networks and other traditional methods. Experimental results demonstrate that the proposed HGNN method outperforms recent state-of-theart methods. We can also reveal from the results that the proposed HGNN is superior when dealing with multi-modal data compared with existing methods.",
+		"language": "en",
+		"note": "issue: arXiv:1809.09401\narXiv:1809.09401 [cs, stat]",
+		"number": "arXiv:1809.09401",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Hypergraph Neural Networks",
+		"URL": "http://arxiv.org/abs/1809.09401",
+		"author": [
+			{
+				"family": "Feng",
+				"given": "Yifan"
+			},
+			{
+				"family": "You",
+				"given": "Haoxuan"
+			},
+			{
+				"family": "Zhang",
+				"given": "Zizhao"
+			},
+			{
+				"family": "Ji",
+				"given": "Rongrong"
+			},
+			{
+				"family": "Gao",
+				"given": "Yue"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					27
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					2,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/DHUL3BVJ",
+		"type": "report",
+		"abstract": "Most chemical reactions result in numerous by-products and side-products, apart from the intended major product. While chemists can predict many of the main process impurities, it remains a challenge to enumerate the possible minor impurities and even more of a challenge to systematically predict and track impurities derived from raw materials or those that have propagated from one synthetic step to the next. In this study, we developed an AI-assisted approach to predict and track impurities across multi-step reactions using the main reactants, and optionally reagents, solvents and impurities in these materials, as input. We demonstrated the utility of this tool for a simple case of synthesis of paracetamol from phenol, and provide a generalized framework that covers most chemical reactions. Our solution can be applied to enable (1) faster elucidation of impurities, (2) automated interpretation of data generated from high-throughput reaction screening, and (3) more thorough raw materials risk assessments, with each of these representing key workflows in small molecule drug substance commercial process development.",
+		"genre": "preprint",
+		"language": "en",
+		"note": "DOI: 10.26434/chemrxiv-2022-tcm0z",
+		"publisher": "Chemistry",
+		"source": "DOI.org (Crossref)",
+		"title": "AI-assisted chemical reaction impurity prediction and propagation",
+		"URL": "https://chemrxiv.org/engage/chemrxiv/article-details/632b6ea6e6150277792151c0",
+		"author": [
+			{
+				"family": "Mohapatra",
+				"given": "Somesh"
+			},
+			{
+				"family": "Griffin",
+				"given": "Daniel"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					22
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/G2QW69BU",
+		"type": "article-journal",
+		"abstract": "A new MCTS variant with a reinforcement learning value network and solvent prediction model proposes shorter synthesis routes with greener solvents.\n          , \n            Computer aided synthesis planning of synthetic pathways with green process conditions has become of increasing importance in organic chemistry, but the large search space inherent in synthesis planning and the difficulty in predicting reaction conditions make it a significant challenge. We introduce a new Monte Carlo Tree Search (MCTS) variant that promotes balance between exploration and exploitation across the synthesis space. Together with a value network trained from reinforcement learning and a solvent-prediction neural network, our algorithm is comparable to the best MCTS variant (PUCT, similar to Google's Alpha Go) in finding valid synthesis pathways within a fixed searching time, and superior in identifying shorter routes with greener solvents under the same search conditions. In addition, with the same root compound visit count, our algorithm outperforms the PUCT MCTS by 16% in terms of determining successful routes. Overall the success rate is improved by 19.7% compared to the upper confidence bound applied to trees (UCT) MCTS method. Moreover, we improve 71.4% of the routes proposed by the PUCT MCTS variant in pathway length and choices of green solvents. The approach generally enables including Green Chemistry considerations in computer aided synthesis planning with potential applications in process development for fine chemicals or pharmaceuticals.",
+		"container-title": "Chemical Science",
+		"DOI": "10.1039/D0SC04184J",
+		"ISSN": "2041-6520, 2041-6539",
+		"issue": "40",
+		"journalAbbreviation": "Chem. Sci.",
+		"language": "en",
+		"note": "number: 40",
+		"page": "10959-10972",
+		"source": "DOI.org (Crossref)",
+		"title": "Towards efficient discovery of green synthetic pathways with Monte Carlo tree search and reinforcement learning",
+		"URL": "http://xlink.rsc.org/?DOI=D0SC04184J",
+		"volume": "11",
+		"author": [
+			{
+				"family": "Wang",
+				"given": "Xiaoxue"
+			},
+			{
+				"family": "Qian",
+				"given": "Yujie"
+			},
+			{
+				"family": "Gao",
+				"given": "Hanyu"
+			},
+			{
+				"family": "Coley",
+				"given": "Connor W."
+			},
+			{
+				"family": "Mo",
+				"given": "Yiming"
+			},
+			{
+				"family": "Barzilay",
+				"given": "Regina"
+			},
+			{
+				"family": "Jensen",
+				"given": "Klavs F."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/97D3YME8",
+		"type": "article-journal",
+		"abstract": "The notion of uncertainty is of major importance in machine learning and constitutes a key element of machine learning methodology. In line with the statistical tradition, uncertainty has long been perceived as almost synonymous with standard probability and probabilistic predictions. Yet, due to the steadily increasing relevance of machine learning for practical applications and related issues such as safety requirements, new problems and challenges have recently been identified by machine learning scholars, and these problems may call for new methodological developments. In particular, this includes the importance of distinguishing between (at least) two different types of uncertainty, often referred to as aleatoric and epistemic. In this paper, we provide an introduction to the topic of uncertainty in machine learning as well as an overview of attempts so far at handling uncertainty in general and formalizing this distinction in particular.",
+		"container-title": "Machine Learning",
+		"DOI": "10.1007/s10994-021-05946-3",
+		"ISSN": "0885-6125, 1573-0565",
+		"issue": "3",
+		"journalAbbreviation": "Mach Learn",
+		"language": "en",
+		"note": "number: 3",
+		"page": "457-506",
+		"source": "DOI.org (Crossref)",
+		"title": "Aleatoric and epistemic uncertainty in machine learning: an introduction to concepts and methods",
+		"title-short": "Aleatoric and epistemic uncertainty in machine learning",
+		"URL": "http://link.springer.com/10.1007/s10994-021-05946-3",
+		"volume": "110",
+		"author": [
+			{
+				"family": "Hüllermeier",
+				"given": "Eyke"
+			},
+			{
+				"family": "Waegeman",
+				"given": "Willem"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/CAQDCFC4",
+		"type": "article",
+		"abstract": "Deep neural networks (NNs) are powerful black box predictors that have recently achieved impressive performance on a wide spectrum of tasks. Quantifying predictive uncertainty in NNs is a challenging and yet unsolved problem. Bayesian NNs, which learn a distribution over weights, are currently the state-of-the-art for estimating predictive uncertainty; however these require signiﬁcant modiﬁcations to the training procedure and are computationally expensive compared to standard (non-Bayesian) NNs. We propose an alternative to Bayesian NNs that is simple to implement, readily parallelizable, requires very little hyperparameter tuning, and yields high quality predictive uncertainty estimates. Through a series of experiments on classiﬁcation and regression benchmarks, we demonstrate that our method produces well-calibrated uncertainty estimates which are as good or better than approximate Bayesian NNs. To assess robustness to dataset shift, we evaluate the predictive uncertainty on test examples from known and unknown distributions, and show that our method is able to express higher uncertainty on out-of-distribution examples. We demonstrate the scalability of our method by evaluating predictive uncertainty estimates on ImageNet.",
+		"language": "en",
+		"note": "issue: arXiv:1612.01474\narXiv:1612.01474 [cs, stat]",
+		"number": "arXiv:1612.01474",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Simple and Scalable Predictive Uncertainty Estimation using Deep Ensembles",
+		"URL": "http://arxiv.org/abs/1612.01474",
+		"author": [
+			{
+				"family": "Lakshminarayanan",
+				"given": "Balaji"
+			},
+			{
+				"family": "Pritzel",
+				"given": "Alexander"
+			},
+			{
+				"family": "Blundell",
+				"given": "Charles"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					11,
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/RDGZ5CLT",
+		"type": "software",
+		"abstract": "Uncertainty Quantification 360 (UQ360) is an extensible open-source toolkit that can help you estimate, communicate and use uncertainty in machine learning model predictions.",
+		"genre": "Python",
+		"license": "Apache-2.0",
+		"note": "original-date: 2021-04-28T22:06:36Z",
+		"publisher": "International Business Machines",
+		"source": "GitHub",
+		"title": "UQ360",
+		"URL": "https://github.com/IBM/UQ360",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					10,
+					30
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/C95KSAY9",
+		"type": "article-journal",
+		"abstract": "Deep Reinforcement Learning (DRL) has shown a dramatic improvement in decision-making and automated control problems. Consequently, DRL represents a promising technique to efﬁciently solve many relevant optimization problems (e.g., routing) in self-driving networks. However, existing DRL-based solutions applied to networking fail to generalize, which means that they are not able to operate properly when applied to network topologies not observed during training. This lack of generalization capability signiﬁcantly hinders the deployment of DRL technologies in production networks. This is because stateof-the-art DRL-based networking solutions use standard neural networks (e.g., fully connected, convolutional), which are not suited to learn from information structured as graphs.",
+		"container-title": "Computer Communications",
+		"DOI": "10.1016/j.comcom.2022.09.029",
+		"ISSN": "01403664",
+		"journalAbbreviation": "Computer Communications",
+		"language": "en",
+		"note": "arXiv:1910.07421 [cs]",
+		"page": "184-194",
+		"source": "arXiv.org",
+		"title": "Deep Reinforcement Learning meets Graph Neural Networks: exploring a routing optimization use case",
+		"title-short": "Deep Reinforcement Learning meets Graph Neural Networks",
+		"URL": "http://arxiv.org/abs/1910.07421",
+		"volume": "196",
+		"author": [
+			{
+				"family": "Almasan",
+				"given": "Paul"
+			},
+			{
+				"family": "Suárez-Varela",
+				"given": "José"
+			},
+			{
+				"family": "Rusek",
+				"given": "Krzysztof"
+			},
+			{
+				"family": "Barlet-Ros",
+				"given": "Pere"
+			},
+			{
+				"family": "Cabellos-Aparicio",
+				"given": "Albert"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/MJARCLQI",
+		"type": "article",
+		"abstract": "We consider the problem of path inference: given a path preﬁx, i.e., a partially observed sequence of nodes in a graph, we want to predict which nodes are in the missing suﬃx. In particular, we focus on natural paths occurring as a by-product of the interaction of an agent with a network—a driver on the transportation network, an information seeker in Wikipedia, or a client in an online shop. Our interest is sparked by the realization that, in contrast to shortest-path problems, natural paths are usually not optimal in any graph-theoretic sense, but might still follow predictable patterns.",
+		"language": "en",
+		"note": "issue: arXiv:1903.07518\narXiv:1903.07518 [cs, stat]",
+		"number": "arXiv:1903.07518",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Extrapolating paths with graph neural networks",
+		"URL": "http://arxiv.org/abs/1903.07518",
+		"author": [
+			{
+				"family": "Cordonnier",
+				"given": "Jean-Baptiste"
+			},
+			{
+				"family": "Loukas",
+				"given": "Andreas"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					3,
+					18
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/QHQV4N2Z",
+		"type": "report",
+		"abstract": "We introduce a framework for benchmarking multi-step retrosynthesis methods, i.e. route predictions, called PaRoutes. The framework consists of two sets of 10,000 synthetic routes extracted from the patent literature, a list of stock compounds, and a curated set of reactions on which one-step retrosynthesis models can be trained. PaRoutes also comes with scripts to compute route quality and route diversity quantities that are important for comparing methods. We use the PaRoute framework to compare three methods implemented in the AiZynthFinder software: Monte Carlo tree search (MCTS), Retro*, and a depth-first proof-number search (DFPN) algorithm, all using a template-based one-step retrosynthesis model. It is found that DFPN is inferior to both MCTS and Retro* and cannot be recommended in its current implementation. MCTS and Retro* are on a par with regard to search speed and the ability to find routes in which all starting material is in stock. However, MCTS outperforms Retro* when it comes to route quality and route diversity. MCTS more easily recovers the reference routes and tends to find a diverse set of solutions for a greater portion of the targets. We encourage practitioners and developers to benchmark their algorithms using PaRoutes and we envisage that the framework will become the community standard to compare retrosynthesis route predictions. It is available at https://github.com/MolecularAI/PaRoutes",
+		"genre": "preprint",
+		"language": "en",
+		"note": "DOI: 10.26434/chemrxiv-2022-wk8c3",
+		"publisher": "Chemistry",
+		"source": "DOI.org (Crossref)",
+		"title": "PaRoutes: a framework for benchmarking retrosynthesis route predictions",
+		"title-short": "PaRoutes",
+		"URL": "https://chemrxiv.org/engage/chemrxiv/article-details/621c86f3c3e9da4f737b0047",
+		"author": [
+			{
+				"family": "Genheden",
+				"given": "Samuel"
+			},
+			{
+				"family": "Bjerrum",
+				"given": "Esben"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					2,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/MAV2BZ5C",
+		"type": "article-journal",
+		"container-title": "Chemical Science",
+		"DOI": "10.1039/D0SC05078D",
+		"issue": "4",
+		"language": "en",
+		"note": "number: 4\npublisher: Royal Society of Chemistry",
+		"page": "1469-1478",
+		"source": "pubs.rsc.org",
+		"title": "Evaluating and clustering retrosynthesis pathways with learned strategy",
+		"URL": "https://pubs.rsc.org/en/content/articlelanding/2021/sc/d0sc05078d",
+		"volume": "12",
+		"author": [
+			{
+				"family": "Mo",
+				"given": "Yiming"
+			},
+			{
+				"family": "Guan",
+				"given": "Yanfei"
+			},
+			{
+				"family": "Verma",
+				"given": "Pritha"
+			},
+			{
+				"family": "Guo",
+				"given": "Jiang"
+			},
+			{
+				"family": "E. Fortunato",
+				"given": "Mike"
+			},
+			{
+				"family": "Lu",
+				"given": "Zhaohong"
+			},
+			{
+				"family": "W. Coley",
+				"given": "Connor"
+			},
+			{
+				"family": "F. Jensen",
+				"given": "Klavs"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/7ACP28XN",
+		"type": "article-journal",
+		"abstract": "Driven by legislation and evolving attitudes towards environmental issues, establishing green solvents for extractions, separations, formulations and reaction chemistry has become an increasingly important area of research. Several general purpose solvent selection guides have now been published with the aim to reduce use of the most hazardous solvents. This review serves the purpose of explaining the role of these guides, highlighting their similarities and differences. How they can be used most effectively to enhance the greenness of chemical processes, particularly in laboratory organic synthesis and the pharmaceutical industry, is addressed in detail.",
+		"container-title": "Sustainable Chemical Processes",
+		"DOI": "10.1186/s40508-016-0051-z",
+		"ISSN": "2043-7129",
+		"issue": "1",
+		"journalAbbreviation": "Sustain Chem Process",
+		"language": "en",
+		"note": "number: 1",
+		"page": "7",
+		"source": "DOI.org (Crossref)",
+		"title": "Tools and techniques for solvent selection: green solvent selection guides",
+		"title-short": "Tools and techniques for solvent selection",
+		"URL": "http://sustainablechemicalprocesses.springeropen.com/articles/10.1186/s40508-016-0051-z",
+		"volume": "4",
+		"author": [
+			{
+				"family": "Byrne",
+				"given": "Fergal P."
+			},
+			{
+				"family": "Jin",
+				"given": "Saimeng"
+			},
+			{
+				"family": "Paggiola",
+				"given": "Giulia"
+			},
+			{
+				"family": "Petchey",
+				"given": "Tabitha H. M."
+			},
+			{
+				"family": "Clark",
+				"given": "James H."
+			},
+			{
+				"family": "Farmer",
+				"given": "Thomas J."
+			},
+			{
+				"family": "Hunt",
+				"given": "Andrew J."
+			},
+			{
+				"family": "Robert McElroy",
+				"given": "C."
+			},
+			{
+				"family": "Sherwood",
+				"given": "James"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/NE8XNHQM",
+		"type": "article-journal",
+		"abstract": "Sustainable solvents are a topic of growing interest in both the research community and the chemical industry due to a growing awareness of the impact of solvents on pollution, energy usage, and contributions to air quality and climate change. Solvent losses represent a major portion of organic pollution, and solvent removal represents a large proportion of process energy consumption. To counter these issues, a range of greener or more sustainable solvents have been proposed and developed over the past three decades. Much of the focus has been on the environmental credentials of the solvent itself, although how a substance is deployed is as important to sustainability as what it is made from. In this Review, we consider several aspects of the most prominent sustainable organic solvents in use today, ionic liquids, deep eutectic solvents, supercritical fluids, switchable solvents, liquid polymers, and renewable solvents. We examine not only the performance of each class of solvent within the context of the reactions or extractions for which it is employed, but also give consideration to the wider context of the process and system within which the solvent is deployed. A wide range of technical, economic, and environmental factors are considered, giving a more complete picture of the current status of sustainable solvent research and development.",
+		"container-title": "Chemical Reviews",
+		"DOI": "10.1021/acs.chemrev.7b00571",
+		"ISSN": "0009-2665",
+		"issue": "2",
+		"journalAbbreviation": "Chem. Rev.",
+		"note": "number: 2\npublisher: American Chemical Society",
+		"page": "747-800",
+		"source": "ACS Publications",
+		"title": "Green and Sustainable Solvents in Chemical Processes",
+		"URL": "https://doi.org/10.1021/acs.chemrev.7b00571",
+		"volume": "118",
+		"author": [
+			{
+				"family": "Clarke",
+				"given": "Coby J."
+			},
+			{
+				"family": "Tu",
+				"given": "Wei-Chien"
+			},
+			{
+				"family": "Levers",
+				"given": "Oliver"
+			},
+			{
+				"family": "Bröhl",
+				"given": "Andreas"
+			},
+			{
+				"family": "Hallett",
+				"given": "Jason P."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					1,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GAZRV7P8",
+		"type": "article-journal",
+		"abstract": "Organic reactions are usually assigned to classes containing reactions with similar reagents and mechanisms. Reaction classes facilitate the communication of complex concepts and efficient navigation through chemical reaction space. However, the classification process is a tedious task. It requires identification of the corresponding reaction class template via annotation of the number of molecules in the reactions, the reaction centre and the distinction between reactants and reagents. Here, we show that transformer-based models can infer reaction classes from non-annotated, simple text-based representations of chemical reactions. Our best model reaches a classification accuracy of 98.2%. We also show that the learned representations can be used as reaction fingerprints that capture fine-grained differences between reaction classes better than traditional reaction fingerprints. The insights into chemical reaction space enabled by our learned fingerprints are illustrated by an interactive reaction atlas providing visual clustering and similarity searching.",
+		"container-title": "Nature Machine Intelligence",
+		"DOI": "10.1038/s42256-020-00284-w",
+		"ISSN": "2522-5839",
+		"issue": "2",
+		"journalAbbreviation": "Nat Mach Intell",
+		"language": "en",
+		"license": "2021 The Author(s), under exclusive licence to Springer Nature Limited",
+		"note": "number: 2\npublisher: Nature Publishing Group",
+		"page": "144-152",
+		"source": "www.nature.com",
+		"title": "Mapping the space of chemical reactions using attention-based neural networks",
+		"URL": "https://www.nature.com/articles/s42256-020-00284-w",
+		"volume": "3",
+		"author": [
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Probst",
+				"given": "Daniel"
+			},
+			{
+				"family": "Vaucher",
+				"given": "Alain C."
+			},
+			{
+				"family": "Nair",
+				"given": "Vishnu H."
+			},
+			{
+				"family": "Kreutter",
+				"given": "David"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			},
+			{
+				"family": "Reymond",
+				"given": "Jean-Louis"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/CJWQ7MZ6",
+		"type": "article-journal",
+		"abstract": "Reaction condition recommendation is an essential element for the realization of computer-assisted synthetic planning. Accurate suggestions of reaction conditions are required for experimental validation and can have a significant effect on the success or failure of an attempted transformation. However, de novo condition recommendation remains a challenging and under-explored problem and relies heavily on chemists’ knowledge and experience. In this work, we develop a neural-network model to predict the chemical context (catalyst(s), solvent(s), reagent(s)), as well as the temperature most suitable for any particular organic reaction. Trained on ∼10 million examples from Reaxys, the model is able to propose conditions where a close match to the recorded catalyst, solvent, and reagent is found within the top-10 predictions 69.6% of the time, with top-10 accuracies for individual species reaching 80–90%. Temperature is accurately predicted within ±20 °C from the recorded temperature in 60–70% of test cases, with higher accuracy for cases with correct chemical context predictions. The utility of the model is illustrated through several examples spanning a range of common reaction classes. We also demonstrate that the model implicitly learns a continuous numerical embedding of solvent and reagent species that captures their functional similarity.",
+		"container-title": "ACS Central Science",
+		"DOI": "10.1021/acscentsci.8b00357",
+		"ISSN": "2374-7943",
+		"issue": "11",
+		"journalAbbreviation": "ACS Cent. Sci.",
+		"note": "number: 11\npublisher: American Chemical Society",
+		"page": "1465-1476",
+		"source": "ACS Publications",
+		"title": "Using Machine Learning To Predict Suitable Conditions for Organic Reactions",
+		"URL": "https://doi.org/10.1021/acscentsci.8b00357",
+		"volume": "4",
+		"author": [
+			{
+				"family": "Gao",
+				"given": "Hanyu"
+			},
+			{
+				"family": "Struble",
+				"given": "Thomas J."
+			},
+			{
+				"family": "Coley",
+				"given": "Connor W."
+			},
+			{
+				"family": "Wang",
+				"given": "Yuran"
+			},
+			{
+				"family": "Green",
+				"given": "William H."
+			},
+			{
+				"family": "Jensen",
+				"given": "Klavs F."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					1
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					11,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/UW54EUIP",
+		"type": "article-journal",
+		"abstract": "Enzyme catalysts are an integral part of green chemistry strategies towards a more sustainable and resource-efficient chemical synthesis. However, the use of biocatalysed reactions in retrosynthetic planning clashes with the difficulties in predicting the enzymatic activity on unreported substrates and enzyme-specific stereo- and regioselectivity. As of now, only rule-based systems support retrosynthetic planning using biocatalysis, while initial data-driven approaches are limited to forward predictions. Here, we extend the data-driven forward reaction as well as retrosynthetic pathway prediction models based on the Molecular Transformer architecture to biocatalysis. The enzymatic knowledge is learned from an extensive data set of publicly available biochemical reactions with the aid of a new class token scheme based on the enzyme commission classification number, which captures catalysis patterns among different enzymes belonging to the same hierarchy. The forward reaction prediction model (top-1 accuracy of 49.6%), the retrosynthetic pathway (top-1 single-step round-trip accuracy of 39.6%) and the curated data set are made publicly available to facilitate the adoption of enzymatic catalysis in the design of greener chemistry processes. As of now, only rule-based systems support retrosynthetic planning using biocatalysis, while initial data-driven approaches are limited to forward predictions. Here, the authors extend the data-driven forward reaction as well as retrosynthetic pathway prediction models based on the Molecular Transformer architecture to biocatalysis.",
+		"container-title": "Nature Communications",
+		"DOI": "10.1038/s41467-022-28536-w",
+		"ISSN": "2041-1723",
+		"issue": "1",
+		"journalAbbreviation": "Nat Commun",
+		"language": "en",
+		"license": "2022 The Author(s)",
+		"note": "number: 1\npublisher: Nature Publishing Group",
+		"page": "1-11",
+		"source": "www.nature.com",
+		"title": "Biocatalysed synthesis planning using data-driven learning",
+		"URL": "https://www.nature.com/articles/s41467-022-28536-w",
+		"volume": "13",
+		"author": [
+			{
+				"family": "Probst",
+				"given": "Daniel"
+			},
+			{
+				"family": "Manica",
+				"given": "Matteo"
+			},
+			{
+				"family": "Nana Teukam",
+				"given": "Yves Gaetan"
+			},
+			{
+				"family": "Castrogiovanni",
+				"given": "Alessandro"
+			},
+			{
+				"family": "Paratore",
+				"given": "Federico"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					2
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					2,
+					18
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/TPWL9N7S",
+		"type": "post-weblog",
+		"container-title": "ecoinvent",
+		"language": "en-US",
+		"title": "ecoinvent Database",
+		"URL": "https://ecoinvent.org/the-ecoinvent-database/",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					8
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					8
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/LB2ARNG2",
+		"type": "document",
+		"title": "phd_thesis_jab.pdf"
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/SHA72LYA",
+		"type": "article-journal",
+		"abstract": "Object detection is an important task in computer vision which serves a lot of real-world applications such as autonomous driving, surveillance and robotics. Along with the rapid thrive of large-scale data, numerous state-of-the-art generalized object detectors (e.g. Faster R-CNN, YOLO, SSD) were developed in the past decade. Despite continual efforts in model modification and improvement in training strategies to boost detection accuracy, there are still limitations in detector’s performance when it comes to specialized datasets with uneven object class distributions. This originates from the common usage of Cross Entropy loss function for object classification sub-task that simply ignores the frequency of appearance of object class during training, and thus results in lower accuracies for object classes with fewer number of samples. Class-imbalance in general machine learning has been widely studied, however, little attention has been paid on the subject of object detection. In this paper, we propose to explore and overcome such problem by application of several weighted variants of Cross Entropy loss, for examples Balanced Cross Entropy, Focal Loss and Class-Balanced Loss Based on Effective Number of Samples to our object detector. Experiments with BDD100K (a highly classimbalanced driving database acquired from on-vehicle cameras capturing mostly “Car”-class objects and other minority object classes such as “Bus”, “Person” and “Motor”) have proven better class-wise performances of detector trained with the afore-mentioned loss functions.",
+		"language": "en",
+		"page": "13",
+		"source": "Zotero",
+		"title": "Resolving Class Imbalance in Object Detection with Weighted Cross Entropy Losses",
+		"author": [
+			{
+				"family": "Phan",
+				"given": "Trong Huy"
+			},
+			{
+				"family": "Yamamoto",
+				"given": "Kazuma"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GZTAZXZC",
+		"type": "webpage",
+		"abstract": "Check out these great tips and tricks that will improve the performance of your text classification model. All from Kaggle’s top NLP competitions.",
+		"container-title": "neptune.ai",
+		"language": "en-US",
+		"title": "Text Classification: All Tips and Tricks from 5 Kaggle Competitions | Neptune Blog",
+		"title-short": "Text Classification",
+		"URL": "https://neptune.ai/blog/text-classification-tips-and-tricks-kaggle-competitions",
+		"author": [
+			{
+				"family": "ES",
+				"given": "Shahul"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					10
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					21
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/WJW9APUF",
+		"type": "article-journal",
+		"abstract": "Deep neural networks (DNNs) have revolutionized medical image analysis and disease diagnosis. Despite their impressive increase in performance, it is difﬁcult to generate well-calibrated probabilistic outputs for such networks such that state-of-the-art networks fail to provide reliable uncertainty estimates regarding their decisions. We propose a simple but effective method using traditional data augmentation methods such as geometric and color transformations at test time. This allows to examine how much the network output varies in the vicinity of examples in the input spaces. Despite its simplicity, our method yields useful estimates for the input-dependent predictive uncertainties of deep neural networks. We showcase the impact of our method via the well-known collection of fundus images obtained from a previous Kaggle competition.",
+		"language": "en",
+		"page": "9",
+		"source": "Zotero",
+		"title": "Test-time Data Augmentation for Estimation of Heteroscedastic Aleatoric Uncertainty in Deep Neural Networks",
+		"author": [
+			{
+				"family": "Ayhan",
+				"given": "Murat Seçkin"
+			},
+			{
+				"family": "Berens",
+				"given": "Philipp"
+			}
+		]
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/YRUMZ7HY",
+		"type": "paper-conference",
+		"abstract": "We propose improved Deep Neural Network (DNN) training loss functions for more accurate single keyword spotting on resource-constrained embedded devices. The loss function modiﬁcations consist of a combination of multi-task training and weighted cross entropy. In the multi-task architecture, the keyword DNN acoustic model is trained with two tasks in parallel - the main task of predicting the keyword-speciﬁc phone states, and an auxiliary task of predicting LVCSR senones. We show that multi-task learning leads to comparable accuracy over a previously proposed transfer learning approach where the keyword DNN training is initialized by an LVCSR DNN of the same input and hidden layer sizes. The combination of LVCSRinitialization and Multi-task training gives improved keyword detection accuracy compared to either technique alone. We also propose modifying the loss function to give a higher weight on input frames corresponding to keyword phone targets, with a motivation to balance the keyword and background training data. We show that weighted cross-entropy results in additional accuracy improvements. Finally, we show that the combination of 3 techniques - LVCSR-initialization, multi-task training and weighted cross-entropy gives the best results, with significantly lower False Alarm Rate than the LVCSR-initialization technique alone, across a wide range of Miss Rates.",
+		"container-title": "Interspeech 2016",
+		"DOI": "10.21437/Interspeech.2016-1485",
+		"event-title": "Interspeech 2016",
+		"language": "en",
+		"page": "760-764",
+		"publisher": "ISCA",
+		"source": "DOI.org (Crossref)",
+		"title": "Multi-Task Learning and Weighted Cross-Entropy for DNN-Based Keyword Spotting",
+		"URL": "https://www.isca-speech.org/archive/interspeech_2016/panchapagesan16_interspeech.html",
+		"author": [
+			{
+				"family": "Panchapagesan",
+				"given": "Sankaran"
+			},
+			{
+				"family": "Sun",
+				"given": "Ming"
+			},
+			{
+				"family": "Khare",
+				"given": "Aparna"
+			},
+			{
+				"family": "Matsoukas",
+				"given": "Spyros"
+			},
+			{
+				"family": "Mandal",
+				"given": "Arindam"
+			},
+			{
+				"family": "Hoffmeister",
+				"given": "Björn"
+			},
+			{
+				"family": "Vitaladevuni",
+				"given": "Shiv"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					14
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					9,
+					8
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/3RXMSSSY",
+		"type": "article-journal",
+		"abstract": "With the rapid increase of large-scale, real-world datasets, it becomes critical to address the problem of longtailed data distribution (i.e., a few classes account for most of the data, while most classes are under-represented). Existing solutions typically adopt class re-balancing strategies such as re-sampling and re-weighting based on the number of observations for each class. In this work, we argue that as the number of samples increases, the additional beneﬁt of a newly added data point will diminish. We introduce a novel theoretical framework to measure data overlap by associating with each sample a small neighboring region rather than a single point. The effective number of samples is deﬁned as the volume of samples and can be calculated by a simple formula (1−βn)/(1−β), where n is the number of samples and β ∈ [0, 1) is a hyperparameter. We design a re-weighting scheme that uses the effective number of samples for each class to re-balance the loss, thereby yielding a class-balanced loss. Comprehensive experiments are conducted on artiﬁcially induced long-tailed CIFAR datasets and large-scale datasets including ImageNet and iNaturalist. Our results show that when trained with the proposed class-balanced loss, the network is able to achieve signiﬁcant performance gains on long-tailed datasets.",
+		"language": "en",
+		"page": "10",
+		"source": "Zotero",
+		"title": "Class-Balanced Loss Based on Effective Number of Samples",
+		"author": [
+			{
+				"family": "Cui",
+				"given": "Yin"
+			},
+			{
+				"family": "Jia",
+				"given": "Menglin"
+			},
+			{
+				"family": "Lin",
+				"given": "Tsung-Yi"
+			},
+			{
+				"family": "Song",
+				"given": "Yang"
+			},
+			{
+				"family": "Belongie",
+				"given": "Serge"
+			}
+		]
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/2J7A7VZZ",
+		"type": "article-journal",
+		"abstract": "The various strategies for the valorisation of waste biomass to platform chemicals, and the underlying developments in chemical and biological catalysis which make this possible, are critically reviewed. The option involving the least changes to the status quo is the drop-in strategy of complete deoxygenation to petroleum hydrocarbons and further processing using existing technologies. The alternative, redox economic approach, is direct conversion of, for example, carbohydrates to oxygenates by fermentation or chemocatalytic processes. Examples of both approaches are described, e.g. fermentation of carbohydrates to produce hydrocarbons, lower alcohols, diols and carboxylic acids or acid catalyzed hydrolysis of hexoses to hydroxymethyl furfural (HMF) and subsequent conversion to levulinic acid (LA), γ-valerolactone (GVL) and furan dicarboxylic acid (FDCA). Three possible routes for producing a bio-based equivalent of the large volume polymer, polyethylene terephthalate (PET) are delineated. Valorisation of waste protein could, in the future, form an important source of amino acids, such as L-glutamic acid and L-lysine, as platform chemicals, which in turn can be converted to nitrogen containing commodity chemicals. Glycerol, the coproduct of biodiesel manufacture from triglycerides, is another waste stream for which valorisation to commodity chemicals, such as epichlorohydrin and acrolein, is an attractive option.",
+		"container-title": "Green Chemistry",
+		"DOI": "10.1039/C3GC41935E",
+		"ISSN": "1463-9270",
+		"issue": "3",
+		"journalAbbreviation": "Green Chem.",
+		"language": "en",
+		"note": "number: 3\npublisher: The Royal Society of Chemistry",
+		"page": "950-963",
+		"source": "pubs.rsc.org",
+		"title": "Green and sustainable manufacture of chemicals from biomass: state of the art",
+		"title-short": "Green and sustainable manufacture of chemicals from biomass",
+		"URL": "https://pubs.rsc.org/en/content/articlelanding/2014/gc/c3gc41935e",
+		"volume": "16",
+		"author": [
+			{
+				"family": "Sheldon",
+				"given": "Roger A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					14
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2014",
+					2,
+					25
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/9DH8LQLV",
+		"type": "article-journal",
+		"abstract": "Uncertainty quantification (UQ) methods play a pivotal role in reducing the impact of uncertainties during both optimization and decision making processes. They have been applied to solve a variety of real-world problems in science and engineering. Bayesian approximation and ensemble learning techniques are two widely-used types of uncertainty quantification (UQ) methods. In this regard, researchers have proposed different UQ methods and examined their performance in a variety of applications such as computer vision (e.g., self-driving cars and object detection), image processing (e.g., image restoration), medical image analysis (e.g., medical image classification and segmentation), natural language processing (e.g., text classification, social media texts and recidivism risk-scoring), bioinformatics, etc. This study reviews recent advances in UQ methods used in deep learning, investigates the application of these methods in reinforcement learning, and highlights fundamental research challenges and directions associated with UQ.",
+		"container-title": "Information Fusion",
+		"DOI": "10.1016/j.inffus.2021.05.008",
+		"ISSN": "1566-2535",
+		"journalAbbreviation": "Information Fusion",
+		"language": "en",
+		"page": "243-297",
+		"source": "ScienceDirect",
+		"title": "A review of uncertainty quantification in deep learning: Techniques, applications and challenges",
+		"title-short": "A review of uncertainty quantification in deep learning",
+		"URL": "https://www.sciencedirect.com/science/article/pii/S1566253521001081",
+		"volume": "76",
+		"author": [
+			{
+				"family": "Abdar",
+				"given": "Moloud"
+			},
+			{
+				"family": "Pourpanah",
+				"given": "Farhad"
+			},
+			{
+				"family": "Hussain",
+				"given": "Sadiq"
+			},
+			{
+				"family": "Rezazadegan",
+				"given": "Dana"
+			},
+			{
+				"family": "Liu",
+				"given": "Li"
+			},
+			{
+				"family": "Ghavamzadeh",
+				"given": "Mohammad"
+			},
+			{
+				"family": "Fieguth",
+				"given": "Paul"
+			},
+			{
+				"family": "Cao",
+				"given": "Xiaochun"
+			},
+			{
+				"family": "Khosravi",
+				"given": "Abbas"
+			},
+			{
+				"family": "Acharya",
+				"given": "U. Rajendra"
+			},
+			{
+				"family": "Makarenkov",
+				"given": "Vladimir"
+			},
+			{
+				"family": "Nahavandi",
+				"given": "Saeid"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					12,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/ZCRABSQH",
+		"type": "article-journal",
+		"abstract": "Reaction databases provide a great deal of useful information to assist planning of experiments but do not provide any interpretation or chemical concepts to accompany this information. In this work, reactions are labeled with experimental conditions, and network analysis shows that consistencies within clusters of data points can be leveraged to organize this information. In particular, this analysis shows how particular experimental conditions (specifically solvent) are effective in enabling specific organic reactions (Friedel−Crafts, Aldol addition, Claisen condensation, Diels−Alder, and Wittig), including variations within each reaction class. Network analysis shows data points for reactions tend to break into clusters that depend on the catalyst and chemical structure. This type of clustering, which mimics how a chemist reasons, is derived directly from the network. Therefore, the findings of this work could augment synthesis planning by providing predictions in a fashion that mimics human chemists. To numerically evaluate solvent prediction ability, three methods are compared: network analysis (through the k-nearest neighbor algorithm), a support vector machine, and a deep neural network. The most accurate method in 4 of the 5 test cases is the network analysis, with deep neural networks also showing good prediction scores. The network analysis tool was evaluated by an expert panel of chemists, who generally agreed that the algorithm produced accurate solvent choices while simultaneously being transparent in the underlying reasons for its predictions.",
+		"container-title": "Journal of Chemical Information and Modeling",
+		"DOI": "10.1021/acs.jcim.9b00313",
+		"ISSN": "1549-9596, 1549-960X",
+		"issue": "9",
+		"journalAbbreviation": "J. Chem. Inf. Model.",
+		"language": "en",
+		"note": "number: 9",
+		"page": "3645-3654",
+		"source": "DOI.org (Crossref)",
+		"title": "Learning To Predict Reaction Conditions: Relationships between Solvent, Molecular Structure, and Catalyst",
+		"title-short": "Learning To Predict Reaction Conditions",
+		"URL": "https://pubs.acs.org/doi/10.1021/acs.jcim.9b00313",
+		"volume": "59",
+		"author": [
+			{
+				"family": "Walker",
+				"given": "Eric"
+			},
+			{
+				"family": "Kammeraad",
+				"given": "Joshua"
+			},
+			{
+				"family": "Goetz",
+				"given": "Jonathan"
+			},
+			{
+				"family": "Robo",
+				"given": "Michael T."
+			},
+			{
+				"family": "Tewari",
+				"given": "Ambuj"
+			},
+			{
+				"family": "Zimmerman",
+				"given": "Paul M."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					17
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					9,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/64Y8KL54",
+		"type": "article-journal",
+		"abstract": "Organic synthesis is one of the key stumbling blocks in medicinal chemistry. A necessary yet unsolved step in planning synthesis is solving the forward problem: Given reactants and reagents, predict the products. Similar to other work, we treat reaction prediction as a machine translation problem between simpliﬁed molecular-input line-entry system (SMILES) strings (a text-based representation) of reactants, reagents, and the products. We show that a multihead attention Molecular Transformer model outperforms all algorithms in the literature, achieving a top-1 accuracy above 90% on a common benchmark data set. Molecular Transformer makes predictions by inferring the correlations between the presence and absence of chemical motifs in the reactant, reagent, and product present in the data set. Our model requires no handcrafted rules and accurately predicts subtle chemical transformations. Crucially, our model can accurately estimate its own uncertainty, with an uncertainty score that is 89% accurate in terms of classifying whether a prediction is correct. Furthermore, we show that the model is able to handle inputs without a reactant−reagent split and including stereochemistry, which makes our method universally applicable.",
+		"container-title": "ACS Central Science",
+		"DOI": "10.1021/acscentsci.9b00576",
+		"ISSN": "2374-7943, 2374-7951",
+		"issue": "9",
+		"journalAbbreviation": "ACS Cent. Sci.",
+		"language": "en",
+		"note": "number: 9",
+		"page": "1572-1583",
+		"source": "DOI.org (Crossref)",
+		"title": "Molecular Transformer: A Model for Uncertainty-Calibrated Chemical Reaction Prediction",
+		"title-short": "Molecular Transformer",
+		"URL": "https://pubs.acs.org/doi/10.1021/acscentsci.9b00576",
+		"volume": "5",
+		"author": [
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			},
+			{
+				"family": "Gaudin",
+				"given": "Théophile"
+			},
+			{
+				"family": "Bolgar",
+				"given": "Peter"
+			},
+			{
+				"family": "Hunter",
+				"given": "Christopher A."
+			},
+			{
+				"family": "Bekas",
+				"given": "Costas"
+			},
+			{
+				"family": "Lee",
+				"given": "Alpha A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					9,
+					25
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/JKH942FL",
+		"type": "article-journal",
+		"abstract": "In this paper, we present a comprehensive review of the imbalance problems in object detection. To analyze the problems in a systematic manner, we introduce a problem-based taxonomy. Following this taxonomy, we discuss each problem in depth and present a unifying yet critical perspective on the solutions in the literature. In addition, we identify major open issues regarding the existing imbalance problems as well as imbalance problems that have not been discussed before. Moreover, in order to keep our review up to date, we provide an accompanying webpage which catalogs papers addressing imbalance problems, according to our problem-based taxonomy. Researchers can track newer studies on this webpage available at: https://github.com/kemaloksuz/ObjectDetectionImbalance.",
+		"container-title": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+		"DOI": "10.1109/TPAMI.2020.2981890",
+		"ISSN": "1939-3539",
+		"issue": "10",
+		"note": "number: 10\nevent-title: IEEE Transactions on Pattern Analysis and Machine Intelligence",
+		"page": "3388-3415",
+		"source": "IEEE Xplore",
+		"title": "Imbalance Problems in Object Detection: A Review",
+		"title-short": "Imbalance Problems in Object Detection",
+		"volume": "43",
+		"author": [
+			{
+				"family": "Oksuz",
+				"given": "Kemal"
+			},
+			{
+				"family": "Cam",
+				"given": "Baris Can"
+			},
+			{
+				"family": "Kalkan",
+				"given": "Sinan"
+			},
+			{
+				"family": "Akbas",
+				"given": "Emre"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					10
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/HF3BBI6S",
+		"type": "article-journal",
+		"abstract": "The skeleton is one of the most important organs in the human body in assisting our motion and activities; however, bone density attenuates gradually as we age. Among common bone diseases are osteoporosis and Paget's, two of the most frequently found diseases in the elderly. Nowadays, a combination of multiple drugs is the optimal therapy to decelerate osteoporosis and Paget's pathologic process, which comes with various underlying adverse effects due to drug-drug interactions (DDIs). Artificial intelligence (AI) has the potential to evaluate the interaction, pharmacodynamics, and possible side effects between drugs. In this research, we created an AI-based machine-learning model to predict the outcomes of interactions between drugs used for osteoporosis and Paget's treatment, which helps mitigate the cost and time to implement the best combination of medications in clinical practice. In this study, a DDI dataset was collected from the DrugBank database within the osteoporosis and Paget diseases. We then extracted a variety of chemical features from the simplified molecular-input line-entry system (SMILES) of defined drug pairs that interact with each other. Finally, machine-learning algorithms were implemented to learn the extracted features. Our stack ensemble model from Random Forest and XGBoost reached an average accuracy of 74 % in predicting DDIs. It was superior to individual models as well as previous methods in terms of most measurement metrics. This study showed the potential of AI models in predicting DDIs of Osteoporosis-Paget's disease in particular, and other diseases in general.",
+		"container-title": "Molecular Informatics",
+		"DOI": "10.1002/minf.202100264",
+		"ISSN": "1868-1751",
+		"issue": "6",
+		"language": "en",
+		"note": "number: 6\n_eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1002/minf.202100264",
+		"page": "2100264",
+		"source": "Wiley Online Library",
+		"title": "An AI-based Prediction Model for Drug-drug Interactions in Osteoporosis and Paget's Diseases from SMILES",
+		"URL": "https://onlinelibrary.wiley.com/doi/abs/10.1002/minf.202100264",
+		"volume": "41",
+		"author": [
+			{
+				"family": "Hung",
+				"given": "Truong Nguyen Khanh"
+			},
+			{
+				"family": "Le",
+				"given": "Nguyen Quoc Khanh"
+			},
+			{
+				"family": "Le",
+				"given": "Ngoc Hoang"
+			},
+			{
+				"family": "Van Tuan",
+				"given": "Le"
+			},
+			{
+				"family": "Nguyen",
+				"given": "Thuan Phuoc"
+			},
+			{
+				"family": "Thi",
+				"given": "Cao"
+			},
+			{
+				"family": "Kang",
+				"given": "Jiunn-Horng"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/USDHMVBV",
+		"type": "article-journal",
+		"abstract": "Fingerprint methods applied to molecules have proven to be useful for similarity determination and as inputs to machine-learning models. Here, we present the development of a new ﬁngerprint for chemical reactions and validate its usefulness in building machine-learning models and in similarity assessment. Our ﬁnal ﬁngerprint is constructed as the diﬀerence of the atompair ﬁngerprints of products and reactants and includes agents via calculated physicochemical properties. We validated the ﬁngerprints on a large data set of reactions text-mined from granted United States patents from the last 40 years that have been classiﬁed using a substructure-based expert system. We applied machine learning to build a 50-class predictive model for reactiontype classiﬁcation that correctly predicts 97% of the reactions in an external test set. Impressive accuracies were also observed when applying the classiﬁer to reactions from an in-house electronic laboratory notebook. The performance of the novel ﬁngerprint for assessing reaction similarity was evaluated by a cluster analysis that recovered 48 out of 50 of the reaction classes with a median F-score of 0.63 for the clusters. The data sets used for training and primary validation as well as all python scripts required to reproduce the analysis are provided in the Supporting Information.",
+		"container-title": "Journal of Chemical Information and Modeling",
+		"DOI": "10.1021/ci5006614",
+		"ISSN": "1549-9596, 1549-960X",
+		"issue": "1",
+		"journalAbbreviation": "J. Chem. Inf. Model.",
+		"language": "en",
+		"note": "number: 1",
+		"page": "39-53",
+		"source": "DOI.org (Crossref)",
+		"title": "Development of a Novel Fingerprint for Chemical Reactions and Its Application to Large-Scale Reaction Classification and Similarity",
+		"URL": "https://pubs.acs.org/doi/10.1021/ci5006614",
+		"volume": "55",
+		"author": [
+			{
+				"family": "Schneider",
+				"given": "Nadine"
+			},
+			{
+				"family": "Lowe",
+				"given": "Daniel M."
+			},
+			{
+				"family": "Sayle",
+				"given": "Roger A."
+			},
+			{
+				"family": "Landrum",
+				"given": "Gregory A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2015",
+					1,
+					26
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/7BSWIJCE",
+		"type": "article-journal",
+		"abstract": "A solvent selection scheme for optimization of reactions is proposed using machine learning, based on the numerical descriptions of solvent molecules. Twenty-eight key solvents were represented using 17 physicochemical descriptors. Clustering analysis results implied that the descriptor represents the chemical characteristics of the solvent molecules. During the assessment of an organometallic reaction system, the regression analysis indicated that learning even a small number of experimental results can be useful for identifying solvents that will produce high experimental yields. Observation of the regression coefficients, and both clustering and regression analysis, can be effective when selecting a solvent to be used for an experiment.",
+		"container-title": "Bulletin of the Chemical Society of Japan",
+		"DOI": "10.1246/bcsj.20200045",
+		"ISSN": "0009-2673",
+		"issue": "7",
+		"journalAbbreviation": "BCSJ",
+		"note": "number: 7\npublisher: The Chemical Society of Japan",
+		"page": "841-845",
+		"source": "journal.csj.jp (Atypon)",
+		"title": "Solvent Selection Scheme Using Machine Learning Based on Physicochemical Description of Solvent Molecules: Application to Cyclic Organometallic Reaction",
+		"title-short": "Solvent Selection Scheme Using Machine Learning Based on Physicochemical Description of Solvent Molecules",
+		"URL": "https://www.journal.csj.jp/doi/10.1246/bcsj.20200045",
+		"volume": "93",
+		"author": [
+			{
+				"family": "Fujinami",
+				"given": "Mikito"
+			},
+			{
+				"family": "Maekawara",
+				"given": "Hiroki"
+			},
+			{
+				"family": "Isshiki",
+				"given": "Ryota"
+			},
+			{
+				"family": "Seino",
+				"given": "Junji"
+			},
+			{
+				"family": "Yamaguchi",
+				"given": "Junichiro"
+			},
+			{
+				"family": "Nakai",
+				"given": "Hiromi"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					7,
+					15
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/7ZI34PVJ",
+		"type": "article-journal",
+		"abstract": "A solvent selection scheme for optimization of reactions is proposed using machine learning, based on the numerical descriptions of solvent molecules. Twenty-eight key solvents were represented using 17 physicochemical descriptors. Clustering analysis results implied that the descriptor represents the chemical characteristics of the solvent molecules. During the assessment of an organometallic reaction system, the regression analysis indicated that learning even a small number of experimental results can be useful for identifying solvents that will produce high experimental yields. Observation of the regression coefficients, and both clustering and regression analysis, can be effective when selecting a solvent to be used for an experiment.",
+		"archive_location": "world",
+		"container-title": "Bulletin of the Chemical Society of Japan",
+		"DOI": "10.1246/bcsj.20200045",
+		"language": "en",
+		"license": "The Chemical Society of Japan",
+		"note": "publisher: The Chemical Society of Japan",
+		"source": "www.journal.csj.jp",
+		"title": "Solvent Selection Scheme Using Machine Learning Based on Physicochemical Description of Solvent Molecules: Application to Cyclic Organometallic Reaction",
+		"title-short": "Solvent Selection Scheme Using Machine Learning Based on Physicochemical Description of Solvent Molecules",
+		"URL": "https://www.journal.csj.jp/doi/10.1246/bcsj.20200045",
+		"author": [
+			{
+				"family": "Fujinami",
+				"given": "Mikito"
+			},
+			{
+				"family": "Maekawara",
+				"given": "Hiroki"
+			},
+			{
+				"family": "Isshiki",
+				"given": "Ryota"
+			},
+			{
+				"family": "Seino",
+				"given": "Junji"
+			},
+			{
+				"family": "Yamaguchi",
+				"given": "Junichiro"
+			},
+			{
+				"family": "Nakai",
+				"given": "Hiromi"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					4,
+					21
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/78IMSW9A",
+		"type": "article",
+		"abstract": "This paper surveys and organizes research works in a new paradigm in natural language processing, which we dub \"prompt-based learning\". Unlike traditional supervised learning, which trains a model to take in an input x and predict an output y as P(y|x), prompt-based learning is based on language models that model the probability of text directly. To use these models to perform prediction tasks, the original input x is modified using a template into a textual string prompt x' that has some unfilled slots, and then the language model is used to probabilistically fill the unfilled information to obtain a final string x, from which the final output y can be derived. This framework is powerful and attractive for a number of reasons: it allows the language model to be pre-trained on massive amounts of raw text, and by defining a new prompting function the model is able to perform few-shot or even zero-shot learning, adapting to new scenarios with few or no labeled data. In this paper we introduce the basics of this promising paradigm, describe a unified set of mathematical notations that can cover a wide variety of existing work, and organize existing work along several dimensions, e.g.the choice of pre-trained models, prompts, and tuning strategies. To make the field more accessible to interested beginners, we not only make a systematic review of existing works and a highly structured typology of prompt-based concepts, but also release other resources, e.g., a website http://pretrain.nlpedia.ai/ including constantly-updated survey, and paperlist.",
+		"language": "en",
+		"note": "issue: arXiv:2107.13586\narXiv:2107.13586 [cs]",
+		"number": "arXiv:2107.13586",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Pre-train, Prompt, and Predict: A Systematic Survey of Prompting Methods in Natural Language Processing",
+		"title-short": "Pre-train, Prompt, and Predict",
+		"URL": "http://arxiv.org/abs/2107.13586",
+		"author": [
+			{
+				"family": "Liu",
+				"given": "Pengfei"
+			},
+			{
+				"family": "Yuan",
+				"given": "Weizhe"
+			},
+			{
+				"family": "Fu",
+				"given": "Jinlan"
+			},
+			{
+				"family": "Jiang",
+				"given": "Zhengbao"
+			},
+			{
+				"family": "Hayashi",
+				"given": "Hiroaki"
+			},
+			{
+				"family": "Neubig",
+				"given": "Graham"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					7,
+					28
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/ZKAZIHBN",
+		"type": "article",
+		"abstract": "Recent progress in pretraining language models on large textual corpora led to a surge of improvements for downstream NLP tasks. Whilst learning linguistic knowledge, these models may also be storing relational knowledge present in the training data, and may be able to answer queries structured as “ﬁllin-the-blank” cloze statements. Language models have many advantages over structured knowledge bases: they require no schema engineering, allow practitioners to query about an open class of relations, are easy to extend to more data, and require no human supervision to train. We present an in-depth analysis of the relational knowledge already present (without ﬁne-tuning) in a wide range of state-of-theart pretrained language models. We ﬁnd that (i) without ﬁne-tuning, BERT contains relational knowledge competitive with traditional NLP methods that have some access to oracle knowledge, (ii) BERT also does remarkably well on open-domain question answering against a supervised baseline, and (iii) certain types of factual knowledge are learned much more readily than others by standard language model pretraining approaches. The surprisingly strong ability of these models to recall factual knowledge without any ﬁne-tuning demonstrates their potential as unsupervised open-domain QA systems. The code to reproduce our analysis is available at https: //github.com/facebookresearch/LAMA.",
+		"language": "en",
+		"note": "issue: arXiv:1909.01066\narXiv:1909.01066 [cs]",
+		"number": "arXiv:1909.01066",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Language Models as Knowledge Bases?",
+		"URL": "http://arxiv.org/abs/1909.01066",
+		"author": [
+			{
+				"family": "Petroni",
+				"given": "Fabio"
+			},
+			{
+				"family": "Rocktäschel",
+				"given": "Tim"
+			},
+			{
+				"family": "Lewis",
+				"given": "Patrick"
+			},
+			{
+				"family": "Bakhtin",
+				"given": "Anton"
+			},
+			{
+				"family": "Wu",
+				"given": "Yuxiang"
+			},
+			{
+				"family": "Miller",
+				"given": "Alexander H."
+			},
+			{
+				"family": "Riedel",
+				"given": "Sebastian"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					20
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					9,
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/5X8K3NPL",
+		"type": "article",
+		"abstract": "When scaled to hundreds of billions of parameters, pretrained language models such as GPT-3 (Brown et al., 2020) achieve remarkable few-shot performance. However, enormous amounts of compute are required for training and applying such big models, resulting in a large carbon footprint and making it difficult for researchers and practitioners to use them. We show that performance similar to GPT-3 can be obtained with language models that are much \"greener\" in that their parameter count is several orders of magnitude smaller. This is achieved by converting textual inputs into cloze questions that contain a task description, combined with gradient-based optimization; exploiting unlabeled data gives further improvements. We identify key factors required for successful natural language understanding with small language models.",
+		"language": "en",
+		"note": "issue: arXiv:2009.07118\narXiv:2009.07118 [cs]",
+		"number": "arXiv:2009.07118",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "It's Not Just Size That Matters: Small Language Models Are Also Few-Shot Learners",
+		"title-short": "It's Not Just Size That Matters",
+		"URL": "http://arxiv.org/abs/2009.07118",
+		"author": [
+			{
+				"family": "Schick",
+				"given": "Timo"
+			},
+			{
+				"family": "Schütze",
+				"given": "Hinrich"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					4,
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/VJ747GKE",
+		"type": "report",
+		"abstract": "Data-driven approaches to retrosynthesis have thus far been limited in user interaction, in the diversity of their predictions, and the recommendation of unintuitive disconnection strategies. Herein, we extend the notions of prompt- based inference in natural language processing to the task of chemical language modeling. We show that by using a prompt describing the disconnection site in a molecule, we can steer the model to propose a wider set of precursors, overcoming training data biases in retrosynthetic recommendations and achiev- ing a 39 % performance improvement over the baseline. For the first time, the use of a disconnection prompt empowers chemists by giving them back greater control over the disconnection predictions, resulting in more diverse and creative recommendations. In addition, in place of a human-in-the-loop strategy, we propose a schema for automatic identification of disconnection sites, followed by prediction of reactant sets, achieving a 100 % improvement in class diversity as compared to the baseline. The approach is effective in mitigating prediction biases deriving from training data. In turn, this provides a larger variety of usable building blocks, which improves the end-user digital experience. We demonstrate its application to different chemistry domains, from traditional to enzymatic reactions, in which substrate specificity is key.",
+		"genre": "preprint",
+		"language": "en",
+		"note": "DOI: 10.26434/chemrxiv-2022-gx9gb",
+		"publisher": "Chemistry",
+		"source": "DOI.org (Crossref)",
+		"title": "Unbiasing Retrosynthesis Language Models with Disconnection Prompts",
+		"URL": "https://chemrxiv.org/engage/chemrxiv/article-details/6328d0b8ba8a6d04fc551df7",
+		"author": [
+			{
+				"family": "Thakkar",
+				"given": "Amol"
+			},
+			{
+				"family": "Vaucher",
+				"given": "Alain"
+			},
+			{
+				"family": "Byekwaso",
+				"given": "Andrea"
+			},
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Toniato",
+				"given": "Alessandra"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					20
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/G96YEWZY",
+		"type": "webpage",
+		"language": "en",
+		"note": "DOI: 10.1126/sciadv.abe4166",
+		"title": "Extraction of organic chemistry grammar from unsupervised learning of chemical reactions",
+		"URL": "https://www.science.org/doi/10.1126/sciadv.abe4166",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/MQHNNJ6H",
+		"type": "webpage",
+		"abstract": "Are you interested to know what scientists are doing to improve the sustainability of the chemistry that goes into the creation of our favourite products?",
+		"container-title": "thefactsabout.co.uk",
+		"language": "en",
+		"title": "Green Chemistry - What Scientists are Doing to Make Chemistry more Environmentally Friendly",
+		"URL": "https://www.thefactsabout.co.uk/news/green-chemistry-what-scientists-are-doing-to-make-chemistry-more-environmentally-friendly",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					21
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/MGQXYK5B",
+		"type": "article-journal",
+		"abstract": "Undesired toxicity is a major hindrance in drug discovery and largely responsible for high attrition rates in the early stages. This calls for new, reliable, and interpretable molecular property prediction models that help to prioritize compounds and thus reduce the high costs for development and the risk to humans, animals, and the environment. Here, we propose ToxSmi, an interpretable chemical language model that combines self-attention with multiscale convolutions and relies on data augmentation. We ﬁrst benchmark various molecular representations (e.g., ﬁngerprints, diﬀerent ﬂavors of SMILES and SELFIES, as well as graph and graph kernel methods) revealing that SMILES coupled with augmentation overall yields the best performance. Despite its simplicity, ToxSmi is then shown to outperform existing approaches across a wide range of molecular property prediction tasks, including but not limited to toxicity. Moreover, the attention weights of ToxSmi allow for easy interpretation and show enrichment of known toxicophores even without explicit supervision. To introduce a notion of model reliability, we propose and combine two simple methods for uncertainty estimation (Monte-Carlo dropout and test-time-augmentation). These methods not only identify samples with high prediction uncertainty, but also allow forming implicit model ensembles that improve accuracy. Last, we validate ToxSmi on a large-scale proprietary toxicity dataset and ﬁnd that it outperforms previous work while giving similar insights into revealing cytotoxic substructures.",
+		"language": "en",
+		"page": "36",
+		"source": "Zotero",
+		"title": "Chemical Representation Learning for Toxicity Prediction",
+		"author": [
+			{
+				"family": "Born",
+				"given": "Jannis"
+			},
+			{
+				"family": "Markert",
+				"given": "Greta"
+			},
+			{
+				"family": "Janakarajan",
+				"given": "Nikita"
+			},
+			{
+				"family": "Kimber",
+				"given": "Talia B"
+			},
+			{
+				"family": "Volkamer",
+				"given": "Andrea"
+			},
+			{
+				"family": "Martınez",
+				"given": "Marıa Rodrıguez"
+			},
+			{
+				"family": "Manica",
+				"given": "Matteo"
+			}
+		]
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/89IY67YQ",
+		"type": "article-journal",
+		"abstract": "Over the past four years, several research groups demonstrated the combination of domainspeciﬁc language representation with recent NLP architectures to accelerate innovation in a wide range of scientiﬁc ﬁelds. Chemistry is a great example. Among the various chemical challenges addressed with language models, retrosynthesis demonstrates some of the most distinctive successes and limitations. Single-step retrosynthesis, the task of identifying reactions able to decompose a complex molecule into simpler structures, can be cast as a translation problem, in which a text-based representation of the target molecule is converted into a sequence of possible precursors. A common issue is a lack of diversity in the proposed disconnection strategies. The suggested precursors typically fall in the same reaction family, which limits the exploration of the chemical space. We present a retrosynthesis Transformer model that increases the diversity of the predictions by prepending a classiﬁcation token to the language representation of the target molecule. At inference, the use of these prompt tokens allows us to steer the model towards different kinds of disconnection strategies. We show that the diversity of the predictions improves consistently, which enables recursive synthesis tools to circumvent dead ends and consequently, suggests synthesis pathways for more complex molecules.",
+		"language": "en",
+		"page": "25",
+		"source": "Zotero",
+		"title": "Enhancing diversity in language based models for single-step retrosynthesis",
+		"author": [
+			{
+				"family": "Toniato",
+				"given": "Alessandra"
+			},
+			{
+				"family": "Vaucher",
+				"given": "Alain C"
+			},
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Laino",
+				"given": "Teodoro"
+			}
+		]
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/M85B8FXU",
+		"type": "article-journal",
+		"abstract": "Identifying interaction between drug and protein is a crucial challenge in drug discovery, which can lead the researchers to develop novel drug compounds or new target proteins for the existing drugs. The determination of drug–target interactions (DTIs) is an extremely time-consuming, costly, and tedious task with wet-lab experiments. To date, multiple computational techniques have been presented to simplify the drug discovery process, but a huge number of interactions are still undiscovered. Furthermore, a class imbalance is a critical challenge regarding this experiment which can significantly degrade the classification accuracy that has not been effectively addressed yet. In this paper, we proposed a novel high-throughput computational model, called iDTi-CSsmoteB, for identification of DTIs based on drug chemical structures and protein sequences. More specifically, the protein sequence is extracted through position-specific scoring matrix (PSSM)-Bigram, amphiphilic pseudo amino acid composition (AM-PseAAC) and dipeptide PseAAC descriptors which represents evolutionary and sequence information. The drug chemical structure is represented as a molecular substructure fingerprint (MSF) which describes the existence of the functional fragments or groups. Finally, we used the over-sampling SMOTE technique to overcome the imbalance issue of the datasets and applied XGBoost algorithm as a classifier to predict DTIs. To evaluate the performance of iDTi-CSsmoteB, several experiments have been conducted on four benchmark datasets, namely, enzyme, ion channel, GPCR, and nuclear receptor based on fivefold cross validation. The experimental analysis exhibits that our model outperforms similar methods in terms of area under the ROC (auROC) curve. In addition, our achieved results indicate the effectiveness of the feature extraction techniques, balancing methods, and classifier for predicting the DTIs which can provide substance for new drug development. iDTi-CSsmoteB webserver is available online at http://idticssmoteb-uestc.me/.",
+		"container-title": "IEEE Access",
+		"DOI": "10.1109/ACCESS.2019.2910277",
+		"ISSN": "2169-3536",
+		"note": "event-title: IEEE Access",
+		"page": "48699-48714",
+		"source": "IEEE Xplore",
+		"title": "iDTi-CSsmoteB: Identification of Drug–Target Interaction Based on Drug Chemical Structure and Protein Sequence Using XGBoost With Over-Sampling Technique SMOTE",
+		"title-short": "iDTi-CSsmoteB",
+		"volume": "7",
+		"author": [
+			{
+				"family": "Mahmud",
+				"given": "S. M. Hasan"
+			},
+			{
+				"family": "Chen",
+				"given": "Wenyu"
+			},
+			{
+				"family": "Jahan",
+				"given": "Hosney"
+			},
+			{
+				"family": "Liu",
+				"given": "Yongsheng"
+			},
+			{
+				"family": "Sujan",
+				"given": "Nasir Islam"
+			},
+			{
+				"family": "Ahmed",
+				"given": "Saeed"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2019"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/Q8XWTEX9",
+		"type": "article-journal",
+		"abstract": "Differential Reaction Fingerprint DRFP is a chemical reaction fingerprint enabling simple machine learning models running on standard hardware to reach DFT- and deep learning-based accuracies in reaction yield prediction and reaction classification.\n          , \n            \n              Predicting the nature and outcome of reactions using computational methods is a crucial tool to accelerate chemical research. The recent application of deep learning-based learned fingerprints to reaction classification and reaction yield prediction has shown an impressive increase in performance compared to previous methods such as DFT- and structure-based fingerprints. However, learned fingerprints require large training data sets, are inherently biased, and are based on complex deep learning architectures. Here we present the differential reaction fingerprint\n              DRFP\n              . The\n              DRFP\n              algorithm takes a reaction SMILES as an input and creates a binary fingerprint based on the symmetric difference of two sets containing the circular molecular\n              n\n              -grams generated from the molecules listed left and right from the reaction arrow, respectively, without the need for distinguishing between reactants and reagents. We show that\n              DRFP\n              performs better than DFT-based fingerprints in reaction yield prediction and other structure-based fingerprints in reaction classification, reaching the performance of state-of-the-art learned fingerprints in both tasks while being data-independent.",
+		"container-title": "Digital Discovery",
+		"DOI": "10.1039/D1DD00006C",
+		"ISSN": "2635-098X",
+		"issue": "2",
+		"journalAbbreviation": "Digital Discovery",
+		"language": "en",
+		"note": "number: 2",
+		"page": "91-97",
+		"source": "DOI.org (Crossref)",
+		"title": "Reaction classification and yield prediction using the differential reaction fingerprint DRFP",
+		"URL": "http://xlink.rsc.org/?DOI=D1DD00006C",
+		"volume": "1",
+		"author": [
+			{
+				"family": "Probst",
+				"given": "Daniel"
+			},
+			{
+				"family": "Schwaller",
+				"given": "Philippe"
+			},
+			{
+				"family": "Reymond",
+				"given": "Jean-Louis"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					24
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/J7C322G5",
+		"type": "article-journal",
+		"abstract": "Carcinogenicity refers to a highly toxic end point of certain chemicals, and has become an important issue in the drug development process. In this study, three novel ensemble classification models, namely Ensemble SVM, Ensemble RF, and Ensemble XGBoost, were developed to predict carcinogenicity of chemicals using seven types of molecular fingerprints and three machine learning methods based on a dataset containing 1003 diverse compounds with rat carcinogenicity. Among these three models, Ensemble XGBoost is found to be the best, giving an average accuracy of 70.1 ± 2.9%, sensitivity of 67.0 ± 5.0%, and specificity of 73.1 ± 4.4% in five-fold cross-validation and an accuracy of 70.0%, sensitivity of 65.2%, and specificity of 76.5% in external validation. In comparison with some recent methods, the ensemble models outperform some machine learning-based approaches and yield equal accuracy and higher specificity but lower sensitivity than rule-based expert systems. It is also found that the ensemble models could be further improved if more data were available. As an application, the ensemble models are employed to discover potential carcinogens in the DrugBank database. The results indicate that the proposed models are helpful in predicting the carcinogenicity of chemicals. A web server called CarcinoPred-EL has been built for these models (http://ccsipb.lnu.edu.cn/toxicity/CarcinoPred-EL/).",
+		"container-title": "Scientific Reports",
+		"DOI": "10.1038/s41598-017-02365-0",
+		"ISSN": "2045-2322",
+		"issue": "1",
+		"journalAbbreviation": "Sci Rep",
+		"language": "en",
+		"license": "2017 The Author(s)",
+		"note": "number: 1\npublisher: Nature Publishing Group",
+		"page": "2118",
+		"source": "www.nature.com",
+		"title": "CarcinoPred-EL: Novel models for predicting the carcinogenicity of chemicals using molecular fingerprints and ensemble learning methods",
+		"title-short": "CarcinoPred-EL",
+		"URL": "https://www.nature.com/articles/s41598-017-02365-0",
+		"volume": "7",
+		"author": [
+			{
+				"family": "Zhang",
+				"given": "Li"
+			},
+			{
+				"family": "Ai",
+				"given": "Haixin"
+			},
+			{
+				"family": "Chen",
+				"given": "Wen"
+			},
+			{
+				"family": "Yin",
+				"given": "Zimo"
+			},
+			{
+				"family": "Hu",
+				"given": "Huan"
+			},
+			{
+				"family": "Zhu",
+				"given": "Junfeng"
+			},
+			{
+				"family": "Zhao",
+				"given": "Jian"
+			},
+			{
+				"family": "Zhao",
+				"given": "Qi"
+			},
+			{
+				"family": "Liu",
+				"given": "Hongsheng"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					24
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					5,
+					18
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/CC3DYPHF",
+		"type": "article-journal",
+		"abstract": "Multi-objective evolutionary algorithms (MOEAs) that use non-dominated sorting and sharing have been criticized mainly for: (1) their O(MN/sup 3/) computational complexity (where M is the number of objectives and N is the population size); (2) their non-elitism approach; and (3) the need to specify a sharing parameter. In this paper, we suggest a non-dominated sorting-based MOEA, called NSGA-II (Non-dominated Sorting Genetic Algorithm II), which alleviates all of the above three difficulties. Specifically, a fast non-dominated sorting approach with O(MN/sup 2/) computational complexity is presented. Also, a selection operator is presented that creates a mating pool by combining the parent and offspring populations and selecting the best N solutions (with respect to fitness and spread). Simulation results on difficult test problems show that NSGA-II is able, for most problems, to find a much better spread of solutions and better convergence near the true Pareto-optimal front compared to the Pareto-archived evolution strategy and the strength-Pareto evolutionary algorithm - two other elitist MOEAs that pay special attention to creating a diverse Pareto-optimal front. Moreover, we modify the definition of dominance in order to solve constrained multi-objective problems efficiently. Simulation results of the constrained NSGA-II on a number of test problems, including a five-objective, seven-constraint nonlinear problem, are compared with another constrained multi-objective optimizer, and the much better performance of NSGA-II is observed.",
+		"container-title": "IEEE Transactions on Evolutionary Computation",
+		"DOI": "10.1109/4235.996017",
+		"ISSN": "1941-0026",
+		"issue": "2",
+		"note": "number: 2\nevent-title: IEEE Transactions on Evolutionary Computation",
+		"page": "182-197",
+		"source": "IEEE Xplore",
+		"title": "A fast and elitist multiobjective genetic algorithm: NSGA-II",
+		"title-short": "A fast and elitist multiobjective genetic algorithm",
+		"volume": "6",
+		"author": [
+			{
+				"family": "Deb",
+				"given": "K."
+			},
+			{
+				"family": "Pratap",
+				"given": "A."
+			},
+			{
+				"family": "Agarwal",
+				"given": "S."
+			},
+			{
+				"family": "Meyarivan",
+				"given": "T."
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2002",
+					4
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/HUY6GU6Z",
+		"type": "article",
+		"abstract": "Given a long list of anomaly detection algorithms developed in the last few decades, how do they perform with regard to (i) varying levels of supervision, (ii) different types of anomalies, and (iii) noisy and corrupted data? In this work, we answer these key questions by conducting (to our best knowledge) the most comprehensive anomaly detection benchmark with 30 algorithms on 57 benchmark datasets, named ADBench. Our extensive experiments (98,436 in total) identify meaningful insights into the role of supervision and anomaly types, and unlock future directions for researchers in algorithm selection and design. With ADBench, researchers can efﬁciently conduct comprehensive and fair evaluations for newly proposed methods on the datasets (including our contributed ones from natural language and computer vision domains) against the existing baselines. To foster accessibility and reproducibility, we fully open-source ADBench and the corresponding results.",
+		"language": "en",
+		"note": "issue: arXiv:2206.09426\narXiv:2206.09426 [cs]",
+		"number": "arXiv:2206.09426",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "ADBench: Anomaly Detection Benchmark",
+		"title-short": "ADBench",
+		"URL": "http://arxiv.org/abs/2206.09426",
+		"author": [
+			{
+				"family": "Han",
+				"given": "Songqiao"
+			},
+			{
+				"family": "Hu",
+				"given": "Xiyang"
+			},
+			{
+				"family": "Huang",
+				"given": "Hailiang"
+			},
+			{
+				"family": "Jiang",
+				"given": "Mingqi"
+			},
+			{
+				"family": "Zhao",
+				"given": "Yue"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					26
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					16
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/9JV2MREG",
+		"type": "article-journal",
+		"abstract": "The synthesis of thousands of candidate compounds in drug discovery and development oﬀers opportunities for computer-aided synthesis planning to simplify the synthesis of molecule libraries by leveraging common starting materials and reaction conditions. We develop an optimization-based method to analyze large organic chemical reaction networks and design overlapping synthesis plans for entire molecule libraries so as to minimize the overall number of unique chemical compounds needed as either starting materials or reaction conditions. We consider multiple objectives, including the number of starting materials, the number of catalysts/solvents/reagents, and the likelihood of success of the overall syntheses plan, to select an optimal reaction network to access the target molecules. The library synthesis planning task was formulated as a network ﬂow optimization problem, and we design an eﬃcient decomposition scheme that reduces solution time by a factor of 5 and scales to instance with 48 target molecules and nearly 8000 intermediate reactions within hours. In four case studies of pharmaceutical compounds, the approach reduces the number of starting materials and catalysts/solvents/reagents needed by 32.2 and 66.0% on average and up to 63.2 and 80.0% in the best cases. The code implementation can be found at https://github.com/Coughy1991/Molecule_library_synthesis.",
+		"container-title": "Journal of Chemical Information and Modeling",
+		"DOI": "10.1021/acs.jcim.0c01032",
+		"ISSN": "1549-9596, 1549-960X",
+		"issue": "1",
+		"journalAbbreviation": "J. Chem. Inf. Model.",
+		"language": "en",
+		"note": "number: 1",
+		"page": "493-504",
+		"source": "DOI.org (Crossref)",
+		"title": "Direct Optimization across Computer-Generated Reaction Networks Balances Materials Use and Feasibility of Synthesis Plans for Molecule Libraries",
+		"URL": "https://pubs.acs.org/doi/10.1021/acs.jcim.0c01032",
+		"volume": "61",
+		"author": [
+			{
+				"family": "Gao",
+				"given": "Hanyu"
+			},
+			{
+				"family": "Pauphilet",
+				"given": "Jean"
+			},
+			{
+				"family": "Struble",
+				"given": "Thomas J."
+			},
+			{
+				"family": "Coley",
+				"given": "Connor W."
+			},
+			{
+				"family": "Jensen",
+				"given": "Klavs F."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					27
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					1,
+					25
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/FEEWW24K",
+		"type": "book",
+		"collection-title": "Methods in Molecular Biology",
+		"event-place": "New York, NY",
+		"ISBN": "978-1-07-161786-1",
+		"language": "en",
+		"note": "DOI: 10.1007/978-1-0716-1787-8",
+		"publisher": "Springer US",
+		"publisher-place": "New York, NY",
+		"source": "DOI.org (Crossref)",
+		"title": "Artificial Intelligence in Drug Design",
+		"URL": "https://link.springer.com/10.1007/978-1-0716-1787-8",
+		"volume": "2390",
+		"editor": [
+			{
+				"family": "Heifetz",
+				"given": "Alexander"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					27
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/23TRBCAD",
+		"type": "article",
+		"abstract": "Since deep neural networks were developed, they have made huge contributions to peoples everyday lives. Machine learning provides more rational advice than humans are capable of in almost every aspect of daily life. However, despite this achievement, the design and training of neural networks are still challenging and unpredictable procedures that have been alleged to be alchemy. To lower the technical thresholds for common users, automated hyper-parameter optimization (HPO) has become a popular topic in both academic and industrial areas. This paper provides a review of the most essential topics on HPO. The ﬁrst section introduces the key hyper-parameters related to model training and structure, and discusses their importance and methods to deﬁne the value range. Then, the research focuses on major optimization algorithms and their applicability, covering their eﬃciency and accuracy especially for deep learning networks. This study next reviews major services and tool-kits for HPO, comparing their support for state-of-the-art searching algorithms, feasibility with major deep-learning frameworks, and extensibility for new modules designed by users. The paper concludes with problems that exist when HPO is applied to deep learning, a comparison between optimization algorithms, and prominent approaches for model evaluation with limited computational resources.",
+		"language": "en",
+		"note": "issue: arXiv:2003.05689\narXiv:2003.05689 [cs, stat]",
+		"number": "arXiv:2003.05689",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Hyper-Parameter Optimization: A Review of Algorithms and Applications",
+		"title-short": "Hyper-Parameter Optimization",
+		"URL": "http://arxiv.org/abs/2003.05689",
+		"author": [
+			{
+				"family": "Yu",
+				"given": "Tong"
+			},
+			{
+				"family": "Zhu",
+				"given": "Hong"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					28
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					3,
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/FGKT2NXM",
+		"type": "webpage",
+		"title": "Introduction — Ensemble-PyTorch documentation",
+		"URL": "https://ensemble-pytorch.readthedocs.io/en/latest/introduction.html#id3",
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					30
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					11,
+					30
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/4FQZWURJ",
+		"type": "paper-conference",
+		"abstract": "Attention-based neural networks such as the Vision Transformer (ViT) have recently attained state-of-the-art results on many computer vision benchmarks. Scale is a primary ingredient in attaining excellent results, therefore, understanding a model’s scaling properties is a key to designing future generations effectively. While the laws for scaling Transformer language models have been studied, it is unknown how Vision Transformers scale. To address this, we scale ViT models and data, both up and down, and characterize the relationships between error rate, data, and compute. Along the way, we reﬁne the architecture and training of ViT, reducing memory consumption and increasing accuracy of the resulting models. As a result, we successfully train a ViT model with two billion parameters, which attains a new state-of-the-art on ImageNet of 90.45% top-1 accuracy. The model also performs well for few-shot transfer, for example, reaching 84.86% top-1 accuracy on ImageNet with only 10 examples per class.",
+		"container-title": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+		"DOI": "10.1109/CVPR52688.2022.01179",
+		"event-place": "New Orleans, LA, USA",
+		"event-title": "2022 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+		"ISBN": "978-1-66546-946-3",
+		"language": "en",
+		"page": "1204-1213",
+		"publisher": "IEEE",
+		"publisher-place": "New Orleans, LA, USA",
+		"source": "DOI.org (Crossref)",
+		"title": "Scaling Vision Transformers",
+		"URL": "https://ieeexplore.ieee.org/document/9880094/",
+		"author": [
+			{
+				"family": "Zhai",
+				"given": "Xiaohua"
+			},
+			{
+				"family": "Kolesnikov",
+				"given": "Alexander"
+			},
+			{
+				"family": "Houlsby",
+				"given": "Neil"
+			},
+			{
+				"family": "Beyer",
+				"given": "Lucas"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					2
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					6
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/8A8YNIQ4",
+		"type": "paper-conference",
+		"abstract": "There is a recent surge of interest in using attention as explanation of model predictions, with mixed evidence on whether attention can be used as such. While attention conveniently gives us one weight per input token and is easily extracted, it is often unclear toward what goal it is used as explanation. We ﬁnd that often that goal, whether explicitly stated or not, is to ﬁnd out what input tokens are the most relevant to a prediction, and that the implied user for the explanation is a model developer. For this goal and user, we argue that input saliency methods are better suited, and that there are no compelling reasons to use attention, despite the coincidence that it provides a weight for each input. With this position paper, we hope to shift some of the recent focus on attention to saliency methods, and for authors to clearly state the goal and user for their explanations.",
+		"container-title": "Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP",
+		"DOI": "10.18653/v1/2020.blackboxnlp-1.14",
+		"event-place": "Online",
+		"event-title": "Proceedings of the Third BlackboxNLP Workshop on Analyzing and Interpreting Neural Networks for NLP",
+		"language": "en",
+		"page": "149-155",
+		"publisher": "Association for Computational Linguistics",
+		"publisher-place": "Online",
+		"source": "DOI.org (Crossref)",
+		"title": "The elephant in the interpretability room: Why use attention as explanation when we have saliency methods?",
+		"title-short": "The elephant in the interpretability room",
+		"URL": "https://www.aclweb.org/anthology/2020.blackboxnlp-1.14",
+		"author": [
+			{
+				"family": "Bastings",
+				"given": "Jasmijn"
+			},
+			{
+				"family": "Filippova",
+				"given": "Katja"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					5
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GL5NF76F",
+		"type": "article",
+		"abstract": "We study the problem of attributing the prediction of a deep network to its input features, a problem previously studied by several other works. We identify two fundamental axioms—Sensitivity and Implementation Invariance that attribution methods ought to satisfy. We show that they are not satisﬁed by most known attribution methods, which we consider to be a fundamental weakness of those methods. We use the axioms to guide the design of a new attribution method called Integrated Gradients. Our method requires no modiﬁcation to the original network and is extremely simple to implement; it just needs a few calls to the standard gradient operator. We apply this method to a couple of image models, a couple of text models and a chemistry model, demonstrating its ability to debug networks, to extract rules from a network, and to enable users to engage with models better.",
+		"language": "en",
+		"note": "issue: arXiv:1703.01365\narXiv:1703.01365 [cs]",
+		"number": "arXiv:1703.01365",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Axiomatic Attribution for Deep Networks",
+		"URL": "http://arxiv.org/abs/1703.01365",
+		"author": [
+			{
+				"family": "Sundararajan",
+				"given": "Mukund"
+			},
+			{
+				"family": "Taly",
+				"given": "Ankur"
+			},
+			{
+				"family": "Yan",
+				"given": "Qiqi"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					5
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					6,
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/SIC7IB92",
+		"type": "article-journal",
+		"abstract": "This study highlights new opportunities for optimal reaction route selection from large chemical databases brought about by the rapid digitalisation of chemical data.\n          , \n            This study highlights new opportunities for optimal reaction route selection from large chemical databases brought about by the rapid digitalisation of chemical data. The chemical industry requires a transformation towards more sustainable practices, eliminating its dependencies on fossil fuels and limiting its impact on the environment. However, identifying more sustainable process alternatives is, at present, a cumbersome, manual, iterative process, based on chemical intuition and modelling. We give a perspective on methods for automated discovery and assessment of competitive sustainable reaction routes based on renewable or waste feedstocks. Three key areas of transition are outlined and reviewed based on their state-of-the-art as well as bottlenecks: (i) data, (ii) evaluation metrics, and (iii) decision-making. We elucidate their synergies and interfaces since only together these areas can bring about the most benefit. The field of chemical data intelligence offers the opportunity to identify the inherently more sustainable reaction pathways and to identify opportunities for a circular chemical economy. Our review shows that at present the field of data brings about most bottlenecks, such as data completion and data linkage, but also offers the principal opportunity for advancement.",
+		"container-title": "Chemical Society Reviews",
+		"DOI": "10.1039/D1CS00477H",
+		"ISSN": "0306-0012, 1460-4744",
+		"issue": "21",
+		"journalAbbreviation": "Chem. Soc. Rev.",
+		"language": "en",
+		"note": "number: 21",
+		"page": "12013-12036",
+		"source": "DOI.org (Crossref)",
+		"title": "Chemical data intelligence for sustainable chemistry",
+		"URL": "http://xlink.rsc.org/?DOI=D1CS00477H",
+		"volume": "50",
+		"author": [
+			{
+				"family": "Weber",
+				"given": "Jana M."
+			},
+			{
+				"family": "Guo",
+				"given": "Zhen"
+			},
+			{
+				"family": "Zhang",
+				"given": "Chonghuan"
+			},
+			{
+				"family": "Schweidtmann",
+				"given": "Artur M."
+			},
+			{
+				"family": "Lapkin",
+				"given": "Alexei A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					6
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/5XGPZG4G",
+		"type": "article-journal",
+		"abstract": "Abstract\n            We expand the recent work on clustering of synthetic routes and train a deep learning model to predict the distances between arbitrary routes. The model is based on a long short-term memory representation of a synthetic route and is trained as a twin network to reproduce the tree edit distance (TED) between two routes. The machine learning approach is approximately two orders of magnitude faster than the TED approach and enables clustering many more routes from a retrosynthesis route prediction. The clusters have a high degree of similarity to the clusters given by the TED-based approach and are accordingly intuitive and explainable. We provide the developed model as open-source.",
+		"container-title": "Machine Learning: Science and Technology",
+		"DOI": "10.1088/2632-2153/ac4a91",
+		"ISSN": "2632-2153",
+		"issue": "1",
+		"journalAbbreviation": "Mach. Learn.: Sci. Technol.",
+		"language": "en",
+		"note": "number: 1",
+		"page": "015018",
+		"source": "DOI.org (Crossref)",
+		"title": "Fast prediction of distances between synthetic routes with deep learning",
+		"URL": "https://iopscience.iop.org/article/10.1088/2632-2153/ac4a91",
+		"volume": "3",
+		"author": [
+			{
+				"family": "Genheden",
+				"given": "Samuel"
+			},
+			{
+				"family": "Engkvist",
+				"given": "Ola"
+			},
+			{
+				"family": "Bjerrum",
+				"given": "Esben"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					6
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					3,
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/ZUWBACDT",
+		"type": "article-journal",
+		"container-title": "Nature",
+		"DOI": "10.1038/nature25978",
+		"ISSN": "0028-0836, 1476-4687",
+		"issue": "7698",
+		"journalAbbreviation": "Nature",
+		"language": "en",
+		"note": "number: 7698",
+		"page": "604-610",
+		"source": "DOI.org (Crossref)",
+		"title": "Planning chemical syntheses with deep neural networks and symbolic AI",
+		"URL": "http://www.nature.com/articles/nature25978",
+		"volume": "555",
+		"author": [
+			{
+				"family": "Segler",
+				"given": "Marwin H. S."
+			},
+			{
+				"family": "Preuss",
+				"given": "Mike"
+			},
+			{
+				"family": "Waller",
+				"given": "Mark P."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					6
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/CBHN2EFN",
+		"type": "article-journal",
+		"abstract": "The ﬁrst green chemistry metricsthe E factor (kgs waste/kg product) and atom economy (mol wt of product/sum of mol wts of starting materials)were introduced in the early 1990s and were actually green chemistry avant la lettre. In the last two decades, these two metrics have been adopted worldwide by both academia and industry. The E factor has been reﬁned to distinguish between simple and complete E factors, for example, and to deﬁne the system boundaries. Other mass-based metrics such as process mass intensity (PMI) and reaction mass eﬃciency (RME) have been proposed. However, mass-based metrics need to be augmented by metrics which measure the environmental impact of waste, such as life cycle assessment (LCA), and metrics for assessing the economic viability of products and processes. The application of such metrics in measuring the sustainability of processes for the manufacture of pharmaceuticals and other ﬁne chemicals is discussed in detail. Mass-based metrics alone are not suﬃcient to measure the greenness and sustainability of processes for the conversion of renewable biomass vs fossil-based feedstocks. Various metrics for use in assessing sustainability of the manufacture of basic chemicals from renewable biomass are discussed. The development of a sustainable biobased production of chemicals meshes well with the concept of a circular economy, based on resource eﬃciency and waste minimization by design, to replace traditional linear, take−make−use−dispose economies.",
+		"container-title": "ACS Sustainable Chemistry & Engineering",
+		"DOI": "10.1021/acssuschemeng.7b03505",
+		"ISSN": "2168-0485, 2168-0485",
+		"issue": "1",
+		"journalAbbreviation": "ACS Sustainable Chem. Eng.",
+		"language": "en",
+		"note": "number: 1",
+		"page": "32-48",
+		"source": "DOI.org (Crossref)",
+		"title": "Metrics of Green Chemistry and Sustainability: Past, Present, and Future",
+		"title-short": "Metrics of Green Chemistry and Sustainability",
+		"URL": "https://pubs.acs.org/doi/10.1021/acssuschemeng.7b03505",
+		"volume": "6",
+		"author": [
+			{
+				"family": "Sheldon",
+				"given": "Roger A."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					8
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2018",
+					1,
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/TXZCJBEK",
+		"type": "article-journal",
+		"abstract": "Solvents come in many shapes and types. Looking for solvents for a speciﬁc application can be hard, and looking for green alternatives for currently used nonbenign solvents can be even harder. We describe a new methodology for solvent selection and substitution, by applying Artiﬁcial Intelligence (AI) software to cluster a database of solvents based on their physical properties. The solvents are processed by a neural network, the Self-organizing Map of Kohonen, which results in a 2D map of clusters. The resulting clusters are validated both chemically and statistically and are presented in user-friendly visualizations by the SUSSOL (Sustainable Solvents Selection and Substitution Software) software. The software helps the user in exploring the solvent space and in generating and evaluating a list of possible alternatives for a speciﬁc solvent. The alternatives are ranked based on their safety, health, and environment scores. Cases are discussed to demonstrate the possibilities of our approach and to show that it can help in the search for more sustainable and greener solvents. The SUSSOL software makes intuitive sense and in most case studies, the software conﬁrms the ﬁndings in literature, thus providing a sound platform for selecting the most sustainable solvent candidate.",
+		"container-title": "Molecules",
+		"DOI": "10.3390/molecules25133037",
+		"ISSN": "1420-3049",
+		"issue": "13",
+		"journalAbbreviation": "Molecules",
+		"language": "en",
+		"note": "number: 13",
+		"page": "3037",
+		"source": "DOI.org (Crossref)",
+		"title": "SUSSOL—Using Artificial Intelligence for Greener Solvent Selection and Substitution",
+		"URL": "https://www.mdpi.com/1420-3049/25/13/3037",
+		"volume": "25",
+		"author": [
+			{
+				"family": "Sels",
+				"given": "Hannes"
+			},
+			{
+				"family": "De Smet",
+				"given": "Herwig"
+			},
+			{
+				"family": "Geuens",
+				"given": "Jeroen"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2022",
+					12,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					7,
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/AYBLNLSE",
+		"type": "article-journal",
+		"abstract": "Concise and unambiguous assessment of a machine learning algorithm is key to classifier design and performance improvement. In the multi-class classification task, where each instance can only be labeled as one class, the confusion matrix is a powerful tool for performance assessment by quantifying the classification overlap. However, in the multi-label classification task, where each instance can be labeled with more than one class, the confusion matrix is undefined. Performance assessment of the multi-label classifier is currently based on calculating performance averages, such as hamming loss, precision, recall, and F-score. While the current assessment techniques present a reasonable representation of each class and overall performance, their aggregate nature results in ambiguity when identifying false negative (FN) and false positive (FP) results. To address this gap, we define a method of creating the multi-label confusion matrix (MLCM) based on three proposed categories of multi-label problems. After establishing the shortcomings of current methods for identifying FN and FP, we demonstrate the usage of the MLCM with the classification of two publicly available multi-label data sets: i) a 12-lead ECG data set with nine classes, and ii) a movie poster data set with eighteen classes. A comparison of the MLCM results against statistics from the current techniques is presented to show the effectiveness in providing a concise and unambiguous understanding of a multi-label classifier behavior.",
+		"container-title": "IEEE Access",
+		"DOI": "10.1109/ACCESS.2022.3151048",
+		"ISSN": "2169-3536",
+		"note": "event-title: IEEE Access",
+		"page": "19083-19095",
+		"source": "IEEE Xplore",
+		"title": "MLCM: Multi-Label Confusion Matrix",
+		"title-short": "MLCM",
+		"volume": "10",
+		"author": [
+			{
+				"family": "Heydarian",
+				"given": "Mohammadreza"
+			},
+			{
+				"family": "Doyle",
+				"given": "Thomas E."
+			},
+			{
+				"family": "Samavi",
+				"given": "Reza"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"2022"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/73C2GLLL",
+		"type": "article",
+		"abstract": "A key element in solving real-life data science problems is selecting the types of models to use. Tree ensemble models (such as XGBoost) are usually recommended for classiﬁcation and regression problems with tabular data. However, several deep learning models for tabular data have recently been proposed, claiming to outperform XGBoost for some use cases. This paper explores whether these deep models should be a recommended option for tabular data by rigorously comparing the new deep models to XGBoost on various datasets. In addition to systematically comparing their performance, we consider the tuning and computation they require. Our study shows that XGBoost outperforms these deep models across the datasets, including the datasets used in the papers that proposed the deep models. We also demonstrate that XGBoost requires much less tuning. On the positive side, we show that an ensemble of deep models and XGBoost performs better on these datasets than XGBoost alone.",
+		"language": "en",
+		"note": "issue: arXiv:2106.03253\narXiv:2106.03253 [cs]",
+		"number": "arXiv:2106.03253",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "Tabular Data: Deep Learning is Not All You Need",
+		"title-short": "Tabular Data",
+		"URL": "http://arxiv.org/abs/2106.03253",
+		"author": [
+			{
+				"family": "Shwartz-Ziv",
+				"given": "Ravid"
+			},
+			{
+				"family": "Armon",
+				"given": "Amitai"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					3
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					11,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/8DHVKFZT",
+		"type": "article-journal",
+		"abstract": "Retrosynthetic pathways suggestions are optimized to minimize the number of unique chemicals required to synthesize multiple products as would be useful for on-demand manufacturing.\n          , \n            The access to essential medicines remains a problem in many low-income countries for logistic and expiration limits, among other factors. Enabling flexible replenishment and easier supply chain management by on demand manufacturing from stored starting materials provides a solution to this challenge. Recent developments in computer-aided chemical synthesis planning have benefited from machine learning in different aspects. In this manuscript, we use those techniques to perform a combined analysis of a WHO essential medicines list to identify synthetic routes that minimize chemical inventory that would be required to synthesize the all the active pharmaceutical ingredients. We use a synthesis planning tool to perform retrosynthetic analyses for 99 targets and solve a mixed-integer programming problem to select a combination of pathways that uses the minimal number of chemicals. This work demonstrates the technical feasibility of reducing storage of active pharmaceutical ingredients to a minimal inventory of starting materials.",
+		"container-title": "Reaction Chemistry & Engineering",
+		"DOI": "10.1039/C9RE00348G",
+		"ISSN": "2058-9883",
+		"issue": "2",
+		"journalAbbreviation": "React. Chem. Eng.",
+		"language": "en",
+		"note": "number: 2",
+		"page": "367-376",
+		"source": "DOI.org (Crossref)",
+		"title": "Combining retrosynthesis and mixed-integer optimization for minimizing the chemical inventory needed to realize a WHO essential medicines list",
+		"URL": "http://xlink.rsc.org/?DOI=C9RE00348G",
+		"volume": "5",
+		"author": [
+			{
+				"family": "Gao",
+				"given": "Hanyu"
+			},
+			{
+				"family": "Coley",
+				"given": "Connor W."
+			},
+			{
+				"family": "Struble",
+				"given": "Thomas J."
+			},
+			{
+				"family": "Li",
+				"given": "Linyan"
+			},
+			{
+				"family": "Qian",
+				"given": "Yujie"
+			},
+			{
+				"family": "Green",
+				"given": "William H."
+			},
+			{
+				"family": "Jensen",
+				"given": "Klavs F."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					9
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GPTYYIAI",
+		"type": "article",
+		"abstract": "We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models (Peters et al., 2018a; Radford et al., 2018), BERT is designed to pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be ﬁnetuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial taskspeciﬁc architecture modiﬁcations.",
+		"language": "en",
+		"note": "issue: arXiv:1810.04805\narXiv:1810.04805 [cs]",
+		"number": "arXiv:1810.04805",
+		"publisher": "arXiv",
+		"source": "arXiv.org",
+		"title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+		"title-short": "BERT",
+		"URL": "http://arxiv.org/abs/1810.04805",
+		"author": [
+			{
+				"family": "Devlin",
+				"given": "Jacob"
+			},
+			{
+				"family": "Chang",
+				"given": "Ming-Wei"
+			},
+			{
+				"family": "Lee",
+				"given": "Kenton"
+			},
+			{
+				"family": "Toutanova",
+				"given": "Kristina"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					14
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2019",
+					5,
+					24
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/TGK578TX",
+		"type": "document",
+		"note": "page: ita In Bollettino \"Informazioni sui Farmaci\" del Servizio Informazione Documentazione Scientifica. - Supplemento no. 1 (giugno 1978)\ncollection-title: World Health Organization technical report series ; no. 615",
+		"publisher": "World Health Organization",
+		"title": "The selection of essential drugs : report of a WHO expert committee [meeting held in Geneva from 17 to 21 October 1977]",
+		"author": [
+			{
+				"family": "Drugs",
+				"given": "WHO Expert Committee on the Selection of Essential"
+			},
+			{
+				"family": "Organization",
+				"given": "World Health"
+			}
+		],
+		"issued": {
+			"date-parts": [
+				[
+					"1977"
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/BD2XI8HB",
+		"type": "article-journal",
+		"abstract": "We present the open-source AiZynthFinder software that can be readily used in retrosynthetic planning. The algo‑rithm is based on a Monte Carlo tree search that recursively breaks down a molecule to purchasable precursors. The tree search is guided by an artificial neural network policy that suggests possible precursors by utilizing a library of known reaction templates. The software is fast and can typically find a solution in less than 10 s and perform a com‑plete search in less than 1 min. Moreover, the development of the code was guided by a range of software engineer‑ing principles such as automatic testing, system design and continuous integration leading to robust software with high maintainability. Finally, the software is well documented to make it suitable for beginners. The software is avail‑able at http://www.github.com/MolecularAI/aizynthfinder.",
+		"container-title": "Journal of Cheminformatics",
+		"DOI": "10.1186/s13321-020-00472-1",
+		"ISSN": "1758-2946",
+		"issue": "1",
+		"journalAbbreviation": "J Cheminform",
+		"language": "en",
+		"note": "number: 1",
+		"page": "70",
+		"source": "DOI.org (Crossref)",
+		"title": "AiZynthFinder: a fast, robust and flexible open-source software for retrosynthetic planning",
+		"title-short": "AiZynthFinder",
+		"URL": "https://jcheminf.biomedcentral.com/articles/10.1186/s13321-020-00472-1",
+		"volume": "12",
+		"author": [
+			{
+				"family": "Genheden",
+				"given": "Samuel"
+			},
+			{
+				"family": "Thakkar",
+				"given": "Amol"
+			},
+			{
+				"family": "Chadimová",
+				"given": "Veronika"
+			},
+			{
+				"family": "Reymond",
+				"given": "Jean-Louis"
+			},
+			{
+				"family": "Engkvist",
+				"given": "Ola"
+			},
+			{
+				"family": "Bjerrum",
+				"given": "Esben"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					12
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/8ND4G93G",
+		"type": "article-journal",
+		"abstract": "Reaction prediction and retrosynthesis are the cornerstones of organic chemistry. Rule-based expert systems have been the most widespread approach to computationally solve these two related challenges to date. However, reaction rules often fail because they ignore the molecular context, which leads to reactivity conflicts. Herein, we report that deep neural networks can learn to resolve reactivity conflicts and to prioritize the most suitable transformation rules. We show that by training our model on 3.5 million reactions taken from the collective published knowledge of the entire discipline of chemistry, our model exhibits a top10-accuracy of 95 % in retrosynthesis and 97 % for reaction prediction on a validation set of almost 1 million reactions.",
+		"container-title": "Chemistry - A European Journal",
+		"DOI": "10.1002/chem.201605499",
+		"ISSN": "09476539",
+		"issue": "25",
+		"journalAbbreviation": "Chem. Eur. J.",
+		"language": "en",
+		"note": "number: 25",
+		"page": "5966-5971",
+		"source": "DOI.org (Crossref)",
+		"title": "Neural-Symbolic Machine Learning for Retrosynthesis and Reaction Prediction",
+		"URL": "https://onlinelibrary.wiley.com/doi/10.1002/chem.201605499",
+		"volume": "23",
+		"author": [
+			{
+				"family": "Segler",
+				"given": "Marwin H. S."
+			},
+			{
+				"family": "Waller",
+				"given": "Mark P."
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					15
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2017",
+					5,
+					2
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/Y8VSTWA5",
+		"type": "article-journal",
+		"abstract": "Evaluating classiﬁer performances is a crucial problem in pattern recognition and machine learning. In this paper, we propose a new measure, i.e. confusion entropy, for evaluating classiﬁers. For each class cli of an ðN þ 1Þ-class problem, the misclassiﬁcation information involves both the information of how the samples with true class label cli have been misclassiﬁed to the other N classes and the information of how the samples of the other N classes have been misclassiﬁed to class cli. The proposed measure exploits the class distribution information of such misclassiﬁcations of all classes. Both theoretical analysis and statistical experiments show the proposed measure is more precise than accuracy and RCI. Experimental results on some benchmark data sets further conﬁrm the theoretical analysis and statistical results and show that the new measure is feasible for evaluating classiﬁer performances.",
+		"container-title": "Expert Systems with Applications",
+		"DOI": "10.1016/j.eswa.2009.11.040",
+		"ISSN": "09574174",
+		"issue": "5",
+		"journalAbbreviation": "Expert Systems with Applications",
+		"language": "en",
+		"page": "3799-3809",
+		"source": "DOI.org (Crossref)",
+		"title": "A novel measure for evaluating classifiers",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S0957417409009828",
+		"volume": "37",
+		"author": [
+			{
+				"family": "Wei",
+				"given": "Jin-Mao"
+			},
+			{
+				"family": "Yuan",
+				"given": "Xiao-Jie"
+			},
+			{
+				"family": "Hu",
+				"given": "Qing-Hua"
+			},
+			{
+				"family": "Wang",
+				"given": "Shu-Qin"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2010",
+					5
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/G6XVNUQF",
+		"type": "article-journal",
+		"abstract": "Polymer solubility is critical for a variety of industrial and research applications such as plastics recycling, drug delivery, membrane science, and microlithography. For novel polymers, it is often an arduous process to ﬁnd the appropriate solvents for polymer dissolution. Heuristic approaches, such as solubility parameters, provide only limited guidance with respect to solvent prediction and design. The present work highlights a novel data-driven paradigm for solvent selection in polymers. For this purpose, we utilize a deep neural network trained on a massive data set of over 4500 polymers and their corresponding solvents/ nonsolvents. This deep-learning framework maps high-dimensional ﬁngerprints/features to compact chemically relevant latent space representations of solvents and polymers. When these low-dimensional representations are visualized, we observe the spontaneous clustering of nonpolar, polar-aprotic, and polar-protic behavior. This large-scale data-driven approach possesses an overall classiﬁcation accuracy of above 93% (on a hold-out set) and signiﬁcantly outperforms existing methods to determine polymer/ solvent compatibility such as the Hildebrand criteria.",
+		"container-title": "Macromolecules",
+		"DOI": "10.1021/acs.macromol.0c00251",
+		"ISSN": "0024-9297, 1520-5835",
+		"issue": "12",
+		"journalAbbreviation": "Macromolecules",
+		"language": "en",
+		"page": "4764-4769",
+		"source": "DOI.org (Crossref)",
+		"title": "A Deep Learning Solvent-Selection Paradigm Powered by a Massive Solvent/Nonsolvent Database for Polymers",
+		"URL": "https://pubs.acs.org/doi/10.1021/acs.macromol.0c00251",
+		"volume": "53",
+		"author": [
+			{
+				"family": "Chandrasekaran",
+				"given": "Anand"
+			},
+			{
+				"family": "Kim",
+				"given": "Chiho"
+			},
+			{
+				"family": "Venkatram",
+				"given": "Shruti"
+			},
+			{
+				"family": "Ramprasad",
+				"given": "Rampi"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					6,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/BBJAT4PC",
+		"type": "article-journal",
+		"abstract": "Enzyme engineering plays a central role in developing eﬃcient biocatalysts for biotechnology, biomedicine, and life sciences. Apart from classical rational design and directed evolution approaches, machine learning methods have been increasingly applied to ﬁnd patterns in data that help predict protein structures, improve enzyme stability, solubility, and function, predict substrate speciﬁcity, and guide rational protein design. In this Perspective, we analyze the state of the art in databases and methods used for training and validating predictors in enzyme engineering. We discuss current limitations and challenges which the community is facing and recent advancements in experimental and theoretical methods that have the potential to address those challenges. We also present our view on possible future directions for developing the applications to the design of eﬃcient biocatalysts.",
+		"container-title": "ACS Catalysis",
+		"DOI": "10.1021/acscatal.9b04321",
+		"ISSN": "2155-5435, 2155-5435",
+		"issue": "2",
+		"journalAbbreviation": "ACS Catal.",
+		"language": "en",
+		"page": "1210-1223",
+		"source": "DOI.org (Crossref)",
+		"title": "Machine Learning in Enzyme Engineering",
+		"URL": "https://pubs.acs.org/doi/10.1021/acscatal.9b04321",
+		"volume": "10",
+		"author": [
+			{
+				"family": "Mazurenko",
+				"given": "Stanislav"
+			},
+			{
+				"family": "Prokop",
+				"given": "Zbynek"
+			},
+			{
+				"family": "Damborsky",
+				"given": "Jiri"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					1,
+					17
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/A3AK5ATA",
+		"type": "article-journal",
+		"abstract": "Biosystems such as enzymes, pathways, and whole cells have been increasingly explored for biotechnological applications. However, the intricate connectivity and resulting complexity of biosystems poses a major hurdle in designing biosystems with desirable features. As -omics and other high throughput technologies have been rapidly developed, the promise of applying machine learning (ML) techniques in biosystems design has started to become a reality. ML models enable the identiﬁcation of patterns within complicated biological data across multiple scales of analysis and can augment biosystems design applications by predicting new candidates for optimized performance. ML is being used at every stage of biosystems design to help ﬁnd nonobvious engineering solutions with fewer design iterations. In this review, we ﬁrst describe commonly used models and modeling paradigms within ML. We then discuss some applications of these models that have already shown success in biotechnological applications. Moreover, we discuss successful applications at all scales of biosystems design, including nucleic acids, genetic circuits, proteins, pathways, genomes, and bioprocesses. Finally, we discuss some limitations of these methods and potential solutions as well as prospects of the combination of ML and biosystems design.",
+		"container-title": "ACS Synthetic Biology",
+		"DOI": "10.1021/acssynbio.0c00129",
+		"ISSN": "2161-5063, 2161-5063",
+		"issue": "7",
+		"journalAbbreviation": "ACS Synth. Biol.",
+		"language": "en",
+		"page": "1514-1533",
+		"source": "DOI.org (Crossref)",
+		"title": "Biosystems Design by Machine Learning",
+		"URL": "https://pubs.acs.org/doi/10.1021/acssynbio.0c00129",
+		"volume": "9",
+		"author": [
+			{
+				"family": "Volk",
+				"given": "Michael Jeffrey"
+			},
+			{
+				"family": "Lourentzou",
+				"given": "Ismini"
+			},
+			{
+				"family": "Mishra",
+				"given": "Shekhar"
+			},
+			{
+				"family": "Vo",
+				"given": "Lam Tung"
+			},
+			{
+				"family": "Zhai",
+				"given": "Chengxiang"
+			},
+			{
+				"family": "Zhao",
+				"given": "Huimin"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2020",
+					7,
+					17
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/AWH6E8ZS",
+		"type": "article-journal",
+		"abstract": "Synthetic biology is today harnessing the design of novel and greener biosynthesis routes for the production of added-value chemicals and natural products. The design of novel pathways often requires a detailed selection of enzyme sequences to import into the chassis at each of the reaction steps. To address such design requirements in an automated way, we present here a tool for exploring the space of enzymatic reactions. Given a reaction and an enzyme the tool provides a probability estimate that the enzyme catalyzes the reaction. Our tool ﬁrst considers the similarity of a reaction to known biochemical reactions with respect to signatures around their reaction centers. Signatures are deﬁned based on chemical transformation rules by using extended connectivity ﬁngerprint descriptors. A semisupervised Gaussian process model associated with the similar known reactions then provides the probability estimate. The Gaussian process model uses information about both the reaction and the enzyme in providing the estimate. These estimates were validated experimentally by the application of the Gaussian process model to a newly identiﬁed metabolite in Escherichia coli in order to search for the enzymes catalyzing its associated reactions. Furthermore, we show with several pathway design examples how such ability to assign probability estimates to enzymatic reactions provides the potential to assist in bioengineering applications, providing experimental validation to our proposed approach. To the best of our knowledge, the proposed approach is the ﬁrst application of Gaussian processes dealing with biological sequences and chemicals, the use of a semisupervised Gaussian process framework is also novel in the context of machine learning applied to bioinformatics. However, the ability of an enzyme to catalyze a reaction depends on the aﬃnity between the substrates of the reaction and the enzyme. This aﬃnity is generally quantiﬁed by the Michaelis constant KM. Therefore, we also demonstrate using Gaussian process regression to predict KM given a substrate-enzyme pair.",
+		"container-title": "ACS Synthetic Biology",
+		"DOI": "10.1021/acssynbio.5b00294",
+		"ISSN": "2161-5063, 2161-5063",
+		"issue": "6",
+		"journalAbbreviation": "ACS Synth. Biol.",
+		"language": "en",
+		"page": "518-528",
+		"source": "DOI.org (Crossref)",
+		"title": "Semisupervised Gaussian Process for Automated Enzyme Search",
+		"URL": "https://pubs.acs.org/doi/10.1021/acssynbio.5b00294",
+		"volume": "5",
+		"author": [
+			{
+				"family": "Mellor",
+				"given": "Joseph"
+			},
+			{
+				"family": "Grigoras",
+				"given": "Ioana"
+			},
+			{
+				"family": "Carbonell",
+				"given": "Pablo"
+			},
+			{
+				"family": "Faulon",
+				"given": "Jean-Loup"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2016",
+					6,
+					17
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/98J4JDRD",
+		"type": "article-journal",
+		"abstract": "We present a novel algorithm to compute the distance between synthetic routes based on tree edit distances. Such distances can be used to cluster synthesis routes generated using a retrosynthesis prediction tool. We show that the clustering of selected routes from a retrosynthesis analysis is performed in less than 10 s on average and only constitutes seven percent of the total time (prediction + clustering). Furthermore, we are able to show that representative routes from each cluster can be used to reduce the set of predicted routes. Finally, we show with a number of examples that the algorithm gives intuitive clusters that can be easily rationalized and that the routes in a cluster tend to use similar chemistry. The algorithm is included in the latest version of open-source AiZynthFinder software (https://github.com/ MolecularAI/aizynthﬁnder) and as a separate package (https://github.com/ MolecularAI/route-distances).",
+		"container-title": "Journal of Chemical Information and Modeling",
+		"DOI": "10.1021/acs.jcim.1c00232",
+		"ISSN": "1549-9596, 1549-960X",
+		"issue": "8",
+		"journalAbbreviation": "J. Chem. Inf. Model.",
+		"language": "en",
+		"page": "3899-3907",
+		"source": "DOI.org (Crossref)",
+		"title": "Clustering of Synthetic Routes Using Tree Edit Distance",
+		"URL": "https://pubs.acs.org/doi/10.1021/acs.jcim.1c00232",
+		"volume": "61",
+		"author": [
+			{
+				"family": "Genheden",
+				"given": "Samuel"
+			},
+			{
+				"family": "Engkvist",
+				"given": "Ola"
+			},
+			{
+				"family": "Bjerrum",
+				"given": "Esben"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					8,
+					23
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/WMMI9V4A",
+		"type": "article-journal",
+		"container-title": "Journal of the Taiwan Institute of Chemical Engineers",
+		"DOI": "10.1016/j.jtice.2021.07.015",
+		"ISSN": "18761070",
+		"journalAbbreviation": "Journal of the Taiwan Institute of Chemical Engineers",
+		"language": "en",
+		"page": "103982",
+		"source": "DOI.org (Crossref)",
+		"title": "Intelligent generation of optimal synthetic pathways based on knowledge graph inference and retrosynthetic predictions using reaction big data",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S187610702100420X",
+		"volume": "130",
+		"author": [
+			{
+				"family": "Jeong",
+				"given": "Joonsoo"
+			},
+			{
+				"family": "Lee",
+				"given": "Nagyeong"
+			},
+			{
+				"family": "Shin",
+				"given": "Yongbeom"
+			},
+			{
+				"family": "Shin",
+				"given": "Dongil"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/GKPPWZDC",
+		"type": "article-journal",
+		"abstract": "The selection and design of suitable synthetic paths are important issues that affect the economics and productivity of chemical processes including reactions and the discovery of new chemicals. However, exploration of reaction information is difﬁcult even with reaction databases, causing path explosion that occurs due to the huge search space and conﬂicting constrains such as economics, safety, efﬁciency, etc. In this study, we propose an intelligent system ASICS (Advanced System for Intelligent Chemical Synthesis), which supports synthetic path design at the basic stages of research and process design, based on the hybrid generative exploration and exploitation of reaction knowledge base, encoding big data of patented reactions, and machine learning-based retrosynthetic prediction. Based on the pseudo A* search, ASICS generates optimal synthetic paths minimizing scores of the synthetic reaction value function, composed of the synthetic accessibility score, likelihood score and similarity score. The preference in searching between conﬁrmed reaction spaces and unexplored reaction spaces through prediction can be selected by the user. The suggested hybrid approach, combining the reaction knowledge base with the retrosynthetic prediction model, generates feasible and low-cost synthetic paths beyond the accumulated information in patented reactions.",
+		"container-title": "Journal of the Taiwan Institute of Chemical Engineers",
+		"DOI": "10.1016/j.jtice.2021.07.015",
+		"ISSN": "18761070",
+		"journalAbbreviation": "Journal of the Taiwan Institute of Chemical Engineers",
+		"language": "en",
+		"page": "103982",
+		"source": "DOI.org (Crossref)",
+		"title": "Intelligent generation of optimal synthetic pathways based on knowledge graph inference and retrosynthetic predictions using reaction big data",
+		"URL": "https://linkinghub.elsevier.com/retrieve/pii/S187610702100420X",
+		"volume": "130",
+		"author": [
+			{
+				"family": "Jeong",
+				"given": "Joonsoo"
+			},
+			{
+				"family": "Lee",
+				"given": "Nagyeong"
+			},
+			{
+				"family": "Shin",
+				"given": "Yongbeom"
+			},
+			{
+				"family": "Shin",
+				"given": "Dongil"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					1
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/5WTWABBH",
+		"type": "article-journal",
+		"abstract": "The notion of uncertainty is of major importance in machine learning and constitutes a key element of machine learning methodology. In line with the statistical tradition, uncertainty has long been perceived as almost synonymous with standard probability and probabilistic predictions. Yet, due to the steadily increasing relevance of machine learning for practical applications and related issues such as safety requirements, new problems and challenges have recently been identified by machine learning scholars, and these problems may call for new methodological developments. In particular, this includes the importance of distinguishing between (at least) two different types of uncertainty, often referred to as aleatoric and epistemic. In this paper, we provide an introduction to the topic of uncertainty in machine learning as well as an overview of attempts so far at handling uncertainty in general and formalizing this distinction in particular.",
+		"container-title": "Machine Learning",
+		"DOI": "10.1007/s10994-021-05946-3",
+		"ISSN": "0885-6125, 1573-0565",
+		"issue": "3",
+		"journalAbbreviation": "Mach Learn",
+		"language": "en",
+		"page": "457-506",
+		"source": "DOI.org (Crossref)",
+		"title": "Aleatoric and epistemic uncertainty in machine learning: an introduction to concepts and methods",
+		"title-short": "Aleatoric and epistemic uncertainty in machine learning",
+		"URL": "http://link.springer.com/10.1007/s10994-021-05946-3",
+		"volume": "110",
+		"author": [
+			{
+				"family": "Hüllermeier",
+				"given": "Eyke"
+			},
+			{
+				"family": "Waegeman",
+				"given": "Willem"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					3
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/KUACEQ7N",
+		"type": "article-journal",
+		"abstract": "A comprehensive artificial intelligence system needs to not only perceive the environment with different “senses” (e.g., seeing and hearing) but also infer the world’s conditional (or even causal) relations and corresponding uncertainty. The past decade has seen major advances in many perception tasks, such as visual object recognition and speech recognition, using deep learning models. For higher-level inference, however, probabilistic graphical models with their Bayesian nature are still more powerful and flexible. In recent years,\n              Bayesian deep learning\n              has emerged as a unified probabilistic framework to tightly integrate deep learning and Bayesian models.\n              1\n              In this general framework, the perception of text or images using deep learning can boost the performance of higher-level inference and, in turn, the feedback from the inference process is able to enhance the perception of text or images. This survey provides a comprehensive introduction to\n              Bayesian deep learning\n              and reviews its recent applications on recommender systems, topic models, control, and so on. We also discuss the relationship and differences between Bayesian deep learning and other related topics, such as Bayesian treatment of neural networks.",
+		"container-title": "ACM Computing Surveys",
+		"DOI": "10.1145/3409383",
+		"ISSN": "0360-0300, 1557-7341",
+		"issue": "5",
+		"journalAbbreviation": "ACM Comput. Surv.",
+		"language": "en",
+		"page": "1-37",
+		"source": "DOI.org (Crossref)",
+		"title": "A Survey on Bayesian Deep Learning",
+		"URL": "https://dl.acm.org/doi/10.1145/3409383",
+		"volume": "53",
+		"author": [
+			{
+				"family": "Wang",
+				"given": "Hao"
+			},
+			{
+				"family": "Yeung",
+				"given": "Dit-Yan"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					1,
+					18
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2021",
+					9,
+					30
+				]
+			]
+		}
+	},
+	{
+		"id": "http://zotero.org/users/local/w9BzxlOg/items/NES353T5",
+		"type": "motion_picture",
+		"dimensions": "41:07",
+		"source": "YouTube",
+		"title": "“Accelerating Chemical Synthesis with Transformers” Prof. Philippe Schwaller, EPFL",
+		"URL": "https://www.youtube.com/watch?v=m83Y-_qX4r4",
+		"director": [
+			{
+				"literal": "Center for Intelligent Systems CIS EPFL"
+			}
+		],
+		"accessed": {
+			"date-parts": [
+				[
+					"2023",
+					2,
+					13
+				]
+			]
+		},
+		"issued": {
+			"date-parts": [
+				[
+					"2022",
+					9,
+					13
+				]
+			]
+		}
+	}
+]

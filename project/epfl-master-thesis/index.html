@@ -279,8 +279,7 @@
 
   
 
-<meta name="description" content="What if we could systematically quantify how sustainable a reaction is?
-In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." />
+<meta name="description" content="" />
 
 
 
@@ -322,8 +321,7 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
 <meta property="og:site_name" content="Adrián Sager La Ganga" />
 <meta property="og:url" content="https://sager611.github.io/project/epfl-master-thesis/" />
 <meta property="og:title" content="UQ-based metrics for chemical sustainability | Adrián Sager La Ganga" />
-<meta property="og:description" content="What if we could systematically quantify how sustainable a reaction is?
-In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." /><meta property="og:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:description" content="" /><meta property="og:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
@@ -380,7 +378,7 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
       "url": "https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "What if we could systematically quantify how sustainable a reaction is?\nIn this project (my master\u0026rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable."
+  "description": ""
 }
 </script>
 
@@ -796,9 +794,9 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
 </div>
 
 
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 405px;">
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 395px;">
   <div style="position: relative">
-    <img src="/project/epfl-master-thesis/featured_hufbc842cf4e8f2b4253b90746af62d559_226573_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="405" alt="" class="featured-image">
+    <img src="/project/epfl-master-thesis/featured_hu3d2a603485620d1fa19c8debcbfb6843_119449_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="395" alt="" class="featured-image">
     
   </div>
 </div>
@@ -808,9 +806,11 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
   <div class="article-container">
 
     <div class="article-style">
-      <p>
+      <link rel="stylesheet" type="text/css" href="{{ "/hugo-cite.css" | relURL }}" />
+<p>
   <i class="fas fa-leaf  pr-1 fa-fw"></i> What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
 <p>In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as <em>how likely</em> it is that a reaction is sustainable. This likelihood would then be computed by employing <strong>uncertainty quantification (UQ)</strong> on some AI model&rsquo;s prediction.</p>
+<p>The main contribution of the project is an <strong>extensible toolkit</strong> with sustainability metrics based on AI model predictions.</p>
 <p>In this page I collect some of my thoughts derived from this project.</p>
 <p><a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">You can read the full report here.</a></p>
 <div class="alert alert-note">
@@ -828,9 +828,11 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
       <ul>
         <li><a href="#modelling-uncertainty">Modelling uncertainty</a></li>
         <li><a href="#quantifying-ai-metrics">Quantifying AI-metrics</a></li>
-        <li><a href="#validating-ai-metrics">Validating AI-metrics</a></li>
       </ul>
     </li>
+    <li><a href="#validating-ai-metrics">Validating AI-metrics</a></li>
+    <li><a href="#dont-pay-attention-to-the-_attention_-">Don&rsquo;t pay attention to the <em>attention</em> &hellip;</a></li>
+    <li><a href="#putting-it-all-together">Putting it all together</a></li>
   </ul>
 </nav>
 </details>
@@ -931,7 +933,7 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
 <p>For our observed training set 
 
 $\mathcal{D}$.</p>
-<p>This means that we are in the presence of two sources of uncertainty:</p>
+<p>This means that we are in the presence of two sources of uncertainty<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
 <ol>
 <li><strong>Epistemic</strong> 
 
@@ -941,7 +943,7 @@ $\pmb{\theta}$: due to the limited expresiveness of our model and its optimizati
 $\mathcal{D}$: due to noise in our training set (some entries aren&rsquo;t reactions or have a wrong label).</li>
 </ol>
 <h3 id="quantifying-ai-metrics">Quantifying AI-metrics</h3>
-<p>We use efficient <strong>uncertainty quantification (UQ)</strong> techniques to estimate our AI-metric according to the two sources of uncertainty:</p>
+<p>We use efficient <strong>uncertainty quantification (UQ)</strong> techniques to estimate our AI-metric according to the two sources of uncertainty<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>:</p>
 <ol>
 <li>
 <p><strong>Monte Carlo Dropout (MCDropout)</strong> for <strong>epistemic</strong> uncertainty 
@@ -993,7 +995,7 @@ $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses th
       Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic
     </figcaption></figure>
 </p>
-<h3 id="validating-ai-metrics">Validating AI-metrics</h3>
+<h2 id="validating-ai-metrics">Validating AI-metrics</h2>
 <p>How useful is this metric definition? Is it really able to differentiate reactions 
 
 $\pmb{x}$ in 
@@ -1041,6 +1043,168 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
   </div></figure>
 </p>
 <p>Clearly, enzymatic reactions cluster in <span style="color:#00b5ecff">blue</span> separately from non-enzymatic ones in <span style="color:#ff0000ff">red</span>.</p>
+<p>Around here, our validation discussion of the AI-metric ends, but it would be interesting to study more in depth its applicability, in particular we could carefully design a dataset by artificially introducing aleatoric uncertainty and study how our AI-metric scores change as we increase data noise and as we underfit/overfit our model.</p>
+<h2 id="dont-pay-attention-to-the-_attention_-">Don&rsquo;t pay attention to the <em>attention</em> &hellip;</h2>
+<p>Of what use is a probabilistic metric if we cannot interpret the results? It&rsquo;d be more appropriate if our toolkit of metrics also contained <strong>AI interpretability tools</strong>.</p>
+<p>This is specially important since we may have <em>high confidence</em> in a wrong prediction. For example:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt=""
+           src="/project/epfl-master-thesis/missclassified_likelihood.svg"
+           loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>Our BERT model classifies the reaction as class EC.5, which means that is uses an <a href="https://en.wikipedia.org/wiki/Isomerase" target="_blank" rel="noopener">isomerase</a> enzyme. In reality the reaction is not enzymatic, it is of type 9.3.1 (&quot;<em>carboxylic acid to acid chloride</em>&quot;), and the AI-metric scores it as ~51% likely and confidently to be enzymatic. By our plot from the previous section, we&rsquo;d simply look at this score and blindly accept it as enzymatic.</p>
+<p>So what is going on?</p>
+<p>We may want to look at what BERT is doing. In particular its attention scores:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-attention-score-matrices-and-sum-of-attention-scores-per-atom-at-the-last-layer">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Attention score matrices and sum of attention scores per atom at the last layer"
+           src="/project/epfl-master-thesis/missclassified_att_last_head.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Attention score matrices and sum of attention scores per atom at the last layer
+    </figcaption></figure>
+</p>
+<p>Note how attention indicates that the model attributes attention to the <code>OH</code> and <code>Cl</code> exchange, which is precisely the rule for type 9.3.1. But the model of course does not predict the reaction as that type! What happens is that token embeddings at the last layer do not represent the corresponding token individually, but rather a global property in the text, so attention does not tell us the casual relationship learned between the input atomic structures and the output.</p>
+<p>In fact, we should <strong>not</strong> look into <em>attention</em> attribution, but <em>importance</em> attribution, i.e. how each input affected the output.</p>
+<p>With the <a href="https://captum.ai/" target="_blank" rel="noopener">Captum</a> Python package we can see this importance attribution through the so-called method of <em>Integrated Gradients</em><sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-blue-positive-attribution-red-negative-attribution">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Blue: positive attribution. Red: negative attribution"
+           src="/project/epfl-master-thesis/missclassified_importance_attr.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      <span style='color:#00b5ecff'>Blue</span>: positive attribution. <span style='color:#ff0000ff'>Red</span>: negative attribution
+    </figcaption></figure>
+</p>
+<p>So now we see that <code>OH</code> and <code>Cl</code> exchange did not cause the model to predict the reaction type as EC.5.</p>
+<h2 id="putting-it-all-together">Putting it all together</h2>
+<p>To summarize, this toolkit of AI-metrics is useful to automatically select reactions which are likely to be sustainable, but the resulting reactions should always be checked by a chemist expert to make sure that they are indeed sustainable.</p>
+<p>We basically want to introduce a framework with sustainability metrics <strong>during the design cycle of molecule discovery</strong>, where our expert is still exploring which reactions may be feasible. This could, in principle, accelerate sustainable decision-making in chemistry.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-scientific-method-applied-to-molecule-discovery-where-we-introduce-our-ai-metrics">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Scientific method applied to molecule discovery, where we introduce our AI-metrics"
+           src="/project/epfl-master-thesis/dmta.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Scientific method applied to molecule discovery, where we introduce our AI-metrics
+    </figcaption></figure>
+</p>
+<p>A particular example is so-called the <em>multistep retrosynthesis</em> task, where we want to find a path of reactions that can generate a target molecule from some starting molecules.</p>
+<p>We simply generated <em>many</em> possible reaction paths for some target molecule using <a href="https://github.com/MolecularAI/aizynthfinder" target="_blank" rel="noopener">AiZynthFinder</a> and Monte-Carlo tree search (MCTS)<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>Then, we select the best reaction path according to a weighted sum of our sustainability metrics and an estimation of the monetary cost to carry out the reactions.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  >
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="" srcset="
+               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp 400w,
+               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_3b530f4cb0190ba3e970b68047aef17b.webp 760w,
+               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
+               src="/project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp"
+               width="760"
+               height="282"
+               loading="lazy" data-zoomable /></div>
+  </div></figure>
+</p>
+<p>In this way, the expert can tune trade-offs between sustainability aspects by simply weighting the metrics.</p>
+<p>This is the end of this little blog, but you can find more details in the <a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">report.</a></p>
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p>Abdar et al. “A review of uncertainty quantification in deep learning: Techniques, applications and challenges”. 2021&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2">
+<p>Markert et al. “Chemical representation learning for toxicity prediction”. 2020&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>Sundararajan et al. “Axiomatic Attribution for Deep Networks”. 2017&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>Segler et al. “Planning chemical syntheses with deep neural networks and symbolic ai”. 2018&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
 
     </div>
 
