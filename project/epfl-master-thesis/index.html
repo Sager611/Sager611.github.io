@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: February 26, 2023 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.0f229d4b7ebad1917a9a357cba2effab.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Adrián Sager La Ganga" />
+
+
+
+
+
+  
+
+<meta name="description" content="What if we could systematically quantify how sustainable a reaction is?
+In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://sager611.github.io/project/epfl-master-thesis/" />
+<link rel="canonical" href="https://sager611.github.io/project/epfl-master-thesis/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary_large_image" />
+
+  <meta property="twitter:site" content="@wowchemy" />
+  <meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" />
+<meta property="og:site_name" content="Adrián Sager La Ganga" />
+<meta property="og:url" content="https://sager611.github.io/project/epfl-master-thesis/" />
+<meta property="og:title" content="UQ-based metrics for chemical sustainability | Adrián Sager La Ganga" />
+<meta property="og:description" content="What if we could systematically quantify how sustainable a reaction is?
+In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." /><meta property="og:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2023-02-25T16:37:09&#43;01:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2023-02-25T16:37:09&#43;01:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sager611.github.io/project/epfl-master-thesis/"
+  },
+  "headline": "UQ-based metrics for chemical sustainability",
+  
+  "image": [
+    "https://sager611.github.io/project/epfl-master-thesis/featured.png"
+  ],
+  
+  "datePublished": "2023-02-25T16:37:09+01:00",
+  "dateModified": "2023-02-25T16:37:09+01:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Adrián Sager La Ganga"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adrián Sager La Ganga",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "What if we could systematically quantify how sustainable a reaction is?\nIn this project (my master\u0026rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable."
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>UQ-based metrics for chemical sustainability | Adrián Sager La Ganga</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="bb373e34aa74a9e0f96d626986715a37" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.ec9d49ca50e4b80bdb08f0417a28ed84.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/uploads/resume-mle.pdf"><span>Resume</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/project"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article article-project">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<div class="article-container pt-3">
+  <h1>UQ-based metrics for chemical sustainability</h1>
+
+  
+
+  
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Feb 25, 2023
+  </span>
+  
+
+  
+
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+  
+
+
+
+
+<div class="btn-links mb-3">
+  
+  
+
+
+
+
+
+
+
+
+  
+    
+  
+
+
+
+<a class="btn btn-outline-primary btn-page-header" href="/uploads/EPFL_Master_Thesis.pdf" target="_blank" rel="noopener">
+  PDF
+</a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 405px;">
+  <div style="position: relative">
+    <img src="/project/epfl-master-thesis/featured_hufbc842cf4e8f2b4253b90746af62d559_226573_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="405" alt="" class="featured-image">
+    
+  </div>
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <p>What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
+<p>In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as <em>how likely</em> it is that a reaction is sustainable. This likelihood would then be computed by employing <strong>uncertainty quantification (UQ)</strong> on some AI model&rsquo;s prediction.</p>
+<p>In this page I collect some of my thoughts derived from this project.</p>
+<p><a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">You can read the full report here.</a></p>
+<div class="alert alert-note">
+  <div>
+    This work was created and funded as part of the <a href="https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/" target="_blank" rel="noopener">NCCR Catalysis Young Talents Fellowship</a>, a National Centre of Competence in Research funded by the Swiss National Science Foundation.
+  </div>
+</div>
+
+
+<details class="toc-inpage d-print-none  " open>
+  <summary class="font-weight-bold">Table of Contents</summary>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ai-metric-definition">AI-metric definition</a>
+      <ul>
+        <li><a href="#quantifying-ai-metrics">Quantifying AI-metrics</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</details>
+
+<h2 id="ai-metric-definition">AI-metric definition</h2>
+<p>Let&rsquo;s say a chemical reaction can be one of 
+
+$\mathcal{C}$ classes, for ex., according to its type: &ldquo;<em>carboxylic acid to acid chloride</em>&rdquo;, &ldquo;<em>translocase-catalyzed</em>&rdquo;, etc.</p>
+<p>Some of these classes are sustainable, 
+
+$\mathcal{C}_\text{sust}$, some are not, 
+
+$\mathcal{C}_\text{non-sust}$, and we may have an unrecognized class, 
+
+$\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$.</p>
+<details class="spoiler "  id="spoiler-7">
+  <summary>Click to view the reaction type distribution</summary>
+  <p><figure  id="figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img src="rxn_class_distr.svg" alt="Reaction classes are divided in multiple levels" loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      In reality, our distribution of reaction types is hierarchical, but the argument still applies
+    </figcaption></figure></p>
+</details>
+<p>We can then quantify <em>how likely</em> we <em>expect</em> some reaction 
+
+$\pmb{x}$ to be of some class 
+
+$y\in\mathcal{C}$:</p>
+
+
+$$ \text{AI-metric}_y := \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[p(y\vert\pmb{x}, \pmb{\theta})\right]\cdot\text{confidence}(\pmb{x}, y) \quad \in [0,1]$$
+<p>Where 
+
+$\pmb{\theta}$ are the parameters of our AI model after training it on some dataset 
+
+$\mathcal{D}$.</p>
+<p>Note how we are scaling by how <em>confident</em> we are that this expected likelihood is correct. In our case,</p>
+
+
+$$\text{confidence}(\pmb{x}, y) := 1 - 2\cdot\text{stddev}_{p(\pmb{\theta}\vert\mathcal{D})}\big(p(y\vert\pmb{x}, \pmb{\theta})\big)$$
+<p>Which is always in 
+
+$[0,1]$ since probabilities cannot deviate more than 
+
+$1/2$.</p>
+<p>But, how do we score how likely our 
+
+$\pmb{x}$ is of <em>any</em> class in 
+
+$\mathcal{C}_\text{sust}$?</p>
+<p>
+  <i class="fas fa-arrow-right  pr-1 fa-fw"></i> We simply take the maximum over 
+
+$\mathcal{C}_\text{sust}$:</p>
+
+
+$$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y \quad \in [0, 1] $$
+<details class="spoiler " id="spoiler-21">
+  <summary>Why not sum over
+
+$\mathcal{C}_\text{sust}$?</summary>
+  <p>Formally, we are asking 
+
+$p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$, which is:
+
+
+$$ \max_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) \leq p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D}) \leq \sum_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) $$
+    Since we are estimating our metric (see next section) and since some 
+
+$\pmb{x}$ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. <br/>
+    It is also crucial that in our case our AI model is <em>single-label</em>, so it is designed to only predict the highest probability class.
+  </p>
+</details>
+<h3 id="quantifying-ai-metrics">Quantifying AI-metrics</h3>
+<p>Without getting too philosophical, we want to believe that <em>for sure</em> there is some underlying <em>true</em> classification set for an input 
+
+$\pmb{x}$, 
+
+$\mathcal{C}_\text{true} \subseteq \mathcal{C}$, so:</p>
+
+
+$$
+p(y\vert\pmb{x}) = \begin{cases}1 & \text{if }y\in\mathcal{C}_\text{true} \\
+0 & \text{o.w.}\end{cases}
+$$
+<p>Note that (by our philosophy) 
+
+$p(y\vert\pmb{x})$ is equivalent to 
+
+$p(y\vert\pmb{x},\mathcal{D}_\text{all})$ where 
+
+$\mathcal{D}_\text{all}$ is all the knowledge of the universe (quite some information!).</p>
+<p>Of course, in reality at best we know:</p>
+
+
+$$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[ p(y\vert\pmb{x},\pmb{\theta}) \right]$$
+<p>For our observed training set 
+
+$\mathcal{D}$.</p>
+<p>This introduces two sources of uncertainty:</p>
+<ol>
+<li><strong>Epistemic</strong> 
+
+$\pmb{\theta}$: due to the limited expresiveness of our model and its optimization procedure.</li>
+</ol>
+<blockquote>
+<p>We efficiently quantify it with <strong>Monte Carlo Dropout (MCDropout)</strong>.</p>
+</blockquote>
+<ol start="2">
+<li><strong>Aleatoric</strong> 
+
+$\mathcal{D}$: due to noise in our training set (some entries aren&rsquo;t reactions or have a wrong label).</li>
+</ol>
+<blockquote>
+<p>We efficiently quantify it with <strong>test-time data augmentation</strong>.</p>
+</blockquote>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/uq/">UQ</a>
+  
+  <a class="badge badge-light" href="/tag/nlp/">NLP</a>
+  
+  <a class="badge badge-light" href="/tag/chemistry/">chemistry</a>
+  
+  <a class="badge badge-light" href="/tag/sustainability/">sustainability</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;text=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=UQ-based%20metrics%20for%20chemical%20sustainability&amp;body=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;title=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://sager611.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hufdf89b8f47be3017c0b1f2c531cb524c_42154_270x270_fill_q75_lanczos_center.jpeg" alt="Adrián Sager La Ganga"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sager611.github.io/">Adrián Sager La Ganga</a></h5>
+      <h6 class="card-subtitle">Computational Scientist and Engineer</h6>
+      <p class="card-text">My current interests include causal inference, program synthesis, and interpretability in AI.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:adriansagerlaganga@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Sager611" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://gitlab.com/adriansagerlaganga" target="_blank" rel="noopener">
+        <i class="fab fa-gitlab"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/a-sager" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/uploads/resume-mle.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="project-related-pages content-widget-hr">
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+
+      
+      
+      
+    </div>
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2023, Adrián Sager. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
