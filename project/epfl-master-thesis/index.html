@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: February 26, 2023 --><html lang="en-us" >
+<!-- Last Published: February 27, 2023 --><html lang="en-us" >
 
 
 <head>
@@ -796,7 +796,7 @@
 
 <div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 395px;">
   <div style="position: relative">
-    <img src="/project/epfl-master-thesis/featured_hu3d2a603485620d1fa19c8debcbfb6843_119449_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="395" alt="" class="featured-image">
+    <img src="/project/epfl-master-thesis/featured_hu3d2a603485620d1fa19c8debcbfb6843_128548_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="395" alt="" class="featured-image">
     
   </div>
 </div>
@@ -1014,7 +1014,7 @@ $\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $</p>
 $\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $</p>
 <p>In particular, I quantify how likely it is that a reaction is <strong>enzymatic</strong>, since these types of reactions are a classical example of sustainable reactions.</p>
 <p>First, I fine-tuned BERT on a training set of reactions in the <em>SMILES</em> text-based format, achiving an overall validation accuracy of 93.95% and macro F1 score of 0.901 when predicting the reaction type.</p>
-<p>Then, we compute 
+<p>Then, we can compute 
 
 $\text{AI-metric}$ and 
 
@@ -1126,7 +1126,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
       <span style='color:#00b5ecff'>Blue</span>: positive attribution. <span style='color:#ff0000ff'>Red</span>: negative attribution
     </figcaption></figure>
 </p>
-<p>So now we see that <code>OH</code> and <code>Cl</code> exchange did not cause the model to predict the reaction type as EC.5.</p>
+<p>So now we see that <code>OH</code> and <code>Cl</code> exchange did not cause the model to predict the reaction type as EC.5, but some other structure.</p>
 <h2 id="putting-it-all-together">Putting it all together</h2>
 <p>To summarize, this toolkit of AI-metrics is useful to automatically select reactions which are likely to be sustainable, but the resulting reactions should always be checked by a chemist expert to make sure that they are indeed sustainable.</p>
 <p>We basically want to introduce a framework with sustainability metrics <strong>during the design cycle of molecule discovery</strong>, where our expert is still exploring which reactions may be feasible. This could, in principle, accelerate sustainable decision-making in chemistry.</p>
@@ -1155,8 +1155,33 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
       Scientific method applied to molecule discovery, where we introduce our AI-metrics
     </figcaption></figure>
 </p>
-<p>A particular example is so-called the <em>multistep retrosynthesis</em> task, where we want to find a path of reactions that can generate a target molecule from some starting molecules.</p>
-<p>We simply generated <em>many</em> possible reaction paths for some target molecule using <a href="https://github.com/MolecularAI/aizynthfinder" target="_blank" rel="noopener">AiZynthFinder</a> and Monte-Carlo tree search (MCTS)<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<p>A particular use-case for our toolkit is the <em>multistep retrosynthesis</em> task, where we want to find a path of reactions that can generate a target molecule from some starting molecules.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-example-reaction-path-also-called-_route_-or-_pathway_">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Example reaction path, also called _route_ or _pathway_"
+           src="/project/epfl-master-thesis/example_route.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Example reaction path, also called <em>route</em> or <em>pathway</em>
+    </figcaption></figure>
+</p>
+<p>We simply generate <em>many</em> possible reaction paths for some target molecule using <a href="https://github.com/MolecularAI/aizynthfinder" target="_blank" rel="noopener">AiZynthFinder</a> and Monte-Carlo tree search (MCTS)<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
 <p>Then, we select the best reaction path according to a weighted sum of our sustainability metrics and an estimation of the monetary cost to carry out the reactions.</p>
 <p>
 
@@ -1187,6 +1212,32 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
   </div></figure>
 </p>
 <p>In this way, the expert can tune trade-offs between sustainability aspects by simply weighting the metrics.</p>
+<p>We can do a quick ablation study and see how increasing the input weights on our enzyme AI-metric increases the enzyme AI-metric score, but also the route cost, so there is a trade-off between the two which can be tuned with the weights:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<figure  id="figure-change-of-sustainability-scores-from-the-baseline-by-changing-the-input-weights">
+  <div class="d-flex justify-content-center">
+    <div class="w-100" ><img alt="Change of sustainability scores from the baseline by changing the input weights"
+           src="/project/epfl-master-thesis/ablation_study_short.svg"
+           loading="lazy" data-zoomable /></div>
+  </div><figcaption>
+      Change of sustainability scores from the baseline by changing the input weights
+    </figcaption></figure>
+</p>
 <p>This is the end of this little blog, but you can find more details in the <a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">report.</a></p>
 <div class="footnotes" role="doc-endnotes">
 <hr>
