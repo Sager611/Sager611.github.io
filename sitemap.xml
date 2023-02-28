@@ -2,6 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sager611.github.io/post/</loc>
+    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tag/control-theory/</loc>
+    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tag/p5js/</loc>
+    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tags/</loc>
+    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/post/p5js-vis-transfer-function/</loc>
+    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://sager611.github.io/tag/chemistry/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -15,10 +35,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/tag/sustainability/</loc>
-    <lastmod>2023-02-25T16:37:09+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/tags/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -43,9 +59,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/categories/</loc>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/post/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/publication_types/</loc>
