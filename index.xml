@@ -65,7 +65,7 @@ $h(t)$ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_respo
 
 $y(t)$ if our input where an impulse 
 
-$x(t)=\delta(t)$.&lt;/p&gt;
+$e(t)=\delta(t)$.&lt;/p&gt;
 &lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication 
 
 $Y(s) = H(s)E(s)$.&lt;/p&gt;
@@ -120,8 +120,7 @@ $H(s)$ you want and see what happens!&lt;/p&gt;
       <link>https://sager611.github.io/project/epfl-master-thesis/</link>
       <pubDate>Sat, 25 Feb 2023 16:37:09 +0100</pubDate>
       <guid>https://sager611.github.io/project/epfl-master-thesis/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;{{ &#34;/hugo-cite.css&#34; | relURL }}&#34; /&gt;
-&lt;p&gt;
+      <description>&lt;p&gt;
   &lt;i class=&#34;fas fa-leaf  pr-1 fa-fw&#34;&gt;&lt;/i&gt; What if we could systematically quantify &lt;em&gt;how&lt;/em&gt; sustainable a reaction is?&lt;/p&gt;
 &lt;p&gt;In this project (my master&amp;rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as &lt;em&gt;how likely&lt;/em&gt; it is that a reaction is sustainable. This likelihood would then be computed by employing &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; on some AI model&amp;rsquo;s prediction.&lt;/p&gt;
 &lt;p&gt;The main contribution of the project is an &lt;strong&gt;extensible toolkit&lt;/strong&gt; with sustainability metrics based on AI model predictions.&lt;/p&gt;

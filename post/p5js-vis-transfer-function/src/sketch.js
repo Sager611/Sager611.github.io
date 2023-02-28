@@ -150,7 +150,9 @@ function setup() {
     //() => plotter.interpolate('input')
   //);
 
-  createCanvas(W, H);
+  const canv = createCanvas(W, H);
+  canv.mousePressed(canvasMousePressed);
+  canv.mouseReleased(canvasMouseReleased);
 }
 
 let avg_dt = 0.016;
@@ -204,12 +206,20 @@ function draw() {
 
 
 // CONTROLS //
+function notInCanvas() {
+    const mx=getMouseX(), my=getMouseY();
+    return mx < 0 || my < 0 || mx > W || my > H;
+}
+
 function check_borders() {
   const sc = prev_scale_factor / scale_factor;
   return abs(offX) > scale_lim/4 + (sc-1)/sc/2 || abs(offY) > scale_lim/4 + (sc-1)/sc/2;
 }
 
 function mouseWheel(event) {
+  if (notInCanvas())
+    return;
+
   // increase/decrease scale
   scale_factor *= pow(1.12, event.delta / 16);
 
@@ -224,17 +234,20 @@ function mouseWheel(event) {
 
 let prevMouseX, prevMouseY;
 
-function mousePressed() {
+function canvasMousePressed() {
   prevMouseX = getMouseX();
   prevMouseY = getMouseY();
 }
 
-function mouseReleased() {
+function canvasMouseReleased() {
   prevOffX = offX;
   prevOffY = offY;
 }
 
 function mouseDragged() {
+  if (notInCanvas())
+    return;
+
   offX = prevOffX + getMouseX() - prevMouseX;
   offY = prevOffY + getMouseY() - prevMouseY;
 
