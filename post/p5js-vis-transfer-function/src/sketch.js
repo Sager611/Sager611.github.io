@@ -1,7 +1,13 @@
 // define your LTI transfer function here!
 // plotter.add_tf(tf, Nverticals, Nhorizontals, stepX, stepY, end, line_step, extra_opts)
 function add_transfer_function(operations) {
-    let tf = new LTITF(operations);
+    let tf;
+    try {
+        tf = new LTITF(operations);
+    } catch(err) {
+        alert("Invalid H(s): " + operations);
+        return;
+    }
     // remove all previous transfer functions
     plotter.clear();
     //plotter.add_tf(tf, 1, 0, 1, 1, 1e8, 0.5, { distr: 'expo', expo_N: 50 });
@@ -149,9 +155,9 @@ function setup() {
 
 let avg_dt = 0.016;
 function draw_info(dt) {
-  const scale_str = 'scale: ' + nf(scale_factor, null, 4);
-  const offsetX_str = 'offsetX: ' + nf(totalOffX*prev_scale_factor+offX*prev_scale_factor, null, 4);
-  const offsetY_str = 'offsetY: ' + nf(totalOffY*prev_scale_factor+offY*prev_scale_factor, null, 4);
+  const scale_str = 'scale: ' + nf(scale_factor, "", 4);
+  const offsetX_str = 'offsetX: ' + nf(totalOffX*prev_scale_factor+offX*prev_scale_factor, "", 4);
+  const offsetY_str = 'offsetY: ' + nf(totalOffY*prev_scale_factor+offY*prev_scale_factor, "", 4);
   avg_dt = avg_dt*(0.99) + dt*0.01;
   const fps_str = nf(1/avg_dt, 1, 1) + ' FPS';
   const max_str_len = max(fps_str.length, max(scale_str.length, max(offsetX_str.length, offsetY_str.length)));

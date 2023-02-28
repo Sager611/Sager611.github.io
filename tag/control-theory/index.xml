@@ -61,7 +61,7 @@ $e(t)$ and output
 
 $y(t) = (e \ast h)(t)$, where 
 
-$h(t)$ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exatly the value of the output 
+$h(t)$ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output 
 
 $y(t)$ if our input where an impulse 
 
@@ -106,6 +106,12 @@ $H(s)$ you want and see what happens!&lt;/p&gt;
   &lt;i class=&#34;fas fa-arrows-alt-v  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Mouse wheel to zoom in/out.&lt;/p&gt;
 &lt;p&gt;
   &lt;i class=&#34;fas fa-keyboard  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Space to reset offset.&lt;/p&gt;
+&lt;div class=&#34;alert alert-warning&#34;&gt;
+  &lt;div&gt;
+    &lt;p&gt;You may encounter some bugs if you introduce incorrect&lt;/p&gt;
+&lt;p&gt;$H(s)$ and the visualizer may crash. Use with care.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
 </description>
     </item>
     
