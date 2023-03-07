@@ -279,12 +279,12 @@
 
   
 
-<meta name="description" content="In 2020 I was following lectures on automatic control and learned about the transfer function of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions." />
+<meta name="description" content="Table of Contents Boot from Live USB Setup SSH Clone hard disk via SSH I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation." />
 
 
 
-<link rel="alternate" hreflang="en-us" href="https://sager611.github.io/post/p5js-vis-transfer-function/" />
-<link rel="canonical" href="https://sager611.github.io/post/p5js-vis-transfer-function/" />
+<link rel="alternate" hreflang="en-us" href="https://sager611.github.io/post/clone-arch-disk/" />
+<link rel="canonical" href="https://sager611.github.io/post/clone-arch-disk/" />
 
 
 
@@ -320,18 +320,18 @@
   <meta property="twitter:creator" content="@wowchemy" />
 <meta property="twitter:image" content="https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png" />
 <meta property="og:site_name" content="Adrián Sager La Ganga" />
-<meta property="og:url" content="https://sager611.github.io/post/p5js-vis-transfer-function/" />
-<meta property="og:title" content="Visualizing transfer functions in p5.js | Adrián Sager La Ganga" />
-<meta property="og:description" content="In 2020 I was following lectures on automatic control and learned about the transfer function of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions." /><meta property="og:image" content="https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+<meta property="og:url" content="https://sager611.github.io/post/clone-arch-disk/" />
+<meta property="og:title" content="Cloning Arch Linux hard disk remotely to new machine | Adrián Sager La Ganga" />
+<meta property="og:description" content="Table of Contents Boot from Live USB Setup SSH Clone hard disk via SSH I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation." /><meta property="og:image" content="https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
 
   
     <meta
       property="article:published_time"
-      content="2023-02-27T16:51:17&#43;01:00"
+      content="2023-03-07T14:51:07&#43;01:00"
     />
   
   
-    <meta property="article:modified_time" content="2023-02-27T16:51:17&#43;01:00">
+    <meta property="article:modified_time" content="2023-03-07T14:51:07&#43;01:00">
   
 
 
@@ -357,12 +357,12 @@
   "@type": "BlogPosting",
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://sager611.github.io/post/p5js-vis-transfer-function/"
+    "@id": "https://sager611.github.io/post/clone-arch-disk/"
   },
-  "headline": "Visualizing transfer functions in p5.js",
+  "headline": "Cloning Arch Linux hard disk remotely to new machine",
   
-  "datePublished": "2023-02-27T16:51:17+01:00",
-  "dateModified": "2023-02-27T16:51:17+01:00",
+  "datePublished": "2023-03-07T14:51:07+01:00",
+  "dateModified": "2023-03-07T14:51:07+01:00",
   
   "author": {
     "@type": "Person",
@@ -377,7 +377,7 @@
       "url": "https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_192x192_fill_lanczos_center_3.png"
     }
   },
-  "description": "In 2020 I was following lectures on automatic control and learned about the transfer function of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions."
+  "description": "Table of Contents Boot from Live USB Setup SSH Clone hard disk via SSH I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation."
 }
 </script>
 
@@ -399,7 +399,7 @@
 
 
   
-  <title>Visualizing transfer functions in p5.js | Adrián Sager La Ganga</title>
+  <title>Cloning Arch Linux hard disk remotely to new machine | Adrián Sager La Ganga</title>
 
   
   
@@ -419,7 +419,7 @@
 </head>
 
 
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="dfbdef4f447a336c3440bf8fb1e9da0a" >
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="d42d1d3d5ad3291d8028253de88d2467" >
 
   
   
@@ -729,7 +729,7 @@
   
   
 <div class="article-container pt-3">
-  <h1>Visualizing transfer functions in p5.js</h1>
+  <h1>Cloning Arch Linux hard disk remotely to new machine</h1>
 
   
 
@@ -748,7 +748,7 @@
     
       
     
-    Feb 27, 2023
+    Mar 7, 2023
   </span>
   
 
@@ -757,7 +757,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    4 min read
   </span>
   
 
@@ -785,101 +785,114 @@
   <div class="article-container">
 
     <div class="article-style">
-      <!--CSS-->
-<style>
-.resizer { display:flex; margin:0; padding:0; resize:vertical; overflow:hidden }
-.resizer > .resized { flex-grow:1; margin:0; padding:0; border:0 }
-.ugly { background:red; border:4px dashed black; }
-.visualizer { width: 100%; height: 800px; }
-</style>
-<p>In 2020 I was following lectures on <a href="https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=06LSLLM&amp;p_a_acc=2020&amp;p_header=S&amp;p_lang=IT&amp;multi=N" target="_blank" rel="noopener">automatic control</a> and learned about the <a href="https://en.wikipedia.org/wiki/Transfer_function" target="_blank" rel="noopener">transfer function</a> of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions.</p>
-<p>You can <a href="#visualizer">jump ahead to the visualizer</a>.</p>
-<h2 id="setup">Setup</h2>
-<p>The basic idea is that we can build a system with a feedback loop that takes an input signal 
+      
 
-$x(t)$ and outputs another signal 
+<details class="toc-inpage d-print-none  " open>
+  <summary class="font-weight-bold">Table of Contents</summary>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#boot-from-live-usb">Boot from Live USB</a></li>
+    <li><a href="#setup-ssh">Setup SSH</a></li>
+    <li><a href="#clone-hard-disk-via-ssh">Clone hard disk via SSH</a></li>
+  </ul>
+</nav>
+</details>
 
-$y(t)$:</p>
-<p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<figure  >
-  <div class="d-flex justify-content-center">
-    <div class="w-100" ><img alt=""
-           src="/post/p5js-vis-transfer-function/simple-feedback.svg"
-           loading="lazy" data-zoomable /></div>
-  </div></figure>
-</p>
-<p>We then focus on <a href="https://en.wikipedia.org/wiki/Linear_time-invariant_system" target="_blank" rel="noopener">linear time-invariant (LTI)</a> transformations, which in a few words are those which take as input 
-
-$e(t)$ and output 
-
-$y(t) = (e \ast h)(t)$, where 
-
-$h(t)$ is called the <a href="https://en.wikipedia.org/wiki/Impulse_response" target="_blank" rel="noopener">impulse response</a> since it is exactly the value of the output 
-
-$y(t)$ if our input where an impulse 
-
-$e(t)=\delta(t)$.</p>
-<p>In the Laplace function space, the convolution of our transformation becomes a multiplication 
-
-$Y(s) = H(s)E(s)$.</p>
-<p>Let&rsquo;s plug in our 
-
-$H(s)$ in the feedback loop!</p>
-<p>We recursively apply it so we end up with:</p>
-
-
-$$
-\begin{align*}
-Y(s) &= \left( H(s) + H(s)^2 + H(s)^3 + \dots \right) \cdot X(s) \\
-     &= \frac{H(s)}{1 - H(s)} \cdot X(s)
-\end{align*}
-$$
-<h2 id="visualizer">Visualizer</h2>
-<p>Note that if our 
-
-$H(s)$ touches the value 1 we&rsquo;ll end up with an 
-
-$\infty$, oops.</p>
-<p>So, when designing 
-
-$H(s)$ we want to make sure that it is some distance away from 1.</p>
-<p>But 
-
-$H: \mathbb{C} \rightarrow \mathbb{C}$, how can we visualize it?</p>
-<p>Well, there are multiple approaches and this is where I got curious and decided to write a visualizer in <a href="https://editor.p5js.org/adriansagerlaganga/full/9CeBgb-Pv" target="_blank" rel="noopener">p5.js</a>. I included a cartesian plot and a <a href="https://en.wikipedia.org/wiki/Nichols_plot" target="_blank" rel="noopener">Nichols plot</a>. Other common plots include <a href="https://en.wikipedia.org/wiki/Bode_plot" target="_blank" rel="noopener">Bode</a> and <a href="https://en.wikipedia.org/wiki/Nyquist_plot" target="_blank" rel="noopener">Nyquist</a>.</p>
-<p>I also included a simple <a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree" target="_blank" rel="noopener">abstract syntax tree (AST)</a> parser and traversal so you can write any 
-
-$H(s)$ you want and see what happens!</p>
-<p>You can try it out right here:</p>
-<iframe class="visualizer" src="src/index.html"></iframe>
-<p>Controls:</p>
-<p>
-  <i class="fas fa-arrows-alt  pr-1 fa-fw"></i> Drag to move around.</p>
-<p>
-  <i class="fas fa-arrows-alt-v  pr-1 fa-fw"></i> Mouse wheel to zoom in/out.</p>
-<p>
-  <i class="fas fa-keyboard  pr-1 fa-fw"></i> Space to reset offset.</p>
+<p>I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation.</p>
+<p>Follow this tutorial if you want to clone your old laptop&rsquo;s hard drive to your new laptop&rsquo;s hard drive via SSH in <strong>the same local network</strong>.</p>
+<h2 id="boot-from-live-usb">Boot from Live USB</h2>
+<p>In our <strong>new</strong> machine we will run all commands from a live USB Arch Linux image.</p>
+<p>Follow <a href="https://wiki.archlinux.org/title/USB_flash_installation_medium" target="_blank" rel="noopener">the official Arch Linux tutorial to boot an Arch Linux image from an USB</a>.</p>
+<p>Once you have your live USB, plug it in your <strong>new</strong> laptop and go to the boot menu.</p>
+<p>In my case, I have a Thinkpad and I had to press <code>enter</code> and then <code>F12</code> when powering on the laptop.</p>
+<p>I also had to <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/disabling-secure-boot?view=windows-11" target="_blank" rel="noopener">disable Secure Boot</a> beforehand to boot from my live USB.</p>
+<p>Make sure to connect to the same local wifi network in both machines before continuing.</p>
+<h2 id="setup-ssh">Setup SSH</h2>
+<p>The following commands are executed as root user.</p>
+<p>Run <code>su</code> on your <strong>old</strong> machine to become root user.</p>
+<ol>
+<li>
+<p>Check IP address of <strong>new</strong> machine with <code>ip address</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@archiso ~ <span class="c1"># ip address</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    &lt;...&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">4: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span class="m">1500</span> qdisc noqueue state UP group default qlen <span class="m">1000</span>
+</span></span><span class="line"><span class="cl">    link/ether a0:59:50:e1:5f:9b brd ff:ff:ff:ff:ff:ff
+</span></span><span class="line"><span class="cl">    inet 192.168.1.76/24 metric <span class="m">600</span> brd 192.168.1.255 scope global dynamic wlan0
+</span></span><span class="line"><span class="cl">       valid_lft 39244sec preferred_lft 39244sec
+</span></span><span class="line"><span class="cl">    inet6 fe80::a259:50ff:fee1:5f9b/64 scope link
+</span></span><span class="line"><span class="cl">       valid_lft forever preferred_lft forever
+</span></span></code></pre></div><p>Our local ip in this example is <code>192.168.1.76</code>.</p>
+</li>
+<li>
+<p>Start ssh service in <strong>new</strong> machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl start sshd.service
+</span></span></code></pre></div></li>
+<li>
+<p>Set the <code>root</code> password with <code>passwd</code>. Simply run <code>passwd</code> in your <strong>new</strong> machine.</p>
+</li>
+<li>
+<p>Now we setup ssh so it <a href="https://www.pragmaticlinux.com/2021/05/configure-ssh-for-login-without-a-password/" target="_blank" rel="noopener">doesn&rsquo;t ask for password when connecting to our new machine</a>. In your <strong>old</strong> machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">ssh-keygen -t ed25519
+</span></span><span class="line"><span class="cl">ssh-copy-id -i .ssh/id_thinkpadp15.pub root@192.168.1.76
+</span></span></code></pre></div><p>In my case it looks like:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="o">[</span>root@thinkpad-t440s ~<span class="o">]</span>$ ssh-keygen -t ed25519
+</span></span><span class="line"><span class="cl">Generating public/private ed25519 key pair.
+</span></span><span class="line"><span class="cl">Enter file in which to save the key <span class="o">(</span>/home/saheru/.ssh/id_ed25519<span class="o">)</span>: .ssh/id_thinkpadp15
+</span></span><span class="line"><span class="cl">Enter passphrase <span class="o">(</span>empty <span class="k">for</span> no passphrase<span class="o">)</span>:
+</span></span><span class="line"><span class="cl">Enter same passphrase again:
+</span></span><span class="line"><span class="cl">Your identification has been saved in .ssh/id_thinkpadp15
+</span></span><span class="line"><span class="cl">Your public key has been saved in .ssh/id_thinkpadp15.pub
+</span></span><span class="line"><span class="cl">The key fingerprint is:
+</span></span><span class="line"><span class="cl">SHA256:DJ74VMCmqQ6nB//xZkPhSmPZRR00lVqskcZ2TH5N5wc saheru@thinkpad-t440s
+</span></span><span class="line"><span class="cl">The key<span class="err">&#39;</span>s randomart image is:
+</span></span><span class="line"><span class="cl">+--<span class="o">[</span>ED25519 256<span class="o">]</span>--+
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     ..  ++Bo.E o<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>      o.. Bo*  <span class="o">=</span>.<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>     +...o *. . +<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>    oo.<span class="o">=</span>. o  .  .<span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>   ..++oS        <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>o <span class="nv">o</span> <span class="o">=</span>o+          <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> B o.+.          <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span>. + .o+          <span class="p">|</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> . ..o..         <span class="p">|</span>
+</span></span><span class="line"><span class="cl">+----<span class="o">[</span>SHA256<span class="o">]</span>-----+
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@thinkpad-t440s ~<span class="o">]</span>$ ssh-copy-id -i .ssh/id_thinkpadp15.pub root@192.168.1.76
+</span></span></code></pre></div><p>Note that I named my key <code>.ssh/id_thinkpadp15</code>.</p>
+<p>The last command will ask for the <code>root</code> password, which is the one we have set in the previous step.</p>
+</li>
+<li>
+<p>Append your new machine&rsquo;s IP with the corresponding private key in your <strong>old</strong> machine&rsquo;s <code>.ssh/config</code> (create the file if it doesn&rsquo;t exist), in my case:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Host 192.168.1.76
+</span></span><span class="line"><span class="cl">  HostName 192.168.1.76
+</span></span><span class="line"><span class="cl">  User root
+</span></span><span class="line"><span class="cl">  IdentityFile ~/.ssh/id_thinkpadp15
+</span></span></code></pre></div><p>Now ssh won&rsquo;t prompt for a password when we connect to our new machine.</p>
+</li>
+</ol>
+<h2 id="clone-hard-disk-via-ssh">Clone hard disk via SSH</h2>
+<p>We will use the <code>dd</code> command from <code>coreutils</code> and <code>ssh</code> to remotely clone our hard disk from our <strong>old</strong> machine to our <strong>new</strong> machine.</p>
+<blockquote>
+<p>Check <a href="https://wiki.archlinux.org/title/Dd#Disk_cloning_and_restore" target="_blank" rel="noopener">the official Arch wiki for more info on cloning with <code>dd</code></a>.</p>
+</blockquote>
 <div class="alert alert-warning">
   <div>
-    <p>You may encounter some bugs if you introduce incorrect</p>
-<p>$H(s)$ and the visualizer may crash. Use with care.</p>
+    The following commands completely erase the <strong>new</strong> machine&rsquo;s hard disk contents! Make sure to save a backup image.
   </div>
 </div>
+<p>First, make sure you have enough space in your new hard disk. You can check this by running <code>lsblk</code> on your old and new machines.</p>
+<p>Also make sure your hard disk in your <strong>new</strong> machine is unmounted with <code>lsblk</code> (<code>MOUNTPOINTS</code> should be empty).</p>
+<div class="alert alert-warning">
+  <div>
+    In my case the hard disk in my <strong>new</strong> machine was <code>nvme0n1</code>. Make sure you choose the correct disk by looking at <code>SIZE</code> in <code>lsblk</code>.
+  </div>
+</div>
+<p>To avoid corrupting files during cloning, you should run the following command from another live USB in your <strong>old</strong> machine and make sure your hard drive <code>sda</code> is unmounted.</p>
+<p>Run the following in your <strong>old</strong> machine to clone the disk:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">dd <span class="k">if</span><span class="o">=</span>/dev/sda <span class="p">|</span> ssh root@192.168.1.76 dd <span class="nv">of</span><span class="o">=</span>/dev/nvme0n1 <span class="nv">status</span><span class="o">=</span>progress
+</span></span></code></pre></div><p>Change the IP, and <code>sda</code> and <code>nvme0n1</code> according to your source and destination disk names.</p>
+<p>It will take 5-10h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including <a href="https://wiki.archlinux.org/title/GRUB" target="_blank" rel="noopener">GRUB</a> and <a href="https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system" target="_blank" rel="noopener">LUKS</a> (also with logical volumes) if you had them setup.</p>
 
     </div>
 
@@ -888,14 +901,6 @@ $H(s)$ you want and see what happens!</p>
 
 
 
-
-<div class="article-tags">
-  
-  <a class="badge badge-light" href="/tag/p5js/">p5js</a>
-  
-  <a class="badge badge-light" href="/tag/control-theory/">control theory</a>
-  
-</div>
 
 
 
@@ -914,7 +919,7 @@ $H(s)$ you want and see what happens!</p>
       
       
       <li>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fp5js-vis-transfer-function%2F&amp;text=Visualizing&#43;transfer&#43;functions&#43;in&#43;p5.js" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fclone-arch-disk%2F&amp;text=Cloning&#43;Arch&#43;Linux&#43;hard&#43;disk&#43;remotely&#43;to&#43;new&#43;machine" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
           <i class="fab fa-twitter"></i>
         </a>
       </li>
@@ -933,7 +938,7 @@ $H(s)$ you want and see what happens!</p>
         
       
       <li>
-        <a href="mailto:?subject=Visualizing%20transfer%20functions%20in%20p5.js&amp;body=https%3A%2F%2Fsager611.github.io%2Fpost%2Fp5js-vis-transfer-function%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+        <a href="mailto:?subject=Cloning%20Arch%20Linux%20hard%20disk%20remotely%20to%20new%20machine&amp;body=https%3A%2F%2Fsager611.github.io%2Fpost%2Fclone-arch-disk%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
           <i class="fas fa-envelope"></i>
         </a>
       </li>
@@ -950,7 +955,7 @@ $H(s)$ you want and see what happens!</p>
       
       
       <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fp5js-vis-transfer-function%2F&amp;title=Visualizing&#43;transfer&#43;functions&#43;in&#43;p5.js" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fclone-arch-disk%2F&amp;title=Cloning&#43;Arch&#43;Linux&#43;hard&#43;disk&#43;remotely&#43;to&#43;new&#43;machine" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </li>
