@@ -17,7 +17,9 @@
       <link>https://sager611.github.io/post/clone-arch-disk/</link>
       <pubDate>Tue, 07 Mar 2023 14:51:07 +0100</pubDate>
       <guid>https://sager611.github.io/post/clone-arch-disk/</guid>
-      <description>
+      <description>&lt;p&gt;I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation.&lt;/p&gt;
+&lt;p&gt;Follow this tutorial if you want to clone your old laptop&amp;rsquo;s hard drive to your new laptop&amp;rsquo;s hard drive via SSH in &lt;strong&gt;the same local network&lt;/strong&gt;.&lt;/p&gt;
+
 
 &lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
   &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
@@ -26,17 +28,22 @@
     &lt;li&gt;&lt;a href=&#34;#boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#setup-ssh&#34;&gt;Setup SSH&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#clone-hard-disk-via-ssh&#34;&gt;Clone hard disk via SSH&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#troubleshooting-boot-and-expanding-luks-partition&#34;&gt;Troubleshooting boot and expanding LUKS partition&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#resizing-lvs-on-luks&#34;&gt;Resizing LVs on LUKS&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#fixing-uefi-boot-manager&#34;&gt;Fixing UEFI boot manager&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#setting-swap-partition&#34;&gt;Setting swap partition&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
 &lt;/details&gt;
 
-&lt;p&gt;I recently bought a new laptop with Windows 11 and wanted to migrate my whole hard drive contents from my old laptop with an Arch Linux installation.&lt;/p&gt;
-&lt;p&gt;Follow this tutorial if you want to clone your old laptop&amp;rsquo;s hard drive to your new laptop&amp;rsquo;s hard drive via SSH in &lt;strong&gt;the same local network&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/h2&gt;
 &lt;p&gt;In our &lt;strong&gt;new&lt;/strong&gt; machine we will run all commands from a live USB Arch Linux image.&lt;/p&gt;
 &lt;p&gt;Follow &lt;a href=&#34;https://wiki.archlinux.org/title/USB_flash_installation_medium&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the official Arch Linux tutorial to boot an Arch Linux image from an USB&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Once you have your live USB, plug it in your &lt;strong&gt;new&lt;/strong&gt; laptop and go to the boot menu.&lt;/p&gt;
-&lt;p&gt;In my case, I have a Thinkpad and I had to press &lt;code&gt;enter&lt;/code&gt; and then &lt;code&gt;F12&lt;/code&gt; when powering on the laptop.&lt;/p&gt;
+&lt;p&gt;In my case, I have a Thinkpad and I had to press &lt;code&gt;enter&lt;/code&gt; and then &lt;code&gt;F12&lt;/code&gt; when powering up the laptop.&lt;/p&gt;
 &lt;p&gt;I also had to &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/disabling-secure-boot?view=windows-11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;disable Secure Boot&lt;/a&gt; beforehand to boot from my live USB.&lt;/p&gt;
 &lt;p&gt;Make sure to connect to the same local wifi network in both machines before continuing.&lt;/p&gt;
 &lt;h2 id=&#34;setup-ssh&#34;&gt;Setup SSH&lt;/h2&gt;
@@ -124,8 +131,145 @@
 &lt;p&gt;Run the following in your &lt;strong&gt;old&lt;/strong&gt; machine to clone the disk:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/sda &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; ssh root@192.168.1.76 dd &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/nvme0n1 &lt;span class=&#34;nv&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;progress
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Change the IP, and &lt;code&gt;sda&lt;/code&gt; and &lt;code&gt;nvme0n1&lt;/code&gt; according to your source and destination disk names.&lt;/p&gt;
-&lt;p&gt;It will take 5-10h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRUB&lt;/a&gt; and &lt;a href=&#34;https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LUKS&lt;/a&gt; (also with logical volumes) if you had them setup.&lt;/p&gt;
-</description>
+&lt;p&gt;It will take 20-25h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRUB&lt;/a&gt; and &lt;a href=&#34;https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LUKS&lt;/a&gt; (also with logical volumes) if you had them setup.&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting-boot-and-expanding-luks-partition&#34;&gt;Troubleshooting boot and expanding LUKS partition&lt;/h2&gt;
+&lt;p&gt;If you cannot boot from your new disk then your GUID Partition Table (GPT) may be incorrect. This happens, for example, when the new disk is larger than the old one.&lt;/p&gt;
+&lt;p&gt;In my case my new disk is 1TB SSD, double the old disk. This is what I did to fix this issue. First, I ran:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;parted -l
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Which prompted me to fix the GPT from the disk. Simply type &lt;code&gt;Fix&lt;/code&gt; and enter.&lt;/p&gt;
+&lt;p&gt;This is how my partition table looked like:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Model: Micron MTFDKBA1T0TFH &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;nvme&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk /dev/nvme0n1: 1024GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sector size &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;logical/physical&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: 512B/512B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Partition Table: gpt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Number  Start   End     Size    File system  Name                 Flags
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;      2097kB  539MB   537MB   fat32        EFI System           boot, esp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      539MB   512GB   512GB                Linux LUKS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;So I have both GRUB and LUKS installed.&lt;/p&gt;
+&lt;h3 id=&#34;resizing-lvs-on-luks&#34;&gt;Resizing LVs on LUKS&lt;/h3&gt;
+&lt;p&gt;To expand the LUKS partition, first we check what our partition name is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@archiso ~ &lt;span class=&#34;c1&#34;&gt;# lsblk&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;loop0         7:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 688.5M  &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; loop /run/archiso/airootfs
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sda           8:0    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;   3.7G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─sda1        8:1    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;   795M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─sda2        8:2    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    15M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvme0n1     259:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.9G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p1 259:4    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;     1M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p2 259:5    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   512M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─nvme0n1p3 259:6    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 476.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here, &lt;code&gt;sda&lt;/code&gt; is my live USB and &lt;code&gt;nvme0n1p3&lt;/code&gt; is my LUKS partition.&lt;/p&gt;
+&lt;p&gt;First, we open the encrypted volume:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cryptsetup luksOpen /dev/nvme0n1p3 luks_volume
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And extend it:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;parted /dev/nvme0n1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Check partition number:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;parted&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; print
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Model: Micron MTFDKBA1T0TFH &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;nvme&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk /dev/nvme0n1: 1024GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sector size &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;logical/physical&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: 512B/512B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Partition Table: gpt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Number  Start   End     Size    File system  Name                 Flags
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;      2097kB  539MB   537MB   fat32        EFI System           boot, esp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      539MB   512GB   512GB                Linux LUKS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;Resize it to fill all remaining space using &lt;code&gt;resizepart NUMBER END&lt;/code&gt;:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;resizepart &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt; 100%
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;Make sure it resized:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;parted&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; print
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Model: Micron MTFDKBA1T0TFH &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;nvme&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk /dev/nvme0n1: 1024GB
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Sector size &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;logical/physical&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;: 512B/512B
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Partition Table: gpt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Disk Flags:
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Number  Start   End     Size    File system  Name                 Flags
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;      2097kB  539MB   537MB   fat32        EFI System           boot, esp
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt; &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      539MB   1024GB  1024GB               Linux LUKS
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;And &lt;code&gt;quit&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Now, automatically resize the decrypted volume:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cryptsetup resize luks_volume
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pvresize /dev/mapper/luks_volume
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use &lt;code&gt;lsblk&lt;/code&gt; and &lt;code&gt;vgs&lt;/code&gt; to see how the size changes:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@archiso ~ &lt;span class=&#34;c1&#34;&gt;# lsblk&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME                   MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvme0n1                259:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.9G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p1            259:4    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;     1M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p2            259:5    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   512M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─nvme0n1p3            259:6    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  └─luks_volume        254:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; crypt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├─sysvolgroup-swap 254:1    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    12G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├─sysvolgroup-root 254:2    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    32G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    └─sysvolgroup-home 254:3    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 432.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@archiso ~ &lt;span class=&#34;c1&#34;&gt;# vgs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  VG          &lt;span class=&#34;c1&#34;&gt;#PV #LV #SN Attr   VSize   VFree&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  sysvolgroup   &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;   &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; wz--n- 953.36g &amp;lt;476.93g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I wanted to half my swap logical volume (LV), double my root LV, and increase my home LV to fill the extra space, so I ran:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lvresize -L-6G /dev/mapper/sysvolgroup-swap
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lvresize -r -L+32G /dev/mapper/sysvolgroup-root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;e2fsck -f /dev/mapper/sysvolgroup-home
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lvresize -r -l+100%FREE /dev/mapper/sysvolgroup-home
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where using &lt;code&gt;e2fsck&lt;/code&gt; first fixes the home partition filesystem, and &lt;code&gt;-r&lt;/code&gt; also resizes the underlying filesystem.&lt;/p&gt;
+&lt;p&gt;The end result is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;root@archiso ~ &lt;span class=&#34;c1&#34;&gt;# lsblk&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;NAME                   MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nvme0n1                259:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.9G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; disk
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p1            259:4    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;     1M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;├─nvme0n1p2            259:5    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;   512M  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;└─nvme0n1p3            259:6    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; part
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  └─luks_volume        254:0    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 953.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; crypt
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├─sysvolgroup-swap 254:1    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;     6G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    ├─sysvolgroup-root 254:2    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;    64G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    └─sysvolgroup-home 254:3    &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; 883.4G  &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; lvm
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And that&amp;rsquo;s it. To wrap up we close everything:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;vgchange -a n sysvolgroup
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;cryptsetup luksClose luks_volume
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;fixing-uefi-boot-manager&#34;&gt;Fixing UEFI boot manager&lt;/h3&gt;
+&lt;p&gt;This is not all, once we restart, the boot did not work properly for me.&lt;/p&gt;
+&lt;p&gt;Here, I assume that your motherboard supports the &lt;a href=&#34;https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#efibootmgr&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UEFI&lt;/a&gt; firmware-OS interface. Old legacy BIOS systems work differently.&lt;/p&gt;
+&lt;p&gt;In my case, the copied &lt;a href=&#34;https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;UEFI boot manager&lt;/a&gt; needed to be reconfigured. If you think this may your problem, this section may help you.&lt;/p&gt;
+&lt;p&gt;First, mount your &lt;a href=&#34;https://wiki.archlinux.org/title/EFI_system_partition&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;EFI system partition (ESP)&lt;/a&gt;. In my case:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /mnt/efi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mount /dev/nvme0n1p2 /mnt/efi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then, reinstall &lt;code&gt;/mnt/efi/EFI/BOOT/BOOTX64.EFI&lt;/code&gt; by running:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;bootctl install --esp-path&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/mnt/efi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now go to your machine&amp;rsquo;s BIOS configuration and make sure that the Windows Boot Manager is not first, since it overwrites &lt;code&gt;/EFI/BOOT/BOOTX64.EFI&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;In fact, after this process I had a new &amp;ldquo;Linux Boot Manager&amp;rdquo; as my first entry in the boot priority order above the Windows Boot Manager.&lt;/p&gt;
+&lt;p&gt;Additionally, since I had setup GRUB to boot from the encrypted volume, I had to reinstall GRUB and follow again the instructions in the &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB#Encrypted_/boot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;official tutorial&lt;/a&gt;. In particular, I first uncommented &lt;code&gt;GRUB_ENABLE_CRYPTODISK=y&lt;/code&gt; in &lt;code&gt;/etc/default/grub&lt;/code&gt; in my live USB filesystem, and then:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /mnt/efi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkdir /mnt/root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mount /dev/nvme0n1p2 /mnt/efi
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mount /dev/mapper/sysvolgroup-root /mnt/root
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;grub-install --target&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;x86_64-efi --efi-directory&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/mnt/efi --boot-directory&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/mnt/root/boot --bootloader-id&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;GRUB /dev/nvme0n1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With this, once we restart, the machine should boot properly.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;If you still encounter UEFI problems, you can find more workarounds &lt;a href=&#34;https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;setting-swap-partition&#34;&gt;Setting swap partition&lt;/h3&gt;
+&lt;p&gt;The final thing is that my swap partition was not set properly.&lt;/p&gt;
+&lt;p&gt;To fix this I ran:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;mkswap /dev/mapper/sysvolgroup-swap
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;swapon /dev/mapper/sysvolgroup-swap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And updated &lt;code&gt;/etc/fstab&lt;/code&gt; with the UUID of my swap partition. Run:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lsblk -dno UUID /dev/mapper/sysvolgroup-swap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And insert the output UUID in &lt;code&gt;/etc/fstab&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nv&#34;&gt;UUID&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&amp;lt;swap UUID&amp;gt; none swap defaults &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     
     <item>
