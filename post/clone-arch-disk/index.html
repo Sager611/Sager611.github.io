@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: March 8, 2023 --><html lang="en-us" >
+<!-- Last Published: March 21, 2023 --><html lang="en-us" >
 
 
 <head>
@@ -759,7 +759,7 @@ Follow this tutorial if you want to clone your old laptop&rsquo;s hard drive to 
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    8 min read
+    4 min read
   </span>
   
 
@@ -798,13 +798,6 @@ Follow this tutorial if you want to clone your old laptop&rsquo;s hard drive to 
     <li><a href="#boot-from-live-usb">Boot from Live USB</a></li>
     <li><a href="#setup-ssh">Setup SSH</a></li>
     <li><a href="#clone-hard-disk-via-ssh">Clone hard disk via SSH</a></li>
-    <li><a href="#troubleshooting-boot-and-expanding-luks-partition">Troubleshooting boot and expanding LUKS partition</a>
-      <ul>
-        <li><a href="#resizing-lvs-on-luks">Resizing LVs on LUKS</a></li>
-        <li><a href="#fixing-uefi-boot-manager">Fixing UEFI boot manager</a></li>
-        <li><a href="#setting-swap-partition">Setting swap partition</a></li>
-      </ul>
-    </li>
   </ul>
 </nav>
 </details>
@@ -813,7 +806,7 @@ Follow this tutorial if you want to clone your old laptop&rsquo;s hard drive to 
 <p>In our <strong>new</strong> machine we will run all commands from a live USB Arch Linux image.</p>
 <p>Follow <a href="https://wiki.archlinux.org/title/USB_flash_installation_medium" target="_blank" rel="noopener">the official Arch Linux tutorial to boot an Arch Linux image from an USB</a>.</p>
 <p>Once you have your live USB, plug it in your <strong>new</strong> laptop and go to the boot menu.</p>
-<p>In my case, I have a Thinkpad and I had to press <code>enter</code> and then <code>F12</code> when powering up the laptop.</p>
+<p>In my case, I have a Thinkpad and I had to press <code>enter</code> and then <code>F12</code> when powering on the laptop.</p>
 <p>I also had to <a href="https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/disabling-secure-boot?view=windows-11" target="_blank" rel="noopener">disable Secure Boot</a> beforehand to boot from my live USB.</p>
 <p>Make sure to connect to the same local wifi network in both machines before continuing.</p>
 <h2 id="setup-ssh">Setup SSH</h2>
@@ -901,145 +894,8 @@ Follow this tutorial if you want to clone your old laptop&rsquo;s hard drive to 
 <p>Run the following in your <strong>old</strong> machine to clone the disk:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">dd <span class="k">if</span><span class="o">=</span>/dev/sda <span class="p">|</span> ssh root@192.168.1.76 dd <span class="nv">of</span><span class="o">=</span>/dev/nvme0n1 <span class="nv">status</span><span class="o">=</span>progress
 </span></span></code></pre></div><p>Change the IP, and <code>sda</code> and <code>nvme0n1</code> according to your source and destination disk names.</p>
-<p>It will take 20-25h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including <a href="https://wiki.archlinux.org/title/GRUB" target="_blank" rel="noopener">GRUB</a> and <a href="https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system" target="_blank" rel="noopener">LUKS</a> (also with logical volumes) if you had them setup.</p>
-<h2 id="troubleshooting-boot-and-expanding-luks-partition">Troubleshooting boot and expanding LUKS partition</h2>
-<p>If you cannot boot from your new disk then your GUID Partition Table (GPT) may be incorrect. This happens, for example, when the new disk is larger than the old one.</p>
-<p>In my case my new disk is 1TB SSD, double the old disk. This is what I did to fix this issue. First, I ran:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">parted -l
-</span></span></code></pre></div><p>Which prompted me to fix the GPT from the disk. Simply type <code>Fix</code> and enter.</p>
-<p>This is how my partition table looked like:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Model: Micron MTFDKBA1T0TFH <span class="o">(</span>nvme<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Disk /dev/nvme0n1: 1024GB
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512B/512B
-</span></span><span class="line"><span class="cl">Partition Table: gpt
-</span></span><span class="line"><span class="cl">Disk Flags:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Number  Start   End     Size    File system  Name                 Flags
-</span></span><span class="line"><span class="cl"> <span class="m">1</span>      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
-</span></span><span class="line"><span class="cl"> <span class="m">2</span>      2097kB  539MB   537MB   fat32        EFI System           boot, esp
-</span></span><span class="line"><span class="cl"> <span class="m">3</span>      539MB   512GB   512GB                Linux LUKS
-</span></span></code></pre></div><p>So I have both GRUB and LUKS installed.</p>
-<h3 id="resizing-lvs-on-luks">Resizing LVs on LUKS</h3>
-<p>To expand the LUKS partition, first we check what our partition name is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@archiso ~ <span class="c1"># lsblk</span>
-</span></span><span class="line"><span class="cl">NAME        MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
-</span></span><span class="line"><span class="cl">loop0         7:0    <span class="m">0</span> 688.5M  <span class="m">1</span> loop /run/archiso/airootfs
-</span></span><span class="line"><span class="cl">sda           8:0    <span class="m">1</span>   3.7G  <span class="m">0</span> disk
-</span></span><span class="line"><span class="cl">├─sda1        8:1    <span class="m">1</span>   795M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">└─sda2        8:2    <span class="m">1</span>    15M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">nvme0n1     259:0    <span class="m">0</span> 953.9G  <span class="m">0</span> disk
-</span></span><span class="line"><span class="cl">├─nvme0n1p1 259:4    <span class="m">0</span>     1M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">├─nvme0n1p2 259:5    <span class="m">0</span>   512M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">└─nvme0n1p3 259:6    <span class="m">0</span> 476.4G  <span class="m">0</span> part
-</span></span></code></pre></div><p>Here, <code>sda</code> is my live USB and <code>nvme0n1p3</code> is my LUKS partition.</p>
-<p>First, we open the encrypted volume:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cryptsetup luksOpen /dev/nvme0n1p3 luks_volume
-</span></span></code></pre></div><p>And extend it:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">parted /dev/nvme0n1
-</span></span></code></pre></div><ol>
-<li>Check partition number:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>parted<span class="o">)</span> print
-</span></span><span class="line"><span class="cl">Model: Micron MTFDKBA1T0TFH <span class="o">(</span>nvme<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Disk /dev/nvme0n1: 1024GB
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512B/512B
-</span></span><span class="line"><span class="cl">Partition Table: gpt
-</span></span><span class="line"><span class="cl">Disk Flags:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Number  Start   End     Size    File system  Name                 Flags
-</span></span><span class="line"><span class="cl"> <span class="m">1</span>      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
-</span></span><span class="line"><span class="cl"> <span class="m">2</span>      2097kB  539MB   537MB   fat32        EFI System           boot, esp
-</span></span><span class="line"><span class="cl"> <span class="m">3</span>      539MB   512GB   512GB                Linux LUKS
-</span></span></code></pre></div><ol start="2">
-<li>Resize it to fill all remaining space using <code>resizepart NUMBER END</code>:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">resizepart <span class="m">3</span> 100%
-</span></span></code></pre></div><ol start="3">
-<li>Make sure it resized:</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>parted<span class="o">)</span> print
-</span></span><span class="line"><span class="cl">Model: Micron MTFDKBA1T0TFH <span class="o">(</span>nvme<span class="o">)</span>
-</span></span><span class="line"><span class="cl">Disk /dev/nvme0n1: 1024GB
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: 512B/512B
-</span></span><span class="line"><span class="cl">Partition Table: gpt
-</span></span><span class="line"><span class="cl">Disk Flags:
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">Number  Start   End     Size    File system  Name                 Flags
-</span></span><span class="line"><span class="cl"> <span class="m">1</span>      1049kB  2097kB  1049kB               BIOS boot partition  bios_grub
-</span></span><span class="line"><span class="cl"> <span class="m">2</span>      2097kB  539MB   537MB   fat32        EFI System           boot, esp
-</span></span><span class="line"><span class="cl"> <span class="m">3</span>      539MB   1024GB  1024GB               Linux LUKS
-</span></span></code></pre></div><ol start="4">
-<li>And <code>quit</code>.</li>
-</ol>
-<p>Now, automatically resize the decrypted volume:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cryptsetup resize luks_volume
-</span></span><span class="line"><span class="cl">pvresize /dev/mapper/luks_volume
-</span></span></code></pre></div><p>Use <code>lsblk</code> and <code>vgs</code> to see how the size changes:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@archiso ~ <span class="c1"># lsblk</span>
-</span></span><span class="line"><span class="cl">NAME                   MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-</span></span><span class="line"><span class="cl">nvme0n1                259:0    <span class="m">0</span> 953.9G  <span class="m">0</span> disk
-</span></span><span class="line"><span class="cl">├─nvme0n1p1            259:4    <span class="m">0</span>     1M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">├─nvme0n1p2            259:5    <span class="m">0</span>   512M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">└─nvme0n1p3            259:6    <span class="m">0</span> 953.4G  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">  └─luks_volume        254:0    <span class="m">0</span> 953.4G  <span class="m">0</span> crypt
-</span></span><span class="line"><span class="cl">    ├─sysvolgroup-swap 254:1    <span class="m">0</span>    12G  <span class="m">0</span> lvm
-</span></span><span class="line"><span class="cl">    ├─sysvolgroup-root 254:2    <span class="m">0</span>    32G  <span class="m">0</span> lvm
-</span></span><span class="line"><span class="cl">    └─sysvolgroup-home 254:3    <span class="m">0</span> 432.4G  <span class="m">0</span> lvm
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">root@archiso ~ <span class="c1"># vgs</span>
-</span></span><span class="line"><span class="cl">  VG          <span class="c1">#PV #LV #SN Attr   VSize   VFree</span>
-</span></span><span class="line"><span class="cl">  sysvolgroup   <span class="m">1</span>   <span class="m">3</span>   <span class="m">0</span> wz--n- 953.36g &lt;476.93g
-</span></span></code></pre></div><p>I wanted to half my swap logical volume (LV), double my root LV, and increase my home LV to fill the extra space, so I ran:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">lvresize -L-6G /dev/mapper/sysvolgroup-swap
-</span></span><span class="line"><span class="cl">lvresize -r -L+32G /dev/mapper/sysvolgroup-root
-</span></span><span class="line"><span class="cl">e2fsck -f /dev/mapper/sysvolgroup-home
-</span></span><span class="line"><span class="cl">lvresize -r -l+100%FREE /dev/mapper/sysvolgroup-home
-</span></span></code></pre></div><p>Where using <code>e2fsck</code> first fixes the home partition filesystem, and <code>-r</code> also resizes the underlying filesystem.</p>
-<p>The end result is:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@archiso ~ <span class="c1"># lsblk</span>
-</span></span><span class="line"><span class="cl">NAME                   MAJ:MIN RM   SIZE RO TYPE  MOUNTPOINTS
-</span></span><span class="line"><span class="cl">nvme0n1                259:0    <span class="m">0</span> 953.9G  <span class="m">0</span> disk
-</span></span><span class="line"><span class="cl">├─nvme0n1p1            259:4    <span class="m">0</span>     1M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">├─nvme0n1p2            259:5    <span class="m">0</span>   512M  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">└─nvme0n1p3            259:6    <span class="m">0</span> 953.4G  <span class="m">0</span> part
-</span></span><span class="line"><span class="cl">  └─luks_volume        254:0    <span class="m">0</span> 953.4G  <span class="m">0</span> crypt
-</span></span><span class="line"><span class="cl">    ├─sysvolgroup-swap 254:1    <span class="m">0</span>     6G  <span class="m">0</span> lvm
-</span></span><span class="line"><span class="cl">    ├─sysvolgroup-root 254:2    <span class="m">0</span>    64G  <span class="m">0</span> lvm
-</span></span><span class="line"><span class="cl">    └─sysvolgroup-home 254:3    <span class="m">0</span> 883.4G  <span class="m">0</span> lvm
-</span></span></code></pre></div><p>And that&rsquo;s it. To wrap up we close everything:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vgchange -a n sysvolgroup
-</span></span><span class="line"><span class="cl">cryptsetup luksClose luks_volume
-</span></span></code></pre></div><h3 id="fixing-uefi-boot-manager">Fixing UEFI boot manager</h3>
-<p>This is not all, once we restart, the boot did not work properly for me.</p>
-<p>Here, I assume that your motherboard supports the <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#efibootmgr" target="_blank" rel="noopener">UEFI</a> firmware-OS interface. Old legacy BIOS systems work differently.</p>
-<p>In my case, the copied <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface" target="_blank" rel="noopener">UEFI boot manager</a> needed to be reconfigured. If you think this may your problem, this section may help you.</p>
-<p>First, mount your <a href="https://wiki.archlinux.org/title/EFI_system_partition" target="_blank" rel="noopener">EFI system partition (ESP)</a>. In my case:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir /mnt/efi
-</span></span><span class="line"><span class="cl">mount /dev/nvme0n1p2 /mnt/efi
-</span></span></code></pre></div><p>Then, reinstall <code>/mnt/efi/EFI/BOOT/BOOTX64.EFI</code> by running:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bootctl install --esp-path<span class="o">=</span>/mnt/efi
-</span></span></code></pre></div><p>Now go to your machine&rsquo;s BIOS configuration and make sure that the Windows Boot Manager is not first, since it overwrites <code>/EFI/BOOT/BOOTX64.EFI</code>.</p>
-<p>In fact, after this process I had a new &ldquo;Linux Boot Manager&rdquo; as my first entry in the boot priority order above the Windows Boot Manager.</p>
-<p>Additionally, since I had setup GRUB to boot from the encrypted volume, I had to reinstall GRUB and follow again the instructions in the <a href="https://wiki.archlinux.org/title/GRUB#Encrypted_/boot" target="_blank" rel="noopener">official tutorial</a>. In particular, I first uncommented <code>GRUB_ENABLE_CRYPTODISK=y</code> in <code>/etc/default/grub</code> in my live USB filesystem, and then:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir /mnt/efi
-</span></span><span class="line"><span class="cl">mkdir /mnt/root
-</span></span><span class="line"><span class="cl">mount /dev/nvme0n1p2 /mnt/efi
-</span></span><span class="line"><span class="cl">mount /dev/mapper/sysvolgroup-root /mnt/root
-</span></span><span class="line"><span class="cl">grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/mnt/efi --boot-directory<span class="o">=</span>/mnt/root/boot --bootloader-id<span class="o">=</span>GRUB /dev/nvme0n1
-</span></span></code></pre></div><p>With this, once we restart, the machine should boot properly.</p>
-<blockquote>
-<p>If you still encounter UEFI problems, you can find more workarounds <a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface#Windows_changes_boot_order" target="_blank" rel="noopener">here</a>.</p>
-</blockquote>
-<h3 id="setting-swap-partition">Setting swap partition</h3>
-<p>The final thing is that my swap partition was not set properly.</p>
-<p>To fix this I ran:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkswap /dev/mapper/sysvolgroup-swap
-</span></span><span class="line"><span class="cl">swapon /dev/mapper/sysvolgroup-swap
-</span></span></code></pre></div><p>And updated <code>/etc/fstab</code> with the UUID of my swap partition. Run:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">lsblk -dno UUID /dev/mapper/sysvolgroup-swap
-</span></span></code></pre></div><p>And insert the output UUID in <code>/etc/fstab</code>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">UUID</span><span class="o">=</span>&lt;swap UUID&gt; none swap defaults <span class="m">0</span> <span class="m">0</span>
-</span></span></code></pre></div>
+<p>It will take 5-10h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including <a href="https://wiki.archlinux.org/title/GRUB" target="_blank" rel="noopener">GRUB</a> and <a href="https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system" target="_blank" rel="noopener">LUKS</a> (also with logical volumes) if you had them setup.</p>
+
     </div>
 
     
