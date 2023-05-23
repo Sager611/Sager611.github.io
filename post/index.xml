@@ -21,6 +21,8 @@
 &lt;style&gt;
 .algo-container {
   margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
   width: 90%;
 }
 .algo-hr-top { height:3px;  }
@@ -29,9 +31,12 @@
 
 .lemma {
   margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
   width: 90%;
+  overflow-x:auto;
 }
-.lemma-qed { text-align:justify; text-align-last:right; }
+.lemma-qed { margin-left:95%; }
 &lt;/style&gt;
 &lt;p&gt;NumPy&amp;rsquo;s &lt;a href=&#34;https://numpy.org/doc/1.24/reference/random/generated/numpy.random.choice.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;numpy.random.choice()&lt;/code&gt;&lt;/a&gt; method samples items at random from an array.&lt;/p&gt;
 &lt;p&gt;Unfortunately, sampling &lt;em&gt;without&lt;/em&gt; replacement an &lt;code&gt;int&lt;/code&gt; from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):&lt;/p&gt;

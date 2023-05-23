@@ -792,6 +792,8 @@ Unfortunately, sampling without replacement an int from $0$ to $N-1$ requires $O
 <style>
 .algo-container {
   margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
   width: 90%;
 }
 .algo-hr-top { height:3px;  }
@@ -800,9 +802,12 @@ Unfortunately, sampling without replacement an int from $0$ to $N-1$ requires $O
 
 .lemma {
   margin: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
   width: 90%;
+  overflow-x:auto;
 }
-.lemma-qed { text-align:justify; text-align-last:right; }
+.lemma-qed { margin-left:95%; }
 </style>
 <p>NumPy&rsquo;s <a href="https://numpy.org/doc/1.24/reference/random/generated/numpy.random.choice.html" target="_blank" rel="noopener"><code>numpy.random.choice()</code></a> method samples items at random from an array.</p>
 <p>Unfortunately, sampling <em>without</em> replacement an <code>int</code> from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):</p>
