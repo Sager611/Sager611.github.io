@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: May 23, 2023 --><html lang="en-us" >
+<!-- Last Published: May 24, 2023 --><html lang="en-us" >
 
 
 <head>
@@ -945,27 +945,23 @@ $$</p>
   $$
 P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y \geq \delta\cdot \mathbb{E}[Y] \right] \leq \frac{1}{\delta}
   $$
-  Now, we define $\beta>0$ s.t. $k\beta = N\cdot a/(a-1)^2$, which implies, by setting $\delta = N/(k-1)$,
+  Now, we set $\delta = N/(k-1)$, and consider the maximum value of $a$, $a^*=N/k$,
   $$
-  P\left[ Y \geq k\beta \right] \leq P\left[ Y \geq N \cdot \frac{a}{(a-1)^2} \right] \leq \frac{k-1}{N}
+  P\left[ Y \geq N \cdot \frac{a^*}{(a^*-1)^2} \right] \leq \frac{k-1}{N}
   $$
-  We also note that,
+  Note that this is true since Lemma 1 still applies when $a=a^*$. We now observe that,
   $$
-  \beta \geq \frac{a^2}{(a-1)^2} \qquad \text{since }N\geq ak
+  N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
-  And,
-  $$
-  \frac{a^2}{(a-1)^2} = \left(1 - \frac{1}{a}\right)^{-2} \leq \left(1 - \frac{k}{N}\right)^{-2} \qquad \forall k\geq 1,~a>1
-  $$
-  Thus finally,
-  $$
-    P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-  $$
-  We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
-  $$
-   N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
-  $$
-  Thus, in the worst case we always draw $O(k+2k)=O(3k)$ items w.p. less than $(k-1)/N$.
+<p>Thus finally,
+$$
+P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
+$$
+We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
+$$
+N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
+$$
+Thus, in the worst case we always draw $O(k+2k)=O(3k)$ items w.p. less than $(k-1)/N$.</p>
   <div class="lemma-qed">$\square$</div>
 </div>
 <p>This is very useful. It means that if $N$ is massive and $k$ is miniscule in comparison, we won&rsquo;t draw more than $3k$ items with high probability. In fact, if $N$ is 100 times $k$, then we will draw $2.021\cdot k$ items w.p. less than ~1%.</p>
