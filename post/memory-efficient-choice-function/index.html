@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
+<!-- Last Published: May 23, 2023 --><html lang="en-us" >
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  
+  
+    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
+  
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+  
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+
+  
+  
+  
+    
+      
+      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
+    
+  
+
+  
+  
+
+  
+  
+    
+    <script src="/js/mathjax-config.js"></script>
+  
+
+  
+
+  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
+
+  
+  
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
+    
+
+    
+    
+    
+    
+      
+      
+    
+    
+    
+
+    
+    
+    
+
+    
+
+    
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+      
+      
+
+      
+      
+
+      
+    
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/wowchemy.19668da90268b69d9fc3810db8d45927.css" />
+
+  
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+    
+    
+    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
+    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
+  
+
+  
+  
+
+  <meta name="google-site-verification" content="google-site-verification=AHp2gxXRopBj-zmhkASy020QAqZuWGxuJxV69CRTH5w" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  <meta name="author" content="Adrián Sager La Ganga" />
+
+
+
+
+
+  
+
+<meta name="description" content="NumPy&rsquo;s numpy.random.choice() method samples items at random from an array.
+Unfortunately, sampling without replacement an int from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):" />
+
+
+
+<link rel="alternate" hreflang="en-us" href="https://sager611.github.io/post/memory-efficient-choice-function/" />
+<link rel="canonical" href="https://sager611.github.io/post/memory-efficient-choice-function/" />
+
+
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+
+
+
+<link rel="icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_32x32_fill_lanczos_center_3.png" />
+<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_180x180_fill_lanczos_center_3.png" />
+
+<meta name="theme-color" content="#1565c0" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+<meta property="twitter:card" content="summary" />
+
+  <meta property="twitter:site" content="@wowchemy" />
+  <meta property="twitter:creator" content="@wowchemy" />
+<meta property="twitter:image" content="https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png" />
+<meta property="og:site_name" content="Adrián Sager La Ganga" />
+<meta property="og:url" content="https://sager611.github.io/post/memory-efficient-choice-function/" />
+<meta property="og:title" content="Memory efficient numpy.random.choice() | Adrián Sager La Ganga" />
+<meta property="og:description" content="NumPy&rsquo;s numpy.random.choice() method samples items at random from an array.
+Unfortunately, sampling without replacement an int from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):" /><meta property="og:image" content="https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png" /><meta property="og:locale" content="en-us" />
+
+  
+    <meta
+      property="article:published_time"
+      content="2023-05-23T15:02:50&#43;02:00"
+    />
+  
+  
+    <meta property="article:modified_time" content="2023-05-23T15:02:50&#43;02:00">
+  
+
+
+
+
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://sager611.github.io/post/memory-efficient-choice-function/"
+  },
+  "headline": "Memory efficient numpy.random.choice()",
+  
+  "datePublished": "2023-05-23T15:02:50+02:00",
+  "dateModified": "2023-05-23T15:02:50+02:00",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Adrián Sager La Ganga"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Adrián Sager La Ganga",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_192x192_fill_lanczos_center_3.png"
+    }
+  },
+  "description": "NumPy\u0026rsquo;s numpy.random.choice() method samples items at random from an array.\nUnfortunately, sampling without replacement an int from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):"
+}
+</script>
+
+  
+
+  
+
+
+
+
+  
+  
+  
+
+  
+  
+
+  
+
+
+  
+  <title>Memory efficient numpy.random.choice() | Adrián Sager La Ganga</title>
+
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="12b16fa226061d693cc07c9f57f8e886" >
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <script src="/js/wowchemy-init.min.eb494022c3035bcfc7233efd58d079d7.js"></script>
+
+  
+
+
+<aside class="search-modal" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
+        aria-label="Search...">
+        
+      </div>
+
+      
+      
+
+      
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+
+  <div class="page-header header--fixed">
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+    <div class="container-xl">
+
+      
+      <div class="d-none d-lg-inline-flex">
+        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
+      </div>
+      
+
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+      
+      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
+      </div>
+      
+
+      
+      
+      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+        
+        <ul class="navbar-nav d-md-inline-flex">
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+              
+              
+              
+                
+              
+              
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/#about"><span>Home</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link  active" href="/post"><span>Blog</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/project"><span>Projects</span></a>
+          </li>
+
+          
+          
+
+          
+
+          
+          
+          
+            
+          
+
+          
+
+          
+          
+          
+          
+
+          
+            
+              
+              
+            
+            
+          
+
+          <li class="nav-item">
+            <a class="nav-link " href="/uploads/resume-cse.pdf"><span>Resume</span></a>
+          </li>
+
+          
+          
+
+        
+
+          
+        </ul>
+      </div>
+
+      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+
+        
+        
+          
+        
+
+        
+        
+        
+        <li class="nav-item">
+          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
+        </li>
+        
+
+        
+        
+        
+        <li class="nav-item dropdown theme-dropdown">
+          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
+            <i class="fas fa-moon" aria-hidden="true"></i>
+          </a>
+          <div class="dropdown-menu">
+            <a href="#" class="dropdown-item js-set-theme-light">
+              <span>Light</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-dark">
+              <span>Dark</span>
+            </a>
+            <a href="#" class="dropdown-item js-set-theme-auto">
+              <span>Automatic</span>
+            </a>
+          </div>
+        </li>
+        
+
+        
+        
+
+      </ul>
+
+    </div>
+  </nav>
+</header>
+
+
+  </div>
+
+  <div class="page-body">
+    
+    
+    
+
+    <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>Memory efficient numpy.random.choice()</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    May 23, 2023
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    6 min read
+  </span>
+  
+
+  
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      <!--CSS-->
+<style>
+.algo-container {
+  margin: auto;
+  width: 90%;
+}
+.algo-hr-top { height:3px;  }
+.algo-hr-mid { height:1px; }
+.algo-hr-bottom { height:3px;  }
+
+.lemma {
+  margin: auto;
+  width: 90%;
+}
+.lemma-qed { text-align:justify; text-align-last:right; }
+</style>
+<p>NumPy&rsquo;s <a href="https://numpy.org/doc/1.24/reference/random/generated/numpy.random.choice.html" target="_blank" rel="noopener"><code>numpy.random.choice()</code></a> method samples items at random from an array.</p>
+<p>Unfortunately, sampling <em>without</em> replacement an <code>int</code> from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">N</span> <span class="o">=</span> <span class="mi">1_000_000_000_000</span>
+</span></span><span class="line"><span class="cl"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span></code></pre></div><p>This is because <code>numpy.random.choice()</code> creates (at least up to NumPy version 1.24) an array of size $N$ (in our example, ~3'725 GB !), as it can be seen in the <a href="https://github.com/numpy/numpy/blob/1e8b589033e1ce2add835840ccdc259e5e1fa4d0/numpy/random/mtrand.pyx#L841" target="_blank" rel="noopener">source code</a>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">choice</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="c1"># pop_size == a when `a` is an `int`</span>
+</span></span><span class="line"><span class="cl">                <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="n">pop_size</span><span class="p">)[:</span><span class="n">size</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">a</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">idx</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">permutation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span> <span class="n">x</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="o">...</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># this creates an array of size `x`</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">arr</span>
+</span></span></code></pre></div><p>However, intuitively we shouldn&rsquo;t need to create an array of size $N$ if we are sampling a small amount of items $k$, right?</p>
+<p>We could simply keep sampling <em>with</em> replacement (which doesn&rsquo;t require $O(N)$ memory) until we have an array of $k$ different items.</p>
+<p>This very basic and straightforward algorithm would be defined as follows:</p>
+<div class="algo-container">
+<hr class="algo-hr-top">
+<b>Algorithm 1</b> An algorithm to draw without replacement. $k>0$ items are taken without replacement from a universe of size $N$. $set(X)$ removes the duplicates in $X$ and $choice(N, k)$ samples $k$ items with replacement with a space complexity of $O(k \log{N})$:
+<hr class="algo-hr-mid">
+<b>Require: </b> $N \geq (2 + \sqrt{2}) \cdot k$
+<p>1:   $X \leftarrow choice(N,k)$ <br/>
+2:   $X \leftarrow set(X)$ <br/>
+3:   <b>while </b>$\vert X\vert \neq k$<b> do</b> <br/>
+4:     $s \leftarrow choice(N, 1)$ <br/>
+5:     <b>if </b>$s \notin X$<b> then</b> <br/>
+6:       $X \leftarrow X \cup \left\{ s \right\}$ <br/>
+7:     <b>end if</b> <br/>
+8:   <b>end while</b> <br/></p>
+<hr class="algo-hr-bottom">
+</div>
+<p>Which in code looks like,</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">choice</span><span class="p">(</span><span class="n">N</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Sample `k` elements from 0 to `N-1` with or without replacement.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">replace</span> <span class="ow">and</span> <span class="n">N</span> <span class="o">&gt;=</span> <span class="mf">3.414213562373095</span> <span class="o">*</span> <span class="n">k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">X</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">!=</span> <span class="n">k</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">X</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">X</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="n">replace</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+</span></span></code></pre></div><p>But why require that $N \geq (2 + \sqrt{2})\cdot k$? We will figure it out by proving a couple of theorems:</p>
+<div class="lemma">
+  <b>Theorem 1</b>&ensp; Algorithm 1 <i>has a space complexity of $O(k \log{N})$</i>.
+  <br/>
+  <br/>
+  <i>Proof.</i> All $X$, $choice(N, k)$ and $set(X)$ occupy $O(k \log{N})$ space, since $\vert X\vert$ is at most $k$ and our largest number, $N$, requires $O(\log{N})$ bits to be stored.
+  <div class="lemma-qed">$\square$</div>
+</div>
+<p>This one was very simple. But, how about time complexity?</p>
+<div class="lemma">
+  <b>Theorem 2</b>&ensp; Algorithm 1 <i>has an expected time complexity of $O(k)$, i.e., it has a time complexity of $\Theta(k)$</i>.
+  <br/>
+  <br/>
+  <i>Proof.</i> In order to advance in the while loop, we need to add new elements to $X$. Thus:
+  $$
+  \begin{align}
+  P\left[\text{sampling unique item after }i+1\text{ draws}\right] &= \left(\frac{\vert X\vert}{N}\right)^i \cdot \left( 1 - \frac{\vert X\vert}{N} \right) \\
+   &\leq \left(\frac{k-1}{N}\right)^i \cdot 1
+  \end{align}
+  $$
+  Using this probability bound, the expected number of items drawn is:
+  $$
+  \begin{align}
+    \mathbb{E}[\text{# of items drawn}] \leq k &+ \mathbb{E}[\text{# of draws to increment }\vert X\vert=1\text{ by 1}] \\
+                                         &+ \cdots \\
+                                         &+ \mathbb{E}[\text{# of draws to increment }\vert X\vert=(k-1)\text{ by 1}] \\
+                                          \leq k &+ (k-1)\sum_{i=1}^\infty i\left(\frac{k-1}{N}\right)^{i}
+  \end{align}
+  $$
+  Since in the worst case the same item is drawn $k$ times in line 1 of the algorithm and then we have to draw $(k-1)$ unique items in the while loop.
+<p>We now note that the algorithm requires $N\geq (2 + \sqrt{2})\cdot k$, so:
+$$
+\begin{align}
+N \geq (2 + \sqrt{2}&amp;)\cdot k \geq 2\cdot k \newline
+\frac{k-1}{N} &amp;\leq 2^{-1} \newline
+&amp;\downarrow \newline
+\mathbb{E}[\text{# of items drawn}] &amp;\leq k + (k-1) \sum_{i=1}^\infty i\cdot2^{-i} \newline
+&amp;= k + k\cdot 2 \newline
+&amp;= O(k)
+\end{align}
+$$</p>
+  <div class="lemma-qed">$\square$</div>
+</div>
+<p>Note that sets in Python have $O(1)$ lookup and insert times, required for lines 5 and 6 in the algorithm.</p>
+<p>However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&rsquo;s generalize to $N \geq ak$ with $a &gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&lt;1$ includes cases where $N&lt;k$, which is impossible and our algorithm would not halt.</p>
+<div class="lemma">
+  <b>Lemma 1</b>&ensp; <i>If $N\geq ak$ for $a>1$, the expected number of items drawn is less than $k + (k-1)\cdot a/(a-1)^2$</i>.
+  <br/>
+  <br/>
+  <i>Proof.</i> $N\geq ak$ implies that,
+  $$
+  \begin{align}
+  \frac{k-1}{N} &\leq a^{-1} \\
+                &\downarrow \\
+  \mathbb{E}[\text{# of items drawn}] &\leq k + (k-1) \sum_{i=1}^\infty i\cdot a^{-i} \\
+                &= k + (k-1)\frac{a}{(a-1)^2}
+  \end{align}
+  $$
+  Since,
+  $$
+  \sum_{i=1}^\infty i\cdot a^{-i} = \frac{a}{(a-1)^2} \qquad \forall a, \vert a\vert > 1
+  $$
+  <div class="lemma-qed">$\square$</div>
+</div>
+<p>With this lemma we can prove the following theorem:</p>
+<div class="lemma">
+  <b>Theorem 3</b>&ensp; Algorithm 1 <i>draws O(3k) items w.p.</i> (with probability)<i> less than $(k-1)/N$</i>.
+  <br/>
+  <br/>
+  <i>Proof.</i> We define $Y := (\text{# of items drawn} - k)$, which is the amount of items drawn in the while loop. We recall <a href="https://en.wikipedia.org/wiki/Markov%27s_inequality" target="_blank">Markov's inequality</a>:
+  $$
+  P\left[ Y \geq \delta\cdot \mathbb{E}[Y] \right] \leq \frac{1}{\delta} \qquad \delta > 0
+  $$
+  So that, using Lemma 1,
+  $$
+P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y \geq \delta\cdot \mathbb{E}[Y] \right] \leq \frac{1}{\delta}
+  $$
+  Now, we define $\beta>0$ s.t. $k\beta = N\cdot a/(a-1)^2$, which implies, by setting $\delta = N/(k-1)$,
+  $$
+  P\left[ Y \geq k\beta \right] \leq P\left[ Y \geq N \cdot \frac{a}{(a-1)^2} \right] \leq \frac{k-1}{N}
+  $$
+  We also note that,
+  $$
+  \beta \geq \frac{a^2}{(a-1)^2} \qquad \text{since }N\geq ak
+  $$
+  And,
+  $$
+  \frac{a^2}{(a-1)^2} = \left(1 - \frac{1}{a}\right)^{-2} \leq \left(1 - \frac{k}{N}\right)^{-2} \qquad \forall k\geq 1,~a>1
+  $$
+  Thus finally,
+  $$
+    P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
+  $$
+  We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
+  $$
+   N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
+  $$
+  Thus, in the worst case we always draw $O(k+2k)=O(3k)$ items w.p. less than $(k-1)/N$.
+  <div class="lemma-qed">$\square$</div>
+</div>
+<p>This is very useful. It means that if $N$ is massive and $k$ is miniscule in comparison, we won&rsquo;t draw more than $3k$ items with high probability. In fact, if $N$ is 100 times $k$, then we will draw $2.021\cdot k$ items w.p. less than ~1%.</p>
+<p>This is definitely better than the original algorithm, which when creating the array of length $N$ had to spend $O(N)$ time.</p>
+<p>To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&gt;0$, then we would have that the algorithm is $O\left(k+k^{1+\beta}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\beta}/N$.</p>
+<p>For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1'000 items using this algorithm will require drawing 113 items w.p. less than 0.1%.</p>
+<h2 id="example-use-case">Example use-case</h2>
+<p>But, when do we have a massive $N$ in practice?</p>
+<p>Let me present the original problem I was trying to solve which required me to create my own <em>choice</em> function: a memory-efficient implementation to sample without replacement <a href="https://docs.python.org/3/library/itertools.html#itertools.product" target="_blank" rel="noopener"><code>itertools.product()</code></a>.</p>
+<p>Let&rsquo;s say that you have multiple iterables that can be indexed in Python and you want to sample $k$ random permutations of their items.</p>
+<p>Since the space of all permutations is prohibitively large, we cannot simply generate <em>all</em> permutations first and then sample $k$ of them.</p>
+<p>The solution is to use our $choice(N, k)$ function:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">random_product</span><span class="p">(</span><span class="o">*</span><span class="n">iterables</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Memory efficient way to sample ``itertools.product`` at random without replacement.&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lens</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">it</span><span class="p">)</span> <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">iterables</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># N is usually extremely large!</span>
+</span></span><span class="line"><span class="cl">    <span class="n">N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="n">lens</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">size</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">size</span> <span class="o">=</span> <span class="n">N</span>
+</span></span><span class="line"><span class="cl">    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">choice</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">size</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                           <span class="n">shape</span><span class="o">=</span><span class="n">lens</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">i_</span> <span class="ow">in</span> <span class="n">idx</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">yield</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">iterables</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">i_</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">iterables</span><span class="p">)))</span>
+</span></span></code></pre></div>
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tag/numpy/">numpy</a>
+  
+  <a class="badge badge-light" href="/tag/complexity/">complexity</a>
+  
+  <a class="badge badge-light" href="/tag/algorithm/">algorithm</a>
+  
+</div>
+
+
+
+<div class="share-box">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fmemory-efficient-choice-function%2F&amp;text=Memory&#43;efficient&#43;numpy.random.choice%28%29" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+        
+      
+      <li>
+        <a href="mailto:?subject=Memory%20efficient%20numpy.random.choice%28%29&amp;body=https%3A%2F%2Fsager611.github.io%2Fpost%2Fmemory-efficient-choice-function%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fpost%2Fmemory-efficient-choice-function%2F&amp;title=Memory&#43;efficient&#43;numpy.random.choice%28%29" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <a href="https://sager611.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_hufdf89b8f47be3017c0b1f2c531cb524c_42154_270x270_fill_q75_lanczos_center.jpeg" alt="Adrián Sager La Ganga"></a>
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="https://sager611.github.io/">Adrián Sager La Ganga</a></h5>
+      <h6 class="card-subtitle">Computational Scientist and Engineer</h6>
+      <p class="card-text">My current interests include causal inference and interpretability in AI.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+    <li>
+      <a href="mailto:adriansagerlaganga@gmail.com" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/Sager611" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://gitlab.com/adriansagerlaganga" target="_blank" rel="noopener">
+        <i class="fab fa-gitlab"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://www.linkedin.com/in/a-sager" target="_blank" rel="noopener">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/uploads/resume-cse.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</article>
+  </div>
+
+  <div class="page-footer">
+    
+    
+    <div class="container">
+      <footer class="site-footer">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  
+    
+  
+  
+    
+  
+
+  
+
+  
+  <p class="powered-by copyright-license-text">
+    © 2023, Adrián Sager. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  </p>
+  
+
+  <p class="powered-by footer-license-icons">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank" aria-label="Creative Commons">
+      <i class="fab fa-creative-commons fa-2x" aria-hidden="true"></i>
+      <i class="fab fa-creative-commons-by fa-2x" aria-hidden="true"></i>
+      
+        <i class="fab fa-creative-commons-nc fa-2x" aria-hidden="true"></i>
+      
+      
+        <i class="fab fa-creative-commons-nd fa-2x" aria-hidden="true"></i>
+      
+    </a>
+  </p>
+
+
+
+
+
+  <p class="powered-by">
+    
+    
+    
+      
+      
+      
+      
+      
+      
+      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+    
+  </p>
+</footer>
+
+    </div>
+    
+  </div>
+
+  
+
+
+<script src="/js/vendor-bundle.min.d26509351aa0ff874abbee824e982e9b.js"></script>
+
+
+
+
+  
+
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script id="search-hit-fuse-template" type="text/x-template">
+    <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+<script id="page-data" type="application/json">{"use_headroom":true}</script>
+
+
+
+  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+<script src="/en/js/wowchemy.min.e8ee06ba8371980ffde659871dd593b0.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

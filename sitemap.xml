@@ -2,8 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://sager611.github.io/tag/algorithm/</loc>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
     <loc>https://sager611.github.io/post/</loc>
-    <lastmod>2023-03-07T14:51:07+01:00</lastmod>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tag/complexity/</loc>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/post/memory-efficient-choice-function/</loc>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tag/numpy/</loc>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+  </url><url>
+    <loc>https://sager611.github.io/tags/</loc>
+    <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/post/clone-arch-disk/</loc>
@@ -15,10 +35,6 @@
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/tag/p5js/</loc>
-    <lastmod>2023-02-27T16:51:17+01:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/tags/</loc>
     <lastmod>2023-02-27T16:51:17+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
