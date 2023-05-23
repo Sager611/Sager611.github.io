@@ -913,7 +913,7 @@ $$</p>
 <p>Note that sets in Python have $O(1)$ lookup and insert times, required for lines 4 and 5 in the algorithm.</p>
 <p>However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&rsquo;s generalize to $N \geq ak$ with $a &gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&lt;1$ includes cases where $N&lt;k$, which is impossible and our algorithm would not halt.</p>
 <div class="lemma">
-  <b>Lemma 1</b>&ensp; <i>If $N\geq ak$ for $a>1$, the expected number of items drawn is less than $k + (k-1)\cdot a/(a-1)^2$</i>.
+  <b>Lemma 1</b>&ensp; <i>If $N\geq ak$ for $a>1$, the expected number of items drawn is less than $1 + (k-1)\cdot a/(a-1)^2$</i>.
   <br/>
   <br/>
   <i>Proof.</i> $N\geq ak$ implies that,
