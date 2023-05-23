@@ -194,7 +194,7 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;/div&gt;
 &lt;p&gt;This is very useful. It means that if $N$ is massive and $k$ is miniscule in comparison, we won&amp;rsquo;t draw more than $1+2k$ items with high probability. In fact, if $N$ is 100 times $k$, then we will draw $1+1.021\cdot k$ items w.p. less than ~1%.&lt;/p&gt;
 &lt;p&gt;This is definitely better than the original algorithm, which when creating the array of length $N$ had to spend $O(N)$ time.&lt;/p&gt;
-&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&amp;gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\beta}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\beta}/N$.&lt;/p&gt;
+&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&amp;gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\gamma}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\gamma}/N$.&lt;/p&gt;
 &lt;p&gt;For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1&#39;000 items using this algorithm will require drawing 103 items w.p. less than 0.1%.&lt;/p&gt;
 &lt;h2 id=&#34;example-use-case&#34;&gt;Example use-case&lt;/h2&gt;
 &lt;p&gt;But, when do we have a massive $N$ in practice?&lt;/p&gt;
