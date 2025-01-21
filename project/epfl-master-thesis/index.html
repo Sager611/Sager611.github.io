@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<!-- This site was created with Wowchemy. https://www.wowchemy.com -->
-<!-- Last Published: July 15, 2024 --><html lang="en-us" >
-
-
+<!doctype html>
+<!-- This site was created with Hugo Blox. https://hugoblox.com -->
+<!-- Last Published: January 21, 2025 --><html lang="en-us" dir="ltr"
+      data-wc-theme-default="system">
+  
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  
-  
-  
-    <meta name="generator" content="Wowchemy 5.7.0 for Hugo" />
-  
+  <meta name="generator" content="Hugo Blox Builder 0.3.1" />
 
   
   
@@ -29,316 +25,186 @@
 
   
   
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-  
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  
-
   
   
   
-    
-      
-      <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono&family=Roboto:wght@400;700&display=swap" media="print" onload="this.media='all'">
-    
-  
-
-  
-  
-
-  
-  
-    
-    <script src="/js/mathjax-config.js"></script>
-  
-
-  
-
-  <link rel="stylesheet" href="/css/vendor-bundle.min.16f785cdb553c8c4431db6775122af35.css" media="print" onload="this.media='all'">
-
-  
-  
-  
-    
-    
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.2/css/academicons.min.css" integrity="sha512-KlJCpRsLf+KKu2VQa5vmRuClRFjxc5lXO03ixZt82HZUk41+1I0bD8KBSA0fY290ayMfWYI9udIqeOWSu1/uZg==" crossorigin="anonymous" media="print" onload="this.media='all'">
-    
-
     
     
     
-    
-      
-      
-    
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" integrity="" crossorigin="anonymous" async></script>
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-      
-      
-
-      
-      
-
-      
-    
-  
-
   
   
-  
-  
-  
-  
-  <link rel="stylesheet" href="/css/wowchemy.19668da90268b69d9fc3810db8d45927.css" />
-
-  
-  
-  
-
-  
-  
-  
-  
-  
-  
-  
-    
-    
-    <link rel="stylesheet" href="/css/libs/chroma/github-light.min.css" title="hl-light" media="print" onload="this.media='all'" >
-    <link rel="stylesheet" href="/css/libs/chroma/dracula.min.css" title="hl-dark" media="print" onload="this.media='all'" disabled>
-  
-
-  
-  
-
-  <meta name="google-site-verification" content="google-site-verification=AHp2gxXRopBj-zmhkASy020QAqZuWGxuJxV69CRTH5w" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-
-
-
-
-
 
   <meta name="author" content="Adrián Sager La Ganga" />
 
+  
+  
+  
+    
+  
+  <meta name="description" content=" What if we could systematically quantify how sustainable a reaction is?
+" />
+
+  
+  <link rel="alternate" hreflang="en-us" href="https://sager611.github.io/project/epfl-master-thesis/" />
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="/css/themes/blue.min.css" />
+  
+
+  
+  
+    
+    <link href="/dist/wc.min.css" rel="stylesheet" />
+  
+
+  
+  
+  
+
+  
+
+  <script>
+     
+    window.hbb = {
+       defaultTheme: document.documentElement.dataset.wcThemeDefault,
+       setDarkTheme: () => {
+        document.documentElement.classList.add("dark");
+        document.documentElement.style.colorScheme = "dark";
+      },
+       setLightTheme: () => {
+        document.documentElement.classList.remove("dark");
+        document.documentElement.style.colorScheme = "light";
+      }
+    }
+
+    console.debug(`Default Hugo Blox Builder theme is ${window.hbb.defaultTheme}`);
+
+    if ("wc-color-theme" in localStorage) {
+      localStorage.getItem("wc-color-theme") === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+    } else {
+      window.hbb.defaultTheme === "dark" ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      if (window.hbb.defaultTheme === "system") {
+        window.matchMedia("(prefers-color-scheme: dark)").matches ? window.hbb.setDarkTheme() : window.hbb.setLightTheme();
+      }
+    }
+  </script>
+
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      let checkboxes = document.querySelectorAll('li input[type=\'checkbox\'][disabled]');
+      checkboxes.forEach(e => {
+        e.parentElement.parentElement.classList.add('task-list');
+      });
+
+      
+      const liNodes = document.querySelectorAll('.task-list li');
+      liNodes.forEach(nodes => {
+        let textNodes = Array.from(nodes.childNodes).filter(node => node.nodeType === 3 && node.textContent.trim().length > 1);
+        if (textNodes.length > 0) {
+          const span = document.createElement('label');
+          textNodes[0].after(span);  
+          span.appendChild(nodes.querySelector('input[type=\'checkbox\']'));
+          span.appendChild(textNodes[0]);
+        }
+      });
+    });
+  </script>
+
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
   
-
-<meta name="description" content="What if we could systematically quantify how sustainable a reaction is?
-In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." />
-
-
-
-<link rel="alternate" hreflang="en-us" href="https://sager611.github.io/project/epfl-master-thesis/" />
-<link rel="canonical" href="https://sager611.github.io/project/epfl-master-thesis/" />
-
-
-
-  <link rel="manifest" href="/manifest.webmanifest" />
-
-
-
-<link rel="icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_32x32_fill_lanczos_center_3.png" />
-<link rel="apple-touch-icon" type="image/png" href="/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_180x180_fill_lanczos_center_3.png" />
-
-<meta name="theme-color" content="#1565c0" />
-
-
-
-
-
-
-
-
-
-
   
 
+  
+  <link rel="icon" type="image/png" href="/media/icon_hu7875746747865075390.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu17439571006665430394.png" />
 
-
-
-
-
-<meta property="twitter:card" content="summary_large_image" />
-
-  <meta property="twitter:site" content="@wowchemy" />
-  <meta property="twitter:creator" content="@wowchemy" />
-<meta property="twitter:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" />
-<meta property="og:site_name" content="Adrián Sager La Ganga" />
-<meta property="og:url" content="https://sager611.github.io/project/epfl-master-thesis/" />
-<meta property="og:title" content="UQ-based metrics for chemical sustainability | Adrián Sager La Ganga" />
-<meta property="og:description" content="What if we could systematically quantify how sustainable a reaction is?
-In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable." /><meta property="og:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" /><meta property="og:locale" content="en-us" />
+  <link rel="canonical" href="https://sager611.github.io/project/epfl-master-thesis/" />
 
   
-    <meta
-      property="article:published_time"
-      content="2023-02-25T16:37:09&#43;01:00"
-    />
   
   
+  
+  
+  
+  
+  
+    
+  
+  
+
+  
+  
+    
+    
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  
+    <meta property="twitter:site" content="@GetResearchDev" />
+    <meta property="twitter:creator" content="@GetResearchDev" />
+  
+  <meta property="og:site_name" content="Adrián Sager La Ganga" />
+  <meta property="og:url" content="https://sager611.github.io/project/epfl-master-thesis/" />
+  <meta property="og:title" content="UQ-based metrics for chemical sustainability | Adrián Sager La Ganga" />
+  <meta property="og:description" content="
+  
+    
+   What if we could systematically quantify how sustainable a reaction is?" /><meta property="og:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" />
+    <meta property="twitter:image" content="https://sager611.github.io/project/epfl-master-thesis/featured.png" /><meta property="og:locale" content="en-us" />
+  
+    
+      <meta
+        property="article:published_time"
+        content="2023-02-25T16:37:09&#43;01:00"
+      />
+    
     <meta property="article:modified_time" content="2023-02-25T16:37:09&#43;01:00">
   
 
-
-
-
+  
 
 
     
@@ -378,10 +244,10 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
     "name": "Adrián Sager La Ganga",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_192x192_fill_lanczos_center_3.png"
+      "url": "https://sager611.github.io/media/icon_hu4292453625928996916.png"
     }
   },
-  "description": "What if we could systematically quantify how sustainable a reaction is?\nIn this project (my master\u0026rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as how likely it is that a reaction is sustainable."
+  "description": "\u003cp\u003e\n  \u003cspan class=\"inline-block  pr-1\"\u003e\n    \u003csvg style=\"height: 1em; transform: translateY(0.1em);\" viewBox=\"0 0 370 391\" xmlns=\"http://www.w3.org/2000/svg\"\u003e\u003cg clip-rule=\"evenodd\" fill-rule=\"evenodd\"\u003e\u003cpath d=\"m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z\" fill=\"#ff4088\" stroke=\"#c9177e\" stroke-width=\"27\" /\u003e\u003cpath d=\"m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z\" fill=\"#fff\" /\u003e\u003c/g\u003e\u003c/svg\u003e\n  \u003c/span\u003e What if we could systematically quantify \u003cem\u003ehow\u003c/em\u003e sustainable a reaction is?\u003c/p\u003e"
 }
 </script>
 
@@ -390,23 +256,331 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
   
 
 
-
-
-  
-  
-  
-
-  
-  
-
-  
-
-
-  
   <title>UQ-based metrics for chemical sustainability | Adrián Sager La Ganga</title>
 
   
   
+  
+  
+  
+    
+    
+  
+  
+  <style>
+    @font-face {
+      font-family: 'Inter var';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url(/dist/font/Inter.var.woff2) format(woff2);
+    }
+  </style>
+
+  
+
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+      
+      
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        
+        
+      
+    
+  
+  
+  
+  
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/dist/pagefind/pagefind-ui.be766eb419317a14ec769d216e9779bfe8f3737c80e780f4ba0dafb57a41a482.css" integrity="sha256-vnZutBkxehTsdp0hbpd5v&#43;jzc3yA54D0ug2vtXpBpII=" />
+
+
+<script src="/dist/pagefind/pagefind-ui.87693d7c6f2b3b347ce359d0ede762c033419f0a32b22ce508c335a81d841f1b.js" integrity="sha256-h2k9fG8rOzR841nQ7ediwDNBnwoysizlCMM1qB2EHxs="></script>
+
+
+<script>window.hbb.pagefind = {"baseUrl":"/"};</script>
+
+<style>
+  html.dark {
+    --pagefind-ui-primary: #eeeeee;
+    --pagefind-ui-text: #eeeeee;
+    --pagefind-ui-background: #152028;
+    --pagefind-ui-border: #152028;
+    --pagefind-ui-tag: #152028;
+  }
+</style>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    new PagefindUI({
+      element: "#search",
+      showSubResults: true,
+      baseUrl: window.hbb.pagefind.baseUrl,
+      bundlePath: window.hbb.pagefind.baseUrl + "pagefind/",
+    });
+  });
+  document.addEventListener('DOMContentLoaded', () => {
+    let element = document.getElementById('search');
+    let trigger = document.getElementById('search_toggle');
+
+    if (trigger) {
+      trigger.addEventListener('click', () => {
+        element.classList.toggle('hidden');
+        element.querySelector("input").value = ""
+        element.querySelector("input").focus()
+
+        if (!element.classList.contains('hidden')) {
+          let clear_trigger = document.querySelector('.pagefind-ui__search-clear');
+
+          if (clear_trigger && !clear_trigger.hasAttribute('listenerOnClick')) {
+            clear_trigger.setAttribute('listenerOnClick', 'true');
+
+            clear_trigger.addEventListener('click', () => {
+              element.classList.toggle('hidden');
+            });
+          }
+        }
+
+      });
+    }
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link type="text/css" rel="stylesheet" href="/dist/lib/katex/katex.min.505d5f829022bb7b4f24dfee0aa1141cd7bba67afe411d1240335f820960b5c3.css" integrity="sha256-UF1fgpAiu3tPJN/uCqEUHNe7pnr&#43;QR0SQDNfgglgtcM=" />
+  
+  
+  <script defer src="/dist/lib/katex/katex.min.dc84b296ec3e884de093158f760fd9d45b6c7abe58b5381557f4e138f46a58ae.js" integrity="sha256-3ISyluw&#43;iE3gkxWPdg/Z1Ftser5YtTgVV/ThOPRqWK4="></script>
+  
+  
+  
+  
+  <script defer src="/js/katex-renderer.6579ec9683211cfb952064aedf3a3baea5eeb17a061775b32b70917474637c80.js" integrity="sha256-ZXnsloMhHPuVIGSu3zo7rqXusXoGF3WzK3CRdHRjfIA="></script>
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    src="/js/hugo-blox-en.min.8c8ea06bd0420f5067e52fa727b9f92303757322ba4431774153d59a9735eadb.js"
+    integrity="sha256-jI6ga9BCD1Bn5S&#43;nJ7n5IwN1cyK6RDF3QVPVmpc16ts="
+  ></script>
+
   
   
 
@@ -422,367 +596,360 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
 
 </head>
 
-
-<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="page-wrapper   " data-wc-page-id="bb373e34aa74a9e0f96d626986715a37" >
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script src="/js/wowchemy-init.min.eb494022c3035bcfc7233efd58d079d7.js"></script>
-
-  
-
-
-<aside class="search-modal" id="search">
-  <div class="container">
-    <section class="search-header">
-
-      <div class="row no-gutters justify-content-between mb-3">
-        <div class="col-6">
-          <h1>Search</h1>
-        </div>
-        <div class="col-6 col-search-close">
-          <a class="js-search" href="#" aria-label="Close"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
-        </div>
-      </div>
-
-      <div id="search-box">
+  <body class="dark:bg-hb-dark dark:text-white page-wrapper" id="top">
+    <div id="page-bg"></div>
+    <div class="page-header sticky top-0 z-30">
+      
+      
+      
         
-        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
-        autocomplete="off" autocorrect="off" spellcheck="false" type="search" class="form-control"
-        aria-label="Search...">
         
-      </div>
-
-      
-      
-
-      
-
-    </section>
-    <section class="section-search-results">
-
-      <div id="search-hits">
         
-      </div>
+          <header id="site-header" class="header">
+  <nav class="navbar px-3 flex justify-left">
+    <div class="order-0 h-100">
+      
+      <a class="navbar-brand" href="/" title="Adrián Sager La Ganga">
+        Adrián Sager La Ganga
+      </a>
+    </div>
+    
+    <input id="nav-toggle" type="checkbox" class="hidden" />
+    <label
+      for="nav-toggle"
+      class="order-3 cursor-pointer flex items-center lg:hidden text-dark dark:text-white lg:order-1">
+      <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
+        <title>Open Menu</title>
+        <path d="M0 3h20v2H0V3z m0 6h20v2H0V9z m0 6h20v2H0V0z"></path>
+      </svg>
+      <svg id="hide-button" class="h-6 fill-current hidden" viewBox="0 0 20 20">
+        <title>Close Menu</title>
+        <polygon
+          points="11 9 22 9 22 11 11 11 11 22 9 22 9 11 -2 11 -2 9 9 9 9 -2 11 -2"
+          transform="rotate(45 10 10)"></polygon>
+      </svg>
+    </label>
+    
 
-    </section>
-  </div>
-</aside>
+    
+    
+    <ul
+      id="nav-menu"
+      class="navbar-nav order-3 hidden lg:flex w-full pb-6 lg:order-1 lg:w-auto lg:space-x-2 lg:pb-0 xl:space-x-8 justify-left
+      ">
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/"
+        >Home</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/post"
+        >Blog</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/project"
+        >Projects</a
+        >
+      </li>
+      
+      
+      
+      
+      
+      
+      <li class="nav-item">
+        <a
+          class="nav-link "
+          
+          href="/uploads/resume_2.pdf"
+        >Resume</a
+        >
+      </li>
+      
+      
+      
+    </ul>
 
-
-
-  <div class="page-header header--fixed">
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
-    <div class="container-xl">
+    <div class="order-1 ml-auto flex items-center md:order-2 lg:ml-0">
 
       
-      <div class="d-none d-lg-inline-flex">
-        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
-      </div>
       
-
       
-      <button type="button" class="navbar-toggler" data-toggle="collapse"
-              data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
-      <span><i class="fas fa-bars"></i></span>
+      <button
+        aria-label="search"
+        class="text-black hover:text-primary  inline-block px-3 text-xl dark:text-white"
+        id="search_toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512" fill="currentColor"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
       </button>
       
 
       
-      <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
-        <a class="navbar-brand" href="/">Adrián Sager La Ganga</a>
+      
+      <div class="px-3 text-black hover:text-primary-700 dark:text-white dark:hover:text-primary-300
+            [&.active]:font-bold [&.active]:text-black/90 dark:[&.active]:text-white">
+        <button class="theme-toggle mt-1" accesskey="t" title="appearance">
+          <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class="dark:hidden">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+               stroke-linejoin="round" class=" dark:block [&:not(dark)]:hidden">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
       </div>
       
 
       
       
-      <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
 
-        
-        <ul class="navbar-nav d-md-inline-flex">
-          
-
-          
-
-          
-          
-          
-            
-          
-
-          
-
-          
-          
-          
-          
-
-          
-            
-              
-              
-            
-            
-              
-              
-              
-                
-              
-              
-            
-          
-
-          <li class="nav-item">
-            <a class="nav-link " href="/#about"><span>Home</span></a>
-          </li>
-
-          
-          
-
-          
-
-          
-          
-          
-
-          
-
-          
-          
-          
-          
-
-          
-            
-              
-              
-            
-            
-          
-
-          <li class="nav-item">
-            <a class="nav-link " href="/post"><span>Blog</span></a>
-          </li>
-
-          
-          
-
-          
-
-          
-          
-          
-            
-          
-
-          
-
-          
-          
-          
-          
-
-          
-            
-              
-              
-            
-            
-          
-
-          <li class="nav-item">
-            <a class="nav-link  active" href="/project"><span>Projects</span></a>
-          </li>
-
-          
-          
-
-          
-
-          
-          
-          
-            
-          
-
-          
-
-          
-          
-          
-          
-
-          
-            
-              
-              
-            
-            
-          
-
-          <li class="nav-item">
-            <a class="nav-link " href="/uploads/resume_2.pdf"><span>Resume</span></a>
-          </li>
-
-          
-          
-
-        
-
-          
-        </ul>
-      </div>
-
-      <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
-
-        
-        
-          
-        
-
-        
-        
-        
-        <li class="nav-item">
-          <a class="nav-link js-search" href="#" aria-label="Search"><i class="fas fa-search" aria-hidden="true"></i></a>
-        </li>
-        
-
-        
-        
-        
-        <li class="nav-item dropdown theme-dropdown">
-          <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-label="Display preferences">
-            <i class="fas fa-moon" aria-hidden="true"></i>
-          </a>
-          <div class="dropdown-menu">
-            <a href="#" class="dropdown-item js-set-theme-light">
-              <span>Light</span>
-            </a>
-            <a href="#" class="dropdown-item js-set-theme-dark">
-              <span>Dark</span>
-            </a>
-            <a href="#" class="dropdown-item js-set-theme-auto">
-              <span>Automatic</span>
-            </a>
-          </div>
-        </li>
-        
-
-        
-        
-
-      </ul>
-
+      
+      
     </div>
   </nav>
 </header>
 
 
-  </div>
-
-  <div class="page-body">
-    
-    
-    
-
-    <article class="article article-project">
-
-  
+<div id="search" class="hidden p-3"></div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-<div class="article-container pt-3">
-  <h1>UQ-based metrics for chemical sustainability</h1>
-
-  
-
-  
-
-
-<div class="article-metadata">
-
-  
-  
-
-  
-  <span class="article-date">
-    
-    
+        
       
+    </div>
+    <div class="page-body  my-10">
+      
+
+
+
+
+
+<div class="mx-auto flex max-w-screen-xl">
+  
+
+
+
+<aside class="hb-sidebar-container max-lg:[transform:translate3d(0,-100%,0)] lg:hidden xl:block">
+  
+  <div class="px-4 pt-4 lg:hidden">
     
-    Feb 25, 2023
-  </span>
+    
+  </div>
+  <div class="hb-scrollbar lg:h-[calc(100vh-var(--navbar-height))]">
+    <ul class="flex flex-col gap-1 lg:hidden">
+      
+      
+        <li class=""><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/"
+    
+  >Blog
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/memory-efficient-choice-function/"
+    
+  >Memory efficient numpy.random.choice()
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/clone-arch-disk/"
+    
+  >Cloning Arch Linux hard disk remotely to new machine
+    </a>
+              
+            </li><li class="flex flex-col "><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/post/p5js-vis-transfer-function/"
+    
+  >Visualizing transfer functions in p5.js
+    </a>
+              
+            </li></ul>
+      </div></li>
+        <li class="open"><a
+    class="hb-sidebar-custom-link
+      text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-primary-800 dark:hover:text-gray-50"
+    href="/project/"
+    
+  >Projects
+        <span data-hb-sidebar-toggle>
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-[18px] min-w-[18px] rounded-sm p-0.5 hover:bg-gray-800/5 dark:hover:bg-gray-100/5"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" class="origin-center transition-transform rtl:-rotate-180"></path></svg>
+        </span>
+    </a><div class="ltr:pr-0 overflow-hidden">
+        <ul class="hb-sidebar-list"><li class="flex flex-col open"><a
+    class="hb-sidebar-custom-link
+      sidebar-active-item bg-primary-100 font-semibold text-primary-800 dark:bg-primary-300 dark:text-primary-900"
+    href="/project/epfl-master-thesis/"
+    
+  >UQ-based metrics for chemical sustainability
+    </a>
+  
+    <ul class="hb-sidebar-mobile-toc"><li>
+              <a
+                href="#ai-metric-definition"
+                class="hb-docs-link"
+              >AI-metric definition</a>
+            </li>
+          <li>
+              <a
+                href="#validating-ai-metrics"
+                class="hb-docs-link"
+              >Validating AI-metrics</a>
+            </li>
+          <li>
+              <a
+                href="#dont-pay-attention-to-the-_attention_-"
+                class="hb-docs-link"
+              >Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;</a>
+            </li>
+          <li>
+              <a
+                href="#putting-it-all-together"
+                class="hb-docs-link"
+              >Putting it all together</a>
+            </li>
+          </ul>
+  
+              
+            </li></ul>
+      </div></li>
+    </ul>
+
+    <div class="max-xl:hidden h-0 w-64 shrink-0"></div></div>
+
+</aside>
   
 
-  
-
-  
-
-  
-  
-  
-  
-
-  
-  
-
-</div>
-
+<nav class="hb-toc order-last hidden w-64 shrink-0 xl:block print:hidden px-4" aria-label="table of contents">
   
 
 
 
 
-<div class="btn-links mb-3">
+
+
+
+
+
+
+
+  <div class="hb-scrollbar text-sm [hyphens:auto] sticky top-16 overflow-y-auto pr-4 pt-6 max-h-[calc(100vh-var(--navbar-height)-env(safe-area-inset-bottom))] -mr-4 rtl:-ml-4"><p class="mb-4 font-semibold tracking-tight">On this page</p><ul>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#ai-metric-definition">AI-metric definition</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#modelling-uncertainty">Modelling uncertainty</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="pl-4 rtl:pr-4 inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#quantifying-ai-metrics">Quantifying AI-metrics</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#validating-ai-metrics">Validating AI-metrics</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#dont-pay-attention-to-the-_attention_-">Don’t pay attention to the attention …</a>
+      </li>
+      <li class="my-2 scroll-my-6 scroll-py-6">
+        <a class="font-semibold inline-block text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-300 w-full break-words" href="#putting-it-all-together">Putting it all together</a>
+      </li></ul>
+
+  
+  
+    
+    
+  
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </nav>
+
+
+  <article class="w-full break-words flex min-h-[calc(100vh-var(--navbar-height))] min-w-0 justify-center pb-8 pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+    <main class="w-full min-w-0 max-w-6xl px-6 pt-4 md:px-12">
+
+      
+
+      <h1 class="mt-2 text-4xl font-bold tracking-tight text-slate-900 dark:text-slate-100">UQ-based metrics for chemical sustainability</h1>
+
+      <div class="mt-4 mb-16">
+      <div class="text-gray-500 dark:text-gray-300 text-sm flex items-center flex-wrap gap-y-2"><span class="mr-1">Feb 25, 2023</span>
+        
+
+        
+        <span class="mx-1">·</span>
+        <span class="mx-1">
+          7 min read
+        </span>
+        
+        </div>
+
+        <div class="mt-3">
+          
+
+
+
+
+<div class="">
   
   
 
@@ -799,7 +966,8 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
 
 
 
-<a class="btn btn-outline-primary btn-page-header" href="/uploads/EPFL_Master_Thesis.pdf" target="_blank" rel="noopener">
+<a class="hb-attachment-link hb-attachment-large" href="/uploads/EPFL_Master_Thesis.pdf" target="_blank" rel="noopener">
+  <svg style="height: 1em" class='inline-block' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9"/></svg>
   PDF
 </a>
 
@@ -822,36 +990,59 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
 </div>
 
 
-</div>
-
-
-<div class="article-header article-container featured-image-wrapper mt-4 mb-4" style="max-width: 720px; max-height: 395px;">
-  <div style="position: relative">
-    <img src="/project/epfl-master-thesis/featured_hu3d2a603485620d1fa19c8debcbfb6843_128548_720x2500_fit_q75_h2_lanczos_3.webp" width="720" height="395" alt="" class="featured-image">
-    
-  </div>
-</div>
+        </div>
+      </div>
 
 
 
-  <div class="article-container">
+      
+      
+      
+      
+      
 
-    <div class="article-style">
-      <p>
-  <i class="fas fa-leaf  pr-1 fa-fw"></i> What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <div class="article-header article-container featured-image-wrapper mt-4 mb-16" style="max-width: 720px; max-height: 395px;">
+        <div style="position: relative">
+          <img src="/project/epfl-master-thesis/featured_hu16833055793584439465.webp" width="720" height="395" alt="" class="featured-image">
+          
+        </div>
+      </div>
+      
+
+      
+      
+
+      <div class="prose prose-slate lg:prose-xl dark:prose-invert">
+        <p>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" viewBox="0 0 370 391" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill-rule="evenodd"><path d="m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z" fill="#ff4088" stroke="#c9177e" stroke-width="27" /><path d="m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z" fill="#fff" /></g></svg>
+  </span> What if we could systematically quantify <em>how</em> sustainable a reaction is?</p>
 <p>In this project (my master&rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as <em>how likely</em> it is that a reaction is sustainable. This likelihood would then be computed by employing <strong>uncertainty quantification (UQ)</strong> on some AI model&rsquo;s prediction.</p>
 <p>The main contribution of the project is an <strong>extensible toolkit</strong> with sustainability metrics based on AI model predictions.</p>
 <p>In this page I collect some of my thoughts derived from this project.</p>
-<p><a href="/uploads/EPFL_Master_Thesis.pdf" target="_blank">You can read the full report here.</a></p>
-<div class="alert alert-note">
-  <div>
-    This work was created and funded as part of the <a href="https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/" target="_blank" rel="noopener">NCCR Catalysis Young Talents Fellowship</a>, a National Centre of Competence in Research funded by the Swiss National Science Foundation.
-  </div>
+<p><a href="uploads/EPFL_Master_Thesis.pdf">You can read the full report here.</a></p>
+<div class="flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900">
+<span class="pr-3 pt-1 text-primary-600 dark:text-primary-300">
+  <svg height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z"/></svg>
+</span>
+  <span class="dark:text-neutral-300">This work was created and funded as part of the <a href="https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/" target="_blank" rel="noopener">NCCR Catalysis Young Talents Fellowship</a>, a National Centre of Competence in Research funded by the Swiss National Science Foundation.</span>
 </div>
 
 
-<details class="toc-inpage d-print-none  " open>
-  <summary class="font-weight-bold">Table of Contents</summary>
+
+<details class="print:hidden xl:hidden" >
+  <summary>Table of Contents</summary>
+  <div class="text-sm">
   <nav id="TableOfContents">
   <ul>
     <li><a href="#ai-metric-definition">AI-metric definition</a>
@@ -865,140 +1056,107 @@ In this project (my master&rsquo;s thesis at EPFL) I explored how useful it woul
     <li><a href="#putting-it-all-together">Putting it all together</a></li>
   </ul>
 </nav>
+  </div>
 </details>
 
 <h2 id="ai-metric-definition">AI-metric definition</h2>
-<p>Let&rsquo;s say a chemical reaction can be one of 
-
-$\mathcal{C}$ classes, for ex., according to its type: &ldquo;<em>carboxylic acid to acid chloride</em>&rdquo;, &ldquo;<em>translocase-catalyzed</em>&rdquo;, etc.</p>
-<p>Some of these classes are sustainable, 
-
-$\mathcal{C}_\text{sust}$, some are not, 
-
-$\mathcal{C}_\text{non-sust}$, and we may have an unrecognized class, 
-
-$\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$.</p>
-<details class="spoiler "  id="spoiler-8">
-  <summary>Click to view the reaction type distribution</summary>
-  <p><figure  id="figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies">
-  <div class="d-flex justify-content-center">
+<p>Let&rsquo;s say a chemical reaction can be one of $\mathcal{C}$
+ classes, for ex., according to its type: &ldquo;<em>carboxylic acid to acid chloride</em>&rdquo;, &ldquo;<em>translocase-catalyzed</em>&rdquo;, etc.</p>
+<p>Some of these classes are sustainable, $\mathcal{C}_\text{sust}$
+, some are not, $\mathcal{C}_\text{non-sust}$
+, and we may have an unrecognized class, $\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$
+.</p>
+<details class="spoiler "  id="spoiler-7">
+  <summary class="cursor-pointer">Click to view the reaction type distribution</summary>
+  <div class="rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2">
+    <figure  id="figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies">
+  <div class="flex justify-center	">
     <div class="w-100" ><img src="rxn_class_distr.svg" alt="Reaction classes are divided in multiple levels" loading="lazy" data-zoomable /></div>
   </div><figcaption>
       In reality, our distribution of reaction types is hierarchical, but the argument still applies
-    </figcaption></figure></p>
+    </figcaption></figure>
+  </div>
 </details>
-<p>We can then quantify <em>how likely</em> we <em>expect</em> some reaction 
-
-$\pmb{x}$ to be of some class 
-
-$y\in\mathcal{C}$:</p>
-
-
+<p>We can then quantify <em>how likely</em> we <em>expect</em> some reaction $\pmb{x}$
+ to be of some class $y\in\mathcal{C}$
+:</p>
 $$ \text{AI-metric}_y := \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[p(y\vert\pmb{x}, \pmb{\theta})\right]\cdot\text{confidence}(\pmb{x}, y) \quad \in [0,1]$$
-<p>Where 
 
-$\pmb{\theta}$ are the parameters of our AI model after training it on some dataset 
-
-$\mathcal{D}$.</p>
+<p>Where $\pmb{\theta}$
+ are the parameters of our AI model after training it on some dataset $\mathcal{D}$
+.</p>
 <p>Note how we are scaling by how <em>confident</em> we are that this expected likelihood is correct. In our case,</p>
-
-
 $$\text{confidence}(\pmb{x}, y) := 1 - 2\cdot\text{stddev}_{p(\pmb{\theta}\vert\mathcal{D})}\big(p(y\vert\pmb{x}, \pmb{\theta})\big)$$
-<p>Which is always in 
 
-$[0,1]$ since probabilities cannot deviate more than 
-
-$1/2$.</p>
-<p>But, how do we score how likely our 
-
-$\pmb{x}$ is of <em>any</em> class in 
-
-$\mathcal{C}_\text{sust}$?</p>
+<p>Which is always in $[0,1]$
+ since probabilities cannot deviate more than $1/2$
+.</p>
+<p>But, how do we score how likely our $\pmb{x}$
+ is of <em>any</em> class in $\mathcal{C}_\text{sust}$
+?</p>
 <p>
-  <i class="fas fa-arrow-right  pr-1 fa-fw"></i> We simply take the maximum over 
-
-$\mathcal{C}_\text{sust}$:</p>
-
-
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+  </span> We simply take the maximum over $\mathcal{C}_\text{sust}$
+:</p>
 $$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y \quad \in [0, 1] $$
+
 <details class="spoiler " id="spoiler-21">
-  <summary>Why not sum over
-
-$\mathcal{C}_\text{sust}$?</summary>
-  <p>Formally, we are asking 
-
-$p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$, which is:
-
-
+  <summary>Why not sum over$\mathcal{C}_\text{sust}$
+?</summary>
+  <p>Formally, we are asking $p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$
+, which is:
 $$ \max_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) \leq p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D}) \leq \sum_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) $$
-    Since we are estimating our metric (see next section) and since some 
 
-$\pmb{x}$ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. <br/>
+    Since we are estimating our metric (see next section) and since some $\pmb{x}$
+ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. <br/>
     It is also crucial that in our case our AI model is <em>single-label</em>, so it is designed to only predict the highest probability class.
   </p>
 </details>
 <h3 id="modelling-uncertainty">Modelling uncertainty</h3>
-<p>Without getting too philosophical, we want to believe that <em>for sure</em> there is some underlying <em>true</em> classification set for an input 
-
-$\pmb{x}$, 
-
-$\mathcal{C}_\text{true} \subseteq \mathcal{C}$, so:</p>
-
-
+<p>Without getting too philosophical, we want to believe that <em>for sure</em> there is some underlying <em>true</em> classification set for an input $\pmb{x}$
+, $\mathcal{C}_\text{true} \subseteq \mathcal{C}$
+, so:</p>
 $$
 p(y\vert\pmb{x}) = \begin{cases}1 & \text{if }y\in\mathcal{C}_\text{true} \\
 0 & \text{o.w.}\end{cases}
 $$
-<p>Note that (by our philosophy) 
 
-$p(y\vert\pmb{x})$ is equivalent to 
-
-$p(y\vert\pmb{x},\mathcal{D}_\text{all})$ where 
-
-$\mathcal{D}_\text{all}$ is all the knowledge of the universe (quite some information!).</p>
+<p>Note that (by our philosophy) $p(y\vert\pmb{x})$
+ is equivalent to $p(y\vert\pmb{x},\mathcal{D}_\text{all})$
+ where $\mathcal{D}_\text{all}$
+ is all the knowledge of the universe (quite some information!).</p>
 <p>Of course, in reality at best we know:</p>
-
-
 $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[ p(y\vert\pmb{x},\pmb{\theta}) \right]$$
-<p>For our observed training set 
 
-$\mathcal{D}$.</p>
+<p>For our observed training set $\mathcal{D}$
+.</p>
 <p>This means that we are in the presence of two sources of uncertainty<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>:</p>
 <ol>
-<li><strong>Epistemic</strong> 
-
-$\pmb{\theta}$: due to the limited expresiveness of our model and its optimization procedure.</li>
-<li><strong>Aleatoric</strong> 
-
-$\mathcal{D}$: due to noise in our training set (some entries aren&rsquo;t reactions or have a wrong label).</li>
+<li><strong>Epistemic</strong> $\pmb{\theta}$
+: due to the limited expresiveness of our model and its optimization procedure.</li>
+<li><strong>Aleatoric</strong> $\mathcal{D}$
+: due to noise in our training set (some entries aren&rsquo;t reactions or have a wrong label).</li>
 </ol>
 <h3 id="quantifying-ai-metrics">Quantifying AI-metrics</h3>
 <p>We use efficient <strong>uncertainty quantification (UQ)</strong> techniques to estimate our AI-metric according to the two sources of uncertainty<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>:</p>
 <ol>
 <li>
-<p><strong>Monte Carlo Dropout (MCDropout)</strong> for <strong>epistemic</strong> uncertainty 
-
-$\pmb{\theta}$: We leave our Drouput layers <em>on</em> during inference, so for each forward pass on the same 
-
-$\pmb{x}$ we are effectively sampling different submodels from an ensemble.</p>
+<p><strong>Monte Carlo Dropout (MCDropout)</strong> for <strong>epistemic</strong> uncertainty $\pmb{\theta}$
+: We leave our Drouput layers <em>on</em> during inference, so for each forward pass on the same $\pmb{x}$
+ we are effectively sampling different submodels from an ensemble.</p>
 </li>
 <li>
-<p><strong>Test-time data augmentation</strong> for <strong>aleatoric</strong> uncertainty 
-
-$\mathcal{D}$: We augment 
-
-$\pmb{x}$ during inference.</p>
+<p><strong>Test-time data augmentation</strong> for <strong>aleatoric</strong> uncertainty $\mathcal{D}$
+: We augment $\pmb{x}$
+ during inference.</p>
 </li>
 </ol>
-<p>We then have 
-
-$N\times M$ likelihoods 
-
-$p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$ where we sampled our input 
-
-$\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$ and our model 
-
-$\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses the average and stddev of these values to compute its score.</p>
+<p>We then have $N\times M$
+ likelihoods $p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$
+ where we sampled our input $\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$
+ and our model $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$
+. Our AI-metric then simply uses the average and stddev of these values to compute its score.</p>
 <p>For example,</p>
 <p>
 
@@ -1017,7 +1175,7 @@ $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses th
 
 
 <figure  id="figure-top-5-reaction-types-for-reaction-according-to-the-ai-metric-the-actual-true-types-for-this-reaction-are-in-red-this-is-a-special-reaction-which-can-be-both-enzymatic-and-non-enzymatic">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic"
            src="/project/epfl-master-thesis/example_likelihood_uq-1.svg"
            loading="lazy" data-zoomable /></div>
@@ -1026,29 +1184,26 @@ $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses th
     </figcaption></figure>
 </p>
 <h2 id="validating-ai-metrics">Validating AI-metrics</h2>
-<p>How useful is this metric definition? Is it really able to differentiate reactions 
-
-$\pmb{x}$ in 
-
-$\mathcal{C}_\text{sust}$ from those in 
-
-$\mathcal{C}_\text{non-sust}$?</p>
+<p>How useful is this metric definition? Is it really able to differentiate reactions $\pmb{x}$
+ in $\mathcal{C}_\text{sust}$
+ from those in $\mathcal{C}_\text{non-sust}$
+?</p>
 <p>To answer this, I looked at two opposite scores:</p>
 <p>
-  <i class="fas fa-leaf  pr-1 fa-fw"></i> <strong>Sustainability score</strong>: 
-
-$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $</p>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" viewBox="0 0 370 391" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill-rule="evenodd"><path d="m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z" fill="#ff4088" stroke="#c9177e" stroke-width="27" /><path d="m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z" fill="#fff" /></g></svg>
+  </span> <strong>Sustainability score</strong>: $\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $
+</p>
 <p>
-  <i class="fas fa-industry  pr-1 fa-fw"></i> <strong>Non-sustainability score</strong>: 
-
-$\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $</p>
+  <span class="inline-block  pr-1">
+    <svg style="height: 1em; transform: translateY(0.1em);" viewBox="0 0 370 391" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill-rule="evenodd"><path d="m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z" fill="#ff4088" stroke="#c9177e" stroke-width="27" /><path d="m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z" fill="#fff" /></g></svg>
+  </span> <strong>Non-sustainability score</strong>: $\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $
+</p>
 <p>In particular, I quantify how likely it is that a reaction is <strong>enzymatic</strong>, since these types of reactions are a classical example of sustainable reactions.</p>
 <p>First, I fine-tuned BERT on a training set of reactions in the <em>SMILES</em> text-based format, achiving an overall validation accuracy of 93.95% and macro F1 score of 0.901 when predicting the reaction type.</p>
-<p>Then, we can compute 
-
-$\text{AI-metric}$ and 
-
-$\overline{\text{AI-metric}}$ using this BERT model for all reactions in the validation set and plot the results:</p>
+<p>Then, we can compute $\text{AI-metric}$
+ and $\overline{\text{AI-metric}}$
+ using this BERT model for all reactions in the validation set and plot the results:</p>
 <p>
 
 
@@ -1066,7 +1221,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  >
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="The enzyme metric separates enzymatic from non-sustainable reactions"
            src="/project/epfl-master-thesis/eval_ec_metric_scores.svg"
            loading="lazy" data-zoomable /></div>
@@ -1094,7 +1249,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  >
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt=""
            src="/project/epfl-master-thesis/missclassified_likelihood.svg"
            loading="lazy" data-zoomable /></div>
@@ -1120,7 +1275,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  id="figure-attention-score-matrices-and-sum-of-attention-scores-per-atom-at-the-last-layer">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Attention score matrices and sum of attention scores per atom at the last layer"
            src="/project/epfl-master-thesis/missclassified_att_last_head.svg"
            loading="lazy" data-zoomable /></div>
@@ -1148,7 +1303,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  id="figure-blue-positive-attribution-red-negative-attribution">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Blue: positive attribution. Red: negative attribution"
            src="/project/epfl-master-thesis/missclassified_importance_attr.svg"
            loading="lazy" data-zoomable /></div>
@@ -1177,7 +1332,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  id="figure-scientific-method-applied-to-molecule-discovery-where-we-introduce-our-ai-metrics">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Scientific method applied to molecule discovery, where we introduce our AI-metrics"
            src="/project/epfl-master-thesis/dmta.svg"
            loading="lazy" data-zoomable /></div>
@@ -1203,7 +1358,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  id="figure-example-reaction-path-also-called-_route_-or-_pathway_">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Example reaction path, also called _route_ or _pathway_"
            src="/project/epfl-master-thesis/example_route.svg"
            loading="lazy" data-zoomable /></div>
@@ -1230,12 +1385,12 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  >
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="" srcset="
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp 400w,
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_3b530f4cb0190ba3e970b68047aef17b.webp 760w,
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1200x1200_fit_q75_h2_lanczos_3.webp 1200w"
-               src="/project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp"
+               /project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp 400w,
+               /project/epfl-master-thesis/casp-summary_hu18438039530156322784.webp 760w,
+               /project/epfl-master-thesis/casp-summary_hu7698274835759186722.webp 1200w"
+               src="/project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp"
                width="760"
                height="282"
                loading="lazy" data-zoomable /></div>
@@ -1260,7 +1415,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 <figure  id="figure-change-of-sustainability-scores-from-the-baseline-by-changing-the-input-weights">
-  <div class="d-flex justify-content-center">
+  <div class="flex justify-center	">
     <div class="w-100" ><img alt="Change of sustainability scores from the baseline by changing the input weights"
            src="/project/epfl-master-thesis/ablation_study_short.svg"
            loading="lazy" data-zoomable /></div>
@@ -1287,85 +1442,268 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 </ol>
 </div>
 
+      </div>
+
+      
+  <time class="mt-12 mb-8 block text-xs text-gray-500 ltr:text-right rtl:text-left dark:text-gray-400" datetime="2023-02-25T16:37:09.000Z">
+    <span>Last updated on</span>
+    Feb 25, 2023</time>
+
+      <div class="container mx-auto prose prose-slate lg:prose-xl dark:prose-invert mt-5">
+        
+        <div class="max-w-prose print:hidden">
+  
+  
+
+  
+
+<div class="flex justify-center">
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/uq/">UQ</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/nlp/">NLP</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/chemistry/">Chemistry</a>
+  
+  <a class="no-underline bg-primary-100 hover:bg-primary-300 text-primary-800 text-xs font-medium mr-2 px-2.5 py-0.5 lg:px-5 lg:py-2 rounded dark:bg-primary-900 dark:hover:bg-primary-700 dark:text-primary-300" href="/tags/sustainability/">Sustainability</a>
+  
+</div>
+
+
+  
+<section class="flex flex-row flex-wrap justify-center pt-4 text-xl">
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;text=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability"
+    title="X"
+    aria-label="X"
+    id="share-link-x"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;t=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability"
+    title="Facebook"
+    aria-label="Facebook"
+    id="share-link-facebook"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+    
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="mailto:?subject=UQ-based%20metrics%20for%20chemical%20sustainability&amp;body=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F"
+    title="Email"
+    aria-label="Email"
+    id="share-link-email"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M16.5 12a4.5 4.5 0 1 1-9 0a4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;title=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability"
+    title="LinkedIn"
+    aria-label="LinkedIn"
+    id="share-link-linkedin"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+  </a>
+  
+
+  
+  
+  
+  
+  
+  
+  <a
+    target="_blank" rel="noopener"
+    class="m-1 rounded-md bg-neutral-300 p-1.5 text-neutral-700 hover:bg-primary-500 hover:text-neutral-300 dark:bg-neutral-700 dark:text-neutral-300 dark:hover:bg-primary-400 dark:hover:text-neutral-800"
+    href="whatsapp://send?text=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability%20https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F"
+    title="WhatsApp"
+    aria-label="WhatsApp"
+    id="share-link-whatsapp"
+  >
+    <svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="m187.58 144.84-32-16a8 8 0 0 0-8 .5l-14.69 9.8a40.55 40.55 0 0 1-16-16l9.8-14.69a8 8 0 0 0 .5-8l-16-32A8 8 0 0 0 104 64a40 40 0 0 0-40 40 88.1 88.1 0 0 0 88 88 40 40 0 0 0 40-40 8 8 0 0 0-4.42-7.16ZM152 176a72.08 72.08 0 0 1-72-72 24 24 0 0 1 19.29-23.54l11.48 23L101 118a8 8 0 0 0-.73 7.51 56.47 56.47 0 0 0 30.15 30.15A8 8 0 0 0 138 155l14.61-9.74 23 11.48A24 24 0 0 1 152 176ZM128 24a104 104 0 0 0-91.82 152.88l-11.35 34.05a16 16 0 0 0 20.24 20.24l34.05-11.35A104 104 0 1 0 128 24Zm0 192a87.87 87.87 0 0 1-44.06-11.81 8 8 0 0 0-6.54-.67L40 216l12.47-37.4a8 8 0 0 0-.66-6.54A88 88 0 1 1 128 216Z"/></svg>
+  </a>
+  
+</section>
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+  
+  
+    
+  
+  
+  
+
+<div class="flex pt-12 pb-4">
+  
+  
+  <img
+    class="mr-4 h-24 w-24 rounded-full"
+    width="96"
+    height="96"
+    alt="Adrián Sager La Ganga"
+  src="/author/adrian-sager-la-ganga/avatar_hu5955492833548963272.jpeg"
+  loading="lazy"
+  />
+  
+  <div class="place-self-center">
+    <div class="text-[0.6rem] uppercase leading-3 text-neutral-500 dark:text-neutral-400">
+      Authors
+    </div>
+    <div class="font-semibold leading-6 text-neutral-800 dark:text-neutral-300">
+      <a href="https://sager611.github.io/" class="no-underline">
+      Adrián Sager La Ganga
+      </a>
     </div>
 
     
+    <div class="text-sm font-bold text-neutral-700 dark:text-neutral-300">
+    Software Engineer
+    </div>
+    
 
 
+    
+    <div class="text-sm text-neutral-700 dark:text-neutral-300">My current interests include NeSy AI and interpretability in AI.</div>
+    
 
+    <div class="text-2xl sm:text-lg pt-1">
 
-
-<div class="article-tags">
+      
+<div class="flex flex-wrap text-neutral-500 dark:text-neutral-300">
   
-  <a class="badge badge-light" href="/tag/uq/">UQ</a>
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="/"
+      
+      aria-label="Envelope"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg></a>
   
-  <a class="badge badge-light" href="/tag/nlp/">NLP</a>
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="/"
+      
+      aria-label="Brands/Github"
+    ><svg style="height: 1em;" fill="currentColor" viewBox="3 3 18 18"><path d="M12 3C7.0275 3 3 7.12937 3 12.2276C3 16.3109 5.57625 19.7597 9.15374 20.9824C9.60374 21.0631 9.77249 20.7863 9.77249 20.5441C9.77249 20.3249 9.76125 19.5982 9.76125 18.8254C7.5 19.2522 6.915 18.2602 6.735 17.7412C6.63375 17.4759 6.19499 16.6569 5.8125 16.4378C5.4975 16.2647 5.0475 15.838 5.80124 15.8264C6.51 15.8149 7.01625 16.4954 7.18499 16.7723C7.99499 18.1679 9.28875 17.7758 9.80625 17.5335C9.885 16.9337 10.1212 16.53 10.38 16.2993C8.3775 16.0687 6.285 15.2728 6.285 11.7432C6.285 10.7397 6.63375 9.9092 7.20749 9.26326C7.1175 9.03257 6.8025 8.08674 7.2975 6.81794C7.2975 6.81794 8.05125 6.57571 9.77249 7.76377C10.4925 7.55615 11.2575 7.45234 12.0225 7.45234C12.7875 7.45234 13.5525 7.55615 14.2725 7.76377C15.9937 6.56418 16.7475 6.81794 16.7475 6.81794C17.2424 8.08674 16.9275 9.03257 16.8375 9.26326C17.4113 9.9092 17.76 10.7281 17.76 11.7432C17.76 15.2843 15.6563 16.0687 13.6537 16.2993C13.98 16.5877 14.2613 17.1414 14.2613 18.0065C14.2613 19.2407 14.25 20.2326 14.25 20.5441C14.25 20.7863 14.4188 21.0746 14.8688 20.9824C16.6554 20.364 18.2079 19.1866 19.3078 17.6162C20.4077 16.0457 20.9995 14.1611 21 12.2276C21 7.12937 16.9725 3 12 3Z"></path></svg></a>
   
-  <a class="badge badge-light" href="/tag/chemistry/">chemistry</a>
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="/"
+      
+      aria-label="Devicon/Gitlab"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#E24329" d="m124.755 51.382l-.177-.452L107.47 6.282a4.459 4.459 0 0 0-1.761-2.121a4.581 4.581 0 0 0-5.236.281a4.578 4.578 0 0 0-1.518 2.304L87.404 42.088H40.629L29.077 6.746a4.492 4.492 0 0 0-1.518-2.31a4.581 4.581 0 0 0-5.236-.281a4.502 4.502 0 0 0-1.761 2.121L3.422 50.904l-.17.452c-5.059 13.219-.763 28.192 10.537 36.716l.059.046l.157.111l26.061 19.516l12.893 9.758l7.854 5.93a5.283 5.283 0 0 0 6.388 0l7.854-5.93l12.893-9.758l26.218-19.634l.065-.052c11.273-8.526 15.562-23.472 10.524-36.677"/><path fill="#FC6D26" d="m124.755 51.382l-.177-.452a57.79 57.79 0 0 0-23.005 10.341L64 89.682c12.795 9.68 23.934 18.09 23.934 18.09l26.218-19.634l.065-.052c11.291-8.527 15.586-23.488 10.538-36.704"/><path fill="#FCA326" d="m40.066 107.771l12.893 9.758l7.854 5.93a5.283 5.283 0 0 0 6.388 0l7.854-5.93l12.893-9.758s-11.152-8.436-23.947-18.09a18379.202 18379.202 0 0 0-23.935 18.09"/><path fill="#FC6D26" d="M26.42 61.271A57.73 57.73 0 0 0 3.422 50.904l-.17.452c-5.059 13.219-.763 28.192 10.537 36.716l.059.046l.157.111l26.061 19.516L64 89.655z"/></svg></a>
   
-  <a class="badge badge-light" href="/tag/sustainability/">sustainability</a>
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="/"
+      
+      aria-label="Brands/Linkedin"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+  
+    
+    
+    
+    
+      
+    
+    <a
+      class="pr-2 transition-transform hover:scale-125 hover:text-primary-700 dark:hover:text-primary-400"
+      style="will-change:transform;"
+      href="/"
+      
+      aria-label="Brands/Cv"
+    ><svg style="height: 1em;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" style="stroke-width:.07717" d="M249.18 328.324c-9.788 15.384-19.179 30.434-40.222 45.055-11.256 7.89-37.164 23.306-73.99 23.306C64.709 396.685 8 345.605 8 255.801c0-78.486 53.345-140.486 128.466-140.486 30.434 0 57.474 10.521 77.387 26.304 18.414 14.65 27.038 29.304 34.563 42.456l-52.58 26.273c-3.762-8.626-8.29-17.649-19.913-27.406-12.784-10.155-25.54-13.152-36.46-13.152-42.821 0-65.364 39.825-65.364 84.145 0 58.238 29.7 87.143 65.364 87.143 34.563 0 48.48-24.042 57.474-39.426l52.243 26.673zm184.194-204.75H504l-92.037 265.22h-67.597l-90.904-265.22h70.625l54.843 188.6z"/></svg></a>
   
 </div>
 
 
 
-<div class="share-box">
-  <ul class="share">
-    
-      
-      
-      
-        
-      
-      
-      
-      
-      
-      
-      
-      <li>
-        <a href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;text=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability" target="_blank" rel="noopener" class="share-btn-twitter" aria-label="twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      
-      
-      
-      
-        
-      
-      <li>
-        <a href="mailto:?subject=UQ-based%20metrics%20for%20chemical%20sustainability&amp;body=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F" target="_blank" rel="noopener" class="share-btn-email" aria-label="envelope">
-          <i class="fas fa-envelope"></i>
-        </a>
-      </li>
-    
-      
-      
-      
-        
-      
-      
-      
-      
-      
-      
-      
-      <li>
-        <a href="https://www.linkedin.com/shareArticle?url=https%3A%2F%2Fsager611.github.io%2Fproject%2Fepfl-master-thesis%2F&amp;title=UQ-based&#43;metrics&#43;for&#43;chemical&#43;sustainability" target="_blank" rel="noopener" class="share-btn-linkedin" aria-label="linkedin-in">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-      </li>
-    
-  </ul>
+    </div>
+  </div>
 </div>
 
 
@@ -1374,162 +1712,28 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 
-
-
-
-
   
   
 
 
+  
+
 
   
-  
-  
-    
-  
-  
-  
-  <div class="media author-card content-widget-hr">
-    
-      
-      <a href="https://sager611.github.io/"><img class="avatar mr-3 avatar-circle" src="/authors/admin/avatar_huf25ee37de6ddf409e42e2d6afaffee68_27976_270x270_fill_q75_lanczos_center.jpeg" alt="Adrián Sager La Ganga"></a>
-    
 
-    <div class="media-body">
-      <h5 class="card-title"><a href="https://sager611.github.io/">Adrián Sager La Ganga</a></h5>
-      <h6 class="card-subtitle">Computational Scientist and Engineer</h6>
-      <p class="card-text">My current interests include NeSy AI and interpretability in AI.</p>
-      <ul class="network-icon" aria-hidden="true">
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-    <li>
-      <a href="mailto:adriansagerlaganga@gmail.com" >
-        <i class="fas fa-envelope"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://github.com/Sager611" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://gitlab.com/adriansagerlaganga" target="_blank" rel="noopener">
-        <i class="fab fa-gitlab"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-      
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="https://www.linkedin.com/in/a-sager" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-      </a>
-    </li>
-  
-    
-    
-    
-    
-    
-    
-    
-      
-    
-    <li>
-      <a href="/uploads/resume_2.pdf" >
-        <i class="ai ai-cv"></i>
-      </a>
-    </li>
-  
-</ul>
+
+
+</div>
+
+      </div>
+
+    </main>
+  </article>
+</div>
 
     </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="project-related-pages content-widget-hr">
-      
-      
-
-      
-      
-      
-
-      
-      
-      
-
-      
-      
-      
-    </div>
-  </div>
-</article>
-  </div>
-
-  <div class="page-footer">
-    
-    
-    <div class="container">
-      <footer class="site-footer">
+    <div class="page-footer">
+      <footer class="container mx-auto flex flex-col justify-items-center text-sm leading-6 mt-24 mb-4 text-slate-700 dark:text-slate-200">
 
   
 
@@ -1549,6 +1753,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
   
   
   
+
 
 
 
@@ -1577,8 +1782,8 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
   
 
   
-  <p class="powered-by copyright-license-text">
-    © 2024, Adrián Sager. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
+  <p class="powered-by text-center">
+    © 2025 Adrián Sager La Ganga. This work is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0" rel="noopener noreferrer" target="_blank">CC BY NC ND 4.0</a>
   </p>
   
 
@@ -1599,7 +1804,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 
-  <p class="powered-by">
+  <p class="powered-by text-center">
     
     
     
@@ -1609,127 +1814,26 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
       
       
       
-      Published with <a href="https://wowchemy.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Wowchemy</a> — the free, <a href="https://github.com/wowchemy/wowchemy-hugo-themes" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
+      Published with <a href="https://hugoblox.com/?utm_campaign=poweredby" target="_blank" rel="noopener">Hugo Blox Builder</a> — the free, <a href="https://github.com/HugoBlox/hugo-blox-builder" target="_blank" rel="noopener">open source</a> website builder that empowers creators.
     
   </p>
+
 </footer>
 
     </div>
+
     
-  </div>
+    
 
-  
 
 
-<script src="/js/vendor-bundle.min.b4708d4364577c16ab7001b265a063a4.js"></script>
 
 
 
 
-  
 
-  
-  
 
-  
 
 
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script id="search-hit-fuse-template" type="text/x-template">
-    <div class="search-hit" id="summary-{{key}}">
-      <div class="search-hit-content">
-        <div class="search-hit-name">
-          <a href="{{relpermalink}}">{{title}}</a>
-          <div class="article-metadata search-hit-type">{{type}}</div>
-          <p class="search-hit-description">{{snippet}}</p>
-        </div>
-      </div>
-    </div>
-  </script>
-  
-    <script src="https://cdn.jsdelivr.net/gh/krisk/Fuse@v3.2.1/dist/fuse.min.js" integrity="sha512-o38bmzBGX+hD3JHWUFCDA09btWaqrNmoJ3RXLlrysA7PP01Kgs4UlE4MhelE1v5dJR3+cxlR4qQlotsW7jKsnw==" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/gh/julmot/mark.js@8.11.1/dist/jquery.mark.min.js" integrity="sha512-mhbv5DqBMgrWL+32MmsDOt/OAvqr/cHimk6B8y/bx/xS88MVkYGPiVv2ixKVrkywF2qHplNRUvFsAHUdxZ3Krg==" crossorigin="anonymous"></script>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  
-  
-  
-  
-  
-
-
-
-
-
-
-
-<script id="page-data" type="application/json">{"use_headroom":true}</script>
-
-
-
-  <script src="/js/wowchemy-headroom.db4755770454eb63685f8de785c0a172.js" type="module"></script>
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-<script src="/en/js/wowchemy.min.6ab16275cbca742a586c1726e3d94093.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+  </body>
 </html>

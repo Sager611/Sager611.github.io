@@ -5,9 +5,9 @@
     <link>https://sager611.github.io/</link>
       <atom:link href="https://sager611.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Adrián Sager La Ganga</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png</url>
+      <url>https://sager611.github.io/media/icon_hu10442524216547739280.png</url>
       <title>Adrián Sager La Ganga</title>
       <link>https://sager611.github.io/</link>
     </image>
@@ -75,11 +75,11 @@
 &lt;b&gt;Algorithm 1&lt;/b&gt; An algorithm to draw without replacement. $k&gt;0$ items are taken without replacement from a universe of size $N$. $choice(N, k)$ samples $k$ items with replacement with a space complexity of $O(k \log{N})$:
 &lt;hr class=&#34;algo-hr-mid&#34;&gt;
 &lt;b&gt;Require: &lt;/b&gt; $N \geq (2 + \sqrt{2}) \cdot k$
-&lt;p&gt;1:   $X \leftarrow \{choice(N,1)\}$ &lt;br/&gt;
+&lt;p&gt;1:   $X \leftarrow \\{choice(N,1)\\}$ &lt;br/&gt;
 2:   &lt;b&gt;while &lt;/b&gt;$\vert X\vert \neq k$&lt;b&gt; do&lt;/b&gt; &lt;br/&gt;
 3:     $s \leftarrow choice(N, 1)$ &lt;br/&gt;
 4:     &lt;b&gt;if &lt;/b&gt;$s \notin X$&lt;b&gt; then&lt;/b&gt; &lt;br/&gt;
-5:       $X \leftarrow X \cup \left\{ s \right\}$ &lt;br/&gt;
+5:       $X \leftarrow X \cup \left\\{ s \right\\}$ &lt;br/&gt;
 6:     &lt;b&gt;end if&lt;/b&gt; &lt;br/&gt;
 7:   &lt;b&gt;end while&lt;/b&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;hr class=&#34;algo-hr-bottom&#34;&gt;
@@ -126,21 +126,19 @@
   \end{align}
   $$
   Since we have to draw 1 item in line 1 of the algorithm and then we have to draw $(k-1)$ new unique items in the while loop.
-&lt;p&gt;We now note that the algorithm requires that $N\geq (2 + \sqrt{2})\cdot k$, so:
 $$
-\begin{align}
-N \geq (2 + \sqrt{2}&amp;amp;)\cdot k \geq 2\cdot k \newline
-\frac{k-1}{N} &amp;amp;\leq 2^{-1} \newline
-&amp;amp;\downarrow \newline
-\mathbb{E}[\text{# of items drawn}] &amp;amp;\leq 1 + (k-1) \sum_{i=1}^\infty i\cdot2^{-i} \newline
-&amp;amp;= 1 + (k-1)\cdot 2 \newline
-&amp;amp;= O(k)
-\end{align}
-$$&lt;/p&gt;
-  &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
+  \begin{align}
+  N \geq (2 + \sqrt{2}&amp;)\cdot k \geq 2\cdot k \newline
+  \frac{k-1}{N} &amp;\leq 2^{-1} \newline
+  &amp;\downarrow \newline
+  \mathbb{E}[\text{\# of items drawn}] &amp;\leq 1 + (k-1) \sum_{i=1}^\infty i\cdot2^{-i} \newline
+                                           &amp;= 1 + (k-1)\cdot 2 \newline
+                                           &amp;= O(k)
+  \end{align}
+  $$  &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Note that sets in Python have $O(1)$ lookup and insert times, required for lines 4 and 5 in the algorithm.&lt;/p&gt;
-&lt;p&gt;However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&amp;rsquo;s generalize to $N \geq ak$ with $a &amp;gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&amp;lt;1$ includes cases where $N&amp;lt;k$, which is impossible and our algorithm would not halt.&lt;/p&gt;
+&lt;p&gt;However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&amp;rsquo;s generalize to $N \geq ak$ with $a &gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&lt;1$ includes cases where $N&lt;k$, which is impossible and our algorithm would not halt.&lt;/p&gt;
 &lt;div class=&#34;lemma&#34;&gt;
   &lt;b&gt;Lemma 1&lt;/b&gt;&amp;ensp; &lt;i&gt;If $N\geq ak$ for $a&gt;1$, the expected number of items drawn is less than $1 + (k-1)\cdot a/(a-1)^2$&lt;/i&gt;.
   &lt;br/&gt;
@@ -181,20 +179,17 @@ P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y 
   $$
   N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
-&lt;p&gt;Thus finally,
 $$
-P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-$$
-We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
-$$
-N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
-$$
+    P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
+  $$$$
+   N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
+  $$&lt;p&gt;
 Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-1)/N$.&lt;/p&gt;
   &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This is very useful. It means that if $N$ is massive and $k$ is minuscule in comparison, we won&amp;rsquo;t draw more than $1+2k$ items with high probability. In fact, if $N$ is 100 times $k$, then we will draw $1+1.021\cdot k$ items w.p. less than ~1%.&lt;/p&gt;
 &lt;p&gt;This is definitely better than the original algorithm, which when creating the array of length $N$ had to spend $O(N)$ time.&lt;/p&gt;
-&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&amp;gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\gamma}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\gamma}/N$.&lt;/p&gt;
+&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\gamma}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\gamma}/N$.&lt;/p&gt;
 &lt;p&gt;For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1&#39;000 items using this algorithm will require drawing 103 items w.p. less than 0.1%.&lt;/p&gt;
 &lt;h2 id=&#34;example-use-case&#34;&gt;Example use-case&lt;/h2&gt;
 &lt;p&gt;But, when do we have a massive $N$ in practice?&lt;/p&gt;
@@ -226,8 +221,10 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;Follow this tutorial if you want to clone your old laptop&amp;rsquo;s hard drive to your new laptop&amp;rsquo;s hard drive via SSH in &lt;strong&gt;the same local network&lt;/strong&gt;.&lt;/p&gt;
 
 
-&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
-  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+
+&lt;details class=&#34;print:hidden xl:hidden&#34; &gt;
+  &lt;summary&gt;Table of Contents&lt;/summary&gt;
+  &lt;div class=&#34;text-sm&#34;&gt;
   &lt;nav id=&#34;TableOfContents&#34;&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&#34;#boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/a&gt;&lt;/li&gt;
@@ -235,6 +232,7 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
     &lt;li&gt;&lt;a href=&#34;#clone-hard-disk-via-ssh&#34;&gt;Clone hard disk via SSH&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
+  &lt;/div&gt;
 &lt;/details&gt;
 
 &lt;h2 id=&#34;boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/h2&gt;
@@ -313,17 +311,19 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;blockquote&gt;
 &lt;p&gt;Check &lt;a href=&#34;https://wiki.archlinux.org/title/Dd#Disk_cloning_and_restore&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the official Arch wiki for more info on cloning with &lt;code&gt;dd&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    The following commands completely erase the &lt;strong&gt;new&lt;/strong&gt; machine&amp;rsquo;s hard disk contents! Make sure to save a backup image.
-  &lt;/div&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;The following commands completely erase the &lt;strong&gt;new&lt;/strong&gt; machine&amp;rsquo;s hard disk contents! Make sure to save a backup image.&lt;/span&gt;
 &lt;/div&gt;
 &lt;p&gt;First, make sure you have enough space in your new hard disk. You can check this by running &lt;code&gt;lsblk&lt;/code&gt; on your old and new machines.&lt;/p&gt;
 &lt;p&gt;Also make sure your hard disk in your &lt;strong&gt;new&lt;/strong&gt; machine is unmounted with &lt;code&gt;lsblk&lt;/code&gt; (&lt;code&gt;MOUNTPOINTS&lt;/code&gt; should be empty).&lt;/p&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    In my case the hard disk in my &lt;strong&gt;new&lt;/strong&gt; machine was &lt;code&gt;nvme0n1&lt;/code&gt;. Make sure you choose the correct disk by looking at &lt;code&gt;SIZE&lt;/code&gt; in &lt;code&gt;lsblk&lt;/code&gt;.
-  &lt;/div&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;In my case the hard disk in my &lt;strong&gt;new&lt;/strong&gt; machine was &lt;code&gt;nvme0n1&lt;/code&gt;. Make sure you choose the correct disk by looking at &lt;code&gt;SIZE&lt;/code&gt; in &lt;code&gt;lsblk&lt;/code&gt;.&lt;/span&gt;
 &lt;/div&gt;
 &lt;p&gt;To avoid corrupting files during cloning, you should run the following command from another live USB in your &lt;strong&gt;old&lt;/strong&gt; machine and make sure your hard drive &lt;code&gt;sda&lt;/code&gt; is unmounted.&lt;/p&gt;
 &lt;p&gt;Run the following in your &lt;strong&gt;old&lt;/strong&gt; machine to clone the disk:&lt;/p&gt;
@@ -348,11 +348,9 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;In 2020 I was following lectures on &lt;a href=&#34;https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=06LSLLM&amp;amp;p_a_acc=2020&amp;amp;p_header=S&amp;amp;p_lang=IT&amp;amp;multi=N&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;automatic control&lt;/a&gt; and learned about the &lt;a href=&#34;https://en.wikipedia.org/wiki/Transfer_function&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer function&lt;/a&gt; of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions.&lt;/p&gt;
 &lt;p&gt;You can &lt;a href=&#34;#visualizer&#34;&gt;jump ahead to the visualizer&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
-&lt;p&gt;The basic idea is that we can build a system with a feedback loop that takes an input signal 
-
-$x(t)$ and outputs another signal 
-
-$y(t)$:&lt;/p&gt;
+&lt;p&gt;The basic idea is that we can build a system with a feedback loop that takes an input signal $x(t)$
+ and outputs another signal $y(t)$
+:&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -370,68 +368,62 @@ $y(t)$:&lt;/p&gt;
 
 
 &lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
            src=&#34;https://sager611.github.io/post/p5js-vis-transfer-function/simple-feedback.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;We then focus on &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_time-invariant_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linear time-invariant (LTI)&lt;/a&gt; transformations, which in a few words are those which take as input 
-
-$e(t)$ and output 
-
-$y(t) = (e \ast h)(t)$, where 
-
-$h(t)$ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output 
-
-$y(t)$ if our input where an impulse 
-
-$e(t)=\delta(t)$.&lt;/p&gt;
-&lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication 
-
-$Y(s) = H(s)E(s)$.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s plug in our 
-
-$H(s)$ in the feedback loop!&lt;/p&gt;
+&lt;p&gt;We then focus on &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_time-invariant_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linear time-invariant (LTI)&lt;/a&gt; transformations, which in a few words are those which take as input $e(t)$
+ and output $y(t) = (e \ast h)(t)$
+, where $h(t)$
+ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output $y(t)$
+ if our input where an impulse $e(t)=\delta(t)$
+.&lt;/p&gt;
+&lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication $Y(s) = H(s)E(s)$
+.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s plug in our $H(s)$
+ in the feedback loop!&lt;/p&gt;
 &lt;p&gt;We recursively apply it so we end up with:&lt;/p&gt;
-
-
 $$
 \begin{align*}
 Y(s) &amp;= \left( H(s) + H(s)^2 + H(s)^3 + \dots \right) \cdot X(s) \\
      &amp;= \frac{H(s)}{1 - H(s)} \cdot X(s)
 \end{align*}
 $$
+
 &lt;h2 id=&#34;visualizer&#34;&gt;Visualizer&lt;/h2&gt;
-&lt;p&gt;Note that if our 
-
-$H(s)$ touches the value 1 we&amp;rsquo;ll end up with an 
-
-$\infty$, oops.&lt;/p&gt;
-&lt;p&gt;So, when designing 
-
-$H(s)$ we want to make sure that it is some distance away from 1.&lt;/p&gt;
-&lt;p&gt;But 
-
-$H: \mathbb{C} \rightarrow \mathbb{C}$, how can we visualize it?&lt;/p&gt;
+&lt;p&gt;Note that if our $H(s)$
+ touches the value 1 we&amp;rsquo;ll end up with an $\infty$
+, oops.&lt;/p&gt;
+&lt;p&gt;So, when designing $H(s)$
+ we want to make sure that it is some distance away from 1.&lt;/p&gt;
+&lt;p&gt;But $H: \mathbb{C} \rightarrow \mathbb{C}$
+, how can we visualize it?&lt;/p&gt;
 &lt;p&gt;Well, there are multiple approaches and this is where I got curious and decided to write a visualizer in &lt;a href=&#34;https://editor.p5js.org/adriansagerlaganga/full/9CeBgb-Pv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;p5.js&lt;/a&gt;. I included a cartesian plot and a &lt;a href=&#34;https://en.wikipedia.org/wiki/Nichols_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nichols plot&lt;/a&gt;. Other common plots include &lt;a href=&#34;https://en.wikipedia.org/wiki/Bode_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bode&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Nyquist_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nyquist&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any 
-
-$H(s)$ you want and see what happens!&lt;/p&gt;
+&lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any $H(s)$
+ you want and see what happens!&lt;/p&gt;
 &lt;p&gt;You can try it out right here:&lt;/p&gt;
 &lt;iframe class=&#34;visualizer&#34; src=&#34;src/index.html&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;Controls:&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-arrows-alt  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Drag to move around.&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Drag to move around.&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-arrows-alt-v  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Mouse wheel to zoom in/out.&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Mouse wheel to zoom in/out.&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-keyboard  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Space to reset offset.&lt;/p&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    &lt;p&gt;You may encounter some bugs if you introduce incorrect&lt;/p&gt;
-&lt;p&gt;$H(s)$ and the visualizer may crash. Use with care.&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Space to reset offset.&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;You may encounter some bugs if you introduce incorrect $H(s)$
+and the visualizer may crash. Use with care.&lt;/span&gt;
 &lt;/div&gt;
 </description>
     </item>
@@ -442,20 +434,25 @@ $H(s)$ you want and see what happens!&lt;/p&gt;
       <pubDate>Sat, 25 Feb 2023 16:37:09 +0100</pubDate>
       <guid>https://sager611.github.io/project/epfl-master-thesis/</guid>
       <description>&lt;p&gt;
-  &lt;i class=&#34;fas fa-leaf  pr-1 fa-fw&#34;&gt;&lt;/i&gt; What if we could systematically quantify &lt;em&gt;how&lt;/em&gt; sustainable a reaction is?&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; What if we could systematically quantify &lt;em&gt;how&lt;/em&gt; sustainable a reaction is?&lt;/p&gt;
 &lt;p&gt;In this project (my master&amp;rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as &lt;em&gt;how likely&lt;/em&gt; it is that a reaction is sustainable. This likelihood would then be computed by employing &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; on some AI model&amp;rsquo;s prediction.&lt;/p&gt;
 &lt;p&gt;The main contribution of the project is an &lt;strong&gt;extensible toolkit&lt;/strong&gt; with sustainability metrics based on AI model predictions.&lt;/p&gt;
 &lt;p&gt;In this page I collect some of my thoughts derived from this project.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://sager611.github.io/uploads/EPFL_Master_Thesis.pdf&#34; target=&#34;_blank&#34;&gt;You can read the full report here.&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    This work was created and funded as part of the &lt;a href=&#34;https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NCCR Catalysis Young Talents Fellowship&lt;/a&gt;, a National Centre of Competence in Research funded by the Swiss National Science Foundation.
-  &lt;/div&gt;
+&lt;p&gt;&lt;a href=&#34;uploads/EPFL_Master_Thesis.pdf&#34;&gt;You can read the full report here.&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;This work was created and funded as part of the &lt;a href=&#34;https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NCCR Catalysis Young Talents Fellowship&lt;/a&gt;, a National Centre of Competence in Research funded by the Swiss National Science Foundation.&lt;/span&gt;
 &lt;/div&gt;
 
 
-&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
-  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+
+&lt;details class=&#34;print:hidden xl:hidden&#34; &gt;
+  &lt;summary&gt;Table of Contents&lt;/summary&gt;
+  &lt;div class=&#34;text-sm&#34;&gt;
   &lt;nav id=&#34;TableOfContents&#34;&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&#34;#ai-metric-definition&#34;&gt;AI-metric definition&lt;/a&gt;
@@ -469,140 +466,107 @@ $H(s)$ you want and see what happens!&lt;/p&gt;
     &lt;li&gt;&lt;a href=&#34;#putting-it-all-together&#34;&gt;Putting it all together&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
+  &lt;/div&gt;
 &lt;/details&gt;
 
 &lt;h2 id=&#34;ai-metric-definition&#34;&gt;AI-metric definition&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s say a chemical reaction can be one of 
-
-$\mathcal{C}$ classes, for ex., according to its type: &amp;ldquo;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;rdquo;, &amp;ldquo;&lt;em&gt;translocase-catalyzed&lt;/em&gt;&amp;rdquo;, etc.&lt;/p&gt;
-&lt;p&gt;Some of these classes are sustainable, 
-
-$\mathcal{C}_\text{sust}$, some are not, 
-
-$\mathcal{C}_\text{non-sust}$, and we may have an unrecognized class, 
-
-$\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$.&lt;/p&gt;
-&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-8&#34;&gt;
-  &lt;summary&gt;Click to view the reaction type distribution&lt;/summary&gt;
-  &lt;p&gt;&lt;figure  id=&#34;figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+&lt;p&gt;Let&amp;rsquo;s say a chemical reaction can be one of $\mathcal{C}$
+ classes, for ex., according to its type: &amp;ldquo;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;rdquo;, &amp;ldquo;&lt;em&gt;translocase-catalyzed&lt;/em&gt;&amp;rdquo;, etc.&lt;/p&gt;
+&lt;p&gt;Some of these classes are sustainable, $\mathcal{C}_\text{sust}$
+, some are not, $\mathcal{C}_\text{non-sust}$
+, and we may have an unrecognized class, $\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$
+.&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-7&#34;&gt;
+  &lt;summary class=&#34;cursor-pointer&#34;&gt;Click to view the reaction type distribution&lt;/summary&gt;
+  &lt;div class=&#34;rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2&#34;&gt;
+    &lt;figure  id=&#34;figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;rxn_class_distr.svg&#34; alt=&#34;Reaction classes are divided in multiple levels&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;figcaption&gt;
       In reality, our distribution of reaction types is hierarchical, but the argument still applies
-    &lt;/figcaption&gt;&lt;/figure&gt;&lt;/p&gt;
+    &lt;/figcaption&gt;&lt;/figure&gt;
+  &lt;/div&gt;
 &lt;/details&gt;
-&lt;p&gt;We can then quantify &lt;em&gt;how likely&lt;/em&gt; we &lt;em&gt;expect&lt;/em&gt; some reaction 
-
-$\pmb{x}$ to be of some class 
-
-$y\in\mathcal{C}$:&lt;/p&gt;
-
-
+&lt;p&gt;We can then quantify &lt;em&gt;how likely&lt;/em&gt; we &lt;em&gt;expect&lt;/em&gt; some reaction $\pmb{x}$
+ to be of some class $y\in\mathcal{C}$
+:&lt;/p&gt;
 $$ \text{AI-metric}_y := \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[p(y\vert\pmb{x}, \pmb{\theta})\right]\cdot\text{confidence}(\pmb{x}, y) \quad \in [0,1]$$
-&lt;p&gt;Where 
 
-$\pmb{\theta}$ are the parameters of our AI model after training it on some dataset 
-
-$\mathcal{D}$.&lt;/p&gt;
+&lt;p&gt;Where $\pmb{\theta}$
+ are the parameters of our AI model after training it on some dataset $\mathcal{D}$
+.&lt;/p&gt;
 &lt;p&gt;Note how we are scaling by how &lt;em&gt;confident&lt;/em&gt; we are that this expected likelihood is correct. In our case,&lt;/p&gt;
-
-
 $$\text{confidence}(\pmb{x}, y) := 1 - 2\cdot\text{stddev}_{p(\pmb{\theta}\vert\mathcal{D})}\big(p(y\vert\pmb{x}, \pmb{\theta})\big)$$
-&lt;p&gt;Which is always in 
 
-$[0,1]$ since probabilities cannot deviate more than 
-
-$1/2$.&lt;/p&gt;
-&lt;p&gt;But, how do we score how likely our 
-
-$\pmb{x}$ is of &lt;em&gt;any&lt;/em&gt; class in 
-
-$\mathcal{C}_\text{sust}$?&lt;/p&gt;
+&lt;p&gt;Which is always in $[0,1]$
+ since probabilities cannot deviate more than $1/2$
+.&lt;/p&gt;
+&lt;p&gt;But, how do we score how likely our $\pmb{x}$
+ is of &lt;em&gt;any&lt;/em&gt; class in $\mathcal{C}_\text{sust}$
+?&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-arrow-right  pr-1 fa-fw&#34;&gt;&lt;/i&gt; We simply take the maximum over 
-
-$\mathcal{C}_\text{sust}$:&lt;/p&gt;
-
-
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3&#34;/&gt;&lt;/svg&gt;
+  &lt;/span&gt; We simply take the maximum over $\mathcal{C}_\text{sust}$
+:&lt;/p&gt;
 $$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y \quad \in [0, 1] $$
+
 &lt;details class=&#34;spoiler &#34; id=&#34;spoiler-21&#34;&gt;
-  &lt;summary&gt;Why not sum over
-
-$\mathcal{C}_\text{sust}$?&lt;/summary&gt;
-  &lt;p&gt;Formally, we are asking 
-
-$p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$, which is:
-
-
+  &lt;summary&gt;Why not sum over$\mathcal{C}_\text{sust}$
+?&lt;/summary&gt;
+  &lt;p&gt;Formally, we are asking $p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$
+, which is:
 $$ \max_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) \leq p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D}) \leq \sum_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) $$
-    Since we are estimating our metric (see next section) and since some 
 
-$\pmb{x}$ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. &lt;br/&gt;
+    Since we are estimating our metric (see next section) and since some $\pmb{x}$
+ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. &lt;br/&gt;
     It is also crucial that in our case our AI model is &lt;em&gt;single-label&lt;/em&gt;, so it is designed to only predict the highest probability class.
   &lt;/p&gt;
 &lt;/details&gt;
 &lt;h3 id=&#34;modelling-uncertainty&#34;&gt;Modelling uncertainty&lt;/h3&gt;
-&lt;p&gt;Without getting too philosophical, we want to believe that &lt;em&gt;for sure&lt;/em&gt; there is some underlying &lt;em&gt;true&lt;/em&gt; classification set for an input 
-
-$\pmb{x}$, 
-
-$\mathcal{C}_\text{true} \subseteq \mathcal{C}$, so:&lt;/p&gt;
-
-
+&lt;p&gt;Without getting too philosophical, we want to believe that &lt;em&gt;for sure&lt;/em&gt; there is some underlying &lt;em&gt;true&lt;/em&gt; classification set for an input $\pmb{x}$
+, $\mathcal{C}_\text{true} \subseteq \mathcal{C}$
+, so:&lt;/p&gt;
 $$
 p(y\vert\pmb{x}) = \begin{cases}1 &amp; \text{if }y\in\mathcal{C}_\text{true} \\
 0 &amp; \text{o.w.}\end{cases}
 $$
-&lt;p&gt;Note that (by our philosophy) 
 
-$p(y\vert\pmb{x})$ is equivalent to 
-
-$p(y\vert\pmb{x},\mathcal{D}_\text{all})$ where 
-
-$\mathcal{D}_\text{all}$ is all the knowledge of the universe (quite some information!).&lt;/p&gt;
+&lt;p&gt;Note that (by our philosophy) $p(y\vert\pmb{x})$
+ is equivalent to $p(y\vert\pmb{x},\mathcal{D}_\text{all})$
+ where $\mathcal{D}_\text{all}$
+ is all the knowledge of the universe (quite some information!).&lt;/p&gt;
 &lt;p&gt;Of course, in reality at best we know:&lt;/p&gt;
-
-
 $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[ p(y\vert\pmb{x},\pmb{\theta}) \right]$$
-&lt;p&gt;For our observed training set 
 
-$\mathcal{D}$.&lt;/p&gt;
+&lt;p&gt;For our observed training set $\mathcal{D}$
+.&lt;/p&gt;
 &lt;p&gt;This means that we are in the presence of two sources of uncertainty&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Epistemic&lt;/strong&gt; 
-
-$\pmb{\theta}$: due to the limited expresiveness of our model and its optimization procedure.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aleatoric&lt;/strong&gt; 
-
-$\mathcal{D}$: due to noise in our training set (some entries aren&amp;rsquo;t reactions or have a wrong label).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Epistemic&lt;/strong&gt; $\pmb{\theta}$
+: due to the limited expresiveness of our model and its optimization procedure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aleatoric&lt;/strong&gt; $\mathcal{D}$
+: due to noise in our training set (some entries aren&amp;rsquo;t reactions or have a wrong label).&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;quantifying-ai-metrics&#34;&gt;Quantifying AI-metrics&lt;/h3&gt;
 &lt;p&gt;We use efficient &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; techniques to estimate our AI-metric according to the two sources of uncertainty&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Monte Carlo Dropout (MCDropout)&lt;/strong&gt; for &lt;strong&gt;epistemic&lt;/strong&gt; uncertainty 
-
-$\pmb{\theta}$: We leave our Drouput layers &lt;em&gt;on&lt;/em&gt; during inference, so for each forward pass on the same 
-
-$\pmb{x}$ we are effectively sampling different submodels from an ensemble.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Monte Carlo Dropout (MCDropout)&lt;/strong&gt; for &lt;strong&gt;epistemic&lt;/strong&gt; uncertainty $\pmb{\theta}$
+: We leave our Drouput layers &lt;em&gt;on&lt;/em&gt; during inference, so for each forward pass on the same $\pmb{x}$
+ we are effectively sampling different submodels from an ensemble.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Test-time data augmentation&lt;/strong&gt; for &lt;strong&gt;aleatoric&lt;/strong&gt; uncertainty 
-
-$\mathcal{D}$: We augment 
-
-$\pmb{x}$ during inference.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Test-time data augmentation&lt;/strong&gt; for &lt;strong&gt;aleatoric&lt;/strong&gt; uncertainty $\mathcal{D}$
+: We augment $\pmb{x}$
+ during inference.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;We then have 
-
-$N\times M$ likelihoods 
-
-$p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$ where we sampled our input 
-
-$\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$ and our model 
-
-$\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses the average and stddev of these values to compute its score.&lt;/p&gt;
+&lt;p&gt;We then have $N\times M$
+ likelihoods $p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$
+ where we sampled our input $\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$
+ and our model $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$
+. Our AI-metric then simply uses the average and stddev of these values to compute its score.&lt;/p&gt;
 &lt;p&gt;For example,&lt;/p&gt;
 &lt;p&gt;
 
@@ -621,7 +585,7 @@ $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses th
 
 
 &lt;figure  id=&#34;figure-top-5-reaction-types-for-reaction-according-to-the-ai-metric-the-actual-true-types-for-this-reaction-are-in-red-this-is-a-special-reaction-which-can-be-both-enzymatic-and-non-enzymatic&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/example_likelihood_uq-1.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -630,29 +594,26 @@ $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$. Our AI-metric then simply uses th
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
 &lt;h2 id=&#34;validating-ai-metrics&#34;&gt;Validating AI-metrics&lt;/h2&gt;
-&lt;p&gt;How useful is this metric definition? Is it really able to differentiate reactions 
-
-$\pmb{x}$ in 
-
-$\mathcal{C}_\text{sust}$ from those in 
-
-$\mathcal{C}_\text{non-sust}$?&lt;/p&gt;
+&lt;p&gt;How useful is this metric definition? Is it really able to differentiate reactions $\pmb{x}$
+ in $\mathcal{C}_\text{sust}$
+ from those in $\mathcal{C}_\text{non-sust}$
+?&lt;/p&gt;
 &lt;p&gt;To answer this, I looked at two opposite scores:&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-leaf  pr-1 fa-fw&#34;&gt;&lt;/i&gt; &lt;strong&gt;Sustainability score&lt;/strong&gt;: 
-
-$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; &lt;strong&gt;Sustainability score&lt;/strong&gt;: $\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $
+&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-industry  pr-1 fa-fw&#34;&gt;&lt;/i&gt; &lt;strong&gt;Non-sustainability score&lt;/strong&gt;: 
-
-$\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; &lt;strong&gt;Non-sustainability score&lt;/strong&gt;: $\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $
+&lt;/p&gt;
 &lt;p&gt;In particular, I quantify how likely it is that a reaction is &lt;strong&gt;enzymatic&lt;/strong&gt;, since these types of reactions are a classical example of sustainable reactions.&lt;/p&gt;
 &lt;p&gt;First, I fine-tuned BERT on a training set of reactions in the &lt;em&gt;SMILES&lt;/em&gt; text-based format, achiving an overall validation accuracy of 93.95% and macro F1 score of 0.901 when predicting the reaction type.&lt;/p&gt;
-&lt;p&gt;Then, we can compute 
-
-$\text{AI-metric}$ and 
-
-$\overline{\text{AI-metric}}$ using this BERT model for all reactions in the validation set and plot the results:&lt;/p&gt;
+&lt;p&gt;Then, we can compute $\text{AI-metric}$
+ and $\overline{\text{AI-metric}}$
+ using this BERT model for all reactions in the validation set and plot the results:&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -670,7 +631,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;The enzyme metric separates enzymatic from non-sustainable reactions&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/eval_ec_metric_scores.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -698,7 +659,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_likelihood.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -724,7 +685,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  id=&#34;figure-attention-score-matrices-and-sum-of-attention-scores-per-atom-at-the-last-layer&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Attention score matrices and sum of attention scores per atom at the last layer&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_att_last_head.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -752,7 +713,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  id=&#34;figure-blue-positive-attribution-red-negative-attribution&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Blue: positive attribution. Red: negative attribution&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_importance_attr.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -781,7 +742,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  id=&#34;figure-scientific-method-applied-to-molecule-discovery-where-we-introduce-our-ai-metrics&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Scientific method applied to molecule discovery, where we introduce our AI-metrics&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/dmta.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -807,7 +768,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  id=&#34;figure-example-reaction-path-also-called-_route_-or-_pathway_&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Example reaction path, also called _route_ or _pathway_&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/example_route.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -834,12 +795,12 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp 400w,
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_3b530f4cb0190ba3e970b68047aef17b.webp 760w,
-               /project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1200x1200_fit_q75_h2_lanczos_3.webp 1200w&#34;
-               src=&#34;https://sager611.github.io/project/epfl-master-thesis/casp-summary_hu36599876e55c22b03b1eeddf42f4d63c_218469_1d2199fd17f64435a10fb586e0f5287e.webp&#34;
+               /project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp 400w,
+               /project/epfl-master-thesis/casp-summary_hu18438039530156322784.webp 760w,
+               /project/epfl-master-thesis/casp-summary_hu7698274835759186722.webp 1200w&#34;
+               src=&#34;https://sager611.github.io/project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp&#34;
                width=&#34;760&#34;
                height=&#34;282&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -864,7 +825,7 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 
 
 &lt;figure  id=&#34;figure-change-of-sustainability-scores-from-the-baseline-by-changing-the-input-weights&#34;&gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Change of sustainability scores from the baseline by changing the input weights&#34;
            src=&#34;https://sager611.github.io/project/epfl-master-thesis/ablation_study_short.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
@@ -890,131 +851,6 @@ $\overline{\text{AI-metric}}$ using this BERT model for all reactions in the val
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Slides</title>
-      <link>https://sager611.github.io/slides/example/</link>
-      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://sager611.github.io/slides/example/</guid>
-      <description>&lt;h1 id=&#34;create-slides-in-markdown-with-wowchemy&#34;&gt;Create slides in Markdown with Wowchemy&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Wowchemy&lt;/a&gt; | &lt;a href=&#34;https://wowchemy.com/docs/content/slides/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
-&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
-&lt;li&gt;Supports speaker notes&lt;/li&gt;
-&lt;li&gt;Mobile friendly slides&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://revealjs.com/pdf-export/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;PDF Export&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
-&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;Code block:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;porridge&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;blueberry&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Eating...&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
-&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
-&lt;p&gt;Block math:&lt;/p&gt;
-&lt;p&gt;$$
-f\left( x \right) = ;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
-$$&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
-&lt;p&gt;Make content appear incrementally&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} One {{% /fragment %}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} **Two** {{% /fragment %}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% fragment %}} Three {{% /fragment %}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  One
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  &lt;strong&gt;Two&lt;/strong&gt;
-&lt;/span&gt;
-&lt;span class=&#34;fragment &#34; &gt;
-  Three
-&lt;/span&gt;
-&lt;hr&gt;
-&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
-&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{% speaker_note %}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Only the speaker can read these notes
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;-&lt;/span&gt; Press &lt;span class=&#34;sb&#34;&gt;`S`&lt;/span&gt; key to view
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  {{% /speaker_note %}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
-&lt;aside class=&#34;notes&#34;&gt;
-  &lt;ul&gt;
-&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
-&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;/aside&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
-&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
-&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
-&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
-&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
-&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
-&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-
-&lt;section data-noprocess data-shortcode-slide
-  
-      
-      data-background-image=&#34;/media/boards.jpg&#34;
-  &gt;
-
-&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
-&lt;p&gt;Customize the slide style and background&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-image&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;/media/boards.jpg&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;background-color&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;#0000FF&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;{{&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;slide&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;class&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;my-style&amp;#34;&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt;}}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
-&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;reveal&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;section&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;h3&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;color&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;navy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://discord.gg/z8wNYzb&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://wowchemy.com/docs/content/slides/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

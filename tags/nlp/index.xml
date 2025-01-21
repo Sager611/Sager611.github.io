@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP | Adrián Sager La Ganga</title>
+    <link>https://sager611.github.io/tags/nlp/</link>
+      <atom:link href="https://sager611.github.io/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <description>NLP</description>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Sat, 25 Feb 2023 16:37:09 +0100</lastBuildDate>
+    <image>
+      <url>https://sager611.github.io/media/icon_hu10442524216547739280.png</url>
+      <title>NLP</title>
+      <link>https://sager611.github.io/tags/nlp/</link>
+    </image>
+    
+    <item>
+      <title>UQ-based metrics for chemical sustainability</title>
+      <link>https://sager611.github.io/project/epfl-master-thesis/</link>
+      <pubDate>Sat, 25 Feb 2023 16:37:09 +0100</pubDate>
+      <guid>https://sager611.github.io/project/epfl-master-thesis/</guid>
+      <description>&lt;p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; What if we could systematically quantify &lt;em&gt;how&lt;/em&gt; sustainable a reaction is?&lt;/p&gt;
+&lt;p&gt;In this project (my master&amp;rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as &lt;em&gt;how likely&lt;/em&gt; it is that a reaction is sustainable. This likelihood would then be computed by employing &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; on some AI model&amp;rsquo;s prediction.&lt;/p&gt;
+&lt;p&gt;The main contribution of the project is an &lt;strong&gt;extensible toolkit&lt;/strong&gt; with sustainability metrics based on AI model predictions.&lt;/p&gt;
+&lt;p&gt;In this page I collect some of my thoughts derived from this project.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;uploads/EPFL_Master_Thesis.pdf&#34;&gt;You can read the full report here.&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;This work was created and funded as part of the &lt;a href=&#34;https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NCCR Catalysis Young Talents Fellowship&lt;/a&gt;, a National Centre of Competence in Research funded by the Swiss National Science Foundation.&lt;/span&gt;
+&lt;/div&gt;
+
+
+
+&lt;details class=&#34;print:hidden xl:hidden&#34; &gt;
+  &lt;summary&gt;Table of Contents&lt;/summary&gt;
+  &lt;div class=&#34;text-sm&#34;&gt;
+  &lt;nav id=&#34;TableOfContents&#34;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&#34;#ai-metric-definition&#34;&gt;AI-metric definition&lt;/a&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&#34;#modelling-uncertainty&#34;&gt;Modelling uncertainty&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href=&#34;#quantifying-ai-metrics&#34;&gt;Quantifying AI-metrics&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#validating-ai-metrics&#34;&gt;Validating AI-metrics&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#dont-pay-attention-to-the-_attention_-&#34;&gt;Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#putting-it-all-together&#34;&gt;Putting it all together&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+
+&lt;h2 id=&#34;ai-metric-definition&#34;&gt;AI-metric definition&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s say a chemical reaction can be one of $\mathcal{C}$
+ classes, for ex., according to its type: &amp;ldquo;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;rdquo;, &amp;ldquo;&lt;em&gt;translocase-catalyzed&lt;/em&gt;&amp;rdquo;, etc.&lt;/p&gt;
+&lt;p&gt;Some of these classes are sustainable, $\mathcal{C}_\text{sust}$
+, some are not, $\mathcal{C}_\text{non-sust}$
+, and we may have an unrecognized class, $\mathcal{C}_\text{unrec}=\{y_\text{unrec}\}$
+.&lt;/p&gt;
+&lt;details class=&#34;spoiler &#34;  id=&#34;spoiler-7&#34;&gt;
+  &lt;summary class=&#34;cursor-pointer&#34;&gt;Click to view the reaction type distribution&lt;/summary&gt;
+  &lt;div class=&#34;rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2&#34;&gt;
+    &lt;figure  id=&#34;figure-in-reality-our-distribution-of-reaction-types-is-hierarchical-but-the-argument-still-applies&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img src=&#34;rxn_class_distr.svg&#34; alt=&#34;Reaction classes are divided in multiple levels&#34; loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      In reality, our distribution of reaction types is hierarchical, but the argument still applies
+    &lt;/figcaption&gt;&lt;/figure&gt;
+  &lt;/div&gt;
+&lt;/details&gt;
+&lt;p&gt;We can then quantify &lt;em&gt;how likely&lt;/em&gt; we &lt;em&gt;expect&lt;/em&gt; some reaction $\pmb{x}$
+ to be of some class $y\in\mathcal{C}$
+:&lt;/p&gt;
+$$ \text{AI-metric}_y := \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[p(y\vert\pmb{x}, \pmb{\theta})\right]\cdot\text{confidence}(\pmb{x}, y) \quad \in [0,1]$$
+
+&lt;p&gt;Where $\pmb{\theta}$
+ are the parameters of our AI model after training it on some dataset $\mathcal{D}$
+.&lt;/p&gt;
+&lt;p&gt;Note how we are scaling by how &lt;em&gt;confident&lt;/em&gt; we are that this expected likelihood is correct. In our case,&lt;/p&gt;
+$$\text{confidence}(\pmb{x}, y) := 1 - 2\cdot\text{stddev}_{p(\pmb{\theta}\vert\mathcal{D})}\big(p(y\vert\pmb{x}, \pmb{\theta})\big)$$
+
+&lt;p&gt;Which is always in $[0,1]$
+ since probabilities cannot deviate more than $1/2$
+.&lt;/p&gt;
+&lt;p&gt;But, how do we score how likely our $\pmb{x}$
+ is of &lt;em&gt;any&lt;/em&gt; class in $\mathcal{C}_\text{sust}$
+?&lt;/p&gt;
+&lt;p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3&#34;/&gt;&lt;/svg&gt;
+  &lt;/span&gt; We simply take the maximum over $\mathcal{C}_\text{sust}$
+:&lt;/p&gt;
+$$\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y \quad \in [0, 1] $$
+
+&lt;details class=&#34;spoiler &#34; id=&#34;spoiler-21&#34;&gt;
+  &lt;summary&gt;Why not sum over$\mathcal{C}_\text{sust}$
+?&lt;/summary&gt;
+  &lt;p&gt;Formally, we are asking $p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D})$
+, which is:
+$$ \max_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) \leq p(\cup_{\mathcal{C}_\text{sust}}y\vert \pmb{x},\mathcal{D}) \leq \sum_{y\in\mathcal{C}_\text{sust}} p(y\vert\pmb{x},\mathcal{D}) $$
+
+    Since we are estimating our metric (see next section) and since some $\pmb{x}$
+ may be of multiple classes, if we sum probabilities we would be overestimating the true value and also our score may end up above 1. &lt;br/&gt;
+    It is also crucial that in our case our AI model is &lt;em&gt;single-label&lt;/em&gt;, so it is designed to only predict the highest probability class.
+  &lt;/p&gt;
+&lt;/details&gt;
+&lt;h3 id=&#34;modelling-uncertainty&#34;&gt;Modelling uncertainty&lt;/h3&gt;
+&lt;p&gt;Without getting too philosophical, we want to believe that &lt;em&gt;for sure&lt;/em&gt; there is some underlying &lt;em&gt;true&lt;/em&gt; classification set for an input $\pmb{x}$
+, $\mathcal{C}_\text{true} \subseteq \mathcal{C}$
+, so:&lt;/p&gt;
+$$
+p(y\vert\pmb{x}) = \begin{cases}1 &amp; \text{if }y\in\mathcal{C}_\text{true} \\
+0 &amp; \text{o.w.}\end{cases}
+$$
+
+&lt;p&gt;Note that (by our philosophy) $p(y\vert\pmb{x})$
+ is equivalent to $p(y\vert\pmb{x},\mathcal{D}_\text{all})$
+ where $\mathcal{D}_\text{all}$
+ is all the knowledge of the universe (quite some information!).&lt;/p&gt;
+&lt;p&gt;Of course, in reality at best we know:&lt;/p&gt;
+$$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\left[ p(y\vert\pmb{x},\pmb{\theta}) \right]$$
+
+&lt;p&gt;For our observed training set $\mathcal{D}$
+.&lt;/p&gt;
+&lt;p&gt;This means that we are in the presence of two sources of uncertainty&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Epistemic&lt;/strong&gt; $\pmb{\theta}$
+: due to the limited expresiveness of our model and its optimization procedure.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aleatoric&lt;/strong&gt; $\mathcal{D}$
+: due to noise in our training set (some entries aren&amp;rsquo;t reactions or have a wrong label).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;quantifying-ai-metrics&#34;&gt;Quantifying AI-metrics&lt;/h3&gt;
+&lt;p&gt;We use efficient &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; techniques to estimate our AI-metric according to the two sources of uncertainty&lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Monte Carlo Dropout (MCDropout)&lt;/strong&gt; for &lt;strong&gt;epistemic&lt;/strong&gt; uncertainty $\pmb{\theta}$
+: We leave our Drouput layers &lt;em&gt;on&lt;/em&gt; during inference, so for each forward pass on the same $\pmb{x}$
+ we are effectively sampling different submodels from an ensemble.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Test-time data augmentation&lt;/strong&gt; for &lt;strong&gt;aleatoric&lt;/strong&gt; uncertainty $\mathcal{D}$
+: We augment $\pmb{x}$
+ during inference.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We then have $N\times M$
+ likelihoods $p(y\vert\pmb{x}^{(i)}, \pmb{\theta}^{(j)})$
+ where we sampled our input $\pmb{x}^{(1)},\dots,\pmb{x}^{(N)}$
+ and our model $\pmb{\theta}^{(1)},\dots,\pmb{\theta}^{(M)}$
+. Our AI-metric then simply uses the average and stddev of these values to compute its score.&lt;/p&gt;
+&lt;p&gt;For example,&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-top-5-reaction-types-for-reaction-according-to-the-ai-metric-the-actual-true-types-for-this-reaction-are-in-red-this-is-a-special-reaction-which-can-be-both-enzymatic-and-non-enzymatic&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/example_likelihood_uq-1.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Top-5 reaction types for reaction according to the AI-metric. The actual true types for this reaction are in red. This is a special reaction which can be both enzymatic and non-enzymatic
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;h2 id=&#34;validating-ai-metrics&#34;&gt;Validating AI-metrics&lt;/h2&gt;
+&lt;p&gt;How useful is this metric definition? Is it really able to differentiate reactions $\pmb{x}$
+ in $\mathcal{C}_\text{sust}$
+ from those in $\mathcal{C}_\text{non-sust}$
+?&lt;/p&gt;
+&lt;p&gt;To answer this, I looked at two opposite scores:&lt;/p&gt;
+&lt;p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; &lt;strong&gt;Sustainability score&lt;/strong&gt;: $\text{AI-metric} := \max_{y\in\mathcal{C}_\text{sust}} \text{AI-metric}_y $
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; &lt;strong&gt;Non-sustainability score&lt;/strong&gt;: $\overline{\text{AI-metric}} := \max_{y\in\mathcal{C}_\text{non-sust}} \text{AI-metric}_y $
+&lt;/p&gt;
+&lt;p&gt;In particular, I quantify how likely it is that a reaction is &lt;strong&gt;enzymatic&lt;/strong&gt;, since these types of reactions are a classical example of sustainable reactions.&lt;/p&gt;
+&lt;p&gt;First, I fine-tuned BERT on a training set of reactions in the &lt;em&gt;SMILES&lt;/em&gt; text-based format, achiving an overall validation accuracy of 93.95% and macro F1 score of 0.901 when predicting the reaction type.&lt;/p&gt;
+&lt;p&gt;Then, we can compute $\text{AI-metric}$
+ and $\overline{\text{AI-metric}}$
+ using this BERT model for all reactions in the validation set and plot the results:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;The enzyme metric separates enzymatic from non-sustainable reactions&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/eval_ec_metric_scores.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Clearly, enzymatic reactions cluster in &lt;span style=&#34;color:#00b5ecff&#34;&gt;blue&lt;/span&gt; separately from non-enzymatic ones in &lt;span style=&#34;color:#ff0000ff&#34;&gt;red&lt;/span&gt;.&lt;/p&gt;
+&lt;p&gt;Around here, our validation discussion of the AI-metric ends, but it would be interesting to study more in depth its applicability, in particular we could carefully design a dataset by artificially introducing aleatoric uncertainty and study how our AI-metric scores change as we increase data noise and as we underfit/overfit our model.&lt;/p&gt;
+&lt;h2 id=&#34;dont-pay-attention-to-the-_attention_-&#34;&gt;Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;&lt;/h2&gt;
+&lt;p&gt;Of what use is a probabilistic metric if we cannot interpret the results? It&amp;rsquo;d be more appropriate if our toolkit of metrics also contained &lt;strong&gt;AI interpretability tools&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;This is specially important since we may have &lt;em&gt;high confidence&lt;/em&gt; in a wrong prediction. For example:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_likelihood.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Our BERT model classifies the reaction as class EC.5, which means that is uses an &lt;a href=&#34;https://en.wikipedia.org/wiki/Isomerase&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;isomerase&lt;/a&gt; enzyme. In reality the reaction is not enzymatic, it is of type 9.3.1 (&amp;quot;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;quot;), and the AI-metric scores it as ~51% likely and confidently to be enzymatic. By our plot from the previous section, we&amp;rsquo;d simply look at this score and blindly accept it as enzymatic.&lt;/p&gt;
+&lt;p&gt;So what is going on?&lt;/p&gt;
+&lt;p&gt;We may want to look at what BERT is doing. In particular its attention scores:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-attention-score-matrices-and-sum-of-attention-scores-per-atom-at-the-last-layer&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Attention score matrices and sum of attention scores per atom at the last layer&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_att_last_head.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Attention score matrices and sum of attention scores per atom at the last layer
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;Note how attention indicates that the model attributes attention to the &lt;code&gt;OH&lt;/code&gt; and &lt;code&gt;Cl&lt;/code&gt; exchange, which is precisely the rule for type 9.3.1. But the model of course does not predict the reaction as that type! What happens is that token embeddings at the last layer do not represent the corresponding token individually, but rather a global property in the text, so attention does not tell us the casual relationship learned between the input atomic structures and the output.&lt;/p&gt;
+&lt;p&gt;In fact, we should &lt;strong&gt;not&lt;/strong&gt; look into &lt;em&gt;attention&lt;/em&gt; attribution, but &lt;em&gt;importance&lt;/em&gt; attribution, i.e. how each input affected the output.&lt;/p&gt;
+&lt;p&gt;With the &lt;a href=&#34;https://captum.ai/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Captum&lt;/a&gt; Python package we can see this importance attribution through the so-called method of &lt;em&gt;Integrated Gradients&lt;/em&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-blue-positive-attribution-red-negative-attribution&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Blue: positive attribution. Red: negative attribution&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/missclassified_importance_attr.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      &lt;span style=&#39;color:#00b5ecff&#39;&gt;Blue&lt;/span&gt;: positive attribution. &lt;span style=&#39;color:#ff0000ff&#39;&gt;Red&lt;/span&gt;: negative attribution
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;So now we see that &lt;code&gt;OH&lt;/code&gt; and &lt;code&gt;Cl&lt;/code&gt; exchange did not cause the model to predict the reaction type as EC.5, but some other structure.&lt;/p&gt;
+&lt;h2 id=&#34;putting-it-all-together&#34;&gt;Putting it all together&lt;/h2&gt;
+&lt;p&gt;To summarize, this toolkit of AI-metrics is useful to automatically select reactions which are likely to be sustainable, but the resulting reactions should always be checked by a chemist expert to make sure that they are indeed sustainable.&lt;/p&gt;
+&lt;p&gt;We basically want to introduce a framework with sustainability metrics &lt;strong&gt;during the design cycle of molecule discovery&lt;/strong&gt;, where our expert is still exploring which reactions may be feasible. This could, in principle, accelerate sustainable decision-making in chemistry.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-scientific-method-applied-to-molecule-discovery-where-we-introduce-our-ai-metrics&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Scientific method applied to molecule discovery, where we introduce our AI-metrics&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/dmta.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Scientific method applied to molecule discovery, where we introduce our AI-metrics
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;A particular use-case for our toolkit is the &lt;em&gt;multistep retrosynthesis&lt;/em&gt; task, where we want to find a path of reactions that can generate a target molecule from some starting molecules.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-example-reaction-path-also-called-_route_-or-_pathway_&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Example reaction path, also called _route_ or _pathway_&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/example_route.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Example reaction path, also called &lt;em&gt;route&lt;/em&gt; or &lt;em&gt;pathway&lt;/em&gt;
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;We simply generate &lt;em&gt;many&lt;/em&gt; possible reaction paths for some target molecule using &lt;a href=&#34;https://github.com/MolecularAI/aizynthfinder&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AiZynthFinder&lt;/a&gt; and Monte-Carlo tree search (MCTS)&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;Then, we select the best reaction path according to a weighted sum of our sustainability metrics and an estimation of the monetary cost to carry out the reactions.&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  &gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
+               /project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp 400w,
+               /project/epfl-master-thesis/casp-summary_hu18438039530156322784.webp 760w,
+               /project/epfl-master-thesis/casp-summary_hu7698274835759186722.webp 1200w&#34;
+               src=&#34;https://sager611.github.io/project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp&#34;
+               width=&#34;760&#34;
+               height=&#34;282&#34;
+               loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;In this way, the expert can tune trade-offs between sustainability aspects by simply weighting the metrics.&lt;/p&gt;
+&lt;p&gt;We can do a quick ablation study and see how increasing the input weights on our enzyme AI-metric increases the enzyme AI-metric score, but also the route cost, so there is a trade-off between the two which can be tuned with the weights:&lt;/p&gt;
+&lt;p&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+&lt;figure  id=&#34;figure-change-of-sustainability-scores-from-the-baseline-by-changing-the-input-weights&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
+    &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;Change of sustainability scores from the baseline by changing the input weights&#34;
+           src=&#34;https://sager611.github.io/project/epfl-master-thesis/ablation_study_short.svg&#34;
+           loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
+  &lt;/div&gt;&lt;figcaption&gt;
+      Change of sustainability scores from the baseline by changing the input weights
+    &lt;/figcaption&gt;&lt;/figure&gt;
+&lt;/p&gt;
+&lt;p&gt;This is the end of this little blog, but you can find more details in the &lt;a href=&#34;https://sager611.github.io/uploads/EPFL_Master_Thesis.pdf&#34; target=&#34;_blank&#34;&gt;report.&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;Abdar et al. “A review of uncertainty quantification in deep learning: Techniques, applications and challenges”. 2021&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34;&gt;
+&lt;p&gt;Markert et al. “Chemical representation learning for toxicity prediction”. 2020&amp;#160;&lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:3&#34;&gt;
+&lt;p&gt;Sundararajan et al. “Axiomatic Attribution for Deep Networks”. 2017&amp;#160;&lt;a href=&#34;#fnref:3&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:4&#34;&gt;
+&lt;p&gt;Segler et al. “Planning chemical syntheses with deep neural networks and symbolic ai”. 2018&amp;#160;&lt;a href=&#34;#fnref:4&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

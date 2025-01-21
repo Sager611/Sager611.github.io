@@ -5,9 +5,9 @@
     <link>https://sager611.github.io/post/</link>
       <atom:link href="https://sager611.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Blog</description>
-    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Tue, 23 May 2023 15:02:50 +0200</lastBuildDate>
+    <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 23 May 2023 15:02:50 +0200</lastBuildDate>
     <image>
-      <url>https://sager611.github.io/media/icon_hu4c33f529594115c732c21d26133ca9c2_321136_512x512_fill_lanczos_center_3.png</url>
+      <url>https://sager611.github.io/media/icon_hu10442524216547739280.png</url>
       <title>Blog</title>
       <link>https://sager611.github.io/post/</link>
     </image>
@@ -75,11 +75,11 @@
 &lt;b&gt;Algorithm 1&lt;/b&gt; An algorithm to draw without replacement. $k&gt;0$ items are taken without replacement from a universe of size $N$. $choice(N, k)$ samples $k$ items with replacement with a space complexity of $O(k \log{N})$:
 &lt;hr class=&#34;algo-hr-mid&#34;&gt;
 &lt;b&gt;Require: &lt;/b&gt; $N \geq (2 + \sqrt{2}) \cdot k$
-&lt;p&gt;1:   $X \leftarrow \{choice(N,1)\}$ &lt;br/&gt;
+&lt;p&gt;1:   $X \leftarrow \\{choice(N,1)\\}$ &lt;br/&gt;
 2:   &lt;b&gt;while &lt;/b&gt;$\vert X\vert \neq k$&lt;b&gt; do&lt;/b&gt; &lt;br/&gt;
 3:     $s \leftarrow choice(N, 1)$ &lt;br/&gt;
 4:     &lt;b&gt;if &lt;/b&gt;$s \notin X$&lt;b&gt; then&lt;/b&gt; &lt;br/&gt;
-5:       $X \leftarrow X \cup \left\{ s \right\}$ &lt;br/&gt;
+5:       $X \leftarrow X \cup \left\\{ s \right\\}$ &lt;br/&gt;
 6:     &lt;b&gt;end if&lt;/b&gt; &lt;br/&gt;
 7:   &lt;b&gt;end while&lt;/b&gt; &lt;br/&gt;&lt;/p&gt;
 &lt;hr class=&#34;algo-hr-bottom&#34;&gt;
@@ -126,21 +126,19 @@
   \end{align}
   $$
   Since we have to draw 1 item in line 1 of the algorithm and then we have to draw $(k-1)$ new unique items in the while loop.
-&lt;p&gt;We now note that the algorithm requires that $N\geq (2 + \sqrt{2})\cdot k$, so:
 $$
-\begin{align}
-N \geq (2 + \sqrt{2}&amp;amp;)\cdot k \geq 2\cdot k \newline
-\frac{k-1}{N} &amp;amp;\leq 2^{-1} \newline
-&amp;amp;\downarrow \newline
-\mathbb{E}[\text{# of items drawn}] &amp;amp;\leq 1 + (k-1) \sum_{i=1}^\infty i\cdot2^{-i} \newline
-&amp;amp;= 1 + (k-1)\cdot 2 \newline
-&amp;amp;= O(k)
-\end{align}
-$$&lt;/p&gt;
-  &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
+  \begin{align}
+  N \geq (2 + \sqrt{2}&amp;)\cdot k \geq 2\cdot k \newline
+  \frac{k-1}{N} &amp;\leq 2^{-1} \newline
+  &amp;\downarrow \newline
+  \mathbb{E}[\text{\# of items drawn}] &amp;\leq 1 + (k-1) \sum_{i=1}^\infty i\cdot2^{-i} \newline
+                                           &amp;= 1 + (k-1)\cdot 2 \newline
+                                           &amp;= O(k)
+  \end{align}
+  $$  &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;Note that sets in Python have $O(1)$ lookup and insert times, required for lines 4 and 5 in the algorithm.&lt;/p&gt;
-&lt;p&gt;However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&amp;rsquo;s generalize to $N \geq ak$ with $a &amp;gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&amp;lt;1$ includes cases where $N&amp;lt;k$, which is impossible and our algorithm would not halt.&lt;/p&gt;
+&lt;p&gt;However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let&amp;rsquo;s generalize to $N \geq ak$ with $a &gt; 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a&lt;1$ includes cases where $N&lt;k$, which is impossible and our algorithm would not halt.&lt;/p&gt;
 &lt;div class=&#34;lemma&#34;&gt;
   &lt;b&gt;Lemma 1&lt;/b&gt;&amp;ensp; &lt;i&gt;If $N\geq ak$ for $a&gt;1$, the expected number of items drawn is less than $1 + (k-1)\cdot a/(a-1)^2$&lt;/i&gt;.
   &lt;br/&gt;
@@ -181,20 +179,17 @@ P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y 
   $$
   N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
-&lt;p&gt;Thus finally,
 $$
-P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-$$
-We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
-$$
-N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
-$$
+    P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
+  $$$$
+   N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
+  $$&lt;p&gt;
 Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-1)/N$.&lt;/p&gt;
   &lt;div class=&#34;lemma-qed&#34;&gt;$\square$&lt;/div&gt;
 &lt;/div&gt;
 &lt;p&gt;This is very useful. It means that if $N$ is massive and $k$ is minuscule in comparison, we won&amp;rsquo;t draw more than $1+2k$ items with high probability. In fact, if $N$ is 100 times $k$, then we will draw $1+1.021\cdot k$ items w.p. less than ~1%.&lt;/p&gt;
 &lt;p&gt;This is definitely better than the original algorithm, which when creating the array of length $N$ had to spend $O(N)$ time.&lt;/p&gt;
-&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&amp;gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\gamma}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\gamma}/N$.&lt;/p&gt;
+&lt;p&gt;To end this little exploration, note that in general if we had chosen $\delta=N/(k-1)k^\gamma$ for some $\gamma&gt;0$, then we would have that the algorithm is $O\left(1+k^{1+\gamma}\left(1-\frac{k}{N}\right)^{-2}\right)$ w.p. less than $k^{1-\gamma}/N$.&lt;/p&gt;
 &lt;p&gt;For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1&#39;000 items using this algorithm will require drawing 103 items w.p. less than 0.1%.&lt;/p&gt;
 &lt;h2 id=&#34;example-use-case&#34;&gt;Example use-case&lt;/h2&gt;
 &lt;p&gt;But, when do we have a massive $N$ in practice?&lt;/p&gt;
@@ -226,8 +221,10 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;Follow this tutorial if you want to clone your old laptop&amp;rsquo;s hard drive to your new laptop&amp;rsquo;s hard drive via SSH in &lt;strong&gt;the same local network&lt;/strong&gt;.&lt;/p&gt;
 
 
-&lt;details class=&#34;toc-inpage d-print-none  &#34; open&gt;
-  &lt;summary class=&#34;font-weight-bold&#34;&gt;Table of Contents&lt;/summary&gt;
+
+&lt;details class=&#34;print:hidden xl:hidden&#34; &gt;
+  &lt;summary&gt;Table of Contents&lt;/summary&gt;
+  &lt;div class=&#34;text-sm&#34;&gt;
   &lt;nav id=&#34;TableOfContents&#34;&gt;
   &lt;ul&gt;
     &lt;li&gt;&lt;a href=&#34;#boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/a&gt;&lt;/li&gt;
@@ -235,6 +232,7 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
     &lt;li&gt;&lt;a href=&#34;#clone-hard-disk-via-ssh&#34;&gt;Clone hard disk via SSH&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
+  &lt;/div&gt;
 &lt;/details&gt;
 
 &lt;h2 id=&#34;boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/h2&gt;
@@ -313,17 +311,19 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;blockquote&gt;
 &lt;p&gt;Check &lt;a href=&#34;https://wiki.archlinux.org/title/Dd#Disk_cloning_and_restore&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the official Arch wiki for more info on cloning with &lt;code&gt;dd&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    The following commands completely erase the &lt;strong&gt;new&lt;/strong&gt; machine&amp;rsquo;s hard disk contents! Make sure to save a backup image.
-  &lt;/div&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;The following commands completely erase the &lt;strong&gt;new&lt;/strong&gt; machine&amp;rsquo;s hard disk contents! Make sure to save a backup image.&lt;/span&gt;
 &lt;/div&gt;
 &lt;p&gt;First, make sure you have enough space in your new hard disk. You can check this by running &lt;code&gt;lsblk&lt;/code&gt; on your old and new machines.&lt;/p&gt;
 &lt;p&gt;Also make sure your hard disk in your &lt;strong&gt;new&lt;/strong&gt; machine is unmounted with &lt;code&gt;lsblk&lt;/code&gt; (&lt;code&gt;MOUNTPOINTS&lt;/code&gt; should be empty).&lt;/p&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    In my case the hard disk in my &lt;strong&gt;new&lt;/strong&gt; machine was &lt;code&gt;nvme0n1&lt;/code&gt;. Make sure you choose the correct disk by looking at &lt;code&gt;SIZE&lt;/code&gt; in &lt;code&gt;lsblk&lt;/code&gt;.
-  &lt;/div&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;In my case the hard disk in my &lt;strong&gt;new&lt;/strong&gt; machine was &lt;code&gt;nvme0n1&lt;/code&gt;. Make sure you choose the correct disk by looking at &lt;code&gt;SIZE&lt;/code&gt; in &lt;code&gt;lsblk&lt;/code&gt;.&lt;/span&gt;
 &lt;/div&gt;
 &lt;p&gt;To avoid corrupting files during cloning, you should run the following command from another live USB in your &lt;strong&gt;old&lt;/strong&gt; machine and make sure your hard drive &lt;code&gt;sda&lt;/code&gt; is unmounted.&lt;/p&gt;
 &lt;p&gt;Run the following in your &lt;strong&gt;old&lt;/strong&gt; machine to clone the disk:&lt;/p&gt;
@@ -348,11 +348,9 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;In 2020 I was following lectures on &lt;a href=&#34;https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=06LSLLM&amp;amp;p_a_acc=2020&amp;amp;p_header=S&amp;amp;p_lang=IT&amp;amp;multi=N&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;automatic control&lt;/a&gt; and learned about the &lt;a href=&#34;https://en.wikipedia.org/wiki/Transfer_function&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer function&lt;/a&gt; of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions.&lt;/p&gt;
 &lt;p&gt;You can &lt;a href=&#34;#visualizer&#34;&gt;jump ahead to the visualizer&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
-&lt;p&gt;The basic idea is that we can build a system with a feedback loop that takes an input signal 
-
-$x(t)$ and outputs another signal 
-
-$y(t)$:&lt;/p&gt;
+&lt;p&gt;The basic idea is that we can build a system with a feedback loop that takes an input signal $x(t)$
+ and outputs another signal $y(t)$
+:&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -370,68 +368,62 @@ $y(t)$:&lt;/p&gt;
 
 
 &lt;figure  &gt;
-  &lt;div class=&#34;d-flex justify-content-center&#34;&gt;
+  &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34;
            src=&#34;https://sager611.github.io/post/p5js-vis-transfer-function/simple-feedback.svg&#34;
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;We then focus on &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_time-invariant_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linear time-invariant (LTI)&lt;/a&gt; transformations, which in a few words are those which take as input 
-
-$e(t)$ and output 
-
-$y(t) = (e \ast h)(t)$, where 
-
-$h(t)$ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output 
-
-$y(t)$ if our input where an impulse 
-
-$e(t)=\delta(t)$.&lt;/p&gt;
-&lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication 
-
-$Y(s) = H(s)E(s)$.&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s plug in our 
-
-$H(s)$ in the feedback loop!&lt;/p&gt;
+&lt;p&gt;We then focus on &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_time-invariant_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linear time-invariant (LTI)&lt;/a&gt; transformations, which in a few words are those which take as input $e(t)$
+ and output $y(t) = (e \ast h)(t)$
+, where $h(t)$
+ is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output $y(t)$
+ if our input where an impulse $e(t)=\delta(t)$
+.&lt;/p&gt;
+&lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication $Y(s) = H(s)E(s)$
+.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s plug in our $H(s)$
+ in the feedback loop!&lt;/p&gt;
 &lt;p&gt;We recursively apply it so we end up with:&lt;/p&gt;
-
-
 $$
 \begin{align*}
 Y(s) &amp;= \left( H(s) + H(s)^2 + H(s)^3 + \dots \right) \cdot X(s) \\
      &amp;= \frac{H(s)}{1 - H(s)} \cdot X(s)
 \end{align*}
 $$
+
 &lt;h2 id=&#34;visualizer&#34;&gt;Visualizer&lt;/h2&gt;
-&lt;p&gt;Note that if our 
-
-$H(s)$ touches the value 1 we&amp;rsquo;ll end up with an 
-
-$\infty$, oops.&lt;/p&gt;
-&lt;p&gt;So, when designing 
-
-$H(s)$ we want to make sure that it is some distance away from 1.&lt;/p&gt;
-&lt;p&gt;But 
-
-$H: \mathbb{C} \rightarrow \mathbb{C}$, how can we visualize it?&lt;/p&gt;
+&lt;p&gt;Note that if our $H(s)$
+ touches the value 1 we&amp;rsquo;ll end up with an $\infty$
+, oops.&lt;/p&gt;
+&lt;p&gt;So, when designing $H(s)$
+ we want to make sure that it is some distance away from 1.&lt;/p&gt;
+&lt;p&gt;But $H: \mathbb{C} \rightarrow \mathbb{C}$
+, how can we visualize it?&lt;/p&gt;
 &lt;p&gt;Well, there are multiple approaches and this is where I got curious and decided to write a visualizer in &lt;a href=&#34;https://editor.p5js.org/adriansagerlaganga/full/9CeBgb-Pv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;p5.js&lt;/a&gt;. I included a cartesian plot and a &lt;a href=&#34;https://en.wikipedia.org/wiki/Nichols_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nichols plot&lt;/a&gt;. Other common plots include &lt;a href=&#34;https://en.wikipedia.org/wiki/Bode_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bode&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Nyquist_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nyquist&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any 
-
-$H(s)$ you want and see what happens!&lt;/p&gt;
+&lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any $H(s)$
+ you want and see what happens!&lt;/p&gt;
 &lt;p&gt;You can try it out right here:&lt;/p&gt;
 &lt;iframe class=&#34;visualizer&#34; src=&#34;src/index.html&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;Controls:&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-arrows-alt  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Drag to move around.&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Drag to move around.&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-arrows-alt-v  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Mouse wheel to zoom in/out.&lt;/p&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Mouse wheel to zoom in/out.&lt;/p&gt;
 &lt;p&gt;
-  &lt;i class=&#34;fas fa-keyboard  pr-1 fa-fw&#34;&gt;&lt;/i&gt; Space to reset offset.&lt;/p&gt;
-&lt;div class=&#34;alert alert-warning&#34;&gt;
-  &lt;div&gt;
-    &lt;p&gt;You may encounter some bugs if you introduce incorrect&lt;/p&gt;
-&lt;p&gt;$H(s)$ and the visualizer may crash. Use with care.&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;span class=&#34;inline-block  pr-1&#34;&gt;
+    &lt;svg style=&#34;height: 1em; transform: translateY(0.1em);&#34; viewBox=&#34;0 0 370 391&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;&lt;g clip-rule=&#34;evenodd&#34; fill-rule=&#34;evenodd&#34;&gt;&lt;path d=&#34;m207.5 22.4 114.4 66.6c13.5 7.9 21.9 22.4 21.9 38v136.4c0 17.3-9.3 33.3-24.5 41.8l-113.5 63.9a49.06 49.06 0 0 1 -48.5-.2l-104.5-60.1c-16.4-9.5-26.6-27-26.6-45.9v-129.5c0-19.1 9.9-36.8 26.1-46.8l102.8-63.5c16-9.9 36.2-10.1 52.4-.7z&#34; fill=&#34;#ff4088&#34; stroke=&#34;#c9177e&#34; stroke-width=&#34;27&#34; /&gt;&lt;path d=&#34;m105.6 298.2v-207.2h43.4v75.5h71.9v-75.5h43.5v207.2h-43.5v-90.6h-71.9v90.6z&#34; fill=&#34;#fff&#34; /&gt;&lt;/g&gt;&lt;/svg&gt;
+  &lt;/span&gt; Space to reset offset.&lt;/p&gt;
+&lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
+&lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
+  &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
+&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;You may encounter some bugs if you introduce incorrect $H(s)$
+and the visualizer may crash. Use with care.&lt;/span&gt;
 &lt;/div&gt;
 </description>
     </item>
