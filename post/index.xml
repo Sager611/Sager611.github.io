@@ -404,7 +404,7 @@ $$
 &lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any $H(s)$
  you want and see what happens!&lt;/p&gt;
 &lt;p&gt;You can try it out right here:&lt;/p&gt;
-&lt;iframe class=&#34;visualizer&#34; src=&#34;src/index.html&#34;&gt;&lt;/iframe&gt;
+&lt;iframe class=&#34;visualizer&#34; src=&#34;./src/index.html&#34;&gt;&lt;/iframe&gt;
 &lt;p&gt;Controls:&lt;/p&gt;
 &lt;p&gt;
   &lt;span class=&#34;inline-block  pr-1&#34;&gt;
