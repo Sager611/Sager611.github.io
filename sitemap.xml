@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://sager611.github.io/tag/algorithm/</loc>
+    <loc>https://sager611.github.io/tags/algorithm/</loc>
     <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -10,7 +10,7 @@
     <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/complexity/</loc>
+    <loc>https://sager611.github.io/tags/complexity/</loc>
     <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -18,7 +18,7 @@
     <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/numpy/</loc>
+    <loc>https://sager611.github.io/tags/numpy/</loc>
     <lastmod>2023-05-23T15:02:50+02:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -30,11 +30,11 @@
     <lastmod>2023-03-07T14:51:07+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/control-theory/</loc>
+    <loc>https://sager611.github.io/tags/control-theory/</loc>
     <lastmod>2023-02-27T16:51:17+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/p5js/</loc>
+    <loc>https://sager611.github.io/tags/p5js/</loc>
     <lastmod>2023-02-27T16:51:17+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -42,11 +42,11 @@
     <lastmod>2023-02-27T16:51:17+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/chemistry/</loc>
+    <loc>https://sager611.github.io/tags/chemistry/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/nlp/</loc>
+    <loc>https://sager611.github.io/tags/nlp/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -54,11 +54,11 @@
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/sustainability/</loc>
+    <loc>https://sager611.github.io/tags/sustainability/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
-    <loc>https://sager611.github.io/tag/uq/</loc>
+    <loc>https://sager611.github.io/tags/uq/</loc>
     <lastmod>2023-02-25T16:37:09+01:00</lastmod>
     <changefreq>weekly</changefreq>
   </url><url>
@@ -68,17 +68,6 @@
   </url><url>
     <loc>https://sager611.github.io/</loc>
     <lastmod>2023-02-17T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/slides/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/slides/example/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-  </url><url>
-    <loc>https://sager611.github.io/categories/</loc>
     <changefreq>weekly</changefreq>
   </url><url>
     <loc>https://sager611.github.io/publication_types/</loc>
