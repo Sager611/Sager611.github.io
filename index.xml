@@ -7,7 +7,7 @@
     <description>Adrián Sager La Ganga</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Fri, 17 Feb 2023 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>https://sager611.github.io/media/icon_hu10442524216547739280.png</url>
+      <url>https://sager611.github.io/media/icon_hu_284e5671f96e0283.png</url>
       <title>Adrián Sager La Ganga</title>
       <link>https://sager611.github.io/</link>
     </image>
@@ -38,13 +38,15 @@
 }
 .lemma-qed { margin-left:95%; }
 &lt;/style&gt;
-&lt;p&gt;NumPy&amp;rsquo;s &lt;a href=&#34;https://numpy.org/doc/1.24/reference/random/generated/numpy.random.choice.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;numpy.random.choice()&lt;/code&gt;&lt;/a&gt; method samples items at random from an array.&lt;/p&gt;
+&lt;p&gt;NumPy&amp;rsquo;s 
+ method samples items at random from an array.&lt;/p&gt;
 &lt;p&gt;Unfortunately, sampling &lt;em&gt;without&lt;/em&gt; replacement an &lt;code&gt;int&lt;/code&gt; from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1_000_000_000_000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is because &lt;code&gt;numpy.random.choice()&lt;/code&gt; creates (at least up to NumPy version 1.24) an array of size $N$ (in our example, ~465 GB !), as it can be seen in the &lt;a href=&#34;https://github.com/numpy/numpy/blob/1e8b589033e1ce2add835840ccdc259e5e1fa4d0/numpy/random/mtrand.pyx#L841&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;source code&lt;/a&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is because &lt;code&gt;numpy.random.choice()&lt;/code&gt; creates (at least up to NumPy version 1.24) an array of size $N$ (in our example, ~465 GB !), as it can be seen in the 
+:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
@@ -126,6 +128,8 @@
   \end{align}
   $$
   Since we have to draw 1 item in line 1 of the algorithm and then we have to draw $(k-1)$ new unique items in the while loop.
+&lt;p&gt;We now note that the algorithm requires that $N\geq (2 + \sqrt{2})\cdot k$, so:
+&lt;/p&gt;
 $$
   \begin{align}
   N \geq (2 + \sqrt{2}&amp;)\cdot k \geq 2\cdot k \newline
@@ -179,9 +183,14 @@ P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y 
   $$
   N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
+&lt;p&gt;Thus finally,
+&lt;/p&gt;
 $$
     P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-  $$$$
+  $$&lt;p&gt;
+We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
+&lt;/p&gt;
+$$
    N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
   $$&lt;p&gt;
 Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-1)/N$.&lt;/p&gt;
@@ -193,7 +202,8 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1&#39;000 items using this algorithm will require drawing 103 items w.p. less than 0.1%.&lt;/p&gt;
 &lt;h2 id=&#34;example-use-case&#34;&gt;Example use-case&lt;/h2&gt;
 &lt;p&gt;But, when do we have a massive $N$ in practice?&lt;/p&gt;
-&lt;p&gt;Let me present the original problem I was trying to solve which required me to create my own &lt;em&gt;choice&lt;/em&gt; function: a memory-efficient implementation to sample without replacement &lt;a href=&#34;https://docs.python.org/3/library/itertools.html#itertools.product&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;itertools.product()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let me present the original problem I was trying to solve which required me to create my own &lt;em&gt;choice&lt;/em&gt; function: a memory-efficient implementation to sample without replacement 
+.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s say that you have multiple iterables that can be indexed in Python and you want to sample $k$ random permutations of their items.&lt;/p&gt;
 &lt;p&gt;Since the space of all permutations is prohibitively large, we cannot simply generate &lt;em&gt;all&lt;/em&gt; permutations first and then sample $k$ of them.&lt;/p&gt;
 &lt;p&gt;The solution is to use our $choice(N, k)$ function:&lt;/p&gt;
@@ -237,10 +247,12 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 
 &lt;h2 id=&#34;boot-from-live-usb&#34;&gt;Boot from Live USB&lt;/h2&gt;
 &lt;p&gt;In our &lt;strong&gt;new&lt;/strong&gt; machine we will run all commands from a live USB Arch Linux image.&lt;/p&gt;
-&lt;p&gt;Follow &lt;a href=&#34;https://wiki.archlinux.org/title/USB_flash_installation_medium&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the official Arch Linux tutorial to boot an Arch Linux image from an USB&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Follow 
+.&lt;/p&gt;
 &lt;p&gt;Once you have your live USB, plug it in your &lt;strong&gt;new&lt;/strong&gt; laptop and go to the boot menu.&lt;/p&gt;
 &lt;p&gt;In my case, I have a Thinkpad and I had to press &lt;code&gt;enter&lt;/code&gt; and then &lt;code&gt;F12&lt;/code&gt; when powering on the laptop.&lt;/p&gt;
-&lt;p&gt;I also had to &lt;a href=&#34;https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/disabling-secure-boot?view=windows-11&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;disable Secure Boot&lt;/a&gt; beforehand to boot from my live USB.&lt;/p&gt;
+&lt;p&gt;I also had to 
+ beforehand to boot from my live USB.&lt;/p&gt;
 &lt;p&gt;Make sure to connect to the same local wifi network in both machines before continuing.&lt;/p&gt;
 &lt;h2 id=&#34;setup-ssh&#34;&gt;Setup SSH&lt;/h2&gt;
 &lt;p&gt;The following commands are executed as root user.&lt;/p&gt;
@@ -268,7 +280,8 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;Set the &lt;code&gt;root&lt;/code&gt; password with &lt;code&gt;passwd&lt;/code&gt;. Simply run &lt;code&gt;passwd&lt;/code&gt; in your &lt;strong&gt;new&lt;/strong&gt; machine.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Now we setup ssh so it &lt;a href=&#34;https://www.pragmaticlinux.com/2021/05/configure-ssh-for-login-without-a-password/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;doesn&amp;rsquo;t ask for password when connecting to our new machine&lt;/a&gt;. In your &lt;strong&gt;old&lt;/strong&gt; machine:&lt;/p&gt;
+&lt;p&gt;Now we setup ssh so it 
+. In your &lt;strong&gt;old&lt;/strong&gt; machine:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-keygen -t ed25519
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ssh-copy-id -i .ssh/id_thinkpadp15.pub root@192.168.1.76
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In my case it looks like:&lt;/p&gt;
@@ -309,8 +322,8 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;h2 id=&#34;clone-hard-disk-via-ssh&#34;&gt;Clone hard disk via SSH&lt;/h2&gt;
 &lt;p&gt;We will use the &lt;code&gt;dd&lt;/code&gt; command from &lt;code&gt;coreutils&lt;/code&gt; and &lt;code&gt;ssh&lt;/code&gt; to remotely clone our hard disk from our &lt;strong&gt;old&lt;/strong&gt; machine to our &lt;strong&gt;new&lt;/strong&gt; machine.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;Check &lt;a href=&#34;https://wiki.archlinux.org/title/Dd#Disk_cloning_and_restore&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;the official Arch wiki for more info on cloning with &lt;code&gt;dd&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Check 
+.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-yellow-100 dark:bg-yellow-900&#34;&gt;
 &lt;span class=&#34;pr-3 pt-1 text-red-400&#34;&gt;
   &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0zM12 15.75h.007v.008H12z&#34;/&gt;&lt;/svg&gt;
@@ -329,7 +342,9 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;Run the following in your &lt;strong&gt;old&lt;/strong&gt; machine to clone the disk:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;dd &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/sda &lt;span class=&#34;p&#34;&gt;|&lt;/span&gt; ssh root@192.168.1.76 dd &lt;span class=&#34;nv&#34;&gt;of&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;/dev/nvme0n1 &lt;span class=&#34;nv&#34;&gt;status&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;progress
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Change the IP, and &lt;code&gt;sda&lt;/code&gt; and &lt;code&gt;nvme0n1&lt;/code&gt; according to your source and destination disk names.&lt;/p&gt;
-&lt;p&gt;It will take 5-10h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including &lt;a href=&#34;https://wiki.archlinux.org/title/GRUB&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;GRUB&lt;/a&gt; and &lt;a href=&#34;https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LUKS&lt;/a&gt; (also with logical volumes) if you had them setup.&lt;/p&gt;
+&lt;p&gt;It will take 5-10h to clone a 512GB SSD. Once it finishes, you will have copied all the contents from your old machine to your new machine, including 
+ and 
+ (also with logical volumes) if you had them setup.&lt;/p&gt;
 </description>
     </item>
     
@@ -345,8 +360,11 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 .ugly { background:red; border:4px dashed black; }
 .visualizer { width: 100%; height: 800px; }
 &lt;/style&gt;
-&lt;p&gt;In 2020 I was following lectures on &lt;a href=&#34;https://didattica.polito.it/pls/portal30/gap.pkg_guide.viewGap?p_cod_ins=06LSLLM&amp;amp;p_a_acc=2020&amp;amp;p_header=S&amp;amp;p_lang=IT&amp;amp;multi=N&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;automatic control&lt;/a&gt; and learned about the &lt;a href=&#34;https://en.wikipedia.org/wiki/Transfer_function&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;transfer function&lt;/a&gt; of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions.&lt;/p&gt;
-&lt;p&gt;You can &lt;a href=&#34;#visualizer&#34;&gt;jump ahead to the visualizer&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In 2020 I was following lectures on 
+ and learned about the 
+ of a system and ways to visualize it, at which point I was curious so I went ahead and wrote a simple visualizer for generic transfer functions.&lt;/p&gt;
+&lt;p&gt;You can 
+.&lt;/p&gt;
 &lt;h2 id=&#34;setup&#34;&gt;Setup&lt;/h2&gt;
 &lt;p&gt;The basic idea is that we can build a system with a feedback loop that takes an input signal $x(t)$
  and outputs another signal $y(t)$
@@ -374,10 +392,12 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;We then focus on &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_time-invariant_system&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;linear time-invariant (LTI)&lt;/a&gt; transformations, which in a few words are those which take as input $e(t)$
+&lt;p&gt;We then focus on 
+ transformations, which in a few words are those which take as input $e(t)$
  and output $y(t) = (e \ast h)(t)$
 , where $h(t)$
- is called the &lt;a href=&#34;https://en.wikipedia.org/wiki/Impulse_response&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;impulse response&lt;/a&gt; since it is exactly the value of the output $y(t)$
+ is called the 
+ since it is exactly the value of the output $y(t)$
  if our input where an impulse $e(t)=\delta(t)$
 .&lt;/p&gt;
 &lt;p&gt;In the Laplace function space, the convolution of our transformation becomes a multiplication $Y(s) = H(s)E(s)$
@@ -400,8 +420,13 @@ $$
  we want to make sure that it is some distance away from 1.&lt;/p&gt;
 &lt;p&gt;But $H: \mathbb{C} \rightarrow \mathbb{C}$
 , how can we visualize it?&lt;/p&gt;
-&lt;p&gt;Well, there are multiple approaches and this is where I got curious and decided to write a visualizer in &lt;a href=&#34;https://editor.p5js.org/adriansagerlaganga/full/9CeBgb-Pv&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;p5.js&lt;/a&gt;. I included a cartesian plot and a &lt;a href=&#34;https://en.wikipedia.org/wiki/Nichols_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nichols plot&lt;/a&gt;. Other common plots include &lt;a href=&#34;https://en.wikipedia.org/wiki/Bode_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Bode&lt;/a&gt; and &lt;a href=&#34;https://en.wikipedia.org/wiki/Nyquist_plot&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nyquist&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I also included a simple &lt;a href=&#34;https://en.wikipedia.org/wiki/Abstract_syntax_tree&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;abstract syntax tree (AST)&lt;/a&gt; parser and traversal so you can write any $H(s)$
+&lt;p&gt;Well, there are multiple approaches and this is where I got curious and decided to write a visualizer in 
+. I included a cartesian plot and a 
+. Other common plots include 
+ and 
+.&lt;/p&gt;
+&lt;p&gt;I also included a simple 
+ parser and traversal so you can write any $H(s)$
  you want and see what happens!&lt;/p&gt;
 &lt;p&gt;You can try it out right here:&lt;/p&gt;
 &lt;iframe class=&#34;visualizer&#34; src=&#34;./src/index.html&#34;&gt;&lt;/iframe&gt;
@@ -440,12 +465,14 @@ and the visualizer may crash. Use with care.&lt;/span&gt;
 &lt;p&gt;In this project (my master&amp;rsquo;s thesis at EPFL) I explored how useful it would be if we quantified sustainability as &lt;em&gt;how likely&lt;/em&gt; it is that a reaction is sustainable. This likelihood would then be computed by employing &lt;strong&gt;uncertainty quantification (UQ)&lt;/strong&gt; on some AI model&amp;rsquo;s prediction.&lt;/p&gt;
 &lt;p&gt;The main contribution of the project is an &lt;strong&gt;extensible toolkit&lt;/strong&gt; with sustainability metrics based on AI model predictions.&lt;/p&gt;
 &lt;p&gt;In this page I collect some of my thoughts derived from this project.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;uploads/EPFL_Master_Thesis.pdf&#34;&gt;You can read the full report here.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;/p&gt;
 &lt;div class=&#34;flex px-4 py-3 mb-6 rounded-md bg-primary-100 dark:bg-primary-900&#34;&gt;
 &lt;span class=&#34;pr-3 pt-1 text-primary-600 dark:text-primary-300&#34;&gt;
   &lt;svg height=&#34;24&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 24 24&#34;&gt;&lt;path fill=&#34;none&#34; stroke=&#34;currentColor&#34; stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; stroke-width=&#34;1.5&#34; d=&#34;m11.25 11.25l.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0m-9-3.75h.008v.008H12z&#34;/&gt;&lt;/svg&gt;
 &lt;/span&gt;
-  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;This work was created and funded as part of the &lt;a href=&#34;https://nccr-catalysis.ch/news/recipients-of-2022-young-talents-fellowship/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;NCCR Catalysis Young Talents Fellowship&lt;/a&gt;, a National Centre of Competence in Research funded by the Swiss National Science Foundation.&lt;/span&gt;
+  &lt;span class=&#34;dark:text-neutral-300&#34;&gt;This work was created and funded as part of the 
+, a National Centre of Competence in Research funded by the Swiss National Science Foundation.&lt;/span&gt;
 &lt;/div&gt;
 
 
@@ -462,7 +489,7 @@ and the visualizer may crash. Use with care.&lt;/span&gt;
       &lt;/ul&gt;
     &lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#validating-ai-metrics&#34;&gt;Validating AI-metrics&lt;/a&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;a href=&#34;#dont-pay-attention-to-the-_attention_-&#34;&gt;Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&#34;#dont-pay-attention-to-the-attention-&#34;&gt;Don’t pay attention to the &lt;em&gt;attention&lt;/em&gt; …&lt;/a&gt;&lt;/li&gt;
     &lt;li&gt;&lt;a href=&#34;#putting-it-all-together&#34;&gt;Putting it all together&lt;/a&gt;&lt;/li&gt;
   &lt;/ul&gt;
 &lt;/nav&gt;
@@ -639,7 +666,7 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
 &lt;/p&gt;
 &lt;p&gt;Clearly, enzymatic reactions cluster in &lt;span style=&#34;color:#00b5ecff&#34;&gt;blue&lt;/span&gt; separately from non-enzymatic ones in &lt;span style=&#34;color:#ff0000ff&#34;&gt;red&lt;/span&gt;.&lt;/p&gt;
 &lt;p&gt;Around here, our validation discussion of the AI-metric ends, but it would be interesting to study more in depth its applicability, in particular we could carefully design a dataset by artificially introducing aleatoric uncertainty and study how our AI-metric scores change as we increase data noise and as we underfit/overfit our model.&lt;/p&gt;
-&lt;h2 id=&#34;dont-pay-attention-to-the-_attention_-&#34;&gt;Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;&lt;/h2&gt;
+&lt;h2 id=&#34;dont-pay-attention-to-the-attention-&#34;&gt;Don&amp;rsquo;t pay attention to the &lt;em&gt;attention&lt;/em&gt; &amp;hellip;&lt;/h2&gt;
 &lt;p&gt;Of what use is a probabilistic metric if we cannot interpret the results? It&amp;rsquo;d be more appropriate if our toolkit of metrics also contained &lt;strong&gt;AI interpretability tools&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;This is specially important since we may have &lt;em&gt;high confidence&lt;/em&gt; in a wrong prediction. For example:&lt;/p&gt;
 &lt;p&gt;
@@ -665,7 +692,8 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
            loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;
   &lt;/div&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;Our BERT model classifies the reaction as class EC.5, which means that is uses an &lt;a href=&#34;https://en.wikipedia.org/wiki/Isomerase&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;isomerase&lt;/a&gt; enzyme. In reality the reaction is not enzymatic, it is of type 9.3.1 (&amp;quot;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;quot;), and the AI-metric scores it as ~51% likely and confidently to be enzymatic. By our plot from the previous section, we&amp;rsquo;d simply look at this score and blindly accept it as enzymatic.&lt;/p&gt;
+&lt;p&gt;Our BERT model classifies the reaction as class EC.5, which means that is uses an 
+ enzyme. In reality the reaction is not enzymatic, it is of type 9.3.1 (&amp;quot;&lt;em&gt;carboxylic acid to acid chloride&lt;/em&gt;&amp;quot;), and the AI-metric scores it as ~51% likely and confidently to be enzymatic. By our plot from the previous section, we&amp;rsquo;d simply look at this score and blindly accept it as enzymatic.&lt;/p&gt;
 &lt;p&gt;So what is going on?&lt;/p&gt;
 &lt;p&gt;We may want to look at what BERT is doing. In particular its attention scores:&lt;/p&gt;
 &lt;p&gt;
@@ -695,7 +723,8 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
 &lt;/p&gt;
 &lt;p&gt;Note how attention indicates that the model attributes attention to the &lt;code&gt;OH&lt;/code&gt; and &lt;code&gt;Cl&lt;/code&gt; exchange, which is precisely the rule for type 9.3.1. But the model of course does not predict the reaction as that type! What happens is that token embeddings at the last layer do not represent the corresponding token individually, but rather a global property in the text, so attention does not tell us the casual relationship learned between the input atomic structures and the output.&lt;/p&gt;
 &lt;p&gt;In fact, we should &lt;strong&gt;not&lt;/strong&gt; look into &lt;em&gt;attention&lt;/em&gt; attribution, but &lt;em&gt;importance&lt;/em&gt; attribution, i.e. how each input affected the output.&lt;/p&gt;
-&lt;p&gt;With the &lt;a href=&#34;https://captum.ai/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Captum&lt;/a&gt; Python package we can see this importance attribution through the so-called method of &lt;em&gt;Integrated Gradients&lt;/em&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
+&lt;p&gt;With the 
+ Python package we can see this importance attribution through the so-called method of &lt;em&gt;Integrated Gradients&lt;/em&gt;&lt;sup id=&#34;fnref:3&#34;&gt;&lt;a href=&#34;#fn:3&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;:&lt;/p&gt;
 &lt;p&gt;
 
 
@@ -776,7 +805,8 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
       Example reaction path, also called &lt;em&gt;route&lt;/em&gt; or &lt;em&gt;pathway&lt;/em&gt;
     &lt;/figcaption&gt;&lt;/figure&gt;
 &lt;/p&gt;
-&lt;p&gt;We simply generate &lt;em&gt;many&lt;/em&gt; possible reaction paths for some target molecule using &lt;a href=&#34;https://github.com/MolecularAI/aizynthfinder&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;AiZynthFinder&lt;/a&gt; and Monte-Carlo tree search (MCTS)&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
+&lt;p&gt;We simply generate &lt;em&gt;many&lt;/em&gt; possible reaction paths for some target molecule using 
+ and Monte-Carlo tree search (MCTS)&lt;sup id=&#34;fnref:4&#34;&gt;&lt;a href=&#34;#fn:4&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;.&lt;/p&gt;
 &lt;p&gt;Then, we select the best reaction path according to a weighted sum of our sustainability metrics and an estimation of the monetary cost to carry out the reactions.&lt;/p&gt;
 &lt;p&gt;
 
@@ -797,10 +827,10 @@ $$p(y\vert\pmb{x},\mathcal{D}) = \mathbb{E}_{p(\pmb{\theta}\vert\mathcal{D})}\le
 &lt;figure  &gt;
   &lt;div class=&#34;flex justify-center	&#34;&gt;
     &lt;div class=&#34;w-100&#34; &gt;&lt;img alt=&#34;&#34; srcset=&#34;
-               /project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp 400w,
-               /project/epfl-master-thesis/casp-summary_hu18438039530156322784.webp 760w,
-               /project/epfl-master-thesis/casp-summary_hu7698274835759186722.webp 1200w&#34;
-               src=&#34;https://sager611.github.io/project/epfl-master-thesis/casp-summary_hu2951893151423879595.webp&#34;
+               /project/epfl-master-thesis/casp-summary_hu_210e3cb3ed21e030.webp 400w,
+               /project/epfl-master-thesis/casp-summary_hu_6afe0e7eaab2708c.webp 760w,
+               /project/epfl-master-thesis/casp-summary_hu_92c2f9e1027a6eb5.webp 1200w&#34;
+               src=&#34;https://sager611.github.io/project/epfl-master-thesis/casp-summary_hu_210e3cb3ed21e030.webp&#34;
                width=&#34;760&#34;
                height=&#34;282&#34;
                loading=&#34;lazy&#34; data-zoomable /&gt;&lt;/div&gt;

@@ -7,7 +7,7 @@
     <description>Complexity</description>
     <generator>Hugo Blox Builder (https://hugoblox.com)</generator><language>en-us</language><lastBuildDate>Tue, 23 May 2023 15:02:50 +0200</lastBuildDate>
     <image>
-      <url>https://sager611.github.io/media/icon_hu10442524216547739280.png</url>
+      <url>https://sager611.github.io/media/icon_hu_284e5671f96e0283.png</url>
       <title>Complexity</title>
       <link>https://sager611.github.io/tags/complexity/</link>
     </image>
@@ -38,13 +38,15 @@
 }
 .lemma-qed { margin-left:95%; }
 &lt;/style&gt;
-&lt;p&gt;NumPy&amp;rsquo;s &lt;a href=&#34;https://numpy.org/doc/1.24/reference/random/generated/numpy.random.choice.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;numpy.random.choice()&lt;/code&gt;&lt;/a&gt; method samples items at random from an array.&lt;/p&gt;
+&lt;p&gt;NumPy&amp;rsquo;s 
+ method samples items at random from an array.&lt;/p&gt;
 &lt;p&gt;Unfortunately, sampling &lt;em&gt;without&lt;/em&gt; replacement an &lt;code&gt;int&lt;/code&gt; from $0$ to $N-1$ requires $O(N)$ memory. Thus, the following code will result in an OOM error (if not completely crash your machine):&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;np&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1_000_000_000_000&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;n&#34;&gt;np&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;random&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;N&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is because &lt;code&gt;numpy.random.choice()&lt;/code&gt; creates (at least up to NumPy version 1.24) an array of size $N$ (in our example, ~465 GB !), as it can be seen in the &lt;a href=&#34;https://github.com/numpy/numpy/blob/1e8b589033e1ce2add835840ccdc259e5e1fa4d0/numpy/random/mtrand.pyx#L841&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;source code&lt;/a&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is because &lt;code&gt;numpy.random.choice()&lt;/code&gt; creates (at least up to NumPy version 1.24) an array of size $N$ (in our example, ~465 GB !), as it can be seen in the 
+:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;choice&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;a&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;replace&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;o&#34;&gt;...&lt;/span&gt;
@@ -126,6 +128,8 @@
   \end{align}
   $$
   Since we have to draw 1 item in line 1 of the algorithm and then we have to draw $(k-1)$ new unique items in the while loop.
+&lt;p&gt;We now note that the algorithm requires that $N\geq (2 + \sqrt{2})\cdot k$, so:
+&lt;/p&gt;
 $$
   \begin{align}
   N \geq (2 + \sqrt{2}&amp;)\cdot k \geq 2\cdot k \newline
@@ -179,9 +183,14 @@ P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y 
   $$
   N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
+&lt;p&gt;Thus finally,
+&lt;/p&gt;
 $$
     P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-  $$$$
+  $$&lt;p&gt;
+We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
+&lt;/p&gt;
+$$
    N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
   $$&lt;p&gt;
 Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-1)/N$.&lt;/p&gt;
@@ -193,7 +202,8 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 &lt;p&gt;For example, the algorithm is $O(k^2)$ w.p. less than $1/N$. This means that drawing 10 items without replacement from a universe of 1&#39;000 items using this algorithm will require drawing 103 items w.p. less than 0.1%.&lt;/p&gt;
 &lt;h2 id=&#34;example-use-case&#34;&gt;Example use-case&lt;/h2&gt;
 &lt;p&gt;But, when do we have a massive $N$ in practice?&lt;/p&gt;
-&lt;p&gt;Let me present the original problem I was trying to solve which required me to create my own &lt;em&gt;choice&lt;/em&gt; function: a memory-efficient implementation to sample without replacement &lt;a href=&#34;https://docs.python.org/3/library/itertools.html#itertools.product&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;code&gt;itertools.product()&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Let me present the original problem I was trying to solve which required me to create my own &lt;em&gt;choice&lt;/em&gt; function: a memory-efficient implementation to sample without replacement 
+.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s say that you have multiple iterables that can be indexed in Python and you want to sample $k$ random permutations of their items.&lt;/p&gt;
 &lt;p&gt;Since the space of all permutations is prohibitively large, we cannot simply generate &lt;em&gt;all&lt;/em&gt; permutations first and then sample $k$ of them.&lt;/p&gt;
 &lt;p&gt;The solution is to use our $choice(N, k)$ function:&lt;/p&gt;

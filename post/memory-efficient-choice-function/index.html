@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- This site was created with Hugo Blox. https://hugoblox.com -->
-<!-- Last Published: April 10, 2025 --><html lang="en-us" dir="ltr"
+<!-- Last Published: September 22, 2025 --><html lang="en-us" dir="ltr"
       data-wc-theme-default="system">
   
 <head>
@@ -159,8 +159,8 @@
   
 
   
-  <link rel="icon" type="image/png" href="/media/icon_hu7875746747865075390.png" />
-  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu17439571006665430394.png" />
+  <link rel="icon" type="image/png" href="/media/icon_hu_eab39f25e79e143.png" />
+  <link rel="apple-touch-icon" type="image/png" href="/media/icon_hu_4f95276f09db1ddf.png" />
 
   <link rel="canonical" href="https://sager611.github.io/post/memory-efficient-choice-function/" />
 
@@ -192,8 +192,8 @@
   <meta property="og:title" content="Memory efficient numpy.random.choice() | Adrián Sager La Ganga" />
   <meta property="og:description" content="
 
-NumPy&rsquo;s numpy.random.choice() method samples items at random from an array." /><meta property="og:image" content="https://sager611.github.io/media/icon_hu10442524216547739280.png" />
-    <meta property="twitter:image" content="https://sager611.github.io/media/icon_hu10442524216547739280.png" /><meta property="og:locale" content="en-us" />
+NumPy&rsquo;s numpy.random.choice() method samples items at random from an array." /><meta property="og:image" content="https://sager611.github.io/media/icon_hu_284e5671f96e0283.png" />
+    <meta property="twitter:image" content="https://sager611.github.io/media/icon_hu_284e5671f96e0283.png" /><meta property="og:locale" content="en-us" />
   
     
       <meta
@@ -860,6 +860,8 @@ NumPy&rsquo;s numpy.random.choice() method samples items at random from an array
   \end{align}
   $$
   Since we have to draw 1 item in line 1 of the algorithm and then we have to draw $(k-1)$ new unique items in the while loop.
+<p>We now note that the algorithm requires that $N\geq (2 + \sqrt{2})\cdot k$, so:
+</p>
 $$
   \begin{align}
   N \geq (2 + \sqrt{2}&)\cdot k \geq 2\cdot k \newline
@@ -913,9 +915,14 @@ P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y 
   $$
   N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left(1 - \frac{k}{N}\right)^{-2}
   $$
+<p>Thus finally,
+</p>
 $$
     P\left[ Y \geq k\cdot\left(1-\frac{k}{N}\right)^{-2} \right] \leq \frac{k-1}{N}
-  $$$$
+  $$<p>
+We can now apply our algorithm requirement $N \geq (2 + \sqrt{2})\cdot k$ so we get,
+</p>
+$$
    N \geq \left(2 + \sqrt{2}\right)\cdot k \quad \rightarrow \quad \left(1-\frac{k}{N}\right)^{-2} \leq \left(1-\frac{1}{2 + \sqrt{2}}\right)^{-2} = 2
   $$<p>
 Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-1)/N$.</p>
@@ -1098,7 +1105,7 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
     width="96"
     height="96"
     alt="Adrián Sager La Ganga"
-  src="/author/adrian-sager-la-ganga/avatar_hu5955492833548963272.jpeg"
+  src="/author/adrian-sager-la-ganga/avatar_hu_f4268ae971b4a8c4.jpeg"
   loading="lazy"
   />
   
@@ -1114,7 +1121,7 @@ Thus, in the worst case we always draw $O(1+2k)=O(2k)$ items w.p. less than $(k-
 
     
     <div class="text-sm font-bold text-neutral-700 dark:text-neutral-300">
-    Software Engineer
+    Founder &amp; AI Software Engineer
     </div>
     
 
