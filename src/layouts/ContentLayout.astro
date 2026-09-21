@@ -1,0 +1,55 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import { getTagHref, getUniqueTags } from "../lib/tags.mjs";
+
+interface Props {
+  title: string;
+  description?: string;
+  date?: Date;
+  tags?: string[];
+  section?: string;
+  backHref?: string;
+}
+
+const {
+  title,
+  description,
+  date,
+  tags = [],
+  section,
+  backHref = "/post/",
+} = Astro.props;
+
+const formattedDate = date
+  ? new Intl.DateTimeFormat("en-US", {
+      day: "numeric",
+      month: "long",
+      timeZone: "UTC",
+      year: "numeric",
+    }).format(date)
+  : undefined;
+const dateIso = date ? date.toISOString() : undefined;
+const uniqueTags = getUniqueTags(tags);
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="content-shell">
+    <header class="content-header">
+      <a class="back-link" href={backHref}>← Back to writing</a>
+      {section && <p class="eyebrow">{section}</p>}
+      <h1>{title}</h1>
+      {date && <time class="writing-date content-date" datetime={dateIso}>{formattedDate}</time>}
+      {uniqueTags.length > 0 && (
+        <ul class="tag-list" aria-label="Tags">
+          {uniqueTags.map((tag) => (
+            <li><a href={getTagHref(tag)}>{tag}</a></li>
+          ))}
+        </ul>
+      )}
+    </header>
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>

@@ -1,0 +1,143 @@
+<button
+  type="button"
+  class="theme-toggle"
+  data-theme-toggle
+  aria-label="Switch to dark mode"
+  title="Switch to dark mode"
+  aria-pressed="false"
+>
+  <svg
+    class="theme-toggle__icon theme-toggle__icon--moon"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    aria-hidden="true"
+    focusable="false"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path d="M21.752 15.002A9.718 9.718 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 2.25 12c0 5.385 4.365 9.75 9.75 9.75a9.753 9.753 0 0 0 9.752-6.748Z" />
+  </svg>
+  <svg
+    class="theme-toggle__icon theme-toggle__icon--sun"
+    viewBox="0 0 24 24"
+    width="20"
+    height="20"
+    aria-hidden="true"
+    focusable="false"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.75"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+  </svg>
+</button>
+
+<script>
+  const button = document.querySelector("[data-theme-toggle]");
+
+  if (button && !button.hasAttribute("data-theme-toggle-initialized")) {
+    button.setAttribute("data-theme-toggle-initialized", "true");
+
+    const root = document.documentElement;
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const lightPaper = "#faf7ef";
+    const darkPaper = "#241417";
+
+    let nextTheme = root.dataset.theme === "dark" ? "dark" : "light";
+    let shouldPersist = false;
+
+    const applyTheme = () => {
+      const isDark = nextTheme === "dark";
+
+      root.dataset.theme = nextTheme;
+      root.style.colorScheme = nextTheme;
+      themeMeta?.setAttribute("content", isDark ? darkPaper : lightPaper);
+      const actionLabel = isDark ? "Switch to light mode" : "Switch to dark mode";
+      button.setAttribute("aria-label", actionLabel);
+      button.setAttribute("title", actionLabel);
+      button.setAttribute("aria-pressed", String(isDark));
+
+      if (shouldPersist) {
+        try {
+          window.localStorage.setItem("theme", nextTheme);
+        } catch {
+          // Keep the current choice when storage is unavailable.
+        }
+        shouldPersist = false;
+      }
+    };
+
+    const handleClick = () => {
+      nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
+      shouldPersist = true;
+      applyTheme();
+    };
+
+    const cleanup = () => {
+      button.removeEventListener("click", handleClick);
+    };
+
+    applyTheme();
+    button.addEventListener("click", handleClick);
+    document.addEventListener("astro:before-swap", cleanup, { once: true });
+  }
+</script>
+
+<style>
+  .theme-toggle {
+    position: fixed;
+    z-index: 10;
+    top: 1rem;
+    right: 1rem;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .theme-toggle__icon {
+    display: block;
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  .theme-toggle__icon--sun {
+    display: none;
+  }
+
+  .theme-toggle[aria-pressed="true"] .theme-toggle__icon--moon {
+    display: none;
+  }
+
+  .theme-toggle[aria-pressed="true"] .theme-toggle__icon--sun {
+    display: block;
+  }
+
+  .theme-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 30rem) {
+    :global(html body) {
+      padding-top: calc(2.25rem + env(safe-area-inset-top, 0px));
+    }
+
+    .theme-toggle {
+      top: calc(0.75rem + env(safe-area-inset-top, 0px));
+      right: calc(0.75rem + env(safe-area-inset-right, 0px));
+    }
+  }
+</style>

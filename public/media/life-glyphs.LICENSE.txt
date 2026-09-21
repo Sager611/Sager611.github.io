@@ -1,0 +1,35 @@
+Source fonts and provenance for public/media/life-glyphs.svg
+
+- Noto Sans: https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/NotoSans%5Bwdth,wght%5D.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosans/OFL.txt
+- Noto Sans JP: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/NotoSansJP%5Bwght%5D.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansjp/OFL.txt
+- Noto Sans Devanagari: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/NotoSansDevanagari%5Bwdth,wght%5D.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansdevanagari/OFL.txt
+- Noto Sans Hebrew: https://raw.githubusercontent.com/google/fonts/main/ofl/notosanshebrew/NotoSansHebrew%5Bwdth,wght%5D.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosanshebrew/OFL.txt
+- Noto Sans Cuneiform: https://raw.githubusercontent.com/google/fonts/main/ofl/notosanscuneiform/NotoSansCuneiform-Regular.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosanscuneiform/OFL.txt
+- Noto Sans Mayan Numerals: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansmayannumerals/NotoSansMayanNumerals-Regular.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansmayannumerals/OFL.txt
+- Noto Sans Egyptian Hieroglyphs: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansegyptianhieroglyphs/NotoSansEgyptianHieroglyphs-Regular.ttf
+  License: https://raw.githubusercontent.com/google/fonts/main/ofl/notosansegyptianhieroglyphs/OFL.txt
+
+Glyph mapping and codepoints:
+- state 1: a U+0061 from Noto Sans (NotoSans[wdth,wght].ttf), glyph a, bounds [46, -10, 480, 545], scale 0.03964
+- state 2: b U+0062 from Noto Sans (NotoSans[wdth,wght].ttf), glyph b, bounds [85, -10, 560, 760], scale 0.028571
+- state 3: λ U+03BB from Noto Sans (NotoSans[wdth,wght].ttf), glyph lambda, bounds [0, -10, 519, 765], scale 0.028387
+- state 4: Ω U+03A9 from Noto Sans (NotoSans[wdth,wght].ttf), glyph uni03A9, bounds [25, 0, 692, 725], scale 0.030345
+- state 5: あ U+3042 from Noto Sans JP (NotoSansJP[wght].ttf), glyph uni3042, bounds [127, -36, 886, 780], scale 0.026961
+- state 6: の U+306E from Noto Sans JP (NotoSansJP[wght].ttf), glyph uni306E, bounds [112, -15, 889, 693], scale 0.028314
+- state 7: 水 U+6C34 from Noto Sans JP (NotoSansJP[wght].ttf), glyph uni2F54, bounds [38, -71, 965, 827], scale 0.023732
+- state 8: 山 U+5C71 from Noto Sans JP (NotoSansJP[wght].ttf), glyph uni2F2D, bounds [118, -57, 886, 816], scale 0.0252
+- state 9: क U+0915 from Noto Sans Devanagari (NotoSansDevanagari[wdth,wght].ttf), glyph uni0915, bounds [0, 0, 783, 622], scale 0.028097
+- state 10: अ U+0905 from Noto Sans Devanagari (NotoSansDevanagari[wdth,wght].ttf), glyph uni0905, bounds [29, 0, 779, 632], scale 0.029333
+- state 11: 𒀭 U+1202D from Noto Sans Cuneiform (NotoSansCuneiform-Regular.ttf), glyph u1202D, bounds [100, -112, 948, 736], scale 0.025943
+- state 12: א U+05D0 from Noto Sans Hebrew (NotoSansHebrew[wdth,wght].ttf), glyph uni05D0, bounds [45, 0, 543, 584], scale 0.037671
+- state 13: ב U+05D1 from Noto Sans Hebrew (NotoSansHebrew[wdth,wght].ttf), glyph uni05D1, bounds [50, 0, 499, 584], scale 0.037671
+- state 14: 𝋮 U+1D2EE from Noto Sans Mayan Numerals (NotoSansMayanNumerals-Regular.ttf), glyph u1D2EE, bounds [45, 0, 913, 480], scale 0.025346
+- state 15: 𓂀 U+13080 from Noto Sans Egyptian Hieroglyphs (NotoSansEgyptianHieroglyphs-Regular.ttf), glyph u13080, bounds [49, -219, 1199, 741], scale 0.01913
+
+Chronology note: states are reordered from approximate older-to-newer script-tradition bands (state 15 oldest → state 1 newest). Approximate bands used: Sumerian cuneiform (~late 4th/3rd millennium BCE), Egyptian hieroglyphic/eye tradition (~late 4th millennium BCE), Chinese oracle-bone tradition (~late 2nd millennium BCE), Hebrew/Phoenician-related alphabetic tradition (~2nd/1st millennium BCE), Greek (~8th century BCE), Latin (~7th century BCE), Mayan numeral tradition (~1st millennium BCE–1st millennium CE), Devanagari/Brāhmī-descended Indian script tradition (~1st millennium CE), hiragana (~9th–10th century CE). Equal-era or uncertain relationships are kept adjacent without claiming exact dates; this does not describe the age of the modern font files or the individual glyph outlines.

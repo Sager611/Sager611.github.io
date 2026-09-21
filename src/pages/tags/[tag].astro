@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getTaggedEntries, getTagSlug, getUniqueTags } from "../../lib/tags.mjs";
+
+type Entry = CollectionEntry<"posts"> | CollectionEntry<"projects">;
+
+interface Props {
+  tagName: string;
+  entries: Entry[];
+}
+
+const formatDate = (date: Date | undefined): string | undefined =>
+  date
+    ? new Intl.DateTimeFormat("en-US", {
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+        year: "numeric",
+      }).format(date)
+    : undefined;
+
+export async function getStaticPaths() {
+  const [posts, projects] = await Promise.all([
+    getCollection("posts", ({ data }) => !data.draft),
+    getCollection("projects", ({ data }) => !data.draft),
+  ]);
+  const allEntries = [...posts, ...projects];
+  const tagNames = getUniqueTags(allEntries.flatMap((entry) => entry.data.tags));
+
+  return tagNames.map((name) => ({
+    params: { tag: getTagSlug(name) },
+    props: { tagName: name, entries: getTaggedEntries(allEntries, name) },
+  }));
+}
+
+const { tagName, entries } = Astro.props;
+const sortedEntries = [...entries].sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+);
+---
+
+<BaseLayout
+  title={`Tagged: ${tagName}`}
+  description={`Entries tagged ${tagName} by Adrian Sager.`}
+>
+  <header>
+    <p class="eyebrow">Tag archive</p>
+    <h1 class="section-heading">Tagged: {tagName}</h1>
+    <p class="hero-description">
+      {entries.length} {entries.length === 1 ? "result" : "results"}
+    </p>
+  </header>
+
+  <ul class="writing-list" aria-label={`Entries tagged ${tagName}`}>
+    {sortedEntries.map((entry) => {
+      const isPost = entry.collection === "posts";
+      const type = isPost ? "Post" : "Project";
+      const href = `/${isPost ? "post" : "project"}/${entry.id}/`;
+      const date = formatDate(entry.data.date);
+
+      return (
+        <li class="writing-item">
+          <a href={href}>
+            {date && <time class="writing-date" datetime={entry.data.date?.toISOString()}>{date}</time>}
+            <span class="writing-title">{entry.data.title}</span>
+            <span class="writing-description">{type}</span>
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+</BaseLayout>

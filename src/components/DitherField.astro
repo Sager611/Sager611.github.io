@@ -1,0 +1,304 @@
+<div class="dither-field" data-dither-field aria-hidden="true">
+  <canvas class="dither-field__canvas"></canvas>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-dither-field]');
+
+  if (root && root.dataset.ditherInitialized !== 'true') {
+    root.dataset.ditherInitialized = 'true';
+
+    const canvas = root.querySelector<HTMLCanvasElement>('.dither-field__canvas');
+    const context = canvas?.getContext('2d', { alpha: true });
+    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const bayer4x4: readonly number[][] = [
+      [0, 8, 2, 10],
+      [12, 4, 14, 6],
+      [3, 11, 1, 9],
+      [15, 7, 13, 5],
+    ];
+    const frameInterval = 1000 / 22;
+    const maxGridWidth = 180;
+    const maxGridHeight = 110;
+    const minGridWidth = 96;
+    const minGridHeight = 64;
+
+    let imageData: ImageData | null = null;
+    let resizeObserver: ResizeObserver | null = null;
+    let intersectionObserver: IntersectionObserver | null = null;
+    let animationFrame: number | null = null;
+    let lastFrameTime = 0;
+    let isVisible = true;
+    let isDocumentVisible = document.visibilityState !== 'hidden';
+    let prefersReducedMotion = motionQuery.matches;
+    let isDestroyed = false;
+    let observedWidth = 0;
+    let observedHeight = 0;
+    let usesWindowResize = false;
+
+    const clamp01 = (value: number): number => Math.min(1, Math.max(0, value));
+
+    const smoothstep = (edge0: number, edge1: number, value: number): number => {
+      const normalized = clamp01((value - edge0) / (edge1 - edge0));
+      return normalized * normalized * (3 - 2 * normalized);
+    };
+
+    const showFallback = (): void => {
+      root.classList.add('dither-field--fallback');
+      if (canvas) {
+        canvas.hidden = true;
+      }
+    };
+
+    if (!canvas || !context) {
+      showFallback();
+    } else {
+      const draw = (timeSeconds: number): void => {
+        if (isDestroyed || !imageData) {
+          return;
+        }
+
+        const { data, width, height } = imageData;
+        data.fill(0);
+        const drift = timeSeconds * 0.08;
+        const centerX = 0.35 + Math.sin(drift * 0.7) * 0.035;
+        const centerY = 0.03 + Math.cos(drift * 0.55) * 0.025;
+
+        for (let y = 0; y < height; y += 1) {
+          const vertical = (y / Math.max(1, height - 1)) * 2 - 1;
+
+          for (let x = 0; x < width; x += 1) {
+            const horizontal = (x / Math.max(1, width - 1)) * 2 - 1;
+            const sphereX = (horizontal - centerX) / 0.76;
+            const waveOffset = Math.sin(horizontal * 4.8 + drift * 1.2) * 0.035;
+            const sphereY = (vertical - centerY + waveOffset) / 0.86;
+            const radiusSquared = sphereX * sphereX + sphereY * sphereY;
+
+            if (radiusSquared >= 1) {
+              continue;
+            }
+
+            const radius = Math.sqrt(radiusSquared);
+            const depth = Math.sqrt(Math.max(0, 1 - radiusSquared));
+            const wave = Math.sin(sphereX * 5.2 + sphereY * 3.4 + drift * 1.4 + depth * 2.2);
+            const light = clamp01(0.54 - sphereX * 0.25 - sphereY * 0.18 + depth * 0.38 + wave * 0.06);
+            const rim = smoothstep(1, 0.72, radius);
+            const coverage = clamp01(rim * depth * (0.16 + light * 0.38 + (wave + 1) * 0.035));
+            const bayerValue = bayer4x4[y % 4]?.[x % 4] ?? 0;
+            const threshold = (bayerValue + 0.5) / 16;
+
+            if (coverage <= threshold) {
+              continue;
+            }
+
+            const pixelOffset = (y * width + x) * 4;
+            const tone = clamp01((wave + 1) * 0.5);
+            data[pixelOffset] = Math.round(172 + tone * 18);
+            data[pixelOffset + 1] = Math.round(181 + tone * 19);
+            data[pixelOffset + 2] = Math.round(164 + tone * 15);
+            data[pixelOffset + 3] = Math.round(30 + coverage * 68);
+          }
+        }
+
+        context.putImageData(imageData, 0, 0);
+      };
+
+      const resizeBacking = (): void => {
+        if (isDestroyed || !canvas || !context) {
+          return;
+        }
+
+        const bounds = root.getBoundingClientRect();
+        const cssWidth = Math.round(bounds.width);
+        const cssHeight = Math.round(bounds.height);
+
+        if (cssWidth === observedWidth && cssHeight === observedHeight && imageData) {
+          return;
+        }
+
+        observedWidth = cssWidth;
+        observedHeight = cssHeight;
+        const aspect = cssWidth > 0 && cssHeight > 0 ? cssHeight / cssWidth : 0.61;
+        let gridWidth = Math.min(maxGridWidth, Math.max(minGridWidth, Math.round(Math.max(cssWidth, 384) / 4)));
+        let gridHeight = Math.round(gridWidth * aspect);
+
+        if (gridHeight > maxGridHeight) {
+          gridHeight = maxGridHeight;
+        }
+        gridHeight = Math.min(maxGridHeight, Math.max(minGridHeight, gridHeight));
+
+        if (canvas.width !== gridWidth || canvas.height !== gridHeight || !imageData) {
+          canvas.width = gridWidth;
+          canvas.height = gridHeight;
+          imageData = context.createImageData(gridWidth, gridHeight);
+        }
+
+        draw(prefersReducedMotion ? 0 : performance.now() / 1000);
+      };
+
+      const stopAnimation = (): void => {
+        if (animationFrame !== null) {
+          window.cancelAnimationFrame(animationFrame);
+          animationFrame = null;
+        }
+      };
+
+      const scheduleAnimation = (): void => {
+        if (
+          isDestroyed ||
+          prefersReducedMotion ||
+          !isVisible ||
+          !isDocumentVisible ||
+          animationFrame !== null
+        ) {
+          return;
+        }
+
+        animationFrame = window.requestAnimationFrame((timestamp) => {
+          animationFrame = null;
+
+          if (isDestroyed || prefersReducedMotion || !isVisible || !isDocumentVisible) {
+            return;
+          }
+
+          if (timestamp - lastFrameTime >= frameInterval) {
+            lastFrameTime = timestamp;
+            draw(timestamp / 1000);
+          }
+
+          scheduleAnimation();
+        });
+      };
+
+      const handleDocumentVisibility = (): void => {
+        isDocumentVisible = document.visibilityState !== 'hidden';
+        if (isDocumentVisible) {
+          lastFrameTime = 0;
+          scheduleAnimation();
+        } else {
+          stopAnimation();
+        }
+      };
+
+      const handleMotionChange = (event: MediaQueryListEvent): void => {
+        prefersReducedMotion = event.matches;
+        stopAnimation();
+
+        if (prefersReducedMotion) {
+          draw(0);
+        } else {
+          lastFrameTime = 0;
+          scheduleAnimation();
+        }
+      };
+
+      const handleIntersection = (entries: readonly IntersectionObserverEntry[]): void => {
+        const entry = entries[0];
+        isVisible = entry?.isIntersecting ?? false;
+
+        if (isVisible) {
+          lastFrameTime = 0;
+          scheduleAnimation();
+        } else {
+          stopAnimation();
+        }
+      };
+
+      const cleanup = (): void => {
+        if (isDestroyed) {
+          return;
+        }
+
+        isDestroyed = true;
+        stopAnimation();
+        resizeObserver?.disconnect();
+        intersectionObserver?.disconnect();
+        document.removeEventListener('visibilitychange', handleDocumentVisibility);
+        if (usesWindowResize) {
+          window.removeEventListener('resize', resizeBacking);
+        }
+
+        if (typeof motionQuery.removeEventListener === 'function') {
+          motionQuery.removeEventListener('change', handleMotionChange);
+        } else {
+          motionQuery.removeListener(handleMotionChange);
+        }
+      };
+
+      resizeBacking();
+      document.addEventListener('visibilitychange', handleDocumentVisibility);
+
+      if (typeof motionQuery.addEventListener === 'function') {
+        motionQuery.addEventListener('change', handleMotionChange);
+      } else {
+        motionQuery.addListener(handleMotionChange);
+      }
+
+      if (typeof ResizeObserver !== 'undefined') {
+        resizeObserver = new ResizeObserver(() => {
+          resizeBacking();
+        });
+        resizeObserver.observe(root);
+      } else {
+        usesWindowResize = true;
+        window.addEventListener('resize', resizeBacking, { passive: true });
+      }
+
+      if (typeof IntersectionObserver !== 'undefined') {
+        isVisible = false;
+        intersectionObserver = new IntersectionObserver(handleIntersection, { threshold: 0.01 });
+        intersectionObserver.observe(root);
+      }
+
+      document.addEventListener('astro:before-swap', cleanup, { once: true });
+      scheduleAnimation();
+    }
+  }
+</script>
+
+<style>
+  .dither-field {
+    position: absolute;
+    inset: 0 0 0 auto;
+    z-index: 0;
+    width: min(55%, 38rem);
+    max-width: 55%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    opacity: 0.62;
+    contain: layout paint;
+    -webkit-mask-image: radial-gradient(ellipse 94% 90% at 72% 38%, #000 28%, rgba(0, 0, 0, 0.88) 62%, transparent 100%);
+    mask-image: radial-gradient(ellipse 94% 90% at 72% 38%, #000 28%, rgba(0, 0, 0, 0.88) 62%, transparent 100%);
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-size: 100% 100%;
+  }
+
+  .dither-field__canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  .dither-field--fallback::before {
+    position: absolute;
+    inset: 8% 2% 12% 8%;
+    content: '';
+    background: radial-gradient(ellipse at 64% 40%, rgba(176, 189, 165, 0.16), transparent 68%);
+  }
+
+  @media (max-width: 700px) {
+    .dither-field {
+      inset: 0;
+      width: 100%;
+      max-width: 100%;
+      opacity: 0.34;
+      -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 0%, #000 64%, transparent 100%);
+    }
+  }
+</style>

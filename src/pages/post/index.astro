@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+);
+
+const formatDate = (date: Date | undefined): string | undefined =>
+  date
+    ? new Intl.DateTimeFormat("en-US", {
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+        year: "numeric",
+      }).format(date)
+    : undefined;
+---
+
+<BaseLayout
+  title="Writing"
+  description="Notes from Adrian Sager on applied AI, software, systems, and the things worth learning."
+>
+  <header>
+    <p class="eyebrow">Writing</p>
+    <h1 class="section-heading">Writing</h1>
+    <p class="hero-description">Notes on applied AI, software, systems, and the things worth learning.</p>
+  </header>
+
+  {posts.length > 0 ? (
+    <ul class="writing-list">
+      {posts.map((post) => (
+        <li class="writing-item">
+          <a href={`/post/${post.id}/`}>
+            {post.data.date && (
+              <time class="writing-date" datetime={post.data.date.toISOString()}>
+                {formatDate(post.data.date)}
+              </time>
+            )}
+            <span class="writing-title">{post.data.title}</span>
+            {post.data.description && <span class="writing-description">{post.data.description}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="empty-state">New notes are on the way.</p>
+  )}
+</BaseLayout>

@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected projects by Adrian Sager, from applied AI to software and systems."
+>
+  <header>
+    <p class="eyebrow">Projects</p>
+    <h1 class="section-heading">Projects</h1>
+    <p class="hero-description">A small list of things I’ve built, explored, and learned from.</p>
+  </header>
+
+  {projects.length > 0 ? (
+    <ul class="project-list">
+      {projects.map((project) => (
+        <li>
+          <a href={`/project/${project.id}/`}>
+            <span class="writing-title">{project.data.title}</span>
+            {project.data.description && <span class="writing-description">{project.data.description}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="empty-state">Projects will appear here soon.</p>
+  )}
+</BaseLayout>

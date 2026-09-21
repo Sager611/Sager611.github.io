@@ -1,0 +1,184 @@
+---
+---
+
+<script>
+  const iconMarkup = `
+    <svg class="code-copy__icon code-copy__icon--copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <rect x="8" y="8" width="11" height="11" rx="1" />
+      <path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3" />
+    </svg>
+    <svg class="code-copy__icon code-copy__icon--success" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="m5 12 4.5 4.5L19 7" />
+    </svg>
+    <svg class="code-copy__icon code-copy__icon--error" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="m7 7 10 10M17 7 7 17" />
+    </svg>
+  `;
+
+  const initializeCodeCopy = () => {
+    document.querySelectorAll(".prose pre").forEach((pre) => {
+      if (pre.parentElement?.hasAttribute("data-code-copy")) return;
+
+      const code = pre.querySelector("code");
+      const parent = pre.parentNode;
+      if (!code || !parent) return;
+
+      const container = document.createElement("div");
+      container.className = "code-copy";
+      container.setAttribute("data-code-copy", "");
+
+      const button = document.createElement("button");
+      button.className = "code-copy__button";
+      button.dataset.state = "idle";
+      button.type = "button";
+      button.setAttribute("aria-label", "Copy code");
+      button.title = "Copy code";
+      button.innerHTML = iconMarkup;
+
+      const status = document.createElement("span");
+      status.className = "code-copy__status";
+      status.setAttribute("role", "status");
+      status.setAttribute("aria-live", "polite");
+      status.setAttribute("aria-atomic", "true");
+
+      let resetTimer = 0;
+      const reset = () => {
+        button.dataset.state = "idle";
+        button.removeAttribute("aria-busy");
+        button.disabled = false;
+        button.setAttribute("aria-label", "Copy code");
+        button.title = "Copy code";
+        status.textContent = "";
+      };
+
+      const showState = (state: "success" | "error", label: string, message: string) => {
+        button.dataset.state = state;
+        button.removeAttribute("aria-busy");
+        button.disabled = false;
+        button.setAttribute("aria-label", label);
+        button.title = label;
+        status.textContent = message;
+        resetTimer = window.setTimeout(reset, 1600);
+      };
+
+      button.addEventListener("click", async () => {
+        window.clearTimeout(resetTimer);
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+
+        try {
+          if (!navigator.clipboard?.writeText) throw new Error("Clipboard API unavailable");
+          await navigator.clipboard.writeText(code.textContent ?? "");
+          showState("success", "Code copied", "Code copied.");
+        } catch {
+          showState("error", "Copy failed. Try again.", "Unable to copy code. Try again.");
+        }
+      });
+
+      parent.insertBefore(container, pre);
+      container.append(button, pre, status);
+    });
+  };
+
+  initializeCodeCopy();
+  document.addEventListener("astro:page-load", initializeCodeCopy);
+
+</script>
+
+<style is:global>
+  .code-copy {
+    position: relative;
+    min-width: 0;
+    max-width: 100%;
+    margin-block: 1.25em;
+  }
+
+  .prose .code-copy > pre {
+    min-width: 0;
+    max-width: 100%;
+    margin-block: 0;
+    padding-top: 3.25rem;
+    overflow-x: auto;
+  }
+
+  .code-copy__button {
+    position: absolute;
+    z-index: 1;
+    top: 0.65rem;
+    right: 0.65rem;
+    display: grid;
+    inline-size: 2rem;
+    block-size: 2rem;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--ink);
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .code-copy__button:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .code-copy__button:focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+  }
+
+  .code-copy__button:disabled {
+    cursor: wait;
+    opacity: 0.7;
+  }
+
+  .code-copy__icon {
+    display: block;
+    inline-size: 1.1rem;
+    block-size: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.75;
+  }
+
+  .code-copy__icon--success,
+  .code-copy__icon--error {
+    display: none;
+  }
+
+  .code-copy__button[data-state="success"] .code-copy__icon--copy,
+  .code-copy__button[data-state="error"] .code-copy__icon--copy {
+    display: none;
+  }
+
+  .code-copy__button[data-state="success"] .code-copy__icon--success,
+  .code-copy__button[data-state="error"] .code-copy__icon--error {
+    display: block;
+  }
+
+  .code-copy__status {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .prose > .code-copy:first-child {
+    margin-top: 0;
+  }
+
+  .prose > .code-copy:last-child {
+    margin-bottom: 0;
+  }
+
+  .prose details.foldable-callout[open] > summary + .code-copy {
+    margin-top: 0;
+  }
+</style>

@@ -1,0 +1,25 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "strict": true
+  },
+  "include": [
+    ".astro/types.d.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "public",
+    "node_modules",
+    "dist",
+    "author",
+    "bib",
+    "css",
+    "js",
+    "media",
+    "post",
+    "project",
+    "publication_types",
+    "tags",
+    "uploads"
+  ]
+}

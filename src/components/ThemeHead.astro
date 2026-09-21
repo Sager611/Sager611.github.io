@@ -1,0 +1,41 @@
+<script is:inline>
+  (() => {
+    const root = document.documentElement;
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const lightTheme = "light";
+    const darkTheme = "dark";
+    const lightPaper = "#faf7ef";
+    const darkPaper = "#241417";
+    let theme = lightTheme;
+
+    try {
+      const savedTheme = window.localStorage.getItem("theme");
+      if (savedTheme === lightTheme || savedTheme === darkTheme) {
+        theme = savedTheme;
+      }
+    } catch {
+      // Storage can be unavailable in private or restricted browsing contexts.
+    }
+
+    root.dataset.theme = theme;
+    root.style.colorScheme = theme;
+    themeMeta?.setAttribute("content", theme === darkTheme ? darkPaper : lightPaper);
+  })();
+</script>
+
+<style is:global>
+  :root {
+    color-scheme: light;
+    --paper: #faf7ef;
+    --ink: #8b1a1a;
+    --color-bg: var(--paper);
+    --color-ink: var(--ink);
+  }
+
+  [data-theme="dark"] {
+    --paper: #241417;
+    --ink: #faf7ef;
+    --color-bg: var(--paper);
+    --color-ink: var(--ink);
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LifeBackground from "../components/LifeBackground.astro";
+
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+  .sort((a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0))
+  .slice(0, 3);
+const projects = (await getCollection("projects", ({ data }) => !data.draft)).sort(
+  (a, b) => (b.data.date?.getTime() ?? 0) - (a.data.date?.getTime() ?? 0),
+);
+
+const formatDate = (date: Date | undefined): string | undefined =>
+  date
+    ? new Intl.DateTimeFormat("en-US", {
+        day: "numeric",
+        month: "short",
+        timeZone: "UTC",
+        year: "numeric",
+      }).format(date)
+    : undefined;
+---
+
+<BaseLayout
+  title="Adrian Sager"
+  description="Adrian Sager — founder and AI software engineer writing about applied AI and the things he builds and learns."
+>
+  <LifeBackground />
+  <section class="home-intro" aria-labelledby="intro-title">
+    <h1 id="intro-title">Adrian Sager</h1>
+    <p class="hero-description">
+      I’m Adrian, a founder and computational scientist. I work on applied AI and write about the things I
+      build and learn.
+    </p>
+    <nav class="hero-links" aria-label="Intro links">
+      <a href="/post/">Writing</a>
+      <a href="/about/">About</a>
+      <a href="https://github.com/Sager611" rel="me">GitHub</a>
+      <a href="mailto:adriansagerlaganga@gmail.com">Email</a>
+    </nav>
+  </section>
+
+  <section aria-labelledby="writing-heading">
+    <h2 id="writing-heading" class="section-heading">Writing</h2>
+    {posts.length > 0 ? (
+      <ul class="writing-list">
+        {posts.map((post) => (
+          <li class="writing-item">
+            <a href={`/post/${post.id}/`}>
+              {post.data.date && (
+                <time class="writing-date" datetime={post.data.date.toISOString()}>
+                  {formatDate(post.data.date)}
+                </time>
+              )}
+              <span class="writing-title">{post.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty-state">New notes are on the way.</p>
+    )}
+  </section>
+
+  <section aria-labelledby="projects-heading">
+    <h2 id="projects-heading" class="section-heading">Projects</h2>
+    {projects.length > 0 ? (
+      <ul class="project-list">
+        {projects.map((project) => (
+          <li>
+            <a href={`/project/${project.id}/`}>
+              <span class="writing-title">{project.data.title}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty-state">Projects will appear here soon.</p>
+    )}
+  </section>
+</BaseLayout>

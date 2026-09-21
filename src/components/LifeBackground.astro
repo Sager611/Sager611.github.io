@@ -1,0 +1,53 @@
+<canvas data-life-background aria-hidden="true"></canvas>
+
+<style>
+  canvas[data-life-background] {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    filter: blur(0.05px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    canvas[data-life-background] { display: none; }
+  }
+</style>
+
+<script>
+  import { startLifeBackground } from '../lib/life/background.mjs';
+  let dispose: (() => void) | undefined;
+  let suspended = false;
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  function stop() {
+    dispose?.();
+    dispose = undefined;
+  }
+  function mount() {
+    stop();
+    if (suspended) return;
+    const canvas = document.querySelector<HTMLCanvasElement>('canvas[data-life-background]');
+    if (!canvas) return;
+    // Escape the content stacking context: body background < canvas < .site-shell (z=1).
+    document.body.prepend(canvas);
+    dispose = startLifeBackground(canvas);
+  }
+  mount();
+  document.addEventListener('astro:page-load', () => {
+    suspended = false;
+    if (!dispose) mount();
+  });
+  document.addEventListener('astro:before-swap', () => {
+    suspended = true;
+    stop();
+    document.querySelector('canvas[data-life-background]')?.remove();
+  });
+  // BFCache preserves this DOM: release GPU resources without removing the canvas.
+  window.addEventListener('pagehide', () => { suspended = true; stop(); });
+  window.addEventListener('pageshow', () => { suspended = false; mount(); });
+  // Controller stops immediately on reduce; this owner also supports restarting.
+  motion.addEventListener('change', () => mount());
+</script>

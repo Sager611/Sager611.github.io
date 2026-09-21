@@ -1,0 +1,233 @@
+{
+  "width": 480,
+  "height": 32,
+  "tileSize": 32,
+  "states": [
+    {
+      "state": 1,
+      "label": "あ",
+      "codepoint": "U+3042",
+      "fontFamily": "Noto Sans JP",
+      "fontFile": "NotoSansJP[wght].ttf",
+      "glyphName": "uni3042",
+      "bounds": [
+        127,
+        -36,
+        886,
+        780
+      ],
+      "scale": 0.026961
+    },
+    {
+      "state": 2,
+      "label": "の",
+      "codepoint": "U+306E",
+      "fontFamily": "Noto Sans JP",
+      "fontFile": "NotoSansJP[wght].ttf",
+      "glyphName": "uni306E",
+      "bounds": [
+        112,
+        -15,
+        889,
+        693
+      ],
+      "scale": 0.028314
+    },
+    {
+      "state": 3,
+      "label": "क",
+      "codepoint": "U+0915",
+      "fontFamily": "Noto Sans Devanagari",
+      "fontFile": "NotoSansDevanagari[wdth,wght].ttf",
+      "glyphName": "uni0915",
+      "bounds": [
+        0,
+        0,
+        783,
+        622
+      ],
+      "scale": 0.028097
+    },
+    {
+      "state": 4,
+      "label": "अ",
+      "codepoint": "U+0905",
+      "fontFamily": "Noto Sans Devanagari",
+      "fontFile": "NotoSansDevanagari[wdth,wght].ttf",
+      "glyphName": "uni0905",
+      "bounds": [
+        29,
+        0,
+        779,
+        632
+      ],
+      "scale": 0.029333
+    },
+    {
+      "state": 5,
+      "label": "𝋮",
+      "codepoint": "U+1D2EE",
+      "fontFamily": "Noto Sans Mayan Numerals",
+      "fontFile": "NotoSansMayanNumerals-Regular.ttf",
+      "glyphName": "u1D2EE",
+      "bounds": [
+        45,
+        0,
+        913,
+        480
+      ],
+      "scale": 0.025346
+    },
+    {
+      "state": 6,
+      "label": "a",
+      "codepoint": "U+0061",
+      "fontFamily": "Noto Sans",
+      "fontFile": "NotoSans[wdth,wght].ttf",
+      "glyphName": "a",
+      "bounds": [
+        46,
+        -10,
+        480,
+        545
+      ],
+      "scale": 0.03964
+    },
+    {
+      "state": 7,
+      "label": "b",
+      "codepoint": "U+0062",
+      "fontFamily": "Noto Sans",
+      "fontFile": "NotoSans[wdth,wght].ttf",
+      "glyphName": "b",
+      "bounds": [
+        85,
+        -10,
+        560,
+        760
+      ],
+      "scale": 0.028571
+    },
+    {
+      "state": 8,
+      "label": "λ",
+      "codepoint": "U+03BB",
+      "fontFamily": "Noto Sans",
+      "fontFile": "NotoSans[wdth,wght].ttf",
+      "glyphName": "lambda",
+      "bounds": [
+        0,
+        -10,
+        519,
+        765
+      ],
+      "scale": 0.028387
+    },
+    {
+      "state": 9,
+      "label": "Ω",
+      "codepoint": "U+03A9",
+      "fontFamily": "Noto Sans",
+      "fontFile": "NotoSans[wdth,wght].ttf",
+      "glyphName": "uni03A9",
+      "bounds": [
+        25,
+        0,
+        692,
+        725
+      ],
+      "scale": 0.030345
+    },
+    {
+      "state": 10,
+      "label": "א",
+      "codepoint": "U+05D0",
+      "fontFamily": "Noto Sans Hebrew",
+      "fontFile": "NotoSansHebrew[wdth,wght].ttf",
+      "glyphName": "uni05D0",
+      "bounds": [
+        45,
+        0,
+        543,
+        584
+      ],
+      "scale": 0.037671
+    },
+    {
+      "state": 11,
+      "label": "ב",
+      "codepoint": "U+05D1",
+      "fontFamily": "Noto Sans Hebrew",
+      "fontFile": "NotoSansHebrew[wdth,wght].ttf",
+      "glyphName": "uni05D1",
+      "bounds": [
+        50,
+        0,
+        499,
+        584
+      ],
+      "scale": 0.037671
+    },
+    {
+      "state": 12,
+      "label": "水",
+      "codepoint": "U+6C34",
+      "fontFamily": "Noto Sans JP",
+      "fontFile": "NotoSansJP[wght].ttf",
+      "glyphName": "uni2F54",
+      "bounds": [
+        38,
+        -71,
+        965,
+        827
+      ],
+      "scale": 0.023732
+    },
+    {
+      "state": 13,
+      "label": "山",
+      "codepoint": "U+5C71",
+      "fontFamily": "Noto Sans JP",
+      "fontFile": "NotoSansJP[wght].ttf",
+      "glyphName": "uni2F2D",
+      "bounds": [
+        118,
+        -57,
+        886,
+        816
+      ],
+      "scale": 0.0252
+    },
+    {
+      "state": 14,
+      "label": "𓂀",
+      "codepoint": "U+13080",
+      "fontFamily": "Noto Sans Egyptian Hieroglyphs",
+      "fontFile": "NotoSansEgyptianHieroglyphs-Regular.ttf",
+      "glyphName": "u13080",
+      "bounds": [
+        49,
+        -219,
+        1199,
+        741
+      ],
+      "scale": 0.01913
+    },
+    {
+      "state": 15,
+      "label": "𒀭",
+      "codepoint": "U+1202D",
+      "fontFamily": "Noto Sans Cuneiform",
+      "fontFile": "NotoSansCuneiform-Regular.ttf",
+      "glyphName": "u1202D",
+      "bounds": [
+        100,
+        -112,
+        948,
+        736
+      ],
+      "scale": 0.025943
+    }
+  ],
+  "notes": "Real glyph outlines extracted from public Noto fonts; transparent background; centered in 32x32 tiles. Chronology is approximate script-tradition order (older -> newer from state 15 to state 1), not the age of these modern font outlines or exact individual letter shapes; same-era bands are adjacent, and ties are approximate."
+}

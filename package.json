@@ -1,0 +1,31 @@
+{
+  "name": "website",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "^7.3.1",
+    "@astrojs/rss": "latest",
+    "astro": "latest",
+    "rehype-mathjax": "^7.1.0",
+    "remark-math": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "@types/turndown": "latest",
+    "linkedom": "latest",
+    "rehype-stringify": "^10.0.1",
+    "remark-parse": "^11.0.0",
+    "remark-rehype": "^11.1.2",
+    "turndown": "latest",
+    "typescript": "latest",
+    "unified": "^11.0.5"
+  }
+}

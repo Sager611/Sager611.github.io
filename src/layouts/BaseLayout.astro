@@ -1,0 +1,81 @@
+---
+import "../styles/global.css";
+import CodeCopy from "../components/CodeCopy.astro";
+import ThemeHead from "../components/ThemeHead.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalPath?: string;
+}
+
+const {
+  title = "Adrian Sager",
+  description = "Adrian Sager — founder and AI software engineer.",
+  canonicalPath,
+} = Astro.props;
+
+const canonicalUrl = new URL(canonicalPath ?? Astro.url.pathname, Astro.site ?? Astro.url);
+const currentPath = Astro.url.pathname;
+const isHome = Astro.url.pathname === "/";
+const isWriting = currentPath.startsWith("/post");
+const isProjects = currentPath.startsWith("/project");
+const isAbout = currentPath.startsWith("/about");
+---
+
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#faf7ef" />
+    <ThemeHead />
+    <meta name="description" content={description} />
+    <title>{title === "Adrian Sager" ? title : `${title} · Adrian Sager`}</title>
+    <link rel="canonical" href={canonicalUrl.href} />
+    <link rel="alternate" type="application/rss+xml" title="Adrian Sager RSS" href="/rss.xml" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/icon_hu_eab39f25e79e143.png" />
+    <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/media/icon_hu_4f95276f09db1ddf.png" />
+  </head>
+  <body>
+    <ThemeToggle />
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="site-shell">
+      {!isHome && (
+        <header class="site-header">
+          <div class="shell site-header-inner">
+            <a class="brand" href="/" aria-label="Adrian Sager home">Adrian Sager</a>
+            <nav class="site-nav" aria-label="Primary navigation">
+              <ul>
+                <li><a href="/post/" aria-current={isWriting ? "page" : undefined}>Writing</a></li>
+                <li><a href="/project/" aria-current={isProjects ? "page" : undefined}>Projects</a></li>
+                <li><a href="/about/" aria-current={isAbout ? "page" : undefined}>About</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      )}
+
+      <main id="main-content" class="shell site-main">
+        <slot />
+      </main>
+
+      <footer class="site-footer">
+        <div class="shell site-footer-inner">
+          <nav aria-label="Social and contact links">
+            <ul class="footer-links">
+              <li><a href="https://github.com/Sager611" rel="me">GitHub</a></li>
+              <li><a href="https://gitlab.com/adriansagerlaganga" rel="me">GitLab</a></li>
+              <li><a href="https://www.linkedin.com/in/a-sager/" rel="me">LinkedIn</a></li>
+              <li><a href="mailto:adriansagerlaganga@gmail.com">Email</a></li>
+              <li><a href="/rss.xml">RSS</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+    <CodeCopy />
+  </body>
+</html>
