@@ -14,12 +14,12 @@ export function backgroundSize(width, height, dpr = 1) {
 }
 
 export const STEP_INTERVAL_MS = 200 / 1.75;
-export const POINTER_INTERVAL_MS = 45;
-export const POINTER_DISTANCE_PX = 9;
+export const POINTER_INTERVAL_MS = 22.5;
+export const POINTER_DISTANCE_PX = 4.5;
 
-/** 13x13 replacement brush centered at pointer; exactly 59 live cells before clipping. */
+/** 19x19 replacement brush centered at pointer; exactly 126 live cells before clipping. */
 export function stampPointerRandom(simulation, cellX, cellY) {
-  simulation.stampRandom(cellX, cellY);
+  simulation.stampRandom(cellX, cellY, { size: 19 });
 }
 
 /** Synchronous teardown, including when initialization is still pending. No retry/fallback. */

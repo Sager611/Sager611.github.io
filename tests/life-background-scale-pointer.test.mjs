@@ -61,22 +61,22 @@ test('random brush has exactly 59 distinct cells and deterministic variation', (
 
 test('pointer passes center; row replacement clips edges and preserves outside footprint', () => {
   let center;
-  stampPointerRandom({ stampRandom(x, y) { center = [x, y]; } }, 8, 6);
-  assert.deepEqual(center, [8, 6]);
+  stampPointerRandom({ stampRandom(x, y, options) { center = [x, y, options]; } }, 8, 6);
+  assert.deepEqual(center, [8, 6, { size: 19 }]);
   for (const [x, y] of [[10, 10], [0, 0], [19, 19]]) {
     const cells = new Uint32Array(400).fill(7);
     let writes = 0;
     const write = (offset, row) => { writes++; cells.set(row, offset / 4); };
-    writeRandomBrush(20, 20, x, y, write, { rng: () => 0 });
-    assert.ok(writes <= 13);
+    writeRandomBrush(20, 20, x, y, write, { size: 19, rng: () => 0 });
+    assert.ok(writes <= 19);
     for (let py = 0; py < 20; py++) for (let px = 0; px < 20; px++) {
-      const inside = Math.abs(px - x) <= 6 && Math.abs(py - y) <= 6;
+      const inside = Math.abs(px - x) <= 9 && Math.abs(py - y) <= 9;
       assert.equal(cells[py * 20 + px] === 7, !inside);
     }
     if (x === 10) {
-      assert.equal(cells.filter(value => value === 15).length, 59);
-      writeRandomBrush(20, 20, x, y, write, { rng: () => 0.99 });
-      assert.equal(cells.filter(value => value === 15).length, 59);
+      assert.equal(cells.filter(value => value === 15).length, 126);
+      writeRandomBrush(20, 20, x, y, write, { size: 19, rng: () => 0.99 });
+      assert.equal(cells.filter(value => value === 15).length, 126);
     }
   }
 });
@@ -84,8 +84,8 @@ test('pointer passes center; row replacement clips edges and preserves outside f
 test('8.75Hz cadence; initialization, idle and rebuild never create fresh cells', async () => {
   assert.equal(STEP_INTERVAL_MS, 200 / 1.75);
   assert.equal(1000 / STEP_INTERVAL_MS, 8.75);
-  assert.equal(POINTER_INTERVAL_MS, 45);
-  assert.equal(POINTER_DISTANCE_PX, 9);
+  assert.equal(POINTER_INTERVAL_MS, 22.5);
+  assert.equal(POINTER_DISTANCE_PX, 4.5);
   const source = readFileSync(new URL('../src/lib/life/background.mjs', import.meta.url), 'utf8');
   assert.doesNotMatch(source, /seedAmbient|AMBIENT_INTERVAL|stampGlider|\.upload\(/);
   assert.equal((source.match(/\.stampRandom\(/g) ?? []).length, 1);
@@ -128,12 +128,12 @@ test('8.75Hz cadence; initialization, idle and rebuild never create fresh cells'
   pointer('touch', 220, 220); assert.deepEqual(simulations[0].stamps, []);
   now = 10000;
   pointer('mouse', 220, 220); assert.deepEqual(simulations[0].stamps, [[22, 22]]);
-  now = 10044.999; pointer('mouse', 229, 220); assert.equal(simulations[0].stamps.length, 1);
-  now = 10045; pointer('mouse', 229, 220); assert.deepEqual(simulations[0].stamps.at(-1), [23, 22]);
-  assert.equal(simulations[0].stamps.length, 2, 'exact 45ms and 9px boundaries allow stamping');
-  now = 10089.999; pointer('mouse', 237.999, 220); assert.equal(simulations[0].stamps.length, 2);
-  now = 10090; pointer('mouse', 238, 220); assert.equal(simulations[0].stamps.length, 3, 'exact 9px distance allows stamping');
-  assert.deepEqual(simulations[0].stamps.at(-1), [24, 22]);
+  now = 10022.499; pointer('mouse', 224.5, 220); assert.equal(simulations[0].stamps.length, 1);
+  now = 10022.5; pointer('mouse', 224.5, 220); assert.deepEqual(simulations[0].stamps.at(-1), [22, 22]);
+  assert.equal(simulations[0].stamps.length, 2, 'exact 22.5ms and 4.5px boundaries allow stamping');
+  now = 10045; pointer('mouse', 228.999, 220); assert.equal(simulations[0].stamps.length, 2);
+  now = 10045; pointer('mouse', 229, 220); assert.equal(simulations[0].stamps.length, 3, 'exact 4.5px distance allows stamping');
+  assert.deepEqual(simulations[0].stamps.at(-1), [23, 22]);
   window.dispatchEvent(new Event('resize')); assert.ok(timer); timer(); await settle();
   assert.equal(simulations.length, 2); assert.equal(simulations[0].destroyed, true);
   assert.deepEqual(simulations[1].stamps, []);
