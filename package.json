@@ -19,12 +19,10 @@
   },
   "devDependencies": {
     "@astrojs/check": "latest",
-    "@types/turndown": "latest",
     "linkedom": "latest",
     "rehype-stringify": "^10.0.1",
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.2",
-    "turndown": "latest",
     "typescript": "latest",
     "unified": "^11.0.5"
   },
