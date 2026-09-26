@@ -24,3 +24,4 @@ I enjoy hiking ⛰, playing the piano 🎹, watching old movies 📽, and learni
 - [GitHub](https://github.com/Sager611)
 - [GitLab](https://gitlab.com/adriansagerlaganga)
 - [LinkedIn](https://www.linkedin.com/in/a-sager)
+- [X](https://x.com/LaSager)
