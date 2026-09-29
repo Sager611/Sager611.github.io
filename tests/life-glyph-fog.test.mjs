@@ -30,7 +30,7 @@ function distance(a, b) {
 test('glyph fog opacity drives the shader uniform at 0.28', () => {
   assert.equal(GLYPH_OPACITY, 0.28);
   const source = readFileSync(new URL('../src/lib/life/renderer.mjs', import.meta.url), 'utf8');
-  assert.match(source, /new Float32Array\(\[simulation\.width, simulation\.height, 0, 0, \.{3}ink, GLYPH_OPACITY\]\)/);
+  assert.match(source, /new Float32Array\(\[view\.width, view\.height, view\.left, view\.top, \.{3}ink, GLYPH_OPACITY, simulation\.width, 0, 0, 0\]\)/);
   assert.match(GLYPH_SHADER, /return vec4f\(settings\.ink\.rgb \* alpha, alpha\);/);
 });
 

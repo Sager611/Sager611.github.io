@@ -1,5 +1,5 @@
 {
-  "width": 480,
+  "width": 544,
   "height": 32,
   "tileSize": 32,
   "states": [
@@ -16,7 +16,9 @@
         886,
         780
       ],
-      "scale": 0.026961
+      "scale": 0.026961,
+      "strokeWidth": 2.3,
+      "opacity": 0.896
     },
     {
       "state": 2,
@@ -31,7 +33,9 @@
         889,
         693
       ],
-      "scale": 0.028314
+      "scale": 0.028314,
+      "strokeWidth": 2.5,
+      "opacity": 0.896
     },
     {
       "state": 3,
@@ -46,7 +50,9 @@
         783,
         622
       ],
-      "scale": 0.028097
+      "scale": 0.028097,
+      "strokeWidth": 1.8,
+      "opacity": 0.894
     },
     {
       "state": 4,
@@ -61,7 +67,9 @@
         779,
         632
       ],
-      "scale": 0.029333
+      "scale": 0.029333,
+      "strokeWidth": 1.0,
+      "opacity": 0.94
     },
     {
       "state": 5,
@@ -76,7 +84,9 @@
         913,
         480
       ],
-      "scale": 0.025346
+      "scale": 0.025346,
+      "strokeWidth": 1.2,
+      "opacity": 0.884
     },
     {
       "state": 6,
@@ -91,7 +101,9 @@
         480,
         545
       ],
-      "scale": 0.03964
+      "scale": 0.03964,
+      "strokeWidth": 0.4,
+      "opacity": 0.896
     },
     {
       "state": 7,
@@ -106,7 +118,9 @@
         560,
         760
       ],
-      "scale": 0.028571
+      "scale": 0.028571,
+      "strokeWidth": 0.8,
+      "opacity": 0.937
     },
     {
       "state": 8,
@@ -121,7 +135,9 @@
         519,
         765
       ],
-      "scale": 0.028387
+      "scale": 0.028387,
+      "strokeWidth": 1.2,
+      "opacity": 0.903
     },
     {
       "state": 9,
@@ -136,7 +152,9 @@
         692,
         725
       ],
-      "scale": 0.030345
+      "scale": 0.030345,
+      "strokeWidth": 0.8,
+      "opacity": 0.94
     },
     {
       "state": 10,
@@ -151,7 +169,9 @@
         543,
         584
       ],
-      "scale": 0.037671
+      "scale": 0.037671,
+      "strokeWidth": 3.2,
+      "opacity": 0.896
     },
     {
       "state": 11,
@@ -166,7 +186,9 @@
         499,
         584
       ],
-      "scale": 0.037671
+      "scale": 0.037671,
+      "strokeWidth": 2.2,
+      "opacity": 0.896
     },
     {
       "state": 12,
@@ -181,7 +203,9 @@
         965,
         827
       ],
-      "scale": 0.023732
+      "scale": 0.023732,
+      "strokeWidth": 2.3,
+      "opacity": 0.979
     },
     {
       "state": 13,
@@ -196,7 +220,9 @@
         886,
         816
       ],
-      "scale": 0.0252
+      "scale": 0.0252,
+      "strokeWidth": 2.9,
+      "opacity": 0.884
     },
     {
       "state": 14,
@@ -211,7 +237,9 @@
         1199,
         741
       ],
-      "scale": 0.01913
+      "scale": 0.01913,
+      "strokeWidth": 1.8,
+      "opacity": 0.895
     },
     {
       "state": 15,
@@ -226,8 +254,44 @@
         948,
         736
       ],
-      "scale": 0.025943
+      "scale": 0.025943,
+      "strokeWidth": 0.1,
+      "opacity": 0.934
+    },
+    {
+      "state": 16,
+      "codepoint": "U+0030",
+      "label": "0",
+      "glyphName": "zero",
+      "fontFamily": "Oldest Numerals",
+      "fontFile": "OldestNumerals-Regular.ttf",
+      "bounds": [
+        113,
+        50,
+        587,
+        650
+      ],
+      "scale": 0.036638,
+      "strokeWidth": 1.4,
+      "opacity": 0.896
+    },
+    {
+      "state": 17,
+      "codepoint": "U+0031",
+      "label": "1",
+      "glyphName": "one",
+      "fontFamily": "Oldest Numerals",
+      "fontFile": "OldestNumerals-Regular.ttf",
+      "bounds": [
+        305,
+        2,
+        412,
+        698
+      ],
+      "scale": 0.031609,
+      "strokeWidth": 3.1,
+      "opacity": 0.889
     }
   ],
-  "notes": "Real glyph outlines extracted from public Noto fonts; transparent background; centered in 32x32 tiles. Chronology is approximate script-tradition order (older -> newer from state 15 to state 1), not the age of these modern font outlines or exact individual letter shapes; same-era bands are adjacent, and ties are approximate."
+  "notes": "Real glyph outlines extracted from public Noto fonts; transparent background; centered in 32x32 tiles. Chronology is approximate script-tradition order (older -> newer from state 15 to state 1), not the age of these modern font outlines or exact individual letter shapes; same-era bands are adjacent, and ties are approximate. Contrast equalized: thin outlines are thickened with a same-colour stroke (strokeWidth, atlas px) and heavy ones dimmed (opacity) so every glyph reaches the same stroke contrast at both display sizes: an 80th-percentile alpha of about 0.89 in the 16 px mip (2x screens) and 0.70 in the 8 px mip (1x screens). States 16 and 17 are the binary glider symbols '0' (Late Babylonian placeholder, traced from Thureau-Dangin 1922) and '1' (a tally incision) from src/lib/life/fonts/oldest-numerals; they sit outside the script chronology."
 }

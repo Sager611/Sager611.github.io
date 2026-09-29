@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { backgroundSize, startLifeBackground } from '../src/lib/life/background.mjs';
+import { backgroundSize, startLifeBackground, gridLayout, GRID_MARGIN } from '../src/lib/life/background.mjs';
 
 test('viewport resources stay bounded at high DPR and huge dimensions', () => {
   const size = backgroundSize(20000, 20000, 5);
@@ -29,4 +29,11 @@ test('reduced motion skips GPU initialization entirely', () => {
     if (original) globalThis.matchMedia = original;
     else delete globalThis.matchMedia;
   }
+});
+
+test('the grid with glider margins stays bounded at the largest viewport', () => {
+  const size = backgroundSize(20000, 20000, 5);
+  const layout = gridLayout(size.width, size.height);
+  assert.deepEqual([layout.width, layout.height], [356 + 2 * GRID_MARGIN, 267 + 2 * GRID_MARGIN]);
+  assert.ok(layout.width * layout.height * 4 * 2 < 1000000);
 });

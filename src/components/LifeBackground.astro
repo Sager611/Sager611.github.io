@@ -1,4 +1,12 @@
-<canvas data-life-background aria-hidden="true"></canvas>
+---
+interface Props {
+  /** Stream binary gliders in from off-screen. Only the landing page sets this. */
+  gliders?: boolean;
+}
+const { gliders = false } = Astro.props;
+---
+
+<canvas data-life-background data-gliders={gliders ? 'true' : undefined} aria-hidden="true"></canvas>
 
 <style>
   canvas[data-life-background] {
