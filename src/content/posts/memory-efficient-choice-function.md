@@ -85,9 +85,9 @@ def choice(N: int, k: int = 1, replace: bool = True, p=None):
         return np.random.choice(N, size=k, replace=replace, p=p)
 ```
 
-But why require that $N \geq (2 + \sqrt{2})\cdot k$? We will figure it out by proving a couple of theorems:
+But why require that $N \geq (2 + \sqrt{2})\cdot k$? We will figure it out by proving a couple of lemmas:
 
-**Theorem 1**  Algorithm 1 *has a space complexity of $O(k \log{N})$*.  
+**Lemma 1**  Algorithm 1 *has a space complexity of $O(k \log{N})$*.  
   
 *Proof.* Both $X$ and $choice(N, k)$ occupy $O(k \log{N})$ space, since $\vert X\vert$ is at most $k$ and our largest number, $N$, requires $O(\log{N})$ bits to be stored.
 
@@ -95,7 +95,7 @@ $\square$
 
 This one was very simple. But, how about time complexity?
 
-**Theorem 2**  Algorithm 1 *has an expected time complexity of $O(k)$, i.e., it has a time complexity of $\Theta(k)$*.  
+**Lemma 2**  Algorithm 1 *has an expected time complexity of $O(k)$, i.e., it has a time complexity of $\Theta(k)$*.  
   
 *Proof.* In order to advance in the while loop, we need to add new elements to $X$. Thus:
 
@@ -138,7 +138,7 @@ Note that sets in Python have $O(1)$ lookup and insert times, required for lines
 
 However, this is not all. We have used the fact that $N \geq 2k$ in our proof, but now let’s generalize to $N \geq ak$ with $a > 1$. Note that $a=1$ would include the possibility that $N=k$, in which we just sample all items in the universe of size $N$, and this is not interesting for our purposes. Also, $a<1$ includes cases where $N<k$, which is impossible and our algorithm would not halt.
 
-**Lemma 1**  *If $N\geq ak$ for $a>1$, the expected number of items drawn is less than $1 + (k-1)\cdot a/(a-1)^2$*.  
+**Lemma 3**  *If $N\geq ak$ for $a>1$, the expected number of items drawn is less than $1 + (k-1)\cdot a/(a-1)^2$*.  
   
 *Proof.* $N\geq ak$ implies that,
 
@@ -159,9 +159,9 @@ $$
 
 $\square$
 
-With this lemma we can prove the following theorem:
+With this lemma we can prove the following lemma:
 
-**Theorem 3**  Algorithm 1 *draws O(2k) items w.p.* (with probability) *less than $(k-1)/N$*.  
+**Lemma 4**  Algorithm 1 *draws O(2k) items w.p.* (with probability) *less than $(k-1)/N$*.  
   
 *Proof.* We define $Y := (\text{\# of items drawn} - 1)$, which is the amount of items drawn in the while loop. We recall [Markov's inequality](https://en.wikipedia.org/wiki/Markov%27s_inequality):
 
@@ -169,7 +169,7 @@ $$
 P\left[ Y \geq \delta\cdot \mathbb{E}[Y] \right] \leq \frac{1}{\delta} \qquad \delta > 0
 $$
 
-So that, using Lemma 1,
+So that, using Lemma 3,
 
 $$
 P\left[ Y \geq \delta\cdot (k-1) \cdot \frac{a}{(a-1)^2} \right] \leq P\left[ Y \geq \delta\cdot \mathbb{E}[Y] \right] \leq \frac{1}{\delta}
@@ -181,7 +181,7 @@ $$
 P\left[ Y \geq N \cdot \frac{a^*}{(a^*-1)^2} \right] \leq \frac{k-1}{N}
 $$
 
-Note that this is true since Lemma 1 still applies when $a=a^*$. We now observe that,
+Note that this is true since Lemma 3 still applies when $a=a^*$. We now observe that,
 
 $$
 N \frac{a^*}{(a^*-1)^2} = k\frac{N^2}{(N-k)^2} = k\left( 1 - \frac{k}{N}\right)^{-2}
